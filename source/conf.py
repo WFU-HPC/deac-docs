@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'DEAC Docs'
-copyright = '2021, Adam Carlson, Cody Stevens, Sean Anderson'
+copyright = '2022, Adam Carlson, Cody Stevens, Sean Anderson'
 author = 'Adam Carlson, Cody Stevens, Sean Anderson'
 
 # The short X.Y version
