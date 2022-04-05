@@ -82,7 +82,7 @@ BibTeX (LaTeX)
 
     @misc{WakeHPC,
       doi       = {10.57682/G13Z-2362},
-      url       = {https://doi.org/10.57682/g13z-2362},
+      url       = {https://hpc.wfu.edu},
       author    = {Information Systems and Wake Forest University},
       keywords  = {High Performance Computing},
       title     = {{WFU High Performance Computing Facility}},
@@ -123,7 +123,7 @@ RIS (EndNote)
           researchers including faculty, staff, students, and collaborators."
     DO  - 10.57682/G13Z-2362
     UR  - https://doi.org/10.57682/g13z-2362
-    UR  - http://dx.doi.org/10.57682/G13Z-2362
+    UR  - https://hpc.wfu.edu
     KW  - High Performance Computing
     ER  - 
 
