@@ -111,6 +111,18 @@ root directory. A basic Linux filesystem is typically laid out like this:
 
 .. _sec.qs1.files_dirs.paths:
 
+Naming
+------
+
+In Linux (and other UNIX-like OSs), files and paths are case sensitive. When 
+creating or trying to access a path, upper and lower case letters DO matter. A
+file called "CriticalData" would be different from one called "criticaldata".
+Also note that file extensions (like .txt or .dat) are not required; they are 
+simply used to make files more "human readable". Use of spaces and special
+characters (example: !@#$%^&*) should also be avoided. To seperate words, users
+should utilize underscores (_), dashes (-), or type in camelCase to make names
+easier to read.
+
 Paths
 -----
 
