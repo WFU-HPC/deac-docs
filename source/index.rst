@@ -119,6 +119,7 @@ login to the head nodes!
    :caption: Software
 
    software-packages
+   software-python
    software-building
    software-licensing
 

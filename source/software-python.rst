@@ -1,5 +1,5 @@
 ===============
-Python Packages
+Python
 ===============
 
 .. #############################################################################
@@ -7,6 +7,62 @@ Python Packages
 .. #############################################################################
 .. #############################################################################
 
+-------
+Installations
+-------
+
+Available Versions
+============
+
+* Intel Python 3.7.4
+
+  * python/intelpython3/3.7.4
+
+* Python 3.8.13
+
+  * python/3.8.13
+
+Default Python Packages
+============
+
+The HPC Facility provides compiled installations of Python3 available for
+general cluster use. Each Python installation has common Python packages
+pre-installed that users can load out of the box. These packages include:
+
+* jupyter
+* matplotlib
+* mpi4py
+* numpy
+* pandas
+* pyyaml
+* ruamel.yaml
+* scipy
+* virtualenv    
+
+To see a full list of installed Python packages user can run the command:
+
+.. code-block:: none
+
+    pip3 freeze
+
+
+The HPC Team recommends that users install their own Python packages
+utilizing Python environments or by installing packages into their home
+directory. For more advanced Python environment installations, the HPC
+Team is willing to install Python environments for individual research
+groups or projects. 
+
+-------
+Creating a Virtual Environment
+-------
+
+Any user can create their own virtual environment in order to install
+python packages for specific research projects performed on the DEAC
+Cluster.
+
+-------
+Installing Python Packages
+-------
 -------
 Phonopy
 -------
@@ -86,7 +142,7 @@ Usage
 
 We will be calculating some properties for NaCl from the `official Phonopy
 examples <http://phonopy.github.io/phonopy/examples.html#nacl>`_. You can
-download the :download:`prepared files <files/phonopy-NaCl.tar.bz2>` if you want
+download the :download:`prepared files <images/phonopy-NaCl.tar.bz2>` if you want
 to run the calculation for yourself. An example Slurm script could be like this:
 
 .. code-block:: slurm
