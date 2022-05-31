@@ -58,16 +58,15 @@ When you first log into the cluster, you will be greeted by the command prompt:
     * ________\/\\\\\\\\\\\/___\/\\\\\\\\\\\\\\/\\\______\/\\\____\////\\\\\\\__ *
     * _________\///////////_____\/////////////_\///_______\///________\///////__ *
     *                                                                            *
-    *  Unauthorized use is STRICTLY PROHIBITED and we maintain all rights to     *
-    *  University related or legal actions associated with such access.          *
+    *  Unauthorized use is STRICTLY PROHIBITED and WFU maintains all rights to   *
+    *  University related or legal actions associated with such access. Refer    *
+    *  to https://hpc.wfu.edu for detailed documentation and usage policies.     *
     *                                                                            *
-    *  Please refer to http://www.deac.wfu.edu/ for more information regarding   *
-    *  usage policies, supporting documentation, and methods for obtaining       *
-    *  support for issues regarding the DEAC HPC Cluster environment.            *
-    *                                                                            *
+    *  For questions and support, email deac-help@wfu.edu. To acknowledge use of *
+    *  the DEAC Cluster in research outputs, please cite DOI: 10.57682/g13z-2362 *
     ******************************************************************************
 
-    System: gemini.deac.wfu.edu, Uptime: 205 days
+    System: gemini.deac.wfu.edu, Uptime: 6 days
 
     [USER@gemini ~]$
 
