@@ -22,6 +22,12 @@ DEAC Docs: The Official Docs for the DEAC cluster
     * ________\/\\\\\\\\\\\/___\/\\\\\\\\\\\\\\/\\\______\/\\\____\////\\\\\\\__ *
     * _________\///////////_____\/////////////_\///_______\///________\///////__ *
     *                                                                            *
+    *  Unauthorized use is STRICTLY PROHIBITED and WFU maintains all rights to   *
+    *  University related or legal actions associated with such access. Refer    *
+    *  to https://hpc.wfu.edu for detailed documentation and usage policies.     *
+    *                                                                            *
+    *  For questions and support, email deac-help@wfu.edu. To acknowledge use of *
+    *  the DEAC Cluster in research outputs, please cite DOI: 10.57682/g13z-2362 *
     ******************************************************************************
 
 .. #############################################################################
