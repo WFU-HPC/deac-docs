@@ -386,7 +386,7 @@ within your script:
 
 When using constraints, be careful not to require groupings of
 constraints that do not exist. For example, do not require
-[broadwell&haswell] as that does not exist; meaning the jobs will never
+[cascade&skylake] as that does not exist; meaning the jobs will never
 run.
 
 Job Chaining and Dependencies
@@ -952,18 +952,17 @@ If you wish for the custom sinfo output to be default for your login
 session, follow the below instructions to set the SINFO_FORMAT
 environment variable within your profile to change the output format:
 
--  In bash, add the following line to your ~/.bashrc file
+*  In bash, add the following line to your ~/.bashrc file
 
-   export SINFO_FORMAT='%N %.11T %.4c %.8z %.6m %.8d %.6w %.8f %20E'
+export SINFO_FORMAT='%N %.11T %.4c %.8z %.6m %.8d %.6w %.8f %20E'
 
--  In tcsh, add the following line to your ~/.cshrc file
+*  In tcsh, add the following line to your ~/.cshrc file
 
-   set SINFO_FORMAT='%N %.11T %.4c %.8z %.6m %.8d %.6w %.8f %20E'
+set SINFO_FORMAT='%N %.11T %.4c %.8z %.6m %.8d %.6w %.8f %20E'
 
--  When set, the SINFO_FORMAT environment variable will override the
-   default format.
--  For both examples, you can set spacing of each field by placing "%##"
-   after the field name.
+*  When set, the SINFO_FORMAT environment variable will override the default format.
+
+*  For both examples, you can set spacing of each field by placing "%##" after the field name.
 
 :\* Adding a "-" before the number will print the characters left
 justified
@@ -976,24 +975,20 @@ justified
 Job Templates: Prerequisites and Provisos
 ==========================
 
--  Before submitting any jobs, please read **and** understand the
-   `Cluster:User Agreement </Cluster:User_Agreement>`__.
--  Be sure to read the `SLURM:Torque Conversion
-   Script </SLURM:Torque_Conversion_Script>`__ instructions for
-   converting legacy scripts.
--  Note that any given system is using approximately 1GB of its memory
-   for operating system and filesystem purposes.
--  When configuring your jobs, please use 1GB less of memory than the
-   blade claims to have.
--  The *generalGrp* fair share group is provided here. Please replace
-   that with your designated fair share group.
--  You **must** specify an email address even if you do not want
-   notifications
+*  Before submitting any jobs, please read **and** understand the `Cluster:User Agreement </Cluster:User_Agreement>`__.
+
+*  Note that any given system is using approximately 1-4GB of its memory  for operating system and filesystem purposes.
+
+*  When configuring your jobs, please use 1GB less of memory than the  blade claims to have.
+
+*  The *generalGrp* fair share group is provided here. Please replace that with your designated fair share group.
+
+*  You **must** specify an email address even if you do not want notifications
 
 Serial Jobs
 ===========
 
--  Serial jobs only use a single processor
+*  Serial jobs only use a single processor
 
 Single processor job, 128MB RAM with 96 Hour Time Limit
 -------------------------------------------------------
@@ -1056,12 +1051,13 @@ Multiple Processor Jobs
 Parallel Job Type 1
 -------------------
 
--  N nodes using X processors per node, using ethernet enabled nodes
--  A program needing 128MB of RAM per processor, totaling 1GB per node
--  16 Hour Time Limit
+*  N nodes using X processors per node, using ethernet enabled nodes
 
-   -  Even though the time limit is <24hours, the node requirement
-      requires the job to run on the medium partition
+*  A program needing 128MB of RAM per processor, totaling 1GB per node
+
+*  16 Hour Time Limit
+
+   *Even though the time limit is <24hours, the node requirement requires the job to run on the medium partition
 
 ::
 
@@ -1087,20 +1083,15 @@ Parallel Job Type 1
 
    ###  Don't forget to copy your data from /scratch to your /deac* directory                                                                            
 
--  Important items to note
+*  Important items to note
 
-   -  SLURM has no **cput** directive! Base your time value purely on
-      the overall estimated runtime.
-   -  The **mem** directive is the overall total (per CPU requirement \*
-      nodes \* CPUs = mem).
+   *  SLURM has no **cput** directive! Base your time value purely on the overall estimated runtime.
+   
+   *  The **mem** directive is the per node requirement
 
-      -  An available directive to use is **--mem-per-cpu=memory**,
-         which allocates memory on a per-CPU basis.
-
-   -  The list of *ucs#-#* in the **--constraint** directive should be
-      customized to the type of parallel job you wish to run. For more
-      information on hardware features, see `Cluster:Hardware
-      Configuration </Cluster:Hardware_Configuration>`__.
+      *  An available directive to use is **--mem-per-cpu=memory**, which allocates memory on a per-CPU basis.
+      
+   *  The list of *comp##* in the **--constraint** directive should be customized to the type of parallel job you wish to run. For more information on hardware features, see `Cluster:Hardware Configuration </Cluster:Hardware_Configuration>`__.
 
 Job Script for GPU
 ==================
@@ -1122,134 +1113,98 @@ Job Script for GPU
    #SBATCH --workdir="/deac/researchGrp/user/CUDA"
    #SBATCH --gres=gpu:V100:1
 
--  IMPORTANT DIRECTIVES
+*  IMPORTANT DIRECTIVES
 
-:*--gres=gpu[type:#]
+   *  --gres=gpu[type:#]
 
-::\* This directive specifies the type of GPU required and the number of
-cards
+      * This directive specifies the type of GPU required and the number of cards
 
-::\* By default, a singular GPU of anytype will be used.
+      *  By default, a singular GPU of anytype will be used.
 
-::\* Optionally, users can specify the GPU type by name and number of
-cards required.
+      * Optionally, users can specify the GPU type by name and number of cards required.
 
-::\* Valid types are:
-`V100 </Information:GPU_Computing#Tesla_V100_GPU_Nodes>`__ and
-`P100 </Information:GPU_Computing#Tesla_P100_GPU_Nodes>`__
+      *  Valid types are:
+      
+         *  `V100 </Information:GPU_Computing#Tesla_V100_GPU_Nodes>`__ and
 
-:::\* See `Information:GPU_Computing </Information:GPU_Computing>`__ for
-most up to date list of DEAC cluster GPU information
+         *  `P100 </Information:GPU_Computing#Tesla_P100_GPU_Nodes>`__
 
-:*--partition=gpu
+      * See `Information:GPU_Computing </Information:GPU_Computing>`__ for most up to date list of DEAC cluster GPU information
 
-::\* The GPU partition will assign higher priority to GPU type jobs for
-using the hardware for their designated purpose
+   *  --partition=gpu
 
-Job Script for UCS Blades
-=========================
+      * The GPU partition will assign higher priority to GPU type jobs for using the hardware for their designated purpose
 
--  The new blade specs:
+Job Script for Compute Nodes
+============================
 
-   -  32/44 processing cores available per blade
-   -  128GB/188GB/256GB of RAM
-   -  10Gbps Bandwidth per ethernet channel (dual-channel)
-   -  300G of storage, 50GB/220G/250G/425GB for scratch
+* The new blade specs:
+
+   *  44 or 48 processing cores available per blade
+   *  180GB of consumable of RAM
+   *  10Gbps Bandwidth per ethernet channel (dual-channel)
+   *  220G or 425G of scratch for temporary local storage space
 
 Recognized Constraints
 ----------------------
 
--  In order for jobs to run on the newer CISCO UCS nodes, the job
-   scripts have to be modified to the following features:
--  These attributes have been placed to the blades:
+*  In order for jobs to run on the newer CISCO UCS nodes, the job scripts have to be modified to the following features:
+*  These attributes have been placed to the blades:
 
-   -  haswell -- (The Haswell Intel Architecture)
-   -  broadwell -- (The Broadwell Intel Architecture)
-   -  skylake -- (The Skylake Intel Architecture)
-   -  scr50gb -- (50G of /scratch space available)
-   -  scr220gb -- (220G of /scratch space available)
-   -  scr250gb -- (250G of /scratch space available)
-   -  scr425gb -- (425G of /scratch space available)
-   -  ucs#-## -- (Specific Name of UCS Chassis in SLURM)
+   *  skylake -- (The Skylake Intel Architecture)
 
--  Node details of a 32-Core UCS blade
+   *  cascade -- (The Skylake Intel Architecture)
 
-| ``NodeName=a1a-u3-c5-b1 Arch=x86_64 CoresPerSocket=16``
-| ``  CPUAlloc=0 CPUTot=32 CPULoad=32.15``
-| ``  AvailableFeatures=ucs3-5,scr50gb,haswell,rhel7``
-| ``  ActiveFeatures=ucs3-5,scr50gb,haswell,rhel7``
-| ``  Gres=(null)``
-| ``  NodeAddr=10.1.52.129 NodeHostName=a1a-u3-c5-b1 Version=19.05.5``
-| ``  OS=Linux 3.10.0-957.21.3.el7.x86_64 #1 SMP Fri Jun 14 02:54:29 EDT 2019 ``
-| ``  RealMemory=128000 AllocMem=0 FreeMem=2292 Sockets=2 Boards=1``
-| ``  State=IDLE ThreadsPerCore=1 TmpDisk=50000 Weight=1 Owner=N/A MCS_label=N/A``
+   *  scr220gb -- (220G of /scratch space available)
 
--  Node details of a 44-Core UCS blade
+   *  scr425gb -- (425G of /scratch space available)
+   
+   *  comp## -- (Specific Name of UCS Chassis in SLURM)
 
-| ``NodeName=a1a-u3-c6-b1 Arch=x86_64 CoresPerSocket=22``
-| ``  CPUAlloc=0 CPUTot=44 CPULoad=32.01``
-| ``  AvailableFeatures=ucs3-6,scr220gb,skylake,rhel7``
-| ``  ActiveFeatures=ucs3-6,scr220gb,skylake,rhel7``
-| ``  Gres=(null)``
-| ``  NodeAddr=10.1.52.137 NodeHostName=a1a-u3-c6-b1 Version=19.05.5``
-| ``  OS=Linux 3.10.0-957.21.3.el7.x86_64 #1 SMP Fri Jun 14 02:54:29 EDT 2019 ``
-| ``  RealMemory=188000 AllocMem=0 FreeMem=2518 Sockets=2 Boards=1``
-| ``  State=IDLE ThreadsPerCore=1 TmpDisk=220000 Weight=1 Owner=N/A MCS_label=N/A``
+*  Node details of a 44-Core UCS blade
 
-UCS Job Script Template
+   NodeName=comp-07-1 Arch=x86_64 CoresPerSocket=24
+    CPUAlloc=0 CPUErr=0 CPUTot=48 CPULoad=0.47 Features=comp07,skylake,scr425gb
+    Gres=(null)
+    NodeAddr=10.1.53.71 NodeHostName=comp-07-1 Version=20.03
+    OS=Linux RealMemory=196608 AllocMem=0 Sockets=2 Boards=1
+    State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1
+    BootTime=2022-06-09T15:21:51 SlurmdStartTime=2022-06-11T13:58:01
+    CurrentWatts=0 LowestJoules=0 ConsumedJoules=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   
+Job Script Template
 -----------------------
 
--  A generic example of job script of UCS (tengig) nodes:
+*  A generic example of job script:
 
-   -  The small partition has a 24 hour maximum run time
-
-::
+   *  The small partition has a 24 hour maximum run time
 
    #SBATCH --partition=small
-   #SBATCH --job-name="generic_ucs"
-   #SBATCH --constraint="skylake"
+   #SBATCH --job-name="generic"
    #SBATCH --nodes=1
    #SBATCH --tasks-per-node=16
    #SBATCH --time=06:00:00
    #SBATCH --account="fairshareGrp"
    #SBATCH --mail-type=BEGIN,END,FAIL
    #SBATCH --mail-user=username@wfu.edu
-   #SBATCH --output="generic_ucs-%j.o"
-   #SBATCH --error="generic_ucs-%j.e"
-   #SBATCH --mem=127gb
+   #SBATCH --output="generic-%j.o"
+   #SBATCH --error="generic-%j.e"
+   #SBATCH --mem=32gb
 
--  All UCS (tengig) nodes have:
+*  All UCS (tengig) nodes have:
 
-   -  32 or more cores, so the above generic example will run on any
-      available ucs node
-   -  128gb of memory. Using the previous recommendation, the max value
-      you should request is 127gb
+   *  44 or more cores, so the above generic example will run on any available ucs node
 
--  If you wish to be more specific on which type of need to be more
-   specific on the resources needed for specific UCS blades:
+   *  188 gb of consumable memory. Using the previous recommendation, **the max value you should request is 180GB**
 
-   -  For a **32-core** single UCS blade only:
+*  If you wish to be more specific on which type of need to be more specific on the resources needed for specific UCS blades:
 
-..
+   *  For a **cacade lake** node only:
 
-   ::
+   | ''#SBATCH --constraint="skylake"
 
-      #SBATCH --nodes=1
-      #SBATCH --tasks-per-node=32
-      #SBATCH --constraint="haswell"
-
--  For a **44-core** single UCS blade only:
-
-..
-
-   ::
-
-      #SBATCH --nodes=1
-      #SBATCH --tasks-per-node=44
-      #SBATCH --constraint="broadwell|skylake"
-
--  This template was used during a testing period. If you encounter
-   errors or incidents, please send them to deac-help@wfu.edu
+*  This template was used during a testing period. If you encounter errors or incidents, please send them to deac-help@wfu.edu
 
 .. #############################################################################
 .. #############################################################################
@@ -1265,10 +1220,10 @@ Standard Resource Request
 Resources for a job are requested with 4 primary directives. In a SLURM
 script:
 
-| ``   #SBATCH --nodes=1``
-| ``   #SBATCH --tasks-per-node=8``
-| ``   #SBATCH --cpus-per-task=1``
-| ``   #SBATCH --mem=16gb``
+   #SBATCH --nodes=1
+   #SBATCH --tasks-per-node=8
+   #SBATCH --cpus-per-task=1
+   #SBATCH --mem=16gb
 
 Which requests 1 node, 8 CPUs, and 16GB of RAM.
 
@@ -1278,9 +1233,9 @@ Generic Resource Request - GPUs
 Generic resource scheduling (GRES) is used for requesting GPU resources
 with one primary directive. In a SLURM script:
 
-| ``   #SBATCH --partition="gpu"``
-| ``   #SBATCH --nodes=1``
-| ``   #SBATCH --gres=gpu:1``
+   #SBATCH --partition="gpu"
+   #SBATCH --nodes=1
+   #SBATCH --gres=gpu:1
 
 Which requests 1 GPU to be used from 1 node belonging to the GPU
 partition. Obviously, GPU resources are requested differently that
@@ -1290,41 +1245,37 @@ GRES configuration [1]_ and SBATCH GRES specification [2]_.
 Partitions
 ==========
 
-*small*
--------
+*  **small**
 
--  
+   *  Purpose: Small consumption, short serial or parallel jobs
 
-   -  Purpose: Small consumption, short serial or parallel jobs
-   -  Limits: < 24:00:00, 1 node
-   -  Priority: 40
+   *  Limits: < 24:00:00, 1 node
+   
+   *  Priority: 40
 
-*medium*
---------
+*  **medium**
 
--  
+   *  Purpose: Mid-range jobs
+   
+   *  Limits: < 7-00:00:00, < 8 nodes
+   
+   *  Priority: 30
 
-   -  Purpose: Mid-range jobs
-   -  Limits: < 7-00:00:00, < 8 nodes
-   -  Priority: 30
+*  **large**
 
-*large*
--------
+   * Purpose: Large consumption, long running jobs
+   
+   *  Limits: < 365-00:00:00, no node limit
+   
+   *  Priority: 20
 
--  
+*  **gpu**
 
-   -  Purpose: Large consumption, long running jobs
-   -  Limits: < 365-00:00:00, no node limit
-   -  Priority: 20
+   *  Purpose: GPU required jobs
 
-*gpu*
------
+   *  Limits: < 365-00:00:00, no node limit
 
--  
-
-   -  Purpose: GPU required jobs
-   -  Limits: < 365-00:00:00, no node limit
-   -  Priority: 50
+   *Priority: 50
 
 List of Resource Specifiers
 ===========================
@@ -1335,29 +1286,27 @@ detailed definitions with batch submission. [3]_ There are many SLURM
 users, so a Google search is bound to find great documentation as well,
 like this page at the Leibniz Supercomputing Centre [4]_.
 
--  **tasks-per-node**\ =
+*  **tasks-per-node**\ =
 
-   -  *integer* -- processes per node (*not* processors)
+   *  *integer* -- processes per node (*not* processors)
 
--  **nodes**\ =
+*  **nodes**\ =
 
-   -  *integer* -- number of nodes OR
-   -  *string* -- name of specific node
+   *  *integer* -- number of nodes OR
+   
+   *  *string* -- name of specific node
 
--  **mem**
+*  **mem**
 
-   -  *string* -- memory allocation per node, 90gb, 16gb, 512mb, etc
+   *  *string* -- memory allocation per node, 90gb, 16gb, 512mb, etc
 
--  **time**
+*  **time**
 
-   -  *string* -- time specification, ((d-)hh:mm:ss; Maximum amount of
-      real time during which the job can be in the running state.
+   *  *string* -- time specification, ((d-)hh:mm:ss; Maximum amount of real time during which the job can be in the running state.
 
--  **gres**\ = (Generic Resources Scheduling)
+*  **gres**\ = (Generic Resources Scheduling)
 
-   -  
-
-      -  ''string[[:string]:number -- **GPU** allocation example, gpu:4
+   *  ''string[[:string]:number -- **GPU** allocation example, gpu:4
 
 cpusets
 -------
@@ -1378,34 +1327,31 @@ In brief:
 Node Features
 -------------
 
--  In SLURM, nodes may be tagged with a number of strings. These strings
-   are called *features*. You can query any particular node to see its
-   properties:
+*  In SLURM, nodes may be tagged with a number of strings. These strings  are called *features*. You can query any particular node to see its  properties:
 
-| ``$ scontrol show node bc03bl01``
-| ``NodeName=bc03bl01 Arch=x86_64 CoresPerSocket=4``
-| ``   CPUAlloc=0 CPUErr=0 CPUTot=8 CPULoad=0.47 Features=``\ **``ethernet,clan03,scr9gb``**
-| ``   Gres=(null)``
-| ``   NodeAddr=152.17.40.65 NodeHostName=bc03bl01 Version=14.11``
-| ``   OS=Linux RealMemory=96732 AllocMem=0 Sockets=2 Boards=1``
-| ``   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1``
-| ``   BootTime=2015-07-29T15:21:51 SlurmdStartTime=2015-09-11T13:58:01``
-| ``   CurrentWatts=0 LowestJoules=0 ConsumedJoules=0``
-| ``   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s``
+$ scontrol show node comp-07-1
+  NodeName=comp-07-1 Arch=x86_64 CoresPerSocket=24
+   CPUAlloc=0 CPUErr=0 CPUTot=48 CPULoad=0.47 Features=comp07,skylake,scr425gb
+   Gres=(null)
+   NodeAddr=10.1.53.71 NodeHostName=comp-07-1 Version=20.03
+   OS=Linux RealMemory=196608 AllocMem=0 Sockets=2 Boards=1
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1
+   BootTime=2022-06-09T15:21:51 SlurmdStartTime=2022-06-11T13:58:01
+   CurrentWatts=0 LowestJoules=0 ConsumedJoules=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
+   
+*  A node with GPU resources available has the following listed in it's  properties:
 
--  A node with GPU resources available has the following listed in it's
-   properties:
-
-| ``$ scontrol show node gpu05 ``
-| ``NodeName=gpu05 Arch=x86_64 CoresPerSocket=6``
-| ``  CPUAlloc=0 CPUErr=0 CPUTot=6 CPULoad=0.10 Features=``\ **``gpu``**
-| ``  Gres=``\ **``gpu:4``**
-| ``  NodeAddr=152.17.36.141 NodeHostName=gpu05 Version=14.11``
-| ``  OS=Linux RealMemory=23986 AllocMem=0 Sockets=1 Boards=1``
-| ``  State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1``
-| ``  BootTime=2015-12-16T12:55:25 SlurmdStartTime=2015-12-16T12:55:54``
-| ``  CurrentWatts=0 LowestJoules=0 ConsumedJoules=0``
-| ``  ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s``
+$ scontrol show node usb-gpu-04 
+  NodeName=gpu05 Arch=x86_64 CoresPerSocket=22
+   CPUAlloc=0 CPUErr=0 CPUTot=44 CPULoad=0.10 Features=gpu
+   Gres=gpu:6
+   NodeAddr=10.1.52.07 NodeHostName=usb-gpu-04 Version=14.11
+   OS=Linux RealMemory=196608 AllocMem=0 Sockets=1 Boards=1
+   State=IDLE ThreadsPerCore=1 TmpDisk=0 Weight=1
+   BootTime=2021-12-16T12:55:25 SlurmdStartTime=2021-12-16T12:55:54
+   CurrentWatts=0 LowestJoules=0 ConsumedJoules=0
+   ExtSensorsJoules=n/s ExtSensorsWatts=0 ExtSensorsTemp=n/s
 
 References
 ==========
