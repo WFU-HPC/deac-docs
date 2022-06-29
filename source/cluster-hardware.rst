@@ -155,8 +155,7 @@ References
 .. #############################################################################
 .. #############################################################################
 
-All
-compute nodes on the DEAC cluster contain INTEL CPUs. Since the DEAC
+All compute nodes on the DEAC cluster contain INTEL CPUs. Since the DEAC
 Cluster adds hardware annually, it is important to know the difference
 between chip architecture found on each node. Obviously, newer nodes
 house the most recent architectures. Read below to learn more about
@@ -165,19 +164,13 @@ INTEL CPUs and their release schedule.
 Process-Architecture-Optimization
 =================================
 
--  In March 2016, Intel officially said it could no longer maintain it's
-   "tick-tock" model
+*  In March 2016, Intel officially said it could no longer maintain it's "tick-tock" model
 
-:\* Click
-[http://www.extremetech.com/extreme/225353-intel-formally-kills-its-tick-tock-approach-to-processor-development\ \|
-HERE] to read an article about the new model.
+   *  Click [http://www.extremetech.com/extreme/225353-intel-formally-kills-its-tick-tock-approach-to-processor-development HERE] to read an article about the new model.
 
--  This was first apparent in mid 2015, when Intel said the cycle was
-   turning from 2 years into 2.5 years (TICK-TOCK-TOCK)
+*  This was first apparent in mid 2015, when Intel said the cycle was turning from 2 years into 2.5 years (TICK-TOCK-TOCK)
 
-:\* Click
-[http://arstechnica.com/gadgets/2015/07/intel-confirms-tick-tock-shattering-kaby-lake-processor-as-moores-law-falters/\ \|
-HERE] for more information.
+   *  Click [http://arstechnica.com/gadgets/2015/07/intel-confirms-tick-tock-shattering-kaby-lake-processor-as-moores-law-falters/ HERE] for more information.
 
 `600px|Process-Architecture-Optimization Model </File:Intel-PAO.png>`__
 
