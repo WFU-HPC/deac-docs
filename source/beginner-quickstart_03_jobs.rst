@@ -676,38 +676,32 @@ Job Queue Priority  `sprio <http://slurm.schedmd.com/sprio.html>`__
 Environment Variables
 ---------------------
 
--  Nearly every SLURM command has an option to set an output format
-   *environment variable* to change it's default output
--  Output Formatting can be made temporary by setting the environment
-   variable on command line.
--  It can also be made permanent for your account by adding that command
-   to your "~/.bashrc" file
+* Nearly every SLURM command has an option to set an output format  *environment variable* to change it's default output
 
-:*Before adding to your "~/.bashrc" file it is recommended that you test
-setting the environment variable on command line first
+* Output Formatting can be made temporary by setting the environment variable on command line.
 
-:*If not tested first, you will need to log out and back in for the
-command to run from "~/.bashrc"
+*  It can also be made permanent for your account by adding that command to your "~/.bashrc" file
 
--  If the environment variable is successfully set, the change in format
-   to the command output will be immediate.
--  Another way to confirm is to run **echo $SQUEUE_FORMAT** for example
+* Before adding to your "~/.bashrc" file it is recommended that you test setting the environment variable on command line first
 
-:*This will show the applied value to the variable if set.
+*If not tested first, you will need to log out and back in for the command to run from "~/.bashrc"
 
-:*If the result returns blank, the variable was not set.
+   *  If the environment variable is successfully set, the change in format to the command output will be immediate.
 
--  To undo your test, run **unset $SQUEUE_FORMAT** to unassign the
-   environment variable
--  If successfully unassigned, the change in format will revert back to
-   default immediately.
+*  Another way to confirm is to run **echo $SQUEUE_FORMAT** for example
+
+   *  This will show the applied value to the variable if set.
+
+   *  If the result returns blank, the variable was not set.
+
+*  To undo your test, run **unset $SQUEUE_FORMAT** to unassign the environment variable
+
+*  If successfully unassigned, the change in format will revert back to default immediately.
 
 squeue
 ------
 
--  Display list of all jobs in the queue
-
-::
+*  Display list of all jobs in the queue
 
    [username@headnode ~]$ squeue -u username
     JOBID PARTITION      NAME     USER ST       TIME  NODES NODELIST(REASON)
@@ -719,13 +713,10 @@ squeue
     10001    medium   radical username  R   23:29:47      1 a1a-u2-c11-b1
     10002    medium  most-exc username  R   23:30:16      1 a1a-u2-c10-b1
 
-Start Time
-~~~~~~~~~~
+* Start Time
 
--  Display estimated start times of next jobs in the queue, as well as
+**  Display estimated start times of next jobs in the queue, as well as
    expected host nodes
-
-::
 
    [username@headnode ~]$ squeue --start
     JOBID PARTITION      NAME     USER ST          START_TIME  NODES SCHEDNODES           NODELIST(REASON)
@@ -741,7 +732,6 @@ Start Time
     12035     small    turtle username PD 2017-02-21T09:12:47      1 a1a-u2-c13-b3        (Priority)
 
 Output Formatting
-~~~~~~~~~~~~~~~~~
 
 There are many output options available with squeue; to see them, run
 **man squeue** and scroll down to *output_format*. From there, custom
@@ -751,38 +741,35 @@ below instructions to set the SQUEUE_FORMAT environment variable within
 your profiles to change your default output format of the squeue
 command.
 
--  Example: ensure the default output has longer job names
+* Example: ensure the default output has longer job names
 
-:*NOTE - default output format retrieved from man page
+   *  NOTE - default output format retrieved from man page
 
-:*Add the following line to your ~/.bashrc file
+   *  Add the following line to your ~/.bashrc file
 
-:: export SQUEUE_FORMAT="%.18i %.9P %.16j %.8u %.2t %.10M %.6D %R"
+      export SQUEUE_FORMAT="%.18i %.9P %.16j %.8u %.2t %.10M %.6D %R"
 
-:\* In tcsh, add the following line to your ~/.cshrc file
+   * In tcsh, add the following line to your ~/.cshrc file
 
       set SQUEUE_FORMAT="%.18i %.9P %.16j %.8u %.2t %.10M %.6D %R"
 
--  When set, the SQUEUE_FORMAT environment variable will override the
-   default format.
--  For both examples, we are using short form notation.
--  Format for each field is "%[[.]size]type"
+*  When set, the SQUEUE_FORMAT environment variable will override the  default format.
 
-:\* Adding a "." before the number will print the characters right
-justified
+*  For both examples, we are using short form notation.
 
--  Before adding to your .bashrc file, setting the variable can be done
+*  Format for each field is "%[[.]size]type"
+
+   * Adding a "." before the number will print the characters right justified
+
+*  Before adding to your .bashrc file, setting the variable can be done
    on command line to test
 
 sacct
 -----
 
-Default Output
-~~~~~~~~~~~~~~
+* Default Output
 
-You can check the status of a job with sacct:
-
-::
+   * You can check the status of a job with sacct:
 
    [username@headnode ~]$ sacct --jobs 1234
    JobID    JobName  Partition    Account  AllocCPUS      State ExitCode 
@@ -790,14 +777,9 @@ You can check the status of a job with sacct:
    1234         hello_wor_+      medium   researchgrp          1  COMPLETED      0:0 
    1234.batch        batch                researchgrp          1  COMPLETED      0:0 
 
-The sacct command has a vast amount of information that can be
-displayed. Adding the -l option gives more information, but adding the
--e option shows all available fields:
+      *  The sacct command has a vast amount of information that can be displayed. Adding the -l option gives more information, but adding the -e option shows all available fields:
 
-Available Content
-~~~~~~~~~~~~~~~~~
-
-::
+*  Available Content
 
    [username@headnode slurm_examples]$ sacct -e
    AllocCPUS         AllocGRES         Account           AssocID          
@@ -822,44 +804,35 @@ Available Content
 
 .. _output-formatting-1:
 
-Output Formatting
-~~~~~~~~~~~~~~~~~
+*  Output Formatting
 
-To see any of the fields specified above in the command output, run
-''sacct --jobs= --format FIELD1[,FIELD2,etc]
+   * To see any of the fields specified above in the command output, run
 
-If you wish to see certain fields all the time when you run sacct, you
-can follow the below instructions to set the SACCT_FORMAT environment
-variable within your profile to change your output format of the sacct
-command
+   sacct --jobs= --format FIELD1[,FIELD2,etc]
 
--  In bash, add the following line to your ~/.bashrc file
+   *  If you wish to see certain fields all the time when you run sacct, you can follow the below instructions to set the SACCT_FORMAT environment variable within your profile to change your output format of the sacct command
+
+   *  In bash, add the following line to your ~/.bashrc file
 
    export SACCT_FORMAT="JobID,User,Account,Cluster,NodeList%-50"
 
--  In tcsh, add the following line to your ~/.cshrc file
+   *  In tcsh, add the following line to your ~/.cshrc file
 
    set SACCT_FORMAT="JobID,User,Account,Cluster,NodeList%-50"
 
--  When set, the SACCT_FORMAT environment variable will override the
-   default format.
--  For both examples, you can set spacing of each field by placing "%##"
-   after the field name.
+   *  When set, the SACCT_FORMAT environment variable will override the default format.
+   
+   *  For both examples, you can set spacing of each field by placing "%##" after the field name.
 
-:\* Adding a "-" before the number will print the characters left
-justified
+      * Adding a "-" before the number will print the characters left justified
 
 sinfo
------
 
 .. _default-output-1:
 
-Default Output
-~~~~~~~~~~~~~~
+*  Default Output
 
-You can check the status of nodes and partitions with sinfo:
-
-::
+   *  You can check the status of nodes and partitions with sinfo:
 
    [username@headnode ~]$ sinfo
    PARTITION  AVAIL  TIMELIMIT  NODES  STATE NODELIST
@@ -881,15 +854,9 @@ You can check the status of nodes and partitions with sinfo:
 
 .. _available-content-1:
 
-Available Content
-~~~~~~~~~~~~~~~~~
-
-The sinfo command has a vast amount of information that can be
-displayed. Adding the -l option gives more information, -N groups by
-node, and -p limits output to specific partitions. The commands manpage
-shows all possible fields available for output, listed below:
-
-::
+   * Available Content
+   
+      *  The sinfo command has a vast amount of information that can be displayed. Adding the -l option gives more information, -N groups by node, and -p limits output to specific partitions. The commands manpage shows all possible fields available for output, listed below:
 
                 The field specifications available include:
                  %all  Print all fields available for this data type with a vertical bar separating each field.
@@ -940,31 +907,25 @@ shows all possible fields available for output, listed below:
 
 .. _output-formatting-2:
 
-Output Formatting
-~~~~~~~~~~~~~~~~~
+   *  Output Formatting
+   
+      * The output of sinfo can be customized based on user preference using two different methods. One can be done on the command line using "-o " or "--format=", where the desired fields are specified at the users discretion.
 
-The output of sinfo can be customized based on user preference using two
-different methods. One can be done on the command line using "-o " or
-"--format=", where the desired fields are specified at the users
-discretion.
+      * If you wish for the custom sinfo output to be default for your login session, follow the below instructions to set the SINFO_FORMAT environment variable within your profile to change the output format:
 
-If you wish for the custom sinfo output to be default for your login
-session, follow the below instructions to set the SINFO_FORMAT
-environment variable within your profile to change the output format:
-
-*  In bash, add the following line to your ~/.bashrc file
+   *  In bash, add the following line to your ~/.bashrc file
 
 export SINFO_FORMAT='%N %.11T %.4c %.8z %.6m %.8d %.6w %.8f %20E'
 
-*  In tcsh, add the following line to your ~/.cshrc file
+   *  In tcsh, add the following line to your ~/.cshrc file
 
 set SINFO_FORMAT='%N %.11T %.4c %.8z %.6m %.8d %.6w %.8f %20E'
 
-*  When set, the SINFO_FORMAT environment variable will override the default format.
+   *  When set, the SINFO_FORMAT environment variable will override the default format.
 
-*  For both examples, you can set spacing of each field by placing "%##" after the field name.
+   *  For both examples, you can set spacing of each field by placing "%##" after the field name.
 
-:\* Adding a "-" before the number will print the characters left
+      * Adding a "-" before the number will print the characters left
 justified
 
 .. #############################################################################
