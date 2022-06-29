@@ -46,33 +46,33 @@ examples of how to do this.
 SLURM Node Features
 -------------------
 
--  All compute nodes have assigned features within SLURM. These features
+*  All compute nodes have assigned features within SLURM. These features
    can be specified as constraints to limit node selection for jobs.
    They are:
 
--- head : These nodes are used to submit jobs to SLURM, and are not
+*. head : These nodes are used to submit jobs to SLURM, and are not
 assigned to any partition
 
--- gpu : These nodes have GPU's installed and available
+*. gpu : These nodes have GPU's installed and available
 
--- comp## : These nodes belong to an Alumni Hall (comp0#) or A1A (comp2#)
+*. comp## : These nodes belong to an Alumni Hall (comp0#) or A1A (comp2#)
 located chassis ##, e.g. comp07, comp25, etc. are node properties.
  
--- scr220gb : These nodes have 220GB of local scratch disk space to use
+*. scr220gb : These nodes have 220GB of local scratch disk space to use
 for jobs
 
--- scr425gb : These nodes have 425GB of local scratch disk space to use
+*. scr425gb : These nodes have 425GB of local scratch disk space to use
 for jobs
 
--- skylake : These nodes have `Intel's Xeon E5
+*. skylake : These nodes have `Intel's Xeon E5
 Skylake </Information:Intel_chip_architecture#Architectures>`__ based
 processors (44-core UCS nodes)
 
--- cascade : These nodes have `Intel's Xeon Gold
+*. cascade : These nodes have `Intel's Xeon Gold
 Cascade Lake </Information:Intel_chip_architecture#Architectures>`__ based
 processors (44 and 48-core UCS nodes)
 
--  A complete list of a nodes attributes can be found with the `scontrol
+*  A complete list of a nodes attributes can be found with the `scontrol
    command listed here </SLURM:Quick_Start_Guide#Node_information>`__
 
 Physical Hardware Specifications
