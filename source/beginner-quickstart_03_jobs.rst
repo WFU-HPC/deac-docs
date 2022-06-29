@@ -268,7 +268,7 @@ Partitions are used within SLURM to provide additional weight for job
 types allocated on the DEAC cluster. To specify a partition, use the
 following directive:
 
-``   #SBATCH --partition=``\ 
+   #SBATCH --partition=
 
 A partition must be specified to run jobs on the cluster, the default
 partition is not designed to work outside of testing. See
@@ -313,14 +313,14 @@ write; everyone else can read) that only allow the owner to read them.
 To make it so only you can access files created by your script, insert
 the following after the directives in your job script:
 
-``   umask 0077``
+   umask 0077
 
 SLURM also has a built in variable, SLURM_UMASK, but it does not
 function properly at this time. If you want your output files to be
 accessable by your group, but not to everyone else, insert the following
 after the directives in your job script:
 
-``   umask 0027``
+   umask 0027
 
 Environment Variables
 ---------------------
