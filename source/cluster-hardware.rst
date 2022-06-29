@@ -55,29 +55,22 @@ assigned to any partition
 
 :; gpu : These nodes have GPU's installed and available
 
-:; ucs#-XX : These nodes belong to UCS-2 or UCS-3 Chassis XX, e.g.
-ucs3-1, ucs2-14, etc. are node properties
-
-:; scr50gb : These nodes have 40GB of local scratch disk space to use
+:; comp## : These nodes belong to an Alumni Hall (comp0#) or A1A (comp2#)
+located chassis ##, e.g. comp07, comp25, etc. are node properties.
+ssh 
+:; scr220gb : These nodes have 220GB of local scratch disk space to use
 for jobs
 
-:; scr250gb : These nodes have 250GB of local scratch disk space to use
+:; scr425gb : These nodes have 425GB of local scratch disk space to use
 for jobs
-
-:; scr425gb : These nodes have 400GB of local scratch disk space to use
-for jobs
-
-:; haswell: These nodes have `Intel's Xeon E5
-Haswell </Information:Intel_chip_architecture#Architectures>`__ based
-processors (32-core UCS nodes)
-
-:; broadwell: These nodes have `Intel's Xeon E5
-Broadwell </Information:Intel_chip_architecture#Architectures>`__ based
-processors (44-core UCS nodes)
 
 :; skylake : These nodes have `Intel's Xeon E5
 Skylake </Information:Intel_chip_architecture#Architectures>`__ based
 processors (44-core UCS nodes)
+
+:; skylake : These nodes have `Intel's Xeon Gold
+Cascade </Information:Intel_chip_architecture#Architectures>`__ based
+processors (44 and 48-core UCS nodes)
 
 -  A complete list of a nodes attributes can be found with the `scontrol
    command listed here </SLURM:Quick_Start_Guide#Node_information>`__
@@ -88,23 +81,22 @@ Physical Hardware Specifications
 Aggregate Information
 ---------------------
 
-   **Nodes** or **Blades** : 89 nodes
-   **Processors** : 3820 cores
-   **GPU cores**: 14,336 cores
-   **Memory** : 19.30TB
-   **Storage** : 197.86TB
+   **Nodes** or **Blades** : 94 nodes
+   **Processors** : 4,224 cores
+   **GPU cores**: 68,608 cores
+   **Memory** : 18.67TB
+   **Storage** : 221TB
 
 .. _compute-nodes-1:
 
 Compute Nodes
 -------------
 
-**89 - Cisco B-series Blades - 3,820 cores, 19.30TB total**:
+**88 - Cisco B-series Blades - 3,976 cores, 16.50TB total**:
 
-      08 Haswell Blades with 32 cores -- 128GB RAM
-      43 Broadwell Blades with 44 cores -- 256GB RAM
-      26 Skylake Blades with 44 cores -- 188GB RAM
-      12 Cascade Lake Blades with 44 cores -- 188GB RAM
+      26 Skylake Blades with 44 cores -- 192GB RAM
+      36 Cascade Lake Blades with 44 cores -- 192GB RAM
+      26 Cascade Lake Blades with 48 cores -- 192GB RAM
 
 GPU Nodes
 ---------
@@ -138,22 +130,20 @@ For in-depth GPU information, see
 Storage
 -------
 
-`thumb|300px|NetApp FAS8040 Storage Array </File:Fas8040.jpg‎>`__
-
-**NetApp FAS8040 Storage Array** (177.86TB shared via NFS)
-   `Technical
-   Specs <http://www.netapp.com/us/products/storage-systems/fas8000/fas8000-tech-specs.aspx>`__
-   `Hardware Datasheet </:File:FAS8000-datasheet.pdf‎>`__
-   `NetApp YouTube
-   Channel <https://www.youtube.com/channel/UCraITOUxo4l3oYQBH8fofyw>`__
-
--  24 - 800GB SSD (flash pool for fast read/write)
--  120 - 2TB SATA 7.2K
+**NetApp A300 Storage Array (220TB shared via NFS)
+   `Technical Specs <https://www.netapp.com/media/19747-storage-review-netapp-a300-print.pdf>`__
+   `Hardware Datasheet <https://www.data-storage.uk/wp-content/uploads/NetApp_AFF.pdf>`__
+   `NetApp YouTube Channel <https://www.youtube.com/channel/UCraITOUxo4l3oYQBH8fofyw>`__
+- 52 - 3.8TB SSD
+- Storage Efficiency includes Dedupe, Compression, and Compaction
+- Nightly and weekly snapshots for restore
+- Cloud backup enabled
 
 **Amazon Glacier Cloud Storage** (unlimited)
 
 -  Unlimited cloud storage with variable data expiration.
 -  *Host* of cluster archive storage
+
 
 References
 ==========
@@ -235,9 +225,9 @@ same die (no integration)
 
 -  M3-6Y30 - Skylake (14nm Skylake)
 
-:\* (TBD) - Kabylake (14nm Skylake)
+:\* Gold-6240R - Cascade Lake (14nm Skylake)
 
-:\* (TBD) - Cannonlake (10nm Skylake)
+:\* (TBD) - Icelake (10nm Skylake)
 
 .. #############################################################################
 .. #############################################################################
