@@ -1,13 +1,35 @@
-# QE (WIP)
+# QE (Updated for 2022)
 
+```sh
+export PREFIX="/home/anderss/qe"
+export QE_SRC="${TMPDIR}/qe-7.1"
+mkdir -p ${QE_SRC}/build && cd ${QE_SRC}/build
 
-## To-Do
+module load compilers/gcc/10.2.0 \
+            compilers/intel/2021.2 \
+            mpi/openmpi/4.1.1/intel/2021.2 \
+            libs/intel/mkl/2021.2 \
+            libs/libxc/5.1.7/intel/2021.2 \
+            utils/cmake/3.23.1 \
+            utils/git/2.36.1
 
-* LibXC, other libs
-* https://github.com/spack/spack/blob/develop/var/spack/repos/builtin/packages/quantum-espresso/package.py
+cmake -DCMAKE_Fortran_COMPILER=mpifort \
+      -DCMAKE_C_COMPILER=mpicc \
+      -DCMAKE_INSTALL_PREFIX="$PREFIX" \
+      -DQE_ENABLE_SCALAPACK=on \
+      -DQE_ENABLE_LIBXC=on \
+      -DCMAKE_C_FLAGS_RELEASE="-O2 -DNDEBUG -march=cascadelake -mtune=cascadelake" \
+      -DCMAKE_Fortran_FLAGS_RELEASE="-O2 -DNDEBUG -march=cascadelake -mtune=cascadelake" \
+      -DQE_CPP=icpc ..
 
+make -j8
 
-# Compile with my Intel Compilers and Open MPI
+ctest -j8 -L "system--pw" --output-on-failure
+
+make install
+```
+
+## OLD OLD OLD
 
 ```
 source /deac/generalGrp/usershare/anderss/intel/psxe-18.04/bin/compilervars.sh -arch intel64 -platform linux
