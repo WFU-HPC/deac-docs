@@ -22,8 +22,31 @@ charge density and electronic structure of systems made of electrons and nuclei
 (molecules and periodic solids) within Density Functional Theory (DFT), using
 pseudopotentials and a planewave basis.
 
-Method
-======
+Method (Updated for 2022)
+=========================
+
+.. code-block:: bash
+
+    
+    CC="icc" CXX="icpc" FC="ifort" \
+    ./configure \
+        --prefix=$PREFIX \
+        --with-mpi="$MPIHOME" \
+        --with-hdf5=$HDF5_PATH \
+        --with-netcdf=$NETCDF_C_PATH \
+        --with-netcdf-fortran=$NETCDF_FORTRAN_PATH \
+        --enable-mpi-io="yes" \
+        --with-fft-flavor="dfti" \
+        --with-libxml2="/usr" \
+        --with-linalg-flavor="mkl" \
+        --with-linalg-incs=-I${MKLROOT}/include \
+        --with-linalg-libs="$MKL_SCALAPACK_SEQUENTIAL
+        --with-mpi-flavor="auto" \
+        --with-optim-flavor=standard \
+        --with-libxc=$LIBXCHOME
+
+Old Method
+==========
 
 Compiling completely from scratch using Intel tools:
 

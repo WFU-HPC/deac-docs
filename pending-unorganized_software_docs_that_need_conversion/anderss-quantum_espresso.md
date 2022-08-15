@@ -20,7 +20,9 @@ cmake -DCMAKE_Fortran_COMPILER=mpifort \
       -DQE_ENABLE_LIBXC=on \
       -DCMAKE_C_FLAGS_RELEASE="-O2 -DNDEBUG -march=cascadelake -mtune=cascadelake" \
       -DCMAKE_Fortran_FLAGS_RELEASE="-O2 -DNDEBUG -march=cascadelake -mtune=cascadelake" \
-      -DQE_CPP=icpc ..
+      -DQE_CPP=icpc \
+      -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+      ..
 
 make -j8
 
