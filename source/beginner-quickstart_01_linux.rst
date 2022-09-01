@@ -626,6 +626,7 @@ Extra Reading
 =============
 
 * Our own :ref:`sec.linux`
+* The `HPC-Wiki.info 14-Step Tutorial <https://hpc-wiki.info/hpc/Introduction_to_Linux_in_HPC>`_
 * The `Ubuntu Linux command line for beginners tutorial
   <https://ubuntu.com/tutorials/command-line-for-beginners>`_
 * `Ryan's Tutorials tutorial on the Linux command line
