@@ -44,7 +44,7 @@ compatability with Spack you can configure as follows,
             --enable-mpi1-compatibility
 ```
 
-which will be mostly equivalent to the first command. You can tune which
+You can tune which
 compiler is being use with the standard environment variables like `CC=icc
 CXX=icpc FC=ifort` but be aware that those are typically set correctly by the
 compiler modulefile. Lastly, you can set the correct link paths within the
