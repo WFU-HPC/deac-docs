@@ -1,4 +1,4 @@
-.. _sec.sla
+.. _sec.sla:
 
 ====================================
 DEAC Cluster Service Level Agreement
@@ -17,11 +17,11 @@ This SLA seeks to further enhance and support the mission of the DEAC Cluster, w
 .. #############################################################################
 .. #############################################################################
 
-.. _ua
+.. _ua:
 User Agreement
 ==============
 
-.. _ua-account_eligibility
+.. _ua-account_eligibility:
 Account Eligibility and Sponsorhip
 ----------------------------------
 **Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) as part of the centralized services provided by Information Systems.**
@@ -35,7 +35,7 @@ Account Eligibility and Sponsorhip
 
 **Usage of the DEAC Cluster by WFU affiliated parties outside of the WFU UC/GSAS, such as the School of Medicine, is provided only in a PAID USAGE format. See :ref:`Chargebacks under Service Units<su-chargebacks>` for more information on how usage payments are calculated and made.**
 
-.. _ua-acceptable_use
+.. _ua-acceptable_use:
 Acceptable Use
 --------------
 Access to and use of DEAC Cluster resources is permitted for academic research and instructional activity only. The list of usage regulations below is not all encompassing; it is provided in an effort to promote awareness of acceptable use of the DEAC Cluster, and to ensure that the DEAC Cluster is used in an efficient, ethical, and lawful manner. If any user is unsure whether their usage, discovered actions, or observed behavior is acceptable on the DEAC Cluster, they should contact the HPC Team without hesitation. 
@@ -59,7 +59,7 @@ Violation of any of the following usage regulations below may result in a variet
 #. Users shall not intentionally engage in activities to: degrade the performance of the DEAC Cluster or any Wake Forest system; obtain resources beyond those requested and allocated; circumvent computer security measures or gain unauthorized access to systems, accounts, or resources; misuse batch queues or other resources in ways not authorized or intended; deprive an authorized user access to a resource.
 #. Any discovered security vulnerabilities, misuse of resources, or violation of this agreement should be reported to the HPC Team immediately.
 
-.. _ua-acceptable_head_node_use
+.. _ua-acceptable_head_node_use:
 Acceptable Head Node Use
 ------------------------
 Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not designed nor intended to bear full computational workloads. Users must be cognizant that Head Nodes are shared resources in which user access is required to utilize DEAC Cluster resources. User resource consumption is **limited to 2 cores and 16GB of memory** while operating on the Head Nodes; if more resources are needed, those operations should be conducted via an interactive job through the DEAC Cluster’s scheduler. In addition to following guidelines of :ref:`Acceptable Use<ua-acceptable_use>`, the following list of acceptable Head Node usage below is intended to be all encompassing; any activity occurring from a Head Node not listed below is subject to termination by the HPC Team without prior notification. 
@@ -71,7 +71,7 @@ Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not 
 #. *Job Testing* - Prior to submitting jobs to the DEAC Cluster’s scheduler queue, it is assumed that all jobs are tested to ensure they run as expected. Processes under the above stated resource limits can be run via command-line directly on the Head Node for a maximum of 30 minutes. 
 #. *Job Submission* - All jobs submitted to the DEAC Cluster’s scheduler are done so from the Head Nodes.
 
-.. _ua-job_cancellation
+.. _ua-job_cancellation:
 Job Cancellation
 ----------------
 The HPC Team reserves the right to terminate running jobs, head node processes, and other operations on the DEAC Cluster without notification for the following reasons:
@@ -88,11 +88,11 @@ The HPC Team reserves the right to terminate running jobs, head node processes, 
 .. #############################################################################
 .. #############################################################################
 
-.. _sdm
+.. _sdm:
 Storage and Data Management
 ===========================
 
-.. _sdm-storage_access
+.. _sdm-storage_access:
 Storage Access
 --------------
 Only approved DEAC Cluster users can store data on DEAC Cluster storage; specifically, this includes active research paths, user home directories, and cloud archives.
@@ -106,7 +106,7 @@ Only approved DEAC Cluster users can store data on DEAC Cluster storage; specifi
 
 Network and system firewalls will prevent unauthorized user access to DEAC Cluster research storage, while file system settings and permissions will limit research groups to only accessing their group’s data. These settings are managed and maintained by the HPC Team. By default, only the research groups working on the DEAC Cluster will have access to their relevant data. Research groups may include PIs, Co-PIs, Senior Personnel, Collaborators, post docs, graduate students, undergraduate students, staff, and approved sponsored guest accounts. 
 
-.. _sdm-storage_quotas
+.. _sdm-storage_quotas:
 Storage Quotas
 --------------
 Storage quotas are utilized on DEAC Cluster research storage paths to prevent unexpected and accidental growth of filesystems. The following quotas are defined, configured, and implemented by the HPC Team:
@@ -116,7 +116,7 @@ Storage quotas are utilized on DEAC Cluster research storage paths to prevent un
 * **Expansion of data quotas are allowed at no cost up to 2TB per researcher, 10TB per research group, or 20TB per department, so long as sum totals fit within these limits.**
 * Any research group, department use, or funded projects requiring an increase above these default quota limits must be paid for through a Service Unit purchase as outlined in the :ref:`Service Unit Section<su>`.
 
-.. _sdm-data_ownership
+.. _sdm-data_ownership:
 Data Ownership
 --------------
 All users of The DEAC Cluster will be responsible for abiding to these data management guidelines as it relates to their own research. All users must agree to these guidelines before being granted access to the DEAC Cluster as part of the account creation process. Any users found in violation of these guidelines, or repeatedly attempting to access data that is not relevant to their research, will be considered acting in violation of the :ref:`User Agreement Section's terms for Acceptable Use<ua-acceptable_use>`.
@@ -127,14 +127,14 @@ Researchers should be good stewards of their data – this includes keeping only
 * If a research group advisor leaves WFU and data ownership/lifecycle is not pre-determined during the exit process, the responsibility will be deferred solely to the HPC Team who will work with departments and/or collaborators to determine data retention.
 As researchers leave the University, it does NOT trigger automatic archival of research data. Data is left in place for new data owners and research groups to continue using unless direction otherwise is explicitly provided during the exit process.
 
-.. _sdm-permitted_data
+.. _sdm-permitted_data:
 Permitted Data
 --------------
 The expected data and metadata to be collected or produced on the DEAC Cluster includes software, execution code, and the electronic data produced. Electronic data will be stored on the DEAC Cluster, following Information Systems (IS) and High Performance Computing (HPC) Team best practices and `security policies<https://docs.google.com/document/d/12aIqNnLtFac-ZUeagpYxnTmGNJsJQCxHLow8n8kcntI/edit?usp=sharing>`. 
 
 DEAC Cluster storage is located on high performance, enterprise hardware that is capable of supporting HPC workloads; therefore, it is very expensive and extremely limited. For these reasons, researchers are expected to adhere strictly to permitted data guidance for the following data paths: 
 
-.. _sdm-permitted_data-homedir
+.. _sdm-permitted_data-homedir:
 #. Home Directories
 Home directories are not intended to be intensely used storage locations. This is because the /home path is a vital storage location for functionality on the DEAC Cluster. If /home runs out of space, no user will be able to login to the DEAC Cluster and job executions will fail. Any user seeking to use /home for purposes other than listed below, MUST contact the HPC Team before doing so:
 
@@ -143,7 +143,7 @@ Home directories are not intended to be intensely used storage locations. This i
 * Simple scripts and project notes, 
 * Pre-approved special binary compilations. 
 
-.. _sdm-permitted_data-researchdir
+.. _sdm-permitted_data-researchdir:
 #. Research Paths
 Research storage path’s are intended to be the ONLY storage location used for research related data and executed research tasks to the DEAC Cluster’s scheduler. This path while less restrictive to encourage use, should still only be used for the following:
 
@@ -157,11 +157,11 @@ Research storage path’s are intended to be the ONLY storage location used for 
     * Include files
     * Make files
 
-.. _sdm-permitted_data-scratchdir
+.. _sdm-permitted_data-scratchdir:
 #. Scratch Paths
 A temporary file system location is created for every job submitted to the DEAC Cluster’s scheduler, located at /scratch/$jobid. This path is not shared between compute nodes and is intended for local copies of active data in order to reduce network traffic during computational cycles. This path should always be used when a job generates lots of I/O, and/or when lots of temporary data is generated for a job (up to 480GB). When this path is used, any relevant data wishing to be kept *must* be moved out by the data owner prior to job completion or it will be deleted automatically. If a job fails and data cannot be moved out as a result, that data will still be deleted automatically.
 
-.. _sdm-non_permitted_data
+.. _sdm-non_permitted_data:
 Non-Permitted Data
 ------------------
 **Under no circumstances are the following data types allowed on the DEAC Cluster:**
@@ -178,7 +178,7 @@ Non-Permitted Data
 
 Any user found to not be following these guidelines will be warned and made to have that data removed within one week. After this initial warning, further incidents will be found in violation of the ref:`User Agreement Section's terms for Acceptable Use<ua-acceptable_use>`.
 
-.. _sdm-data_backup
+.. _sdm-data_backup:
 Data Backup
 -----------
 In addition to a robust enterprise storage solution that is configured to prevent data loss due to hardware failure, the DEAC Cluster also employs two types of backups on research storage to prevent data loss due to human error and malicious intent:
@@ -191,7 +191,7 @@ In addition to a robust enterprise storage solution that is configured to preven
 * Offsite backups
     * Offsite backups are not available by default on DEAC Cluster research storage paths, but can be considered upon special requests made to the HPC Team.
 
-.. _sdm-data_retention_archival
+.. _sdm-data_retention_archival:
 Data Retentional and Archival
 ----------------------------
 All relevant project data will be retained for a minimum of three years after the project conclusion or three years after public release, whichever is later. Relevant data will remain on the DEAC Cluster’s storage or be migrated off to a connected secure cloud archive. Both locations are maintained by IS, and require dual factor authentication behind a secure network firewall to prevent unauthorized access. The following process is followed for data archival:
@@ -205,7 +205,7 @@ All relevant project data will be retained for a minimum of three years after th
 * If/When a restore is requested, the file(s) being restored may not be available for access for up to 7 days after request is made.
 * As archive retention time periods near expiration, users will be contacted and data life spans will be extended as necessary. 
 
-.. _sdm-dissemination_sharing
+.. _sdm-dissemination_sharing:
 Dissemination and Sharing
 -------------------------
 Generally speaking, all users of the DEAC Cluster should comply with the NSF Proposal and Award Policy and Procedures Guide (PAPPG) `policy<https://www.nsf.gov/pubs/policydocs/pappg20_1/pappg_11.jsp#XID4>` on the dissemination and sharing of research results. Researcher advisors shall publish the findings from their research group projects as soon and as widely as possible. Additionally, research advisors, PIs, and Co-PIs should be encouraged to publish their findings in peer-reviewed journals and, if travel allows, present results at relevant conferences. Findings on the DEAC Cluster are not expected to be proprietary so no limits on dissemination should be expected. If data that supports disseminated findings must also be shared, coordination must occur with the HPC Team to make data accessible to individuals in the scientific community. 
@@ -217,36 +217,36 @@ All dissemination and shared findings should reference the DEAC Cluster in accor
 .. #############################################################################
 .. #############################################################################
 
-.. _su
+.. _su:
 Service Unit
 ============
 
-.. _su-purpose_applicability
+.. _su-purpose_applicability:
 Purpose and Applicability
 -------------------------
 
-.. _su-contributions
+.. _su-contributions:
 SU Contributions
 ----------------
 
-.. _su-chargebacks
+.. _su-chargebacks:
 SU Chargebacks
 --------------
 
-.. _su-ssu_types
+.. _su-ssu_types:
 Service Sub-Unit Types
 ----------------------
 
-.. _su-ssu_types-compute
+.. _su-ssu_types-compute:
 #. Compute Service Sub-Unit
 
-.. _su-ssu_types-gpu
+.. _su-ssu_types-gpu:
 #. GPU Service Sub-Unit
 
-.. _su-ssu_types-storage
+.. _su-ssu_types-storage:
 #. Storage Service Sub-Unit
 
-.. _su-example_purchase
+.. _su-example_purchase:
 Example SU Purchase
 -------------------
 
@@ -255,29 +255,29 @@ Example SU Purchase
 .. #############################################################################
 .. #############################################################################
 
-.. _fc
+.. _fc:
 Fairshare Calculation
 =====================
 
-.. _fc-investment_types
+.. _fc-investment_types:
 Investment Types
 ----------------
 
-.. _fc-investment_types-i_is
+.. _fc-investment_types-i_is:
 #. Information Systems Investment (I<sub>IS</sub>)
 
-.. _fc-investment_types-i_wfu
+.. _fc-investment_types-i_wfu:
 #. WFU Provost Office Investment (I<sub>WFU</sub>)
 
-.. _fc-investment_types-i_contrib
+.. _fc-investment_types-i_contrib:
 #. Researcher of Departmental Contribution Investments (I<sub>contrib</sub>)
 
-.. _fc-assigned_fairshare_value
+.. _fc-assigned_fairshare_value:
 Assigned Fairshare Value
 ------------------------
 aka (F<sub>final</sub>)
 
-.. _fc-expected_utilization 
+.. _fc-expected_utilization :
 Expected Utilization
 --------------------
 aka U<sub>final</sub>
@@ -287,19 +287,19 @@ aka U<sub>final</sub>
 .. #############################################################################
 .. #############################################################################
 
-.. _ul
+.. _ul:
 Usage Limitations
 =================
 
-.. _ul-baseline_research_groups
+.. _ul-baseline_research_groups:
 Baseline Research Groups
 ------------------------
 
-.. _ul-contributing_research_groups
+.. _ul-contributing_research_groups:
 Contributing Research Groups
 ----------------------------
 
-.. _ul-class_groups
+.. _ul-class_groups:
 Class Groups
 ------------
 
