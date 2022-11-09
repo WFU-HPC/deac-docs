@@ -47,7 +47,7 @@ Violation of any of the following usage regulations below may result in a variet
 #. Use of DEAC Cluster resources for unauthorized commercial activities, for personal gain, cryptocurrency mining, or any illegal activities is prohibited.
 #. DEAC Cluster accounts are to be used only for the purpose for which they are authorized and are not to be used for non-DEAC Cluster related activities. 
 #. DEAC Cluster users should adhere to the defined usage limitations as provided in the :ref:`Fairshare<fs>` and :ref:`Limitations<ul>`.
-#. Users must adhere to the terms provided in the `Storage and Data Management Section<sdm>`.
+#. Users must adhere to the terms provided in the :ref:`Storage and Data Management Section<sdm>`.
 #. Electronic mail notifications sent from the DEAC Cluster are for authorized use only. Notifications sent to recipients other than themselves or users within their research group should only be done so with written consent. Fraudulent, harassing, or obscene messages and/or materials shall not be sent from or stored on the DEAC Cluster.
 #. The DEAC Cluster is not intended for classified projects or data. The processing and storage of classified information is strictly prohibited.
 #. Any activity that violates the export control laws of the United States is prohibited.
