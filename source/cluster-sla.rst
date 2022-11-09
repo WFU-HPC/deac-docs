@@ -255,29 +255,29 @@ Example SU Purchase
 .. #############################################################################
 .. #############################################################################
 
-.. _sec.sla.fc:
+.. _sec.sla.fs:
 Fairshare Calculation
 =====================
 
-.. _sec.sla.fc.investment_types:
+.. _sec.sla.fs.investment_types:
 Investment Types
 ----------------
 
-.. _sec.sla.fc.investment_types.i_is:
+.. _sec.sla.fs.investment_types.i_is:
 #. Information Systems Investment (I<sub>IS</sub>)
 
-.. _sec.sla.fc.investment_types.i_wfu:
+.. _sec.sla.fs.investment_types.i_wfu:
 #. WFU Provost Office Investment (I<sub>WFU</sub>)
 
-.. _sec.sla.fc.investment_types.i_contrib:
+.. _sec.sla.fs.investment_types.i_contrib:
 #. Researcher of Departmental Contribution Investments (I<sub>contrib</sub>)
 
-.. _sec.sla.fc.assigned_fairshare_value:
+.. _sec.sla.fs.assigned_fairshare_value:
 Assigned Fairshare Value
 ------------------------
 aka (F<sub>final</sub>)
 
-.. _sec.sla.fc.expected_utilization:
+.. _sec.sla.fs.expected_utilization:
 Expected Utilization
 --------------------
 aka U<sub>final</sub>
