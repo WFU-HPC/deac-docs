@@ -63,6 +63,7 @@ Violation of any of the following usage regulations below may result in a variet
 Acceptable Head Node Use
 ------------------------
 Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not designed nor intended to bear full computational workloads. Users must be cognizant that Head Nodes are shared resources in which user access is required to utilize DEAC Cluster resources. User resource consumption is **limited to 2 cores and 16GB of memory** while operating on the Head Nodes; if more resources are needed, those operations should be conducted via an interactive job through the DEAC Cluster’s scheduler. In addition to following guidelines of :ref:`Acceptable Use <ua-acceptable_use>`, the following list of acceptable Head Node usage below is intended to be all encompassing; any activity occurring from a Head Node not listed below is subject to termination by the HPC Team without prior notification. 
+
 #. *Editing Files* - As the primary access point to all research data, scripts, and results, it is expected that users will commonly view, edit, and manipulate their files from the Head Nodes. Use of built-in editing tools like vim, nano, emacs, nedit, as well as use of third party tools such as Visual Studio Code are recommended.
 #. *Data Transfer* - The Head Nodes can be used to migrate data to and from DEAC Cluster storage. Whenever possible, data should be directly downloaded to head nodes from the internet via built-in commands like sftp, wget, or curl; if not possible, use of approved third party tools such as Visual Studio Code, WinSCP, and FileZilla can be used to move data to a user’s appropriate research storage path. 
 #. *Monitoring Jobs* - Users can monitor scheduler queues, their running processes, and job results from the head nodes. While users can monitor other users within the scheduler queue, regular monitoring of any user beyond their research group is not recommended. 
@@ -74,6 +75,7 @@ Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not 
 Job Cancellation
 ----------------
 The HPC Team reserves the right to terminate running jobs, head node processes, and other operations on the DEAC Cluster without notification for the following reasons:
+
 * Emergency node maintenance.
 * Suspected unacceptable usage of resources.
 * Exceeding usage limits guidelines.
