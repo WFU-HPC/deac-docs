@@ -100,6 +100,7 @@ login to the head nodes!
    :maxdepth: 2
    :caption: About the Cluster
 
+   cluster-sla
    cluster-policies
    cluster-general_overview
    cluster-hardware
