@@ -24,8 +24,8 @@ User Agreement
 .. _ua-account_eligibility
 Account Eligibility and Sponsorhip
 ----------------------------------
-
 **Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) as part of the centralized services provided by Information Systems.**
+
 * To access the DEAC Cluster, students, faculty and staff must formally request access from the HPC Team, either via email to `deac-help@wfu.edu <mailto:deac-help@wfu.edu>` or ticket submission to the HPC Team from `help.wfu.edu <https://help.wfu.edu>`.
 * Students must have a Faculty sponsor who approves their account request. This sponsorship is required for research and instructional usage of the DEAC Cluster. Faculty sponsors take responsibility for their approved users’ actions on the cluster. 
 * Classroom instructors are asked to submit all student account requests one week in advance of required use; requests should be made in a singular email to `deac-help@wfu.edu <mailto:deac-help@wfu.edu>`, containing the full names and email addresses of all students that will require login.
@@ -39,7 +39,9 @@ Account Eligibility and Sponsorhip
 Acceptable Use
 --------------
 Access to and use of DEAC Cluster resources is permitted for academic research and instructional activity only. The list of usage regulations below is not all encompassing; it is provided in an effort to promote awareness of acceptable use of the DEAC Cluster, and to ensure that the DEAC Cluster is used in an efficient, ethical, and lawful manner. If any user is unsure whether their usage, discovered actions, or observed behavior is acceptable on the DEAC Cluster, they should contact the HPC Team without hesitation. 
+
 Violation of any of the following usage regulations below may result in a variety of actions including, but not limited to: Suspension of DEAC Cluster account, investigation by Information Systems Information Security (InfoSec), and appropriate legal action where warranted. Relevant Federal law, North Carolina state laws, and Wake Forest University rules and regulations supersede any potential action in cases of conflict. 
+
 #. Users must :ref:`acknowledge the DEAC Cluster <acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
 #. All users should adhere to the Information Systems `Policy on Responsible and Ethical Use of Computing Resources <https://docs.google.com/document/d/1ERgJ0aIBqTr9UQr6Vy6dNvb0nsKyGOZi2p1_MTZl9YA/edit?usp=sharing>` while operating on the DEAC Cluster. Students are also governed by the Wake Forest University `Code of Conduct <https://studentconduct.wfu.edu/undergraduate-student-handbook/>` while using the DEAC Cluster.
 #. Use of DEAC Cluster resources for unauthorized commercial activities, for personal gain, cryptocurrency mining, or any illegal activities is prohibited.
@@ -106,6 +108,7 @@ Network and system firewalls will prevent unauthorized user access to DEAC Clust
 Storage Quotas
 --------------
 Storage quotas are utilized on DEAC Cluster research storage paths to prevent unexpected and accidental growth of filesystems. The following quotas are defined, configured, and implemented by the HPC Team:
+
 * Reynolda Campus researchers and departments are provided quotas for research paths starting at 1TB. 
     * These quotas can be increased after an explicit request for additional space is made, and the need identified by the HPC Team. 
 * **Expansion of data quotas are allowed at no cost up to 2TB per researcher, 10TB per research group, or 20TB per department, so long as sum totals fit within these limits.**
@@ -117,6 +120,7 @@ Data Ownership
 All users of The DEAC Cluster will be responsible for abiding to these data management guidelines as it relates to their own research. All users must agree to these guidelines before being granted access to the DEAC Cluster as part of the account creation process. Any users found in violation of these guidelines, or repeatedly attempting to access data that is not relevant to their research, will be considered acting in violation of the :ref:`User Agreement Section's terms for Acceptable Use <ua-acceptable_use>`.
 
 Researchers should be good stewards of their data – this includes keeping only that which is actively relevant on DEAC Cluster research storage. Research group advisors are ultimately responsible for the oversight of their research storage path. In the event of a departure, the following ownership changes will occur:
+
 * Should any researcher leave WFU with data still residing on the DEAC Cluster, the associated research group advisor will take ownership of the data and can work with the HPC Team to maintain the data appropriately. 
 * If a research group advisor leaves WFU and data ownership/lifecycle is not pre-determined during the exit process, the responsibility will be deferred solely to the HPC Team who will work with departments and/or collaborators to determine data retention.
 As researchers leave the University, it does NOT trigger automatic archival of research data. Data is left in place for new data owners and research groups to continue using unless direction otherwise is explicitly provided during the exit process.
@@ -131,6 +135,7 @@ DEAC Cluster storage is located on high performance, enterprise hardware that is
 .. _sdm-permitted_data-homedir
 #. Home Directories
 Home directories are not intended to be intensely used storage locations. This is because the /home path is a vital storage location for functionality on the DEAC Cluster. If /home runs out of space, no user will be able to login to the DEAC Cluster and job executions will fail. Any user seeking to use /home for purposes other than listed below, MUST contact the HPC Team before doing so:
+
 * Software configuration files
 * User settings and SSH Keys
 * Simple scripts and project notes, 
@@ -139,6 +144,7 @@ Home directories are not intended to be intensely used storage locations. This i
 .. _sdm-permitted_data-researchdir
 #. Research Paths
 Research storage path’s are intended to be the ONLY storage location used for research related data and executed research tasks to the DEAC Cluster’s scheduler. This path while less restrictive to encourage use, should still only be used for the following:
+
 * Source and input data that it related to and used in order to conduct research.
 * Output and original data that is generated as a result of executed computations
 * Compiled code and executable files that are run for research.
@@ -157,6 +163,7 @@ A temporary file system location is created for every job submitted to the DEAC 
 Non-Permitted Data
 ------------------
 **Under no circumstances are the following data types allowed on the DEAC Cluster:**
+
 * Classified and compartmentalized data
     * DEAC is not accredited to support classified data or projects.
 * Data requiring HIPAA compliance
