@@ -41,6 +41,7 @@ release = ''
 extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
+    'sphinx.ext.autosectionlabel',
 #    'myst_parser'   
 ]
 
