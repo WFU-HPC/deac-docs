@@ -1,15 +1,15 @@
 .. _sec.sla:
 
-====================================
+####################################
 DEAC Cluster Service Level Agreement
-====================================
+####################################
 
 The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated annually, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. 
 
 This SLA seeks to further enhance and support the mission of the DEAC Cluster, which is to provide stable, robust, and accessible computational resources that allow the education and research communities to focus on their primary missions. All students and faculty in the WFU Undergraduate School and Graduate School of Arts and Sciences will continue to have free baseline access to the DEAC Cluster. This SLA defines how the Information Systems (IS) HPC Team makes allocation of those resources as fair as possible for an ever evolving, and growing, user base. Relevant to fair access, this SLA seeks to clearly define the method for which users can contribute funds in support of larger anticipated workloads; as well as most how those contributions, and their benefits, are weighed alongside total monetary investment into the DEAC Cluster.
 
 .. contents::
-   :depth: 4
+   :depth: 2
 ..
 
 .. #############################################################################
@@ -18,12 +18,16 @@ This SLA seeks to further enhance and support the mission of the DEAC Cluster, w
 .. #############################################################################
 
 .. _sec.sla.ua:
+
+**************
 User Agreement
-==============
+**************
 
 .. _sec.sla.ua.account_eligibility:
+
 Account Eligibility and Sponsorhip
-----------------------------------
+==================================
+
 **Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) as part of the centralized services provided by Information Systems.**
 
 * To access the DEAC Cluster, students, faculty and staff must formally request access from the HPC Team, either via email to `deac-help@wfu.edu <mailto:deac-help@wfu.edu>`_ or ticket submission to the HPC Team from `help.wfu.edu <https://help.wfu.edu>`_.
@@ -33,16 +37,18 @@ Account Eligibility and Sponsorhip
 * Non-WFU parties are allowed access to the DEAC Cluster for research collaborations. The sponsoring research must request creation of a `guest account <https://help.wfu.edu/support/catalog/items/64>`_ for their collaborator and complete the guest account request process accordingly. If access is required beyond the original request’s term, a guest account `extension <https://help.wfu.edu/support/catalog/items/63>`_ must be requested.
 * `Students <https://help.wfu.edu/support/catalog/items/127>`_, `faculty or staff <https://help.wfu.edu/support/catalog/items/60>`_ may have their WFU account extended after leaving the University in order to continue research as an external collaborator with a currently employed researcher on the DEAC Cluster. The research sponsor must make a formal request via help.wfu.edu for an account extension for the external collaborator’s account. Account extensions may be requested for up to one year. If the collaboration continues beyond that year, the request must be made again before the term ends.
 
-**Usage of the DEAC Cluster by WFU affiliated parties outside of the WFU UC/GSAS, such as the School of Medicine, is provided only in a PAID USAGE format. See :ref:`sec.su.chargebacks` for more information on how usage payments are calculated and made.**
+**Usage of the DEAC Cluster by WFU affiliated parties outside of the WFU UC/GSAS, such as the School of Medicine, is provided only in a PAID USAGE format. See :ref:`sec.sla.su.chargebacks` for more information on how usage payments are calculated and made.**
 
 .. _sec.sla.ua.acceptable_use:
+
 Acceptable Use
---------------
+==============
+
 Access to and use of DEAC Cluster resources is permitted for academic research and instructional activity only. The list of usage regulations below is not all encompassing; it is provided in an effort to promote awareness of acceptable use of the DEAC Cluster, and to ensure that the DEAC Cluster is used in an efficient, ethical, and lawful manner. If any user is unsure whether their usage, discovered actions, or observed behavior is acceptable on the DEAC Cluster, they should contact the HPC Team without hesitation. 
 
 Violation of any of the following usage regulations below may result in a variety of actions including, but not limited to: Suspension of DEAC Cluster account, investigation by Information Systems Information Security (InfoSec), and appropriate legal action where warranted. Relevant Federal law, North Carolina state laws, and Wake Forest University rules and regulations supersede any potential action in cases of conflict. 
 
-#. Users must :ref:`acknowledge the DEAC Cluster<acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
+#. Users must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
 #. All users should adhere to the Information Systems `Policy on Responsible and Ethical Use of Computing Resources <https://docs.google.com/document/d/1ERgJ0aIBqTr9UQr6Vy6dNvb0nsKyGOZi2p1_MTZl9YA/edit?usp=sharing>`_ while operating on the DEAC Cluster. Students are also governed by the Wake Forest University `Code of Conduct <https://studentconduct.wfu.edu/undergraduate-student-handbook/>`_ while using the DEAC Cluster.
 #. Use of DEAC Cluster resources for unauthorized commercial activities, for personal gain, cryptocurrency mining, or any illegal activities is prohibited.
 #. DEAC Cluster accounts are to be used only for the purpose for which they are authorized and are not to be used for non-DEAC Cluster related activities. 
@@ -60,8 +66,10 @@ Violation of any of the following usage regulations below may result in a variet
 #. Any discovered security vulnerabilities, misuse of resources, or violation of this agreement should be reported to the HPC Team immediately.
 
 .. _sec.sla.ua.acceptable_head_node_use:
+
 Acceptable Head Node Use
-------------------------
+========================
+
 Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not designed nor intended to bear full computational workloads. Users must be cognizant that Head Nodes are shared resources in which user access is required to utilize DEAC Cluster resources. User resource consumption is **limited to 2 cores and 16GB of memory** while operating on the Head Nodes; if more resources are needed, those operations should be conducted via an interactive job through the DEAC Cluster’s scheduler. In addition to following guidelines of :ref:`Acceptable Use<sec.sla.ua.acceptable_use>`, the following list of acceptable Head Node usage below is intended to be all encompassing; any activity occurring from a Head Node not listed below is subject to termination by the HPC Team without prior notification. 
 
 #. *Editing Files* - As the primary access point to all research data, scripts, and results, it is expected that users will commonly view, edit, and manipulate their files from the Head Nodes. Use of built-in editing tools like vim, nano, emacs, nedit, as well as use of third party tools such as Visual Studio Code are recommended.
@@ -72,8 +80,10 @@ Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not 
 #. *Job Submission* - All jobs submitted to the DEAC Cluster’s scheduler are done so from the Head Nodes.
 
 .. _sec.sla.ua.job_cancellation:
+
 Job Cancellation
-----------------
+================
+
 The HPC Team reserves the right to terminate running jobs, head node processes, and other operations on the DEAC Cluster without notification for the following reasons:
 
 * Emergency node maintenance.
@@ -89,36 +99,44 @@ The HPC Team reserves the right to terminate running jobs, head node processes, 
 .. #############################################################################
 
 .. _sec.sla.sdm:
+
+***************************
 Storage and Data Management
-===========================
+***************************
 
 .. _sec.sla.sdm.storage_access:
+
 Storage Access
---------------
+==============
+
 Only approved DEAC Cluster users can store data on DEAC Cluster storage; specifically, this includes active research paths, user home directories, and cloud archives.
-* Researchers eligible to access the DEAC Cluster at no cost as defined in the :ref:`Account Eligibility Section<_ua.account_eligibility>` are provided access to DEAC Cluster research storage by default.
+* Researchers eligible to access the DEAC Cluster at no cost as defined in the :ref:`Account Eligibility Section<sec.sla.ua.account_eligibility>` are provided access to DEAC Cluster research storage by default.
 * Researchers eligible to use the DEAC Cluster through chargeback-based access are not provided storage beyond a simple home directory (for usage as defined in :ref:`Permitted Data<sec.sla.sdm.permitted_data-homedir>`).
     * Some researchers may have access to storage that is not maintained by the HPC Team, but configured for access through a special administrative agreement. 
     * Those researchers are expected to follow storage and data guidelines as defined in both this document AND the 3rd party administrators of their storage system. 
     * Access to 3rd party storage is not guaranteed by the HPC Team; availability and performance are fully under 3rd party administrator control.
-    * Chargeback-based researchers may be allowed to purchase research storage in order house data on the DEAC Cluster. See :ref:`Storage Sub Service-Units<su.ssu_types.storage>` for details.
+    * Chargeback-based researchers may be allowed to purchase research storage in order house data on the DEAC Cluster. See :ref:`Storage Sub Service-Units<sec.sla.su.ssu_types.storage>` for details.
 * Collaborators and researchers from outside of Wake Forest University will have their storage access, requests and requirements reviewed on a case-by-case basis.
 
 Network and system firewalls will prevent unauthorized user access to DEAC Cluster research storage, while file system settings and permissions will limit research groups to only accessing their group’s data. These settings are managed and maintained by the HPC Team. By default, only the research groups working on the DEAC Cluster will have access to their relevant data. Research groups may include PIs, Co-PIs, Senior Personnel, Collaborators, post docs, graduate students, undergraduate students, staff, and approved sponsored guest accounts. 
 
 .. _sec.sla.sdm.storage_quotas:
+
 Storage Quotas
---------------
+==============
+
 Storage quotas are utilized on DEAC Cluster research storage paths to prevent unexpected and accidental growth of filesystems. The following quotas are defined, configured, and implemented by the HPC Team:
 
 * Reynolda Campus researchers and departments are provided quotas for research paths starting at 1TB. 
     * These quotas can be increased after an explicit request for additional space is made, and the need identified by the HPC Team. 
 * **Expansion of data quotas are allowed at no cost up to 2TB per researcher, 10TB per research group, or 20TB per department, so long as sum totals fit within these limits.**
-* Any research group, department use, or funded projects requiring an increase above these default quota limits must be paid for through a Service Unit purchase as outlined in the :ref:`Service Unit Section<su>`.
+* Any research group, department use, or funded projects requiring an increase above these default quota limits must be paid for through a Service Unit purchase as outlined in the :ref:`Service Unit Section<sec.sla.su>`.
 
 .. _sec.sla.sdm.data_ownership:
+
 Data Ownership
---------------
+==============
+
 All users of The DEAC Cluster will be responsible for abiding to these data management guidelines as it relates to their own research. All users must agree to these guidelines before being granted access to the DEAC Cluster as part of the account creation process. Any users found in violation of these guidelines, or repeatedly attempting to access data that is not relevant to their research, will be considered acting in violation of the :ref:`User Agreement Section's terms for Acceptable Use<sec.sla.ua.acceptable_use>`.
 
 Researchers should be good stewards of their data – this includes keeping only that which is actively relevant on DEAC Cluster research storage. Research group advisors are ultimately responsible for the oversight of their research storage path. In the event of a departure, the following ownership changes will occur:
@@ -128,14 +146,19 @@ Researchers should be good stewards of their data – this includes keeping only
 As researchers leave the University, it does NOT trigger automatic archival of research data. Data is left in place for new data owners and research groups to continue using unless direction otherwise is explicitly provided during the exit process.
 
 .. _sec.sla.sdm.permitted_data:
+
 Permitted Data
---------------
+==============
+
 The expected data and metadata to be collected or produced on the DEAC Cluster includes software, execution code, and the electronic data produced. Electronic data will be stored on the DEAC Cluster, following Information Systems (IS) and High Performance Computing (HPC) Team best practices and `security policies <https://docs.google.com/document/d/12aIqNnLtFac-ZUeagpYxnTmGNJsJQCxHLow8n8kcntI/edit?usp=sharing>`_. 
 
 DEAC Cluster storage is located on high performance, enterprise hardware that is capable of supporting HPC workloads; therefore, it is very expensive and extremely limited. For these reasons, researchers are expected to adhere strictly to permitted data guidance for the following data paths: 
 
 .. _sec.sla.sdm.permitted_data-homedir:
-#. Home Directories
+
+Home Directories
+----------------
+
 Home directories are not intended to be intensely used storage locations. This is because the /home path is a vital storage location for functionality on the DEAC Cluster. If /home runs out of space, no user will be able to login to the DEAC Cluster and job executions will fail. Any user seeking to use /home for purposes other than listed below, MUST contact the HPC Team before doing so:
 
 * Software configuration files
@@ -144,7 +167,10 @@ Home directories are not intended to be intensely used storage locations. This i
 * Pre-approved special binary compilations. 
 
 .. _sec.sla.sdm.permitted_data-researchdir:
-#. Research Paths
+
+Research Paths
+--------------
+
 Research storage path’s are intended to be the ONLY storage location used for research related data and executed research tasks to the DEAC Cluster’s scheduler. This path while less restrictive to encourage use, should still only be used for the following:
 
 * Source and input data that it related to and used in order to conduct research.
@@ -158,12 +184,17 @@ Research storage path’s are intended to be the ONLY storage location used for 
     * Make files
 
 .. _sec.sla.sdm.permitted_data-scratchdir:
-#. Scratch Paths
+
+Scratch Paths
+-------------
+
 A temporary file system location is created for every job submitted to the DEAC Cluster’s scheduler, located at /scratch/$jobid. This path is not shared between compute nodes and is intended for local copies of active data in order to reduce network traffic during computational cycles. This path should always be used when a job generates lots of I/O, and/or when lots of temporary data is generated for a job (up to 480GB). When this path is used, any relevant data wishing to be kept *must* be moved out by the data owner prior to job completion or it will be deleted automatically. If a job fails and data cannot be moved out as a result, that data will still be deleted automatically.
 
 .. _sec.sla.sdm.non_permitted_data:
+
 Non-Permitted Data
-------------------
+==================
+
 **Under no circumstances are the following data types allowed on the DEAC Cluster:**
 
 * Classified and compartmentalized data
@@ -179,8 +210,10 @@ Non-Permitted Data
 Any user found to not be following these guidelines will be warned and made to have that data removed within one week. After this initial warning, further incidents will be found in violation of the ref:`User Agreement Section's terms for Acceptable Use<sec.sla.ua.acceptable_use>`.
 
 .. _sec.sla.sdm.data_backup:
+
 Data Backup
------------
+===========
+
 In addition to a robust enterprise storage solution that is configured to prevent data loss due to hardware failure, the DEAC Cluster also employs two types of backups on research storage to prevent data loss due to human error and malicious intent:
 * Snapshots
     * These nightly tasks utilize differential backups to capture data that changes day to day on research paths. 
@@ -192,8 +225,10 @@ In addition to a robust enterprise storage solution that is configured to preven
     * Offsite backups are not available by default on DEAC Cluster research storage paths, but can be considered upon special requests made to the HPC Team.
 
 .. _sec.sla.sdm.data_retention_archival:
+
 Data Retentional and Archival
-----------------------------
+=============================
+
 All relevant project data will be retained for a minimum of three years after the project conclusion or three years after public release, whichever is later. Relevant data will remain on the DEAC Cluster’s storage or be migrated off to a connected secure cloud archive. Both locations are maintained by IS, and require dual factor authentication behind a secure network firewall to prevent unauthorized access. The following process is followed for data archival:
 * The HPC Team will copy data identified by the requestor to the archive where it will reside on Cloud storage. 
 * Life span options for archived data are for 3 or 10 years. Exceptions can be made upon request when needed (due to grant rules, publication requirements, etc).
@@ -206,8 +241,10 @@ All relevant project data will be retained for a minimum of three years after th
 * As archive retention time periods near expiration, users will be contacted and data life spans will be extended as necessary. 
 
 .. _sec.sla.sdm.dissemination_sharing:
+
 Dissemination and Sharing
--------------------------
+=========================
+
 Generally speaking, all users of the DEAC Cluster should comply with the NSF Proposal and Award Policy and Procedures Guide (PAPPG) `policy <https://www.nsf.gov/pubs/policydocs/pappg20_1/pappg_11.jsp#XID4>`_ on the dissemination and sharing of research results. Researcher advisors shall publish the findings from their research group projects as soon and as widely as possible. Additionally, research advisors, PIs, and Co-PIs should be encouraged to publish their findings in peer-reviewed journals and, if travel allows, present results at relevant conferences. Findings on the DEAC Cluster are not expected to be proprietary so no limits on dissemination should be expected. If data that supports disseminated findings must also be shared, coordination must occur with the HPC Team to make data accessible to individuals in the scientific community. 
 
 All dissemination and shared findings should reference the DEAC Cluster in accordance with the :ref:`User Agreement Section's first term for Acceptable Use<sec.sla.ua.acceptable_use>`.
@@ -218,37 +255,50 @@ All dissemination and shared findings should reference the DEAC Cluster in accor
 .. #############################################################################
 
 .. _sec.sla.su:
+
+************
 Service Unit
-============
+************
 
 .. _sec.sla.su.purpose_applicability:
+
 Purpose and Applicability
--------------------------
+=========================
 
 .. _sec.sla.su.contributions:
+
 SU Contributions
-----------------
+================
 
 .. _sec.sla.su.chargebacks:
+
 SU Chargebacks
---------------
+==============
 
 .. _sec.sla.su.ssu_types:
+
 Service Sub-Unit Types
-----------------------
+======================
 
 .. _sec.sla.su.ssu_types.compute:
-#. Compute Service Sub-Unit
+
+Compute Service Sub-Unit
+------------------------
 
 .. _sec.sla.su.ssu_types.gpu:
-#. GPU Service Sub-Unit
+
+GPU Service Sub-Unit
+--------------------
 
 .. _sec.sla.su.ssu_types.storage:
-#. Storage Service Sub-Unit
+
+Storage Service Sub-Unit
+------------------------
 
 .. _sec.sla.su.example_purchase:
+
 Example SU Purchase
--------------------
+===================
 
 .. #############################################################################
 .. #############################################################################
@@ -256,31 +306,123 @@ Example SU Purchase
 .. #############################################################################
 
 .. _sec.sla.fs:
+
+*********************
 Fairshare Calculation
-=====================
+*********************
+
+Expected utilization of the DEAC Cluster by a research group is controlled by their **Fairshare** value. Fairshare is only a consideration that is enforced when the DEAC Cluster is *overutilized*. When overutilized, the DEAC Cluster’s scheduler tracks pending user tasks, or jobs, in a queue; the scheduler uses an assigned fairshare value from each user to assign priority to these queued jobs. In an *underutilized* cluster environment, jobs run as the resources are available (which, in most cases, is immediately). 
+
+* Fairshare values are assigned based upon a researcher’s representative investment into the DEAC Cluster compared to the total monetary investment (Itot) over the past 5 years. 
+* Contributions, investments, fairshare and expected usage are recalculated at the end of the fiscal year (June 30) and deployed to the DEAC Cluster scheduler configuration within one month of final calculations.
+* There are three investment types factored into the calculation of Fairshare values:
+
+.. math::
+
+  I_{tot} = I_{\mathrm{IS}} + I_{\mathrm{WFU}} + I_{\mathrm{contrib}},
 
 .. _sec.sla.fs.investment_types:
+
 Investment Types
-----------------
+================
 
 .. _sec.sla.fs.investment_types.i_is:
-#. Information Systems Investment (I<sub>IS</sub>)
+
+Information Systems Investment (:math:`\mathbf{I_{\mathrm{IS}}}`)
+-----------------------------------------------------------------
+
+As a centralized resource, the Information System department budgets annual hardware refreshes to remove/replace DEAC Cluster resources greater than 5 years old based on overall utilization. This 5-year expected lifespan of investments is why the total investment period is equal to 5 years.
+
+* The total Information Systems investment (:math:`I_{\mathrm{IS}}`), divided by the number of all active departments utilizing the DEAC Cluster (:math:`D_{\mathrm{active}}`), is equal to the equivalent baseline contribution amount (:math:`A_{\mathrm{base}}`):
+
+.. math::
+
+  A_{\mathrm{base}} = \frac{\mathrm{IS}}{D_{\mathrm{active}}}.
+
+* The ratio of :math:`A_{\mathrm{base}}` to the DEAC Cluster’s total monetary investment (:math:`I_{{tot}}`) represents the baseline Fairshare (:math:`F_{\mathrm{base}}`) assigned to all researcher groups and/or departments by default.
+* The :math:`F_{\mathrm{base}}` value **assigned to all research groups by default is currently .0579.**
+* **By default, a research group inherits this** :math:`F_{\mathrm{base}}` **value from their parent department and shares expected utilization with all researchers within that same department.**
+
+.. math::
+
+  F_{\mathrm{base}} = \frac{A_{\mathrm{base}}}{I_{tot}}.
+
+* Chargebacks from non-WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) departments are factored into the DEAC Cluster as an Information Systems Investment (:math:`I_{\mathrm{IS}}`) and thus the baseline Fairshare (:math:`F_{\mathrm{base}}`).
+    * The DEAC Cluster is accessible to non-WFU UC/GSAS researchers if, and only if, those researchers are willing and able to pay for their consumed usage of resources in the form of a chargeback. See the :ref:`Service Unit Chargeback Section<sec.sla.su.chargebacks>` for more information on how chargebacks are calculated.
 
 .. _sec.sla.fs.investment_types.i_wfu:
-#. WFU Provost Office Investment (I<sub>WFU</sub>)
+
+WFU Provost Office Investment (:math:`\mathbf{I_{\mathrm{WFU}}}`)
+-----------------------------------------------------------------
+
+The WFU Provost’s Office has several funding opportunities available to researchers. One such opportunity includes the Office of Research and Sponsored Programs (ORSP); which *annually matches up to $75,000 in grant fund contributions* made to the DEAC Cluster.
+
+* The total investment provided by the WFU Provost office (:math:`I_{\mathrm{WFU}}`), divided by the number of WFU Provost supported departments utilizing the DEAC Cluster (:math:`D_{\mathrm{WFU}}`), equals an additional baseline contribution amount (:math:`A_{\mathrm{WFU}}`) for WFU Provost supported departments ONLY:
+
+.. math::
+
+  A_{\mathrm{WFU}} = 
+  \begin{cases}
+  \dfrac{I_{\mathrm{WFU}}}{D_{\mathrm{WFU}}} & \text{for WFU UC/GSAS members}, \\\\
+  0 & \text{for all others}.
+  \end{cases}
+
+* The ratio of :math:`A_{\mathrm{WFU}}` to the DEAC Cluster’s total Investment (:math:`I_{{tot}}`) represents an additional fairshare increase (:math:`F_{\mathrm{WFU}}`) added only to WFU Provost supported researchers or departments.
+
+.. math::
+
+  F_{\mathrm{WFU}} = \frac{A_{\mathrm{WFU}}}{I_{tot}}.
 
 .. _sec.sla.fs.investment_types.i_contrib:
-#. Researcher of Departmental Contribution Investments (I<sub>contrib</sub>)
+
+Researcher Contribution Investments (:math:`\mathbf{I_{\mathrm{contrib}}}`)
+---------------------------------------------------------------------------
+
+See the :ref:`Service Unit Contributions Section<sec.sla.su.contributions>` for more information on how contributed amounts (:math:`A_{\mathrm{contrib}}`) are calculated and why they are made.
+
+* The sum total of all SU-based contributions (:math:`I_{\mathrm{contrib}}`) is factored into the total monetary investment (:math:`I_{{tot}}`) which influences the baseline fairshare (:math:`F_{\mathrm{base}}`) and additional fairshare increase (:math:`F_{\mathrm{WFU}}`) values.
+
+.. math::
+
+  I_{\mathrm{contrib}} = \sum{A_{\mathrm{contrib}}},
+
+* SU Contributions (:math:`A_{\mathrm{contrib}}`) are counted solely toward the contributing research group or department’s final fairshare value (:math:`F_{\mathrm{final}}`). 
+    * Research-node purchases are NOT counted toward Icontrib nor Acontrib, as they are 1) not SU-based contributions, and 2) only benefit a specific research group rather than the entire DEAC Cluster user base. Matching ORSP funds may be counted if they do not go toward the research-node purchase.
+    * Department based contributions are applied on a case-by-case basis, but most commonly, would be split amongst all associated research groups in that department, in a similar manner to how :math:`A_{\mathrm{WFU}}` and :math:`F_{\mathrm{WFU}}` are calculated.
+* All contributing research groups will have their final fairshare value (:math:`F_{\mathrm{final}}`) assigned independently of their parent department; granting them an expected utilization independent from that of their department’s fairshare.
+    * This counts each contributing research group’s usage separately from their department, and sets their fairshare above the baseline of an entire department’s non-contributing researchers as well, vastly increasing a research group’s priority overall on the cluster.
 
 .. _sec.sla.fs.assigned_fairshare_value:
-Assigned Fairshare Value
-------------------------
-aka (F<sub>final</sub>)
+
+Assigned Fairshare Value (:math:`\mathbf{F_{\mathrm{final}}}`)
+==============================================================
+
+The final Fairshare value (:math:`F_{\mathrm{final}}`) that is applied to a research group is extrapolated from the ratio sum of :math:`A_{\mathrm{base}}`, :math:`A_{\mathrm{WFU}}`, and :math:`A_{\mathrm{contrib}}`, over :math:`A_{\mathrm{base}}`; multiplied by their default applied Fairshare value (:math:`F_{\mathrm{base}}` plus :math:`F_{\mathrm{WFU}}`); this evaluation fairly multiplies default baseline fairshare values by the ratio of a research group’s investment amount to the baseline. For example, if a research group has contributed amounts double to that of the applicable baseline amount, their :math:`F_{\mathrm{final}}` should be double that of another group who has not contributed to the DEAC Cluster:
+
+.. math::
+  F_{\mathrm{final}} = \frac{ A_{\mathrm{base}} + A_{\mathrm{WFU}} + {A_{\mathrm{contrib}} }}{A_{\mathrm{base}}} \times (F_{\mathrm{base}} + F_{\mathrm{WFU}}).
 
 .. _sec.sla.fs.expected_utilization:
-Expected Utilization
---------------------
-aka U<sub>final</sub>
+
+Expected Utilization (:math:`\mathbf{U_{\mathrm{final}}}`)
+==========================================================
+
+Expected utilization (:math:`U_{\mathrm{final}}`) percentage of DEAC Cluster resources is derived by normalizing all non-classroom assigned Fairshare values (:math:`F_{\mathrm{final}}`) to a scale of 1. By dividing a research group or department’s :math:`F_{\mathrm{final}}` by the sum total of all assigned research group and/or department Fairshare values (:math:`F_{{tot}}`), one can arrive at an expected utilization percentage (:math:`U_{\mathrm{final}}`).
+
+.. math::
+
+  F_{tot} = \sum{F_\mathrm{final}}
+
+* The value of :math:`F_{tot}` is currently 1.6379; therefore, the expected baseline usage percentage (:math:`U_{\mathrm{base}}`) of default :math:`F_{\mathrm{base}}` is equal to 3.53% of DEAC Cluster resources (or 102,521 core hours per month).
+    * :math:`F_{tot}` is not equal to 1 due to how Abase is factored into all contributing research group’s :math:`F_{\mathrm{final}}`. Essentially, Abase is counted one extra time for every additional contributing group’s :math:`F_{\mathrm{final}}`, moving :math:`F_{tot}` further from 1 for every researcher contribution. 
+    * The DEAC Cluster’s scheduler will fairly assign priority regardless of whether or not Ftot is equal to 1; normalizing fairshare to calculate Ufinal is only to help researchers understand their expected utilization and limits.
+* The *higher* the assigned :math:`F_{\mathrm{final}}`, the higher the expected utilization (:math:`U_{\mathrm{final}}`); conversely, the higher the value of :math:`F_{tot}`, the lower the :math:`U_{\mathrm{final}}`.
+    * As more researchers contribute, and more departments start using the DEAC Cluster, a lower overall usage percentage would be expected. Ideally, as more researchers use the DEAC cluster and usage increases, the number of overall resources available should increase to share. 
+
+.. math:
+
+  U_{\mathrm{final}} = \frac{F_{\mathrm{final}}}{F_{tot}}
+
 
 .. #############################################################################
 .. #############################################################################
@@ -288,23 +430,30 @@ aka U<sub>final</sub>
 .. #############################################################################
 
 .. _sec.sla.ul:
+
+*****************
 Usage Limitations
-=================
+*****************
 
 .. _sec.sla.ul.baseline_research_groups:
+
 Baseline Research Groups
-------------------------
+========================
 
 .. _sec.sla.ul.contributing_research_groups:
+
 Contributing Research Groups
-----------------------------
+============================
 
 .. _sec.sla.ul.class_groups:
+
 Class Groups
-------------
+============
 
 .. #############################################################################
 .. #############################################################################
 .. #############################################################################
 .. #############################################################################
+
+
 
