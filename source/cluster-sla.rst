@@ -57,7 +57,7 @@ Violation of any of the following usage regulations below may result in a variet
 #. DEAC Cluster users should adhere to the defined usage limitations as provided in the :ref:`sec.sla.fs` and :ref:`sec.sla.ul`.
 #. Users must adhere to the terms provided in the :ref:`Storage and Data Management Section<sec.sla.sdm>`.
 #. Electronic mail notifications sent from the DEAC Cluster are for authorized use only. Notifications sent to recipients other than themselves or users within their research group should only be done so with written consent. Fraudulent, harassing, or obscene messages and/or materials shall not be sent from or stored on the DEAC Cluster.
-#. The DEAC Cluster is not intended for classified projects or data. The processing and storage of classified information is strictly prohibited.
+#. The DEAC Cluster is not intended for classified government projects or data (ie, Secret, Top-Secret, FOUO, etc). The processing and storage of classified information is strictly prohibited.
 #. Any activity that violates the export control laws of the United States is prohibited.
 #. If using copyrighted and/or proprietary files or resources, users should provide the HPC Team proof of proper authorization. Access restriction to any such files or resources can be implemented upon request.
 #. Users shall not share credentials to use their account(s) with anyone.
@@ -307,6 +307,11 @@ Researchers that are planning on conducting a significant amount of their work o
 
     * The :ref:`sec.sla.su.ssu_types` section  provides the definition of these SSUs and how total SU numbers and costs are derived and calculated.
 
+* A non-standard, hardware-specific contribution can be made to purchase a Research-Node.
+
+    * A Research-Node is essentially a dedicated Head Node to be used only by the purchasing research group.
+    * This hardware-based contribution method is *only offered as a last resort*, limited only to those groups who cannot conduct their work on current DEAC resources and/or setup.
+
 .. _sec.sla.su.chargebacks:
 
 SU Chargebacks
@@ -553,8 +558,8 @@ See the :ref:`Service Unit Contributions Section<sec.sla.su.contributions>` for 
 
 * SU Contributions (:math:`A_{\mathrm{contrib}}`) are counted solely toward the contributing research group or department’s final fairshare value (:math:`F_{\mathrm{final}}`). 
 
-    * Research-node purchases are NOT counted toward :math:`I_{\mathrm{contrib}}` nor :math:`A_{\mathrm{contrib}}`, as they are 1) not SU-based contributions, and 2) only benefit a specific research group rather than the entire DEAC Cluster user base. Matching ORSP funds may be counted if they do not go toward the research-node purchase.
     * Department based contributions are applied on a case-by-case basis, but most commonly, would be split amongst all associated research groups in that department, in a similar manner to how :math:`A_{\mathrm{WFU}}` and :math:`F_{\mathrm{WFU}}` are calculated.
+    * Research-Node purchases are NOT counted toward :math:`I_{\mathrm{contrib}}` nor :math:`A_{\mathrm{contrib}}`, as they are 1) not SU-based contributions, and 2) only benefit a specific research group rather than the entire DEAC Cluster user base. Matching ORSP funds may be counted toward :math:`I_{\mathrm{WFU}}` depending on cluster impact and benefit.
 
 * All contributing research groups will have their final fairshare value (:math:`F_{\mathrm{final}}`) assigned independently of their parent department; granting them an expected utilization independent from that of their department’s fairshare.
 
