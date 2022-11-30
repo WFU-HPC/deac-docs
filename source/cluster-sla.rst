@@ -206,7 +206,7 @@ Non-Permitted Data
 **Under no circumstances are the following data types allowed on the DEAC Cluster:**
 
 * **Classified and compartmentalized data**
-    * DEAC is not accredited to support classified data or projects.
+    * DEAC is not accredited to support classified government data or projects (ie, Secret, Top-Secret, FOUO, etc).
 * **Data requiring HIPAA compliance**
     * DEAC is not a HIPAA compliant system.
 * **Non-DEAC Research data**
