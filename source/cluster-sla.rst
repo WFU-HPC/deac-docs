@@ -374,7 +374,7 @@ GPU Service Sub-Unit
 Storage Service Sub-Unit
 ------------------------
 
-**A Storage Service Sub-Unit (SSU) is defined as having one (1) terabyte (TB) of dedicated DEAC Storage for one (1) month. DEAC Storage is defined as any dedicated network storage device hosting data used for research on the DEAC Cluster.**
+**A Storage Service Sub-Unit (SSU) is defined as having one (1) terabyte (TB) of dedicated DEAC Storage for one (1) month. DEAC Storage is defined as any IS Managed, dedicated network storage device hosting data used for research on the DEAC Cluster.**
 
 * *The Base Storage Rate used to convert Storage SSUs to SUs is derived from the cost of a DEAC Storage disk, divided by the Terabytes per disk, divided by the 5-year disk lifespan, divided by a 1.1 data reduction ratio, plus University F&A (45.5%).*
 * **Storage SSU purchases do NOT exist in perpetuity.**
