@@ -1,9 +1,9 @@
-# NetCDF Stack (HDF5, NetCDF-C, NetCDF-FORTRAN)
+# NetCDF Stack (HDF5, NetCDF-C, NetCDF-FORTRAN; also see ABINIT)
 
 ## GCC
 
 ```sh
-module purge && module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0 libs/intel/mkl/2021.2 libs/libxc/5.2.3/gcc/10.2.0
+module purge && module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0
 
 # HDF5
 cd $TMPDIR
@@ -42,7 +42,7 @@ make install
 ## Intel
 
 ```sh
-module purge && module load compilers/gcc/10.2.0 compilers/intel/2021.2 mpi/openmpi/4.1.1/intel/2021.2 libs/intel/mkl/2021.2 libs/libxc/5.2.3/intel/2021.2
+module purge && module load compilers/gcc/10.2.0 compilers/intel/2021.2
 
 # HDF5
 cd $TMPDIR
