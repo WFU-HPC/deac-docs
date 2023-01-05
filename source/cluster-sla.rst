@@ -590,8 +590,8 @@ Expected utilization (:math:`U_{\mathrm{final}}`) percentage of DEAC Cluster res
 
 * The value of :math:`F_{tot}` is currently **1.6379**; therefore, the expected baseline usage percentage (:math:`U_{\mathrm{base}}`) of default :math:`F_{\mathrm{base}}` is equal to **3.53%** of DEAC Cluster resources (or *102,521 core hours per month*).
 
-    * :math:`F_{tot}` is not equal to 1 due to how Abase is factored into all contributing research group’s :math:`F_{\mathrm{final}}`. Essentially, Abase is counted one extra time for every additional contributing group’s :math:`F_{\mathrm{final}}`, moving :math:`F_{tot}` further from 1 for every researcher contribution. 
-    * The DEAC Cluster’s scheduler will fairly assign priority regardless of whether or not Ftot is equal to 1; normalizing fairshare to calculate Ufinal is only to help researchers understand their expected utilization and limits.
+    * :math:`F_{tot}` is not equal to 1 due to how :math:`A_{base}` is factored into all contributing research group’s :math:`F_{\mathrm{final}}`. Essentially, :math:`A_{base}` is counted one extra time for every additional contributing group’s :math:`F_{\mathrm{final}}`, moving :math:`F_{tot}` further from 1 for every researcher contribution. 
+    * The DEAC Cluster’s scheduler will fairly assign priority regardless of whether or not :math:`F_{tot}` is equal to 1; normalizing fairshare to calculate :math:`U_{\mathrm{final}}` is only to help researchers understand their expected utilization and limits.
 
 * The *higher* the assigned :math:`F_{\mathrm{final}}`, the higher the expected utilization (:math:`U_{\mathrm{final}}`); conversely, the higher the value of :math:`F_{tot}`, the lower the :math:`U_{\mathrm{final}}`.
 
@@ -613,9 +613,9 @@ Expected utilization (:math:`U_{\mathrm{final}}`) percentage of DEAC Cluster res
 Usage Limitations
 *****************
 
-If a research group exceeds their expected utilization (Ufinal) of cluster resources, then the DEAC Cluster scheduler will temporarily adjust their assigned Fairshare Value (:math:`F_{\mathrm{final}}`) and priority in an attempt to make usage more “fair” for other research groups when overutilized. The time period that tracks resource consumption is reset on the first of each month.
+If a research group exceeds their expected utilization (:math:`U_{\mathrm{final}}`) of cluster resources, then the DEAC Cluster scheduler will temporarily adjust their assigned Fairshare Value (:math:`F_{\mathrm{final}}`) and priority in an attempt to make usage more “fair” for other research groups when overutilized. The time period that tracks resource consumption is reset on the first of each month.
 
-Regardless of calculated :math:`U_{\mathrm{final}}` values, the DEAC Cluster exists to be utilized. Users should submit their jobs to the DEAC Cluster without hesitation if they have research to do! The nature of research means certain periods of the year are busier than others, and it is expected that researchers will exceed their Ufinal at some point. That being said, the DEAC Cluster is a shared resource and several guidelines on usage limitations should be followed by different group types when utilizing its resources. Failing to operate within these limits can result in termination of processes and be found in violation of :ref:`sec.sla.ua.acceptable_use` as outlined in the :ref:`sec.sla.ua`.
+Regardless of calculated :math:`U_{\mathrm{final}}` values, the DEAC Cluster exists to be utilized. Users should submit their jobs to the DEAC Cluster without hesitation if they have research to do! The nature of research means certain periods of the year are busier than others, and it is expected that researchers will exceed their :math:`U_{\mathrm{final}}` at some point. That being said, the DEAC Cluster is a shared resource and several guidelines on usage limitations should be followed by different group types when utilizing its resources. Failing to operate within these limits can result in termination of processes and be found in violation of :ref:`sec.sla.ua.acceptable_use` as outlined in the :ref:`sec.sla.ua`.
 
 .. _sec.sla.ul.baseline_research_groups:
 
