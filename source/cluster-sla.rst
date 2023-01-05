@@ -4,7 +4,7 @@
 DEAC Cluster Service Level Agreement
 ####################################
 
-*DRAFT Last Updated: December 1, 2022*
+*Last Updated: December 1, 2022*
 
 The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated annually, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. 
 
@@ -236,7 +236,7 @@ In addition to a robust enterprise storage solution that is configured to preven
 
 .. _sec.sla.sdm.data_retention_archival:
 
-Data Retentional and Archival
+Data Retention and Archival
 =============================
 
 All relevant project data will be retained for a minimum of three years after the project conclusion or three years after public release, whichever is later. Relevant data will remain on the DEAC Cluster’s storage or be migrated off to a connected secure cloud archive. Both locations are maintained by IS, and require dual factor authentication behind a secure network firewall to prevent unauthorized access. The following process is followed for data archival:
@@ -385,7 +385,9 @@ Storage Service Sub-Unit
 
 * Upon the end of the initial purchase period, the HPC Team will review usage of DEAC Storage with the purchasing party and determine next steps.
 
-    * If a Storage purchase is not renewed, quotas will be reset to their default amount and excess data will require migration, deletion, or archival.
+    * If a Storage purchase is not renewed, quotas will be reset to their default amount and excess data will require migration, deletion, or :ref:`archival<sec.sla.sdm.data_retention_archival>`.
+
+
 
 * See :ref:`sec.sla.su.example.storage`.
 
