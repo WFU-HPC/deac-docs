@@ -387,10 +387,6 @@ Storage Service Sub-Unit
 
     * If a Storage SSU purchase is not renewed, quotas will be reset to their default amount and excess data will require migration, deletion, or :ref:`archival<sec.sla.sdm.data_retention_archival>`.
     * For WFU UC/GSAS researchers, data archival is conducted at no cost by the HPC Team; therefore, archive costs and retention periods should not be factored into Storage SSU purchases.
-sts
-
-
-
 
 * See :ref:`sec.sla.su.example.storage`.
 
