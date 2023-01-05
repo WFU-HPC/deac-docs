@@ -244,7 +244,7 @@ All relevant project data will be retained for a minimum of three years after th
 * The HPC Team will copy data identified by the requestor to the archive where it will reside on Cloud storage. 
 * Life span options for archived data are for 3 or 10 years. Exceptions can be made upon request when needed (due to grant rules, publication requirements, etc).
 
-    * In the event of a publication, data will be retained for the period of time on a project by project basis 
+    * In the event of a post-project retention requirement (for a grant or publication, etc), data will be retained for the required time on a project-by-project basis.
     * Any research resulting in a patent will result in the data retention being extended to the life of the patent. 
 
 * To reduce storage space, data may be compressed prior to archival.
@@ -385,7 +385,10 @@ Storage Service Sub-Unit
 
 * Upon the end of the initial purchase period, the HPC Team will review usage of DEAC Storage with the purchasing party and determine next steps.
 
-    * If a Storage purchase is not renewed, quotas will be reset to their default amount and excess data will require migration, deletion, or :ref:`archival<sec.sla.sdm.data_retention_archival>`.
+    * If a Storage SSU purchase is not renewed, quotas will be reset to their default amount and excess data will require migration, deletion, or :ref:`archival<sec.sla.sdm.data_retention_archival>`.
+    * For WFU UC/GSAS researchers, data archival is conducted at no cost by the HPC Team; therefore, archive costs and retention periods should not be factored into Storage SSU purchases.
+sts
+
 
 
 
