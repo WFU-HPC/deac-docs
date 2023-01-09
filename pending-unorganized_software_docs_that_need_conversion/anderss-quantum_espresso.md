@@ -1,35 +1,86 @@
-# QE (Updated for 2022)
+# QE (Updated for 2023)
 
 ```sh
-export PREFIX="/home/anderss/qe"
-export QE_SRC="${TMPDIR}/qe-7.1"
-mkdir -p ${QE_SRC}/build && cd ${QE_SRC}/build
+## Preamble
+cd $SCRATCH
+wget https://www.quantum-espresso.org/rdm-download/488/v7-1/b86f85dc3c269ef5cea9a524b83226d8/qe-7.1-ReleasePack.tar.gz --no-check-certificate
+tar -xvf qe-7.1-ReleasePack.tar.gz
 
+module purge
 module load compilers/gcc/10.2.0 \
             compilers/intel/2021.2 \
-            mpi/openmpi/4.1.1/intel/2021.2 \
+            mpi/intel/2021.2 \
             libs/intel/mkl/2021.2 \
-            libs/libxc/5.1.7/intel/2021.2 \
             utils/cmake/3.23.1 \
             utils/git/2.36.1
+export CC=mpiicc
+export CXX=mpiicpc
+export FC=mpiifort
+export F95=mpiifort
+export F90=mpiifort
+export F77=mpiifort
+export MPICC=mpiicc
+export MPICXX=mpiicpc
+export MPIF90=mpiifort
+export MPIF77=mpiifort
+export CPP='icc -E'
 
-cmake -DCMAKE_Fortran_COMPILER=mpifort \
-      -DCMAKE_C_COMPILER=mpicc \
-      -DCMAKE_INSTALL_PREFIX="$PREFIX" \
-      -DQE_ENABLE_SCALAPACK=on \
+
+## Using cmake # ONLY METHOD THAT I CAN GET TO WORK 100% BUT CANNOT DO STATIC MKL
+cd ${SCRATCH}/qe-7.1 && mkdir -p build && cd build
+
+cmake -DCMAKE_Fortran_COMPILER=$FC \
+      -DCMAKE_C_COMPILER=$CC \
+      -DQE_CPP=cpp \
+      -DCMAKE_INSTALL_PREFIX="/deac/opt/rhel7/qe/7.1-intel_impi_2021.2_static" \
       -DQE_ENABLE_LIBXC=on \
+      -DLIBXC_INCLUDE_DIR="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
+      -DLIBXC_INCLUDE_DIR_F03="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
+      -DLIBXC_INCLUDE_DIR_F90="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
+      -DLIBXC_LIBRARIES="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxc.a" \
+      -DLIBXC_LIBRARIES_F03="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxcf03.a" \
+      -DLIBXC_LIBRARIES_F90="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxcf90.a" \
       -DCMAKE_C_FLAGS_RELEASE="-O2 -DNDEBUG -march=cascadelake -mtune=cascadelake" \
       -DCMAKE_Fortran_FLAGS_RELEASE="-O2 -DNDEBUG -march=cascadelake -mtune=cascadelake" \
-      -DQE_CPP=icpc \
       -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+      -DQE_ENABLE_SCALAPACK=on \
+      -DBLA_STATIC=off \
+      -DQE_FFTW_VENDOR=Intel_DFTI \
+      -DQE_ENABLE_OPENMP=on \
+      -DQE_ENABLE_STATIC_BUILD=off \
       ..
+      # -DBLA_STATIC=on # doesnt work with scalapack (-l in wrong place)
+      # -DQE_ENABLE_STATIC_BUILD=on # doesnt work with impi (infinite mpi loop)
 
-make -j8
+make -j8 all
+
+
+## Testing
 
 ctest -j8 -L "system--pw" --output-on-failure
 
 make install
+
+
+## Using make.inc # COMPILES BUT BINARY DIES AT DIAGONALIZATION
+cd ${SCRATCH}/qe-7.1
+./configure --with-scalapack=intel --enable-debug
+cp ${RESEARCHPATH}/repos/deac-config/quantum-espresso/make.inc . ; make -j8 pw # need to invoke make in some form
+make -j8 all couple kcw gwl # epw
+
+
+## Using configure-make # DOES NOT CONFIGURE MKL CORRECTLY
+./configure --prefix="/home/anderss/software" \
+            --enable-parallel \
+            --with-libxc=yes \
+            --with-libxc-prefix="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static" \
+            --with-libxc-include="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
+            --enable-static \
+            --enable-openmp
+
+LIBS="${MKLROOT}/lib/intel64/libmkl_scalapack_lp64.a -Wl,--start-group ${MKLROOT}/lib/intel64/libmkl_cdft_core.a ${MKLROOT}/lib/intel64/libmkl_intel_lp64.a ${MKLROOT}/lib/intel64/libmkl_intel_thread.a ${MKLROOT}/lib/intel64/libmkl_core.a ${MKLROOT}/lib/intel64/libmkl_blacs_intelmpi_lp64.a -Wl,--end-group -liomp5 -lpthread -lm -ldl"
 ```
+
 
 ## OLD OLD OLD
 
