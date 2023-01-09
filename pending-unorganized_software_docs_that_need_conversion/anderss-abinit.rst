@@ -83,23 +83,39 @@ Method
 
     ## LibXC Static
     cd $SCRATCH
-    wget https://www.tddft.org/programs/libxc/down/5.2.3/libxc-5.2.3.tar.gz --no-check-certificate
-    tar -xvf libxc-5.2.3.tar.gz
-    cd libxc-5.2.3
-    ./configure --prefix=/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static --disable-shared --enable-static CFLAGS='-g -O2 -march=cascadelake -mtune=cascadelake' FCFLAGS='-pipe -O3 -funroll-loops -ffast-math -ffree-line-length-none -march=cascadelake -mtune=cascadelake'
+
+    # wget https://www.tddft.org/programs/libxc/down/5.2.3/libxc-5.2.3.tar.gz --no-check-certificate
+    # tar -xvf libxc-5.2.3.tar.gz
+    # cd libxc-5.2.3
+    # ./configure --prefix=/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static --disable-shared --enable-static CFLAGS='-g -O2 -march=cascadelake -mtune=cascadelake' FCFLAGS='-pipe -O3 -funroll-loops -ffast-math -ffree-line-length-none -march=cascadelake -mtune=cascadelake'
+
+    wget https://www.tddft.org/programs/libxc/down/6.0.0/libxc-6.0.0.tar.gz --no-check-certificate
+    tar -xvf libxc-6.0.0.tar.gz
+    cd libxc-6.0.0
+    ./configure --prefix=/deac/opt/rhel7/libxc/6.0.0-intel_impi_2021.2_static --disable-shared --enable-static CFLAGS='-g -O2 -march=cascadelake -mtune=cascadelake' FCFLAGS='-pipe -O3 -funroll-loops -ffast-math -ffree-line-length-none -march=cascadelake -mtune=cascadelake' --enable-kxc
+
     make -j4
-    make -j4 check
-    cd testsuite/ && ./xc-run_testsuite; cd .. # better output, but slower
+    time make -j8 check
+    cd testsuite/ && time ./xc-run_testsuite; cd .. # better output, but slower
     make install && make clean
 
     ## ABINIT w/static MKL, HDF5, NetCDF, and LibXC
     cd $SCRATCH
-    wget https://www.abinit.org/sites/default/files/packages/abinit-9.6.2.tar.gz
-    tar -xvf abinit-9.6.2.tar.gz
-    cd abinit-9.6.2
-    mkdir build && cd build
-    cp /deac/inf/adminGrp/anderss/repos/deac-config/abinit/abinit-9.6.2_impi_omp_static.ac9 ${HOSTNAME}.ac9
-    export LD_LIBRARY_PATH="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
+
+    # wget https://www.abinit.org/sites/default/files/packages/abinit-9.6.2.tar.gz
+    # tar -xvf abinit-9.6.2.tar.gz
+    # cd abinit-9.6.2
+    # mkdir -p build && cd build
+    # cp /deac/inf/adminGrp/anderss/repos/deac-config/abinit/abinit-9.6.2_impi_omp_static.ac9 ${HOSTNAME}.ac9
+    # export LD_LIBRARY_PATH="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
+    
+    wget https://www.abinit.org/sites/default/files/packages/abinit-9.8.1.tar.gz
+    tar -xvf abinit-9.8.1.tar.gz
+    cd abinit-9.8.1
+    mkdir -p build && cd build
+    cp /deac/inf/adminGrp/anderss/repos/deac-config/abinit/abinit-9.8.1_impi_omp_static.ac9 $(hostname -s).ac9
+    export LD_LIBRARY_PATH="/deac/opt/rhel7/libxc/6.0.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
+    
     ../configure
     make -j8
 
