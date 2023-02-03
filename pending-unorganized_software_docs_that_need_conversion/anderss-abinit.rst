@@ -109,13 +109,20 @@ Method
     # cp /deac/inf/adminGrp/anderss/repos/deac-config/abinit/abinit-9.6.2_impi_omp_static.ac9 ${HOSTNAME}.ac9
     # export LD_LIBRARY_PATH="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
     
-    wget https://www.abinit.org/sites/default/files/packages/abinit-9.8.1.tar.gz
-    tar -xvf abinit-9.8.1.tar.gz
-    cd abinit-9.8.1
-    mkdir -p build && cd build
-    cp /deac/inf/adminGrp/anderss/repos/deac-config/abinit/abinit-9.8.1_impi_omp_static.ac9 $(hostname -s).ac9
-    export LD_LIBRARY_PATH="/deac/opt/rhel7/libxc/6.0.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
+    # wget https://www.abinit.org/sites/default/files/packages/abinit-9.8.1.tar.gz
+    # tar -xvf abinit-9.8.1.tar.gz
+    # cd abinit-9.8.1
+    # mkdir -p build && cd build
+    # cp /deac/inf/adminGrp/anderss/repos/deac-config/abinit/abinit-9.8.1_impi_omp_static.ac9 $(hostname -s).ac9
+    # export LD_LIBRARY_PATH="/deac/opt/rhel7/libxc/6.0.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
     
+    wget https://www.abinit.org/sites/default/files/packages/abinit-9.8.2.tar.gz
+    tar -xvf abinit-9.8.2.tar.gz
+    cd abinit-9.8.2
+    mkdir -p build && cd build
+    cp /deac/inf/adminGrp/anderss/repos/deac-config/abinit/abinit-9.8.2_impi_omp_static.ac9 $(hostname -s).ac9
+    export LD_LIBRARY_PATH="/deac/opt/rhel7/libxc/6.0.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static/lib:/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
+
     ../configure
     make -j8
 
