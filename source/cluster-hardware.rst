@@ -65,14 +65,14 @@ Aggregate Information
    *  Processors : 4,224 cores
    *  GPU cores : 68,608 cores
    *  Memory : 18.67TB
-   *  Storage : 221TB
+   *  Storage : 287
 
 .. _compute-nodes-1:
 
 Compute Nodes
 -------------
 
-*  88 - **Cisco B-series Blades - 3,976 cores, 16.50TB total**:
+*  88 - **Cisco B-series Blades - 3,976 cores, 16.50TB RAM total**:
 
    *  26 Skylake Blades with 44 cores -- 192GB RAM
    
