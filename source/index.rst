@@ -39,27 +39,76 @@ DEAC Docs: The Official Docs for the DEAC cluster
 The WFU DEAC HPC Cluster is a centrally funded resource, meaning it is a free
 tool for all Wake Forest University Reynolda Campus researchers and students.
 The HPC Team is here to train users, troubleshoot scripts, upgrade hardware and
-software, and support user needs.
+software, and support user needs. This documentation is a starting point and
+reference for all DEAC Cluster users. They are intended to be a community
+resource for information sharing.
 
-* These docs are the starting point reference for all cluster users.
-* They are intended to be a community resource for information sharing:
+    .. * All entries should aim to make the cluster user experience easier.
+    .. * We encourage all users to frequently consult these docs as content is
+    ..   always being updated.
+    .. * The side bar index is categorized and is roughly structured to be followed
+    ..   from top to bottom:
 
-    * All entries should aim to make the cluster user experience easier.
-    * We encourage all users to frequently consult these docs as content is
-      always being updated.
+    ..     * Newer, less experienced cluster users should carefully review the
+    ..       topmost sections in the side bar.
+    ..     * Experienced/expert users will find various in-depth guides in
+    ..       subsequent sections.
 
-* The side bar index is categorized and is roughly structured to be followed
-  from top to bottom:
+Note: Users must be on a WFU network or connected via VPN in order to access and login to the head nodes!
 
-    * Newer, less experienced cluster users should carefully review the topmost
-      sections in the side bar.
-    * Experienced/expert users will find various in-depth guides in subsequent
-      sections.
+Important Links
+===============
 
-For help, send email to `deac-help@wfu.edu <mailto:deac-help@wfu.edu>`_.
+* `DEAC-Help Email (deac-help@wfu.edu) <mailto:deac-help@wfu.edu>`_: Your direct
+  line to the HPC Team.
+* `Main website <https://hpc.wfu.edu>`_: General information about the cluster,
+  highlighting its capabilities and publicizing some interesting results.
+* `DEAC Cluster Documentation <https://deac-wiki.readthedocs.io>`_: Public
+  content that provides useful information (such as this article) for cluster
+  users new and old.
+* `DEAC Cluster YouTube channel <https://youtube.com/WakeHPC>`_: Video content
+  featuring tutorials/training and user research.
+* `DEAC Cluster Twitter page <https://twitter.com/WakeHPC>`_: Public
+  announcements and updates regarding the Cluster.
 
-Note: Users must be on a WFU network or connected via VPN in order to access and
-login to the head nodes!
+
+First Steps
+===========
+
+.. _sec.index:request_access:
+
+Account Requests
+----------------
+
+If you're reading this page, you almost certainly have it by now. So, this
+section will focus mainly on being a central location for existing users to
+reference in helping potential new users get access.
+
+* Request an Account: https://help.wfu.edu/support/catalog/items/123
+* Review the :ref:`sec.policies`.
+
+.. * Request access to licensed software: Certain licensed software requires electronic acceptance of the licenses. To determine if the software you wish to use requires these extra measures, please view https://wiki.deac.wfu.edu/index.php/Category:License for a list of software with special requirements.
+
+.. _sec.index:getting_access:
+
+Accessing the Cluster
+---------------------
+
+There are two primary entry points in which users connect to the
+cluster for various resources:
+
+#. **Shell Access** via SSH - Users connect to the interactive login nodes, aka
+   :ref:`sec.qs0:cluster_headnodes`, using the SSH protocol, provided by any
+   number of freely available clients (VS Code, OpenSSH, MobaXterm, putty,
+   etc.). This is the only protocol supported for command line access (i.e.
+   interactive logins) to the cluster and is available from the general Internet
+   without restriction. The :ref:`SSH Section <sec.qs0:ssh>` is a good place to
+   start.   
+#. **File Transfer** via SCP/SFTP - Users can migrate data onto and off of the
+   cluster using secure file transfer protocols, also based on the underlying
+   SSH protocol suite. The utilities, which are also freely available (VS Code,
+   OpenSSH, WinSCP, etc.) work similar to historical FTP clients but securely
+   authenticate and transfer the files between destination.
 
 .. #############################################################################
 .. #############################################################################
@@ -84,9 +133,13 @@ login to the head nodes!
     * software-licensing
     * reference-slurm_torque
 
+=================
+Table of Contents
+=================
+
 .. toctree::
-   :maxdepth: 2
-   :caption: First Steps
+   :maxdepth: 1
+   :caption: Getting Started
 
    beginner-quickstart_00_connect
    beginner-quickstart_01_linux
@@ -98,7 +151,7 @@ login to the head nodes!
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: About the Cluster
 
    cluster-sla
@@ -112,7 +165,7 @@ login to the head nodes!
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Research on DEAC
 
    research-starting_new
@@ -123,7 +176,7 @@ login to the head nodes!
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Software
 
    software-packages
@@ -133,7 +186,7 @@ login to the head nodes!
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Reference Documentation
 
    reference-slurm_torque

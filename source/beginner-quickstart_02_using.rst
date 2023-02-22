@@ -5,7 +5,7 @@ Quickstart 2: Working on the Cluster
 ====================================
 
 .. contents::
-   :depth: 3
+   :depth: 2
 ..
 
 .. #############################################################################
@@ -23,7 +23,7 @@ of which one to use depends on what you will be using those files for.
 Home Directory
 ==============
 
-Your **home directory**, ``/home/``\ \ ``username``\ , is a general
+Your **home directory**, ``/home/$USER``, is a general
 purpose space. Typically, your source code and compiled programs will be
 kept here. If you have very large data files (multiple gigabytes, say),
 they should be stored elsewhere as described below. Submitted jobs are
@@ -103,52 +103,52 @@ Use this variable to write to and read from the scratch directory:
 
 -  csh/tcsh version
 
-| ``   setenv SCRATCHDIR /scratch/$SLURM_JOBID``
-| ``   setenv DATAFILE myNiceInput.dat``
-| ``   ``
-| ``   # Copy program and inputs to scratchdir``
-| ``   cp ~/bin/giantProgram $SCRATCHDIR``
-| ``   cp /deac/researchGrp/${DATAFILE} $SCRATCHDIR``
-| ``   ``
-| ``   # go into scratchdir and run program``
-| ``   cd $SCRATCHDIR``
-| ``   ${SCRATCHDIR}/giantProgram ${DATAFILE}``
-| ``   ``
-| ``   # Clean up after we're done``
-| ``   #    copy outputs back to home``
-| ``   cp ${SCRATCHDIR}/giantOutputs_${SLURM_JOBID}.dat /deac/researchGrp/``
-| ``   ``
-| ``   #    delete scratchdir and its contents``
-| ``   /bin/rm -rf ${SCRATCHDIR}``
+| ``   setenv SCRATCHDIR /scratch/$SLURM_JOBID``
+| ``   setenv DATAFILE myNiceInput.dat``
+| ``   ``
+| ``   # Copy program and inputs to scratchdir``
+| ``   cp ~/bin/giantProgram $SCRATCHDIR``
+| ``   cp /deac/researchGrp/${DATAFILE} $SCRATCHDIR``
+| ``   ``
+| ``   # go into scratchdir and run program``
+| ``   cd $SCRATCHDIR``
+| ``   ${SCRATCHDIR}/giantProgram ${DATAFILE}``
+| ``   ``
+| ``   # Clean up after we're done``
+| ``   #    copy outputs back to home``
+| ``   cp ${SCRATCHDIR}/giantOutputs_${SLURM_JOBID}.dat /deac/researchGrp/``
+| ``   ``
+| ``   #    delete scratchdir and its contents``
+| ``   /bin/rm -rf ${SCRATCHDIR}``
 
 -  bash version
 
-| ``   export SCRATCHDIR=/scratch/$SLURM_JOBID``
-| ``   export DATAFILE=myNiceInput.dat``
-| ``   ``
-| ``   # Copy program and inputs to scratchdir``
-| ``   cp ~/bin/giantProgram $SCRATCHDIR``
-| ``   cp /deac/researchGrp/${DATAFILE} $SCRATCHDIR``
-| ``   ``
-| ``   # go into scratchdir and run program``
-| ``   cd $SCRATCHDIR``
-| ``   ${SCRATCHDIR}/giantProgram ${DATAFILE}``
-| ``   ``
-| ``   # Clean up after we're done``
-| ``   #    copy outputs back to home``
-| ``   cp ${SCRATCHDIR}/giantOutputs_${SLURM_JOBID}.dat /deac/researchGrp/``
-| ``   ``
-| ``   #    delete scratchdir and its contents``
-| ``   /bin/rm -rf ${SCRATCHDIR}``
+| ``   export SCRATCHDIR=/scratch/$SLURM_JOBID``
+| ``   export DATAFILE=myNiceInput.dat``
+| ``   ``
+| ``   # Copy program and inputs to scratchdir``
+| ``   cp ~/bin/giantProgram $SCRATCHDIR``
+| ``   cp /deac/researchGrp/${DATAFILE} $SCRATCHDIR``
+| ``   ``
+| ``   # go into scratchdir and run program``
+| ``   cd $SCRATCHDIR``
+| ``   ${SCRATCHDIR}/giantProgram ${DATAFILE}``
+| ``   ``
+| ``   # Clean up after we're done``
+| ``   #    copy outputs back to home``
+| ``   cp ${SCRATCHDIR}/giantOutputs_${SLURM_JOBID}.dat /deac/researchGrp/``
+| ``   ``
+| ``   #    delete scratchdir and its contents``
+| ``   /bin/rm -rf ${SCRATCHDIR}``
 
 To request nodes with at least a certain size of scratch disk space, use
 the "constraint" request:
 
-| ``   #SBATCH --constraint=scr40gb``
-| ``   ###40GB scratch``
+| ``   #SBATCH --constraint=scr40gb``
+| ``   ###40GB scratch``
 
-| ``   #SBATCH --constraint=scr250gb``
-| ``   ###250GB scratch``
+| ``   #SBATCH --constraint=scr250gb``
+| ``   ###250GB scratch``
 
 See Also
 ========
@@ -172,11 +172,10 @@ Typically, when it comes to using a cluster, there are generally only a
 few things that introductory users must learn about working in the
 environment:
 
-#. Clusters are hard. You are dealing with the most powerful forms of
-   computing on the planet. It takes between 15-20 years to make a
-   supercomputer easy [1]_
-#. It is not "point-and-click", review the [[Quick Start Guide:Linux] to
-   learn about how to use the following required things:
+#. Clusters are hard. You are dealing with the most powerful forms of computing
+   on the planet. It takes between 15-20 years to make a supercomputer easy [1]_
+#. It is not "point-and-click", review the [[Quick Start Guide:Linux] to learn
+   about how to use the following required things:
 
    #. Command line
    #. Text editors
@@ -379,25 +378,20 @@ Job Submission
 Head Node Usage
 ===============
 
--  Users are not allowed to run production jobs on the cluster head
-   nodes.
+* Users are not allowed to run production jobs on the cluster head nodes.
 
-   -  Exception: certain visualization and interactive programs can be
-      run on the head nodes but not to exceed one instance of this
-      program class per head node.
+   * Exception: certain visualization and interactive programs can be run on the head nodes but not to exceed one instance of this program class per head node.
 
--  Users are allowed to run test jobs on the cluster head nodes IF:
+* Users are allowed to run test jobs on the cluster head nodes IF:
 
-:#They consume less than 5 processors total, AND
+   * They consume less than 5 processors total, AND
+   * They consume less than 50GB of memory, AND
+   * They run for less than two hours.
 
-:#They consume less than 50GB of memory, AND
-
-:#They run for less than two hours.
-
-::*Exception: If test jobs need to run beyond these limits limit to
+* Exception: If test jobs need to run beyond these limits limit to
 ensure functionality, then the HPC team should be contacted. A singular
 instance may be allowed to run on one head node if the processes
-"`priority is lowered <http://linux.die.net/man/1/nice>`__ on the head
+`priority is lowered <http://linux.die.net/man/1/nice>`__ on the head
 node to reduce impact to cluster users.
 
 Global Exceptions
@@ -454,13 +448,13 @@ Assumptions
 Copying files from researchGrp directory to Archive
 ---------------------------------------------------
 
-``   rsync -av /deac/generalGrp/users/carsloas/srcdir /archive1/generalGrp/users/carlsoas/destdir/``
+``   rsync -av /deac/generalGrp/users/carsloas/srcdir /archive1/generalGrp/users/carlsoas/destdir/``
 
 Copying files to **remhost**
 ----------------------------
 
-| ``   export RSYNC_RSH=/usr/bin/ssh  ###  For bash.  Use "setenv RSYNC_RSH /usr/bin/ssh" for tcsh.``
-| ``   rsync -av /deac/generalGrp/users/carlsoas/srcdir/ carlsoas@remhost:/home/carlsoas/cluster.archive/destdir/``
+``   export RSYNC_RSH=/usr/bin/ssh  ###  For bash.  Use "setenv RSYNC_RSH /usr/bin/ssh" for tcsh.``
+``   rsync -av /deac/generalGrp/users/carlsoas/srcdir/ carlsoas@remhost:/home/carlsoas/cluster.archive/destdir/``
 
 -  You will be prompted for a password for the user account on the
    **remhost** before the file transfer will begin.
@@ -482,39 +476,39 @@ The Pitfalls
 
 *Trailing slashes on the source specification DOES matter!* : If the trailing slash is **omitted** from the file/directory source specification (**srcdir\ \ ), the directory (and all of its contents, preserving the directory structure) will get created in the destination (\ \ destdir**) specified.
 
-| ``   $ ls test1/*``
-| ``   test1/testA  test1/testB  test1/testC``
-| ``   $ rsync -av test1 test2``
-| ``   building file list ... done``
-| ``   created directory test2``
-| ``   test1/``
-| ``   test1/testA``
-| ``   test1/testB``
-| ``   test1/testC``
-| ``   wrote 232 bytes  read 68 bytes  600.00 bytes/sec``
-| ``   total size is 0  speedup is 0.00``
-| ``   $ ls test2``
-| ``   test1``
-| ``   $ ls test2/test1/*``
-| ``   test2/test1/testA  test2/test1/testB  test2/test1/testC``
+``   $ ls test1/*``
+``   test1/testA  test1/testB  test1/testC``
+``   $ rsync -av test1 test2``
+``   building file list ... done``
+``   created directory test2``
+``   test1/``
+``   test1/testA``
+``   test1/testB``
+``   test1/testC``
+``   wrote 232 bytes  read 68 bytes  600.00 bytes/sec``
+``   total size is 0  speedup is 0.00``
+``   $ ls test2``
+``   test1``
+``   $ ls test2/test1/*``
+``   test2/test1/testA  test2/test1/testB  test2/test1/testC``
 
 Specifying the trailing slash means the all of the files and directories
 in the source specification (**srcdir\ \ ) will get copied directly the
 destination specified (\ \ destdir**).
 
-| ``   $ ls test1/*``
-| ``   test1/testA  test1/testB  test1/testC``
-| ``   $ rsync -av test1/ test3``
-| ``   building file list ... done``
-| ``   created directory test3``
-| ``   test1/``
-| ``   test1/testA``
-| ``   test1/testB``
-| ``   test1/testC``
-| ``   wrote 232 bytes  read 68 bytes  600.00 bytes/sec``
-| ``   total size is 0  speedup is 0.00``
-| ``   $ ls test3/*``
-| ``   test3/testA  test3/testB  test3/testC``
+``   $ ls test1/*``
+``   test1/testA  test1/testB  test1/testC``
+``   $ rsync -av test1/ test3``
+``   building file list ... done``
+``   created directory test3``
+``   test1/``
+``   test1/testA``
+``   test1/testB``
+``   test1/testC``
+``   wrote 232 bytes  read 68 bytes  600.00 bytes/sec``
+``   total size is 0  speedup is 0.00``
+``   $ ls test3/*``
+``   test3/testA  test3/testB  test3/testC``
 
 *rsync does not (!) mirror two directory structures!* : **rsync** merely synchronizes the source files with the destination files, creating them if they do not exist. **rsync** does not remove files (by default) from the destination that are no longer in the source.
 
@@ -539,60 +533,60 @@ Let's say you need to do compilations with Intel Cluster Studio 2012
 with 4-byte integers. You would set up your environment (paths, library
 paths, etc) by doing:
 
-``   $ module load compilers/intel-2012-lp64``
+``   $ module load compilers/intel-2012-lp64``
 
 You would use this in `SLURM </Software:SLURM>`__ scripts, too, because
 the resulting executable may need to know the paths to the dynamic
 libraries to which it is linked. If you no longer need to use that
 particular compiler, you would do:
 
-``   $ module unload compilers/intel-2012-lp64``
+``   $ module unload compilers/intel-2012-lp64``
 
 To switch to a different compiler, you would unload and then load the
 environment for the new compiler:
 
-| ``   $ module unload compilers/intel-2012-lp64``
-| ``   $ module load compilers/pgi-XXX``
+| ``   $ module unload compilers/intel-2012-lp64``
+| ``   $ module load compilers/pgi-XXX``
 
 You can see modules you have loaded:
 
-| ``   $ module list``
-| ``   ``
-| ``   Currently Loaded Modulefiles:``
-| ``     1) dot                         2) use.own                     3) compilers/intel-2012-ilp64``
+| ``   $ module list``
+| ``   ``
+| ``   Currently Loaded Modulefiles:``
+| ``     1) dot                         2) use.own                     3) compilers/intel-2012-ilp64``
 
 You can see all available modules that may be loaded:
 
-| ``   $ module avail``
-| ``   ``
-| ``   -------------------------------------- /usr/share/Modules/modulefiles ---------------------------------------``
-| ``   dot           module-cvs    module-info   modules       mpich2-x86_64 null          use.own``
-| ``   ``
-| ``   --------------------------------------------- /etc/modulefiles ----------------------------------------------``
-| ``   mvapich-psm-x86_64 mvapich-x86_64     mvapich2-x86_64``
-| ``   ``
-| ``   ---------------------------------------- /home/username/privatemodules ----------------------------------------``
-| ``   compilers/foobar-0.1       compilers/intel-2012-ilp64 compilers/intel-2012-lp64  null``
+| ``   $ module avail``
+| ``   ``
+| ``   -------------------------------------- /usr/share/Modules/modulefiles ---------------------------------------``
+| ``   dot           module-cvs    module-info   modules       mpich2-x86_64 null          use.own``
+| ``   ``
+| ``   --------------------------------------------- /etc/modulefiles ----------------------------------------------``
+| ``   mvapich-psm-x86_64 mvapich-x86_64     mvapich2-x86_64``
+| ``   ``
+| ``   ---------------------------------------- /home/username/privatemodules ----------------------------------------``
+| ``   compilers/foobar-0.1       compilers/intel-2012-ilp64 compilers/intel-2012-lp64  null``
 
 You can get brief information about a module:
 
-| ``   $  module whatis compilers/intel-2012-ilp64``
-| ``   compilers/intel-2012-ilp64: Sets up to use the Intel Cluster Studio 2012 compilation environment with 8-byte integers.``
+| ``   $  module whatis compilers/intel-2012-ilp64``
+| ``   compilers/intel-2012-ilp64: Sets up to use the Intel Cluster Studio 2012 compilation environment with 8-byte integers.``
 
 And longer information:
 
-| ``   $ module help compilers/intel-2012-ilp64``
-| ``   ``
-| ``   ----------- Module Specific Help for 'compilers/intel-2012-ilp64' ---------------------------``
-| ``   ``
-| ``           Sets up to use Intel Cluster Studio XE/Composer XE compilers and tools - 8-byte integers``
-| ``           Includes: C/C++ 12.1.0, Fortran 12.1.0, Debugger 12.1,``
-| ``           Inspector XE 12.0, Trace Analyzer, VTune Amplifier,``
-| ``           Intel MPI/OpenMP 4.0.3, MPI Benchmarks 3.2.3,``
-| ``           Intel Performance Primitives, Thread Building Blocks,``
-| ``           Math Kernel Library, Cilk``
-| ``   ``
-| ``           Version 2012``
+| ``   $ module help compilers/intel-2012-ilp64``
+| ``   ``
+| ``   ----------- Module Specific Help for 'compilers/intel-2012-ilp64' ---------------------------``
+| ``   ``
+| ``           Sets up to use Intel Cluster Studio XE/Composer XE compilers and tools - 8-byte integers``
+| ``           Includes: C/C++ 12.1.0, Fortran 12.1.0, Debugger 12.1,``
+| ``           Inspector XE 12.0, Trace Analyzer, VTune Amplifier,``
+| ``           Intel MPI/OpenMP 4.0.3, MPI Benchmarks 3.2.3,``
+| ``           Intel Performance Primitives, Thread Building Blocks,``
+| ``           Math Kernel Library, Cilk``
+| ``   ``
+| ``           Version 2012``
 
 Use in Shell Scripts and `SLURM </Software:SLURM>`__ Job Scripts
 ================================================================
@@ -642,7 +636,7 @@ More information is available in the man page for modulefile. [2]_
 Before you will be able to use your own module files, you must load a
 module that allows you to use your own modules:
 
-``   $ module load use.own``
+``   $ module load use.own``
 
 Things to Note
 --------------
@@ -652,16 +646,16 @@ One important thing to note is that environment variables that are used
 in one part of the script may not be used in another because the
 environment variable is not yet set in the environment:
 
-| ``   # ``\ **``THIS``\ ````\ ``WILL``\ ````\ ``NOT``\ ````\ ``WORK``**
-| ``   setenv FOOBAR "/foobar"``
-| ``   setenv FOOBAR_BIN "$FOOBAR/bin"``
+| ``   # ``\ **``THIS``\ ````\ ``WILL``\ ````\ ``NOT``\ ````\ ``WORK``**
+| ``   setenv FOOBAR "/foobar"``
+| ``   setenv FOOBAR_BIN "$FOOBAR/bin"``
 
 You will need to use variables defined in the Tcl script:
 
-| ``   # Set a variable in Tcl``
-| ``   set foobar "/foobar"``
-| ``   setenv FOOBAR "$foobar"``
-| ``   setenv FOOBAR_BIN "$foobar/bin"``
+| ``   # Set a variable in Tcl``
+| ``   set foobar "/foobar"``
+| ``   setenv FOOBAR "$foobar"``
+| ``   setenv FOOBAR_BIN "$foobar/bin"``
 
 Other things to note:
 
@@ -1017,20 +1011,21 @@ First let's ensure your researchGrp directory is group writeable:
 
 .. code-block:: console
 
-    $ chgrp research /deac/reserachGrp
-    $ chmod g+w /deac/researchGrp
+   $ chgrp research /deac/reserachGrp
+   $ chmod g+w /deac/researchGrp
+
 
 Group access only
-`````````````````
++++++++++++++++++
 
 Remove all access to non-group members:
 
 .. code-block:: console
 
-    $ chmod o-wrx /deac/researchGrp
+   $ chmod o-wrx /deac/researchGrp
 
 World readable
-``````````````
+++++++++++++++
 
 Assuming you have run the "Group access only" command... If you want non-group
 members to have read only access, but not edit privileges:

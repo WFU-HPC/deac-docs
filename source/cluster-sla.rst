@@ -277,7 +277,7 @@ Service Unit
 
 .. _sec.sla.su.purpose_applicability:
 
-*The current cost of 1 Service Unit (SU) is* **$.0218**
+*The current cost of 1 Service Unit (SU) is* **$0.0218**
 
 Purpose and Applicability
 =========================
@@ -341,7 +341,7 @@ Service Units (SUs) are derived from consumption of various types of resources o
 * Base rates per SSU type are adjusted annually based on hardware and overhead costs.
 * Each SSU type is converted from a common Service Unit in order to normalize the purchase/payment process. The smallest base rate from all SSU types and the most essential SSU, the Compute Rate, is used for this conversion:
 
-    * 1 Compute SSU = **1** Service Unit *($.0218)*
+    * 1 Compute SSU = **1** Service Unit *($0.0218)*
     * 1 GPU SSU = **90** Service Units *($1.962)*
     * 1 Storage SSU = **2250** Service Units *($49.05)*
 

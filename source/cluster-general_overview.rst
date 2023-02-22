@@ -30,7 +30,7 @@ In general, according to the opinion of this author, Linux-based,
 Beowulf style clusters generally have the following characteristics:
 
 :; Login Nodes ("`head nodes </Cluster:Headnodes>`__") : Server(s) that
-users interactively log into in order to use the system
+users interactively log in to in order to use the system
 
 :; Computational Nodes : Any number of servers that will handle the
 majority of the computations
@@ -53,7 +53,7 @@ Clusters versus Workstations
 ============================
 
 Generally, the login nodes of the cluster behave identically to any
-Linux workstation that you would log into remotely using an SSH client.
+Linux workstation that you would log in to remotely using an SSH client.
 
 -  Typical login shells, Linux commands, filesystem layout
 -  Standard Red Hat Enterprise Linux software available

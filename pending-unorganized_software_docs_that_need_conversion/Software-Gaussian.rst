@@ -175,7 +175,7 @@ Using Gaussview
 As of 2012-Dec-07, GaussView 5 works on very specific combinations of
 local computer + remote node.
 
-#. Using an Ubuntu machine (or virtual machine) to log into a head node,
+#. Using an Ubuntu machine (or virtual machine) to log in to a head node,
    GaussView 5 works as expected. Since you will already be logged into
    a RHEL6 node, you won't have to start a separate ssh session to run
    the g09_s.pbs script.

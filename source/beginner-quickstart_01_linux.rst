@@ -5,7 +5,7 @@ Quickstart 1: Linux Primer
 ==========================
 
 .. contents::
-   :depth: 3
+   :depth: 2
 ..
 
 .. #############################################################################
@@ -41,12 +41,12 @@ application you may have locally available.
 The Command Prompt
 ==================
 
-When you first log into the cluster, you will be greeted by the command prompt:
+When you first log in to the cluster, you will be greeted by the command prompt:
 
 .. code-block:: none
 
     ******************************************************************************
-    *   Wake Forest University  Distributed Environment for Academic Computing   *
+    *  Wake Forest University -- Distributed Environment for Academic Computing  *
     *                                                                            *
     * __/\\\\\\\\\\\_____/\\\\\\\\\\\\\____/\\\\\\\\___________/\\\\\\\_________ *
     * __\/\\\///////\\\__\/\\\/////////___/\\\\\\\\\\\\______/\\\//////_________ *
@@ -60,13 +60,14 @@ When you first log into the cluster, you will be greeted by the command prompt:
     *                                                                            *
     *  Unauthorized use is STRICTLY PROHIBITED and WFU maintains all rights to   *
     *  University related or legal actions associated with such access. Refer    *
-    *  to https://hpc.wfu.edu for detailed documentation and usage policies.     *
+    *  to https://go.wfu.edu/deac-sla for detailed documenation and policies.    *
     *                                                                            *
-    *  For questions and support, email deac-help@wfu.edu. To acknowledge use of *
-    *  the DEAC Cluster in research outputs, please cite DOI: 10.57682/g13z-2362 *
+    *  For questions and support, email deac-help@wfu.edu. You must acknowledge  *
+    *  the WFU HPC Facility in publications: https://go.wfu.edu/deac-doi         *
+    *                                                                            *
     ******************************************************************************
 
-    System: gemini.deac.wfu.edu, Uptime: 6 days
+    System: gemini.deac.wfu.edu, Uptime: 356 days
 
     [USER@gemini ~]$
 

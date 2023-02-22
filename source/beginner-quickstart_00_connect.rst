@@ -5,7 +5,7 @@ Quickstart 0: Connecting to DEAC
 ================================
 
 .. contents::
-   :depth: 3
+   :depth: 2
 ..
 
 .. #############################################################################
@@ -13,118 +13,56 @@ Quickstart 0: Connecting to DEAC
 .. #############################################################################
 .. #############################################################################
 
-Obtaining Access to the Cluster
-===============================
+.. _sec.qs0:cluster_overview:
 
-If you're reading this page, you almost certainly have it by now. So, this
-section will focus mainly on being a central location for existing users to
-reference in helping potential new users get access.
-
-* Request an Account: http://www.deac.wfu.edu/accounts.html
-* Review Cluster Policies: https://wiki.deac.wfu.edu/index.php/Category:Policy
-* Request access to licensed software : Certain licensed software requires
-  electronic acceptance of the licenses. To determine if the software you wish
-  to use requires these extra measures, please view
-  https://wiki.deac.wfu.edu/index.php/Category:License for a list of software
-  with special requirements.
-
-
-General Cluster Layout
-======================
+DEAC Cluster Overview
+=====================
 
 .. figure:: images/Cluster_Layout.jpg
 
     General Illustration of Cluster Architecture
 
+When you log in to the Cluster, you are actually logging into a *head node* that
+acts as a gateway to other cluster resources. A head node is configured to
+submit jobs to the *scheduler*. In general, when "logging in to the cluster" is
+mentioned, the act of logging into a head node is how you do it.
 
-Accessing Cluster Resources
-===========================
+A head node is nothing more than a system configured to act as the midway point
+between you and the compute resources. When you are on a head node, you are not
+actually running or working on the compute resources. You should **NEVER** run
+computational programs on the head node itself; thus, any programs you want to
+run on the cluster should not be executed directly on the head node. They should
+be run and tested using the scheduler with the tools provided on the head node.
+Usage of the head node is restricted to managing and viewing your data.
 
-There are three primary entry points in which users connect to the
-cluster for various resources:
+The head nodes are configured in a similar way to the compute nodes, in that all
+of the installed software and data paths are present. This allows you to verify
+your job functionality before submitting to the scheduler. You should never need
+to access the individual compute nodes directly, and instead rely on the head
+node and the tools it provides to submit jobs to the cluster, monitor them, and
+then retrieve and view their results.
 
-#. **Web Sites** - There are four web sites users typically would use
-   most often:
-
-   -  Public-facing cluster website - http://www.deac.wfu.edu/ -
-      provides all sort of relatively static information about the
-      cluster, highlighting its capabilities and publicizing some
-      interesting results.
-   -  Cluster Support Wiki website - https://wiki.deac.wfu.edu/ - public
-      content that provides useful information (such as this article)
-      for cluster users new and old.
-   -  Cluster YouTube Channel -
-      https://www.youtube.com/channel/UCmdgQr8V1jfOQCkmvdHTZuw (or
-      Search for DEAC Cluster) - provides video tutorials for common
-      training content.
-   -  Cluster Twitter Page - https://twitter.com/WakeHPC - provides
-      public announcements and updates regarding the DEAC cluster.
-
-#. **Shell Access** via SSH - Users connect to the interactive login
-   nodes, aka `Head Nodes </Cluster:Headnodes>`__, using the SSH
-   protocol, provided by any number of freely available clients
-   (OpenSSH, putty, etc.). This is the only protocol supported for
-   command line access (i.e. interactive logins) to the cluster and is
-   available from the general Internet without restriction. The `Quick
-   Start Guide:SSH </Quick_Start_Guide:SSH>`__ is a good place to start.
-#. **File Transfer** via SCP/SFTP - Users can migrate data onto and off
-   of the cluster using secure file transfer protocols, also based on
-   the underlying SSH protocol suite. The utilities, which are also
-   freely available (OpenSSH, WinSCP, etc.) work similar to historical
-   FTP clients but securely authenticate and transfer the files between
-   destination.
-
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-
-Overview
-========
-
-Typically when you access a cluster system you are accessing a head
-node, that acts as a gateway to cluster resources. A head node is setup
-to be submit jobs to the cluster's scheduler. In general, when "logging
-in to the cluster" is mentioned, the act of logging into a head node is
-how you do it.
-
-A head node is often nothing more than a system configured to act as the
-midway point between cluster resources and everything else. When you are
-on a head node, you should not actually running or working on cluster
-compute resources. Configuration of the headnode is very similar to
-available compute nodes, in that all required software and data paths
-should be present. This allows users to verify job functionality before
-fully submitting them. This simplifies access, usage, and efficiency by
-having all interactions filtered and managed through a few designated
-points. In theory, users should never need to access any of the
-individual compute nodes directly, instead relying on the head node and
-the tools it provides to submit jobs to the cluster, monitor them, and
-view and retrieve their results.
-
-Ideally you do not want to run computational programs on the head node
-itself. Meaning specifically, any programs you want to run on the
-cluster should not be run on the head node, instead they should be run
-and tested on the cluster itself using the scheduling system tools on
-the head node. You should restrict your usage of the head node to
-programs that let you build and prepare your cluster programs and manage
-and view your data.
+.. _sec.qs0:cluster_headnodes:
 
 DEAC Headnodes
 ==============
 
-| **gemini.deac.wfu.edu**
-| **pegasus.deac.wfu.edu**
+The DEAC Cluster has three head nodes:
 
-The DEAC cluster has TWO headnodes. These nodes are virtual machines (to
-allow better redundancy and higher uptime), with 12 cores and 128GB of
-memory each.
+* **gemini.deac.wfu.edu** (WFU College and most Schools)
+* **pegasus.deac.wfu.edu** (WFU College and most Schools)
+* **hydra.deac.wfu.edu** (WFU School of Medicine ONLY)
+
+These systems all have at least 16 cores and 128GB of RAM each.
+
+.. _sec.qs0:access:
 
 Access
 ======
 
-To login to the DEAC cluster headnodes, users must use the SSH protocol.
+To log in to the head nodes, users must use the SSH protocol.
 Login can only be achieved after a `cluster account
-request </https://is.wfu.edu/deac/user-support/account-request/>`__ has
+request <https://help.wfu.edu/support/catalog/items/123>`__ has
 been submitted. Do NOT use your Desktop or Laptop account/password to
 access these nodes!
 
@@ -199,7 +137,7 @@ Manager </File:Desktop_putty_sm.png>`__
 See Also
 ========
 
--  `Quick Start Guide:SSH </Quick_Start_Guide:SSH>`__ -- more details on
+-  :ref:`SSH Section <sec.qs0:ssh>` -- more details on
    using PuTTY on Windows, including some information on the PuTTY
    Sessions Manager which keeps a list of saved sessions always
    available
@@ -220,6 +158,8 @@ References
 .. #############################################################################
 .. #############################################################################
 .. #############################################################################
+
+.. _sec.qs0:ssh:
 
 SSH
 ===
@@ -251,7 +191,7 @@ Linux/Unix/Mac OS X
   applications can be displayed on the local machine.
 
 Windows
--------------------
+-------
 
 You will need the `PuTTY <https://www.chiark.greenend.org.uk/~sgtatham/putty/>`_
 program. Using PuTTY is more complicated than using ssh in Linux. You will need
