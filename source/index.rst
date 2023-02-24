@@ -24,7 +24,7 @@ DEAC Docs: The Official Docs for the DEAC cluster
     *                                                                            *
     *  Unauthorized use is STRICTLY PROHIBITED and WFU maintains all rights to   *
     *  University related or legal actions associated with such access. Refer    *
-    *  to https://go.wfu.edu/deac-sla for detailed documenation and policies.    *
+    *  to https://go.wfu.edu/deac-sla for detailed documentation and policies.   *
     *                                                                            *
     *  For questions and support, email deac-help@wfu.edu. You must acknowledge  *
     *  the WFU HPC Facility in publications: https://go.wfu.edu/deac-doi         *
