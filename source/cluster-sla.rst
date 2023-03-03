@@ -4,9 +4,9 @@
 DEAC Cluster Service Level Agreement
 ####################################
 
-*Last Updated: December 1, 2022*
+*Last Updated: March 1, 2023 - Indirect Fees are now only applicable for chargeback calculations; chargeback rate did not change, only calculations and text were revised.*
 
-The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated annually, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. 
+The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated as needed, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. DEAC Cluster Users will be notified via email of significant updates after they have been made.
 
 This SLA seeks to further enhance and support the mission of the DEAC Cluster, which is to provide stable, robust, and accessible computational resources that allow the education and research communities to focus on their primary missions. All current users from the WFU Undergraduate School and Graduate School of Arts and Sciences will continue to have free baseline access to the DEAC Cluster. This SLA defines how the Information Systems (IS) HPC Team makes allocation of those resources as fair as possible for an ever evolving, and growing, user base. Relevant to fair access, this SLA seeks to clearly define the method for which users can contribute funds in support of larger anticipated workloads; as well as how those contributions, and their benefits, are weighed alongside total monetary investment into the DEAC Cluster.
 
@@ -277,8 +277,6 @@ Service Unit
 
 .. _sec.sla.su.purpose_applicability:
 
-*The current cost of 1 Service Unit (SU) is* **$0.0218**
-
 Purpose and Applicability
 =========================
 
@@ -289,7 +287,7 @@ There are two scenarios where payment should be made for the use of DEAC Cluster
 #. Members of the aforementioned colleges should consider :ref:`contributing to the DEAC Cluster<sec.sla.su.contributions>` via grant or start-up funds if they plan to use compute resources for their research above baseline expectations.
 #. Researchers outside of the aforementioned colleges do not have free access to the DEAC Cluster by default, and must pay for all utilized compute resources in the form of :ref:`Service Unit Chargebacks<sec.sla.su.chargebacks>`.
 
-Contributions and/or chargebacks are made in the form of Service Units (SUs). **SUs are a DEAC Cluster service usage charge and do NOT tie specifically to hardware or software, so there are no follow-up asset tracking requirements.** SU purchases also:
+Contributions and/or chargebacks are made in the form of Service Units (SUs). **SUs are a DEAC Cluster service usage charge and do NOT tie specifically to hardware or software, so there are no follow-up asset tracking requirements.** SUs are based on overall hardware investment in the DEAC Cluster plus additional indirect fees where applicable (primarily for Chargebacks only). SU purchases also:
 
 * Go towards the continued maintenance, operation, and improvement of the DEAC Cluster.
 * Help forecast utilization of the DEAC Cluster and prioritize support provided by the HPC Team.
@@ -304,10 +302,11 @@ SU Contributions
 Researchers that are planning on conducting a significant amount of their work on the DEAC Cluster should purchase Service Units (SUs) as the preferred form of contribution. Purchasing SUs offers guaranteed, high priority, and expanded utilization of DEAC Cluster compute resources; increased research job allocation priority is applied for a duration of five years, adjusted annually based on total monetary investment. See the :ref:`sec.sla.fs` and :ref:`sec.sla.ul` sections for details on the benefits of contributions.
 
 * The HPC Team will work with any researcher, research group, department or party on a case-by-case basis to determine compute resource needs. This will determine the number of SUs to be purchased, if any.
-* The most common use case for the purchase of SUs would be for budgeting within grant applications. When applying for grants, the HPC Team can work with PIs to come up with cost estimates based on forecasted research needs.
+* The most common use case for the purchase of SUs would be for budgeting within grant applications. When applying for grants, the HPC Team can work with PIs to come up with cost estimates based on forecasted research needs. SUs would be budgeted as a Computer Service within a grant.
 * Although not required, newly-hired faculty are encouraged to utilize start-up funds to purchase SUs if they intend to utilize significant DEAC Cluster resources for their research. The HPC Team is available to help forecast research needs and determine potential SU purchases.
 * The HPC Team quantifies estimated resource usage via Service Sub-Units (SSUs) that correlate with different types of consumable compute resources on the DEAC Cluster.
 
+    * By default, all SSU calculations for contributions do NOT include indirect fees.
     * The :ref:`sec.sla.su.ssu_types` section  provides the definition of these SSUs and how total SU numbers and costs are derived and calculated.
 
 * A non-standard, hardware-specific contribution can be made to purchase a Research-Node.
@@ -320,14 +319,15 @@ Researchers that are planning on conducting a significant amount of their work o
 SU Chargebacks
 ==============
 
-Any researcher, research group, department or party conducting research that is not directly sponsored by members of the WFU Undergraduate College and Graduate School of Arts and Sciences (i.e. via collaboration, consortium, class, etc.) must pay for their usage of the DEAC Cluster in the form of an annual Service Unit (SU) Chargeback.
+Any external researcher, research group, department or party conducting research that is not directly sponsored by members of the WFU Undergraduate College and Graduate School of Arts and Sciences (i.e. via collaboration, consortium, class, etc.) must pay for their usage of the DEAC Cluster in the form of an annual Service Unit (SU) Chargeback.
 
-* The SU Chargeback totals will be determined by consumed DEAC Cluster compute resources.
+* The SU Chargeback totals will be determined by consumed DEAC Cluster compute resources plus.
 * At the beginning of each calendar year, an invoice for total resource usage from the previous calendar year will be calculated and delivered to researchers, research group advisors, and/or department representatives.
 * Payment for this invoice will be due within 60 days of receipt. If a payment is not made within this time period, DEAC Cluster access may be denied until a payment is received or a payment timeline agreement is established.
 * Researchers may request SU Chargeback estimates up to once a month, based on current resource consumption rates.
 * The HPC Team tracks resource consumption through a variety of tools and techniques that determine the invoiced SU Chargeback total. SUs are subdivided into Service Sub-Units (SSUs) that correlate with different types of consumable compute resources on the DEAC Cluster.
 
+    * By default, all SSU calculations for chargebacks include additional indirect fees.
     * The :ref:`sec.sla.su.ssu_types` section  provides the definition of these SSUs and how total SU numbers and costs are derived and calculated.
 
 .. _sec.sla.su.ssu_types:
@@ -338,15 +338,35 @@ Service Sub-Unit Types
 Service Units (SUs) are derived from consumption of various types of resources on the DEAC Cluster. Each usage type is tracked with a correlating Service Sub-Unit (SSU). Currently, there are three defined and tracked types: Compute, GPU, and Storage. These SSUs are defined in the subsections below, and have the following characteristics:
 
 * Each SSU type has a base rate used to determine the corresponding requested or charged amount; see subsections below for calculations.
-* Base rates per SSU type are adjusted annually based on hardware and overhead costs.
-* Each SSU type is converted from a common Service Unit in order to normalize the purchase/payment process. The smallest base rate from all SSU types and the most essential SSU, the Compute Rate, is used for this conversion:
+* SSU Rates are adjusted annually based on applicable hardware and indirect costs.
 
-    * 1 Compute SSU = **1** Service Unit *($0.0218)*
-    * 1 GPU SSU = **90** Service Units *($1.962)*
-    * 1 Storage SSU = **2250** Service Units *($49.05)*
+.. list-table:: SSU Rates
+  :align: center
+  :widths: 40 20 20 40
+  :header-rows: 1
 
+  * - SSU Type
+    - Base Rate
+    - Indirect
+    - Unit
+  * - Compute SSU
+    - $0.0103
+    - $0.0115
+    - Per Core-Hour
+  * - GPU SSU
+    - $0.5636
+    - $0.2680
+    - Per GPU-Hour
+  * - Storage SSU
+    - $34.00
+    - $14.00
+    - Per TB / Month
 
-* The sum of all converted SSUs is used to create the overall SU request or invoice.
+* The sum total of all SSUs is converted into a standard Service Unit in order to normalize the purchase/payment process.
+* The converted total of all Service Sub-Units is used to create the overall SU request or invoice.
+* The smallest base rate from all SSU types, and the most essential SSU, the Compute Rate, is used to convert the total cost into total SUs (1 Compute SSU = 1 SU).
+    * Service Unit Cost for **Contributions = $0.0103** (base rate only)
+    * Service Unit Cost for **Chargebacks   = $0.0218** (base rate plus indirect fees)
 
 .. _sec.sla.su.ssu_types.compute:
 
@@ -355,7 +375,8 @@ Compute Service Sub-Unit
 
 **A Compute SSU is defined as the cost of using one (1) CPU core for one (1) hour of wall time (also referred to as 1 core-hour) with a maximum utilization of four (4) GB of RAM per core for the duration of the work task.**
 
-* *The Base Compute Rate used to convert Compute SSUs to SUs is derived from the sum total cost of compute servers, divided by server lifespan, divided by the maximum number of core-hours in a year; plus the sum total cost of HPC Team support time available in a year, divided by number of cores-hours; plus the sum total cost of racks, PDUs, home storage and network devices divided by total core-hours in a year; plus University F&A (45.5%).*
+* *The Base Compute Rate used to convert Compute SSUs to SUs is derived from the sum total cost of compute servers, divided by server lifespan, divided by the maximum number of core-hours in a year; plus the sum total cost of racks, PDUs, storage and network devices divided by total core-hours in a year.*
+* *The Compute Indirect Fee is derived from the sum total cost of HPC Team support time available in a year, divided by number of cores-hours (aka Service Indirect); minus storage portion of base rate if not using WFU storage (which is added regardless to maintain the same base rate); plus Wake Forest University F&A.*
 * If a work task requests greater than 4GB of memory per core requested, then Compute Service Sub-Units will be determined by memory consumption. This is done by taking a work task's time duration (in hours), multiplying it by the amount of memory (GB) consumed, and dividing by four (4). Whichever equation yields a higher Compute SSU amount will be selected as the consumed total for the work task. The DEAC Cluster's Scheduler automatically determines if this conversion as necessary for every work task.
 
     * The average memory per core on the DEAC Cluster is currently 4GB; if/when it changes, so too will the memory-based Compute SSU conversion.
@@ -370,7 +391,8 @@ GPU Service Sub-Unit
 
 **A GPU SSU is defined as the cost of using one (1) GPU Card for one (1) hour of wall time (also referred to as 1 GPU-hour) for a work task. A GPU Card is defined as a complete, encapsulated graphics processing unit containing all relevant hardware components.**
 
-* *The Base GPU Rate used to convert GPU SSUs to SUs is derived from the sum total cost of GPU servers and GPU cards plus University F&A (45.5%), divided by the number of usable GPU-hours (GPU cards x days x hours available) possible in a year.*
+* *The Base GPU Rate used to convert GPU SSUs to SUs is derived from the sum total cost of GPU servers and GPU cards, divided by the number of usable GPU-hours (GPU cards x days x hours available) possible in a year.*
+* *The GPU Indirect Fee is derived from the sum total of Service Indirect plus Wake Forest University F&A.*
 * See :ref:`sec.sla.su.example.gpu`.
 
 .. _sec.sla.su.ssu_types.storage:
@@ -380,7 +402,8 @@ Storage Service Sub-Unit
 
 **A Storage Service Sub-Unit (SSU) is defined as having one (1) terabyte (TB) of dedicated DEAC Storage for one (1) month. DEAC Storage is defined as any IS managed, dedicated network storage device hosting data used for research on the DEAC Cluster.**
 
-* *The Base Storage Rate used to convert Storage SSUs to SUs is derived from the cost of a DEAC Storage disk, divided by the Terabytes per disk, divided by the 5-year disk lifespan, divided by a 1.1 data reduction ratio, plus University F&A (45.5%).*
+* *The Base Storage Rate used to convert Storage SSUs to SUs is derived from the cost of a DEAC Storage disk, divided by the Terabytes per disk, divided by the 5-year disk lifespan, divided by a 1.1 data reduction ratio.*
+* *The Storage Indirect Fee is derived from Wake Forest University F&A.*
 * **Storage SSU purchases do NOT exist in perpetuity.**
 * *Storage SSU purchases can be made in 12 month calendar year increments, starting every January, for a minimum of 12 months to a maximum of 60 months.*
 
@@ -399,7 +422,7 @@ Storage Service Sub-Unit
 Example SU Purchase
 ===================
 
-Below are four examples of Service Unit requests and/or chargebacks.
+Below are four examples of Service Unit requests and/or chargebacks. For any chargeback, indirect fees are included in the applied SSU Rate. For any contribution or chargeback, even if Compute SSUs are not factored, the Applicable Compute SSU rate is used for the overall SSU to SU conversion.
 
 .. _sec.sla.su.example.compute:
 
@@ -410,12 +433,11 @@ A researcher wishes to submit a grant application and factor in the increased co
 
 * The total amount required to cover the increased computational workload is 4 million SUs.
 
-    * 1,250 simulations x 32 cores x 100 hrs = 4 million Storage SSUs
-    * 4 million Compute SSUs x 1 Compute SUs/SSU = 4 million SUs
+    * 1,250 simulations x 32 cores x 100 hrs = 4 million Compute SSUs
+    * 4 million Compute SSUs x $0.0103 Compute SSU Applied Rate = $41,200
+    * $41,200 SSU Total / Applicable Compute SSU rate ($0.0103) = 4 million SUs
 
-* The total amount that should be requested within the grant application is $87,500, which can be paid up front, or annually based upon the grant timeline.
-
-    * 4 million SUs x $0.0218/SU = $87,500
+* The total amount cost requested within the grant application is $41,200, which can be paid up front, or annually based upon the grant timeline.
 
 .. _sec.sla.su.example.gpu:
 
@@ -424,36 +446,34 @@ GPU Chargeback Example
 
 A non-Reynolda Campus researcher used 4 GPUs for a total of 232 hours last year on the DEAC Cluster.
 
-* The total amount required to cover the increased computational workload is 83,520 SUs.
+* The total amount required to cover the increased computational workload is 35,400 SUs.
 
     * 4 GPUs x 232 hours = 928 GPU SSUs
-    * 928 GPU SSUs x 90 GPU SSUs/SSU = 83,520 SUs
+    * 928 GPU SSUs x $0.8316 GPU SSU Applied Rate = $771.72
+    * $771.72 SSU Total / Applicable Compute SSU rate ($0.0218) = 35,400 SUs
 
-* The total amount that will be charged back to cover usage will be $1,820.74 which should be paid within 60 days of receiving the usage invoice.
-
-    * 83,520 SUs x $0.0218/SU = $1,820.74
+* The total amount that will be charged back to cover usage will be $771.72 which should be paid within 60 days of receiving the usage invoice.
 
 .. _sec.sla.su.example.storage:
 
 Storage Purchase Example
 ------------------------
 
-An established researcher wishes to request a 4 TB quota increase for 36 months. Because the purchase occurs mid-year, the increased storage quota would be valid for 39 months from 09/2022 - 12/2025.
+An external researcher wishes to request a 4 TB quota increase for 36 months. Because the purchase occurs mid-year, the increased storage quota would be valid for 39 months from 09/2022 - 12/2025.
 
-* The required total purchase to meet this request is 351,000 SUs.
+* The required total purchase to meet this request is 350,600 SUs.
 
     * 4TB x 39 Months = 156 Storage SSUs
-    * 156 Storage SSUs x 2250 Storage SSUs/SSU = 351,000 SUs
+    * 156 Storage SSUs x $49.00 Storage SSU Applied Rate = $7,644.00
+    * $7,644.00 SSU Total / Applicable Compute SSU rate ($0.0.218) = 350,600 SUs
 
-* Total cost is $7,651.80, which can be paid up front:
-
-    * 351,000 SUs x $0.0218/SU = $7,651.80
+* Total cost is $7,644.00, which can be paid up front:
 
 * Alternatively the total cost can be paid annually:
 
-    * First invoice on January 2024 is for 15-months:	$2,943.00
-    * Second invoice on January 2025 is for 12-months:	$2,354.40
-    * Third invoice on January 2026 is for 12-months:	$2,354.40
+    * First invoice on January 2024 is for 15-months:	$2,940.00
+    * Second invoice on January 2025 is for 12-months:	$2,352.00
+    * Third invoice on January 2026 is for 12-months:	$2,352.00
 
 
 .. _sec.sla.su.example.multi:
@@ -463,15 +483,14 @@ Multi-type Contribution Example
 
 A newly hired researcher in the Engineering Department wishes to heavily utilize the DEAC Cluster in their 2nd year at Wake Forest. While the School of Engineering is part of the WFU Undergraduate College, and default level access to DEAC resources and the HPC Team is free; they wish to contribute to DEAC knowing their storage footprint will increase, and they also desire a higher priority for an increased workload after their second year. Starting their 2nd year, they expect to consume 1 million core hours over the next three years, and require 5TB of storage.
 
-* The amount required to cover this request is 1,405,000 SUs.
+* The amount required to cover this request is 1,594,175 SUs.
 
-    * 1 million Compute SSUs x 1 Compute SUs/SSU = 1M SUs
-    * 180 Storage SSUs x 2250 Storage SSUs/SSU = 405,000 SUs
+    * 5TB x 36 Months = 180 Storage SSUs
+    * 180 Storage SSUs x $34.00 Storage SSU Applied Rate = $6,120.00
+    * 1 million Compute SSUs x $0.0103 Compute SSU Applied Rate = $10,300.00
+    * $16,420 SSU Total / Applicable Compute SSU rate ($0.0103) = 1,594,175 SUs
 
-* Total cost is $30,629.00, which can be paid up front using available start-up funds:
-
-    * 1,239,400 SUs x $0.0218/SU = $30,629.00
-
+* Total cost is $16,420.00, which can be paid up front using available start-up funds.
 
 
 .. #############################################################################
