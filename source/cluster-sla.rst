@@ -51,7 +51,8 @@ Access to and use of DEAC Cluster resources is permitted for academic research a
 Violation of any of the following usage regulations below may result in a variety of actions including, but not limited to: Suspension of DEAC Cluster account, investigation by Information Systems Information Security (InfoSec), and appropriate legal action where warranted. Relevant Federal law, North Carolina state laws, and Wake Forest University rules and regulations supersede any potential action in cases of conflict. 
 
 #. Users must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
-#. All users should adhere to the Information Systems `Policy on Responsible and Ethical Use of Computing Resources <https://docs.google.com/document/d/1ERgJ0aIBqTr9UQr6Vy6dNvb0nsKyGOZi2p1_MTZl9YA/edit?usp=sharing>`_ while operating on the DEAC Cluster. Students are also governed by the Wake Forest University `Code of Conduct <https://studentconduct.wfu.edu/undergraduate-student-handbook/>`_ while using the DEAC Cluster.
+#. All users shall adhere to the Information Systems :download:`Policy on Responsible and Ethical Use of Computing Resources <https://docs.google.com/document/d/1ERgJ0aIBqTr9UQr6Vy6dNvb0nsKyGOZi2p1_MTZl9YA/edit?usp=sharing>` while operating on the DEAC Cluster. Students are also governed by the Wake Forest University `Code of Conduct <https://studentconduct.wfu.edu/undergraduate-student-handbook/>`_ while using the DEAC Cluster.
+#. To ensure the integrity of all research conducted on the DEAC Cluster, all users shall adhere to the :download:`WFU Policy on Research Misconduct <https://drive.google.com/file/d/18plsm-LGN82EVe5f1Gld1vsGpFz687b3/view>` and follow the responsibilities and guidelines within.
 #. Use of DEAC Cluster resources for unauthorized commercial activities, for personal gain, cryptocurrency mining, or any illegal activities is prohibited.
 #. DEAC Cluster accounts are to be used only for the purpose for which they are authorized and are not to be used for non-DEAC Cluster related activities. 
 #. DEAC Cluster users should adhere to the defined usage limitations as provided in the :ref:`sec.sla.fs` and :ref:`sec.sla.ul`.
@@ -135,7 +136,11 @@ Storage quotas are utilized on DEAC Cluster research storage paths to prevent un
 
     * These quotas can be increased after an explicit request for additional space is made, and the need identified by the HPC Team. 
 
-* **Expansion of data quotas are allowed at no cost up to 2TB per researcher, 10TB per research group, or 20TB per department, so long as sum totals fit within these limits.**
+* Expansion of data quotas are allowed at no cost up to the following limits:
+    * 2TB per researcher. Any individual in a department conducting research independently, or a relatively small research groups where the vast majority of all research data is associated with one individual.
+    * 10TB per research groups. A group of three or more researchers conducting research under an individual research advisor.
+    * 20TB per department; All individual researchers and research groups who fall under the same department.
+
 * Any research group, department use, or funded projects requiring an increase above these default quota limits must be paid for through a Service Unit purchase as outlined in the :ref:`Service Unit Section<sec.sla.su>`.
 
 .. _sec.sla.sdm.data_ownership:
@@ -225,6 +230,7 @@ Data Backup
 In addition to a robust enterprise storage solution that is configured to prevent data loss due to hardware failure, the DEAC Cluster also employs two types of backups on research storage to prevent data loss due to human error and malicious intent:
 
 * Snapshots
+
     * These nightly tasks utilize differential backups to capture data that changes day to day on research paths. 
     * Two nightly snapshots are kept for all research paths. 
     * Any file that is present and available after midnight will be captured in a snapshot and available to restore to the version present at that time.
@@ -232,6 +238,7 @@ In addition to a robust enterprise storage solution that is configured to preven
     * Research advisors can request these snapshots be turned off at their own risk.
 
 * Offsite backups
+
     * Offsite backups are not available by default on DEAC Cluster research storage paths, but can be considered upon special requests made to the HPC Team.
 
 .. _sec.sla.sdm.data_retention_archival:
@@ -239,17 +246,20 @@ In addition to a robust enterprise storage solution that is configured to preven
 Data Retention and Archival
 =============================
 
-All relevant project data will be retained for a minimum of three years after the project conclusion or three years after public release, whichever is later. Relevant data will remain on the DEAC Cluster’s storage or be migrated off to a connected secure cloud archive. Both locations are maintained by IS, and require dual factor authentication behind a secure network firewall to prevent unauthorized access. The following process is followed for data archival:
+All relevant project data will be retained for a minimum of five years after the project conclusion or five years after public release, whichever is later. Relevant data will remain on the DEAC Cluster’s storage or be migrated off to a connected secure cloud archive. Both locations are maintained by IS, and require dual factor authentication behind a secure network firewall to prevent unauthorized access. The following process is followed for data archival:
 
 * The HPC Team will copy data identified by the requestor to the archive where it will reside on Cloud storage. 
-* Life span options for archived data are for 3 or 10 years. Exceptions can be made upon request when needed (due to grant rules, publication requirements, etc).
+* Life span options for archived data are for five or ten years. Exceptions can be made upon request when needed (due to grant rules, publication requirements, etc).
 
-    * In the event of a post-project retention requirement (for a grant or publication, etc), data will be retained for the required time on a project-by-project basis.
+    * According to the :download:`WFU Policy on Research Misconduct <https://drive.google.com/file/d/18plsm-LGN82EVe5f1Gld1vsGpFz687b3/view>`, data must be kept for a minimum of five years after publication.
+    * If the research has been supported by a federal source, record retention requirements of that source, if longer, will apply.
     * Any research resulting in a patent will result in the data retention being extended to the life of the patent. 
+    * Only non-publicly available, relevant, unique, and/or newly created data should be archived. For example, source data originating from another institution should NOT be archived.
 
 * To reduce storage space, data may be compressed prior to archival.
 
-    * A filelist of the archived data can be made viewable upon request in the parent research path to what is being archived. 
+    * Research advisors are responsible for knowing the content and integrity of archived data, as well as the location and expiration of the archive. 
+    * A filelist of th archived data can be made viewable upon request in the parent research path to what is being archived. 
     * Descriptive file names and/or paths are recommended.
 
 * If/When a restore is requested, the file(s) being restored may not be available for access for up to 7 days after request is made.
