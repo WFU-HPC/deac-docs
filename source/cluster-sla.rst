@@ -4,7 +4,8 @@
 DEAC Cluster Service Level Agreement
 ####################################
 
-*Last Updated: March 1, 2023 - Indirect Fees are now only applicable for chargeback calculations; chargeback rate did not change, only calculations and text were revised.*
+* Update 03/28/2023: Added references and links to the WFU Policy on Research Misconduct under :ref:`sec.sla.ua.acceptable_use` and :ref:`sec.sla.sdm.data_retention_archival` Sections.
+* Update 03/01/2023: :ref:`sec.sla.su.contributions` section updated to reflect that Indirect Fees are no longer factored in the Service Unit rate.
 
 The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated as needed, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. DEAC Cluster Users will be notified via email of significant updates after they have been made.
 
@@ -312,7 +313,8 @@ SU Contributions
 Researchers that are planning on conducting a significant amount of their work on the DEAC Cluster should purchase Service Units (SUs) as the preferred form of contribution. Purchasing SUs offers guaranteed, high priority, and expanded utilization of DEAC Cluster compute resources; increased research job allocation priority is applied for a duration of five years, adjusted annually based on total monetary investment. See the :ref:`sec.sla.fs` and :ref:`sec.sla.ul` sections for details on the benefits of contributions.
 
 * The HPC Team will work with any researcher, research group, department or party on a case-by-case basis to determine compute resource needs. This will determine the number of SUs to be purchased, if any.
-* The most common use case for the purchase of SUs would be for budgeting within grant applications. When applying for grants, the HPC Team can work with PIs to come up with cost estimates based on forecasted research needs. SUs would be budgeted as a Computer Service within a grant.
+* The most common use case for the purchase of SUs would be for budgeting within grant applications. When applying for grants, the HPC Team can work with PIs to come up with cost estimates based on forecasted research needs.
+* SUs should be budgeted as a **Computer Service Fee** within a grant, and should be factored into F&A calculations when determining final grant budgets.
 * Although not required, newly-hired faculty are encouraged to utilize start-up funds to purchase SUs if they intend to utilize significant DEAC Cluster resources for their research. The HPC Team is available to help forecast research needs and determine potential SU purchases.
 * The HPC Team quantifies estimated resource usage via Service Sub-Units (SSUs) that correlate with different types of consumable compute resources on the DEAC Cluster.
 
