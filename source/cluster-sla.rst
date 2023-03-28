@@ -371,7 +371,7 @@ Service Units (SUs) are derived from consumption of various types of resources o
     - Per GPU-Hour
   * - Storage SSU
     - $34.00
-    - $14.00
+    - $15.00
     - Per TB / Month
 
 * The sum total of all SSUs is converted into a standard Service Unit in order to normalize the purchase/payment process.
