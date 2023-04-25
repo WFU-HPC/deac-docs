@@ -690,12 +690,12 @@ Research Groups who have made monetary contributions  to the DEAC Cluster should
 
     * Note: Reservations without prior notice cannot be guaranteed to have requested resources available immediately, depending on utilization.
 
-* Contributors have access to the default "normal" QOS, and a "High" QOS priority; meaning they can submit jobs with an elevated priority above their standard fairshare.
+* Contributors have access to the default "normal" QOS, and an exclusive "High" QOS priority for their group; meaning they can submit jobs with an elevated priority above their standard fairshare.
 
     * The "High" QOS is limited to a specific number of Core Hours, set by the size of your Contribution.
-    * For example, if a researchGrp purchases 1,000,000 SUs, their "High" QOS can be used to elevate priority for multiple jobs until a sum total of 1,000,000 core hours are consumed.
-    * If funds are contributed from a grant, the "researchGrpHigh" QOS will ideally be used for jobs specifically related to that grant.
-    * Review the information found in the Wiki for how to use a "High" QOS.
+    * For example, if a researchGrp purchases 1,000,000 SUs, their group's "High" QOS can be used to elevate priority for multiple jobs until a sum total of 1,000,000 core hours are consumed.
+    * If funds are contributed from a grant, the "High" QOS will ideally be used for jobs specifically related to that grant.
+    * The naming scheme for each group's "High" QOS is the name of their researchGrp plus High, for example: "doeGrpHigh".
 
 .. _sec.sla.ul.class_groups:
 
