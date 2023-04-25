@@ -4,6 +4,7 @@
 DEAC Cluster Service Level Agreement
 ####################################
 
+* Update 04/25/2023: Added information about exclusive "High" QOS access for contributing research groups.
 * Update 03/28/2023: Added references and links to the WFU Policy on Research Misconduct under :ref:`sec.sla.ua.acceptable_use` and :ref:`sec.sla.sdm.data_retention_archival` Sections.
 * Update 03/01/2023: :ref:`sec.sla.su.contributions` section updated to reflect that Indirect Fees are no longer factored in the Service Unit rate.
 
