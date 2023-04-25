@@ -671,6 +671,8 @@ Any group that is using the DEAC Cluster without contribution, or under the requ
 
     * Exception: None.
 
+* Baseline Research Groups only have access to the default "normal" QOS priority, meaning they cannot submit any jobs with elevated priority above their standard fairshare.
+
 .. _sec.sla.ul.contributing_research_groups:
 
 Contributing Research Groups
@@ -687,6 +689,13 @@ Research Groups who have made monetary contributions  to the DEAC Cluster should
 * Contributors can request reservation of resources when the need arises without notice. When requested, **reservations are limited to a maximum of 8 nodes and 1 month.**
 
     * Note: Reservations without prior notice cannot be guaranteed to have requested resources available immediately, depending on utilization.
+
+* Contributors have access to the default "normal" QOS, and a "High" QOS priority; meaning they can submit jobs with an elevated priority above their standard fairshare.
+
+    * The "High" QOS is limited to a specific number of Core Hours, set by the size of your Contribution.
+    * For example, if a researchGrp purchases 1,000,000 SUs, their "High" QOS can be used to elevate priority for multiple jobs until a sum total of 1,000,000 core hours are consumed.
+    * If funds are contributed from a grant, the "researchGrpHigh" QOS will ideally be used for jobs specifically related to that grant.
+    * Review the information found in the Wiki for how to use a "High" QOS.
 
 .. _sec.sla.ul.class_groups:
 
