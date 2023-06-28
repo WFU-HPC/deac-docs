@@ -64,7 +64,7 @@ Cluster.
 Installing Python Packages
 -------
 -------
-Phonopy
+Phonopy (UPDATED FOR 2023)
 -------
 
 Website: https://phonopy.github.io/phonopy
