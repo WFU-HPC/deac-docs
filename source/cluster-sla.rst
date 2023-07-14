@@ -4,9 +4,12 @@
 DEAC Cluster Service Level Agreement
 ####################################
 
-* Update 04/25/2023: Added information about exclusive "High" QOS access for contributing research groups.
-* Update 03/28/2023: Added references and links to the WFU Policy on Research Misconduct under :ref:`sec.sla.ua.acceptable_use` and :ref:`sec.sla.sdm.data_retention_archival` Sections.
-* Update 03/01/2023: :ref:`sec.sla.su.contributions` section updated to reflect that Indirect Fees are no longer factored in the Service Unit rate.
+.. admonition:: Recent Updates:
+
+  * 07/14/2023: Updated :ref:`sec.sla.util` section to reflect new, simpler calculation method. Added admonition blocks to highlight key elements of SLA.
+  * 04/25/2023: Added information about exclusive "High" QOS access for :ref:`sec.sla.ul.contributing_research_groups`
+  * 03/28/2023: Added references and links to the WFU Policy on Research Misconduct under :ref:`sec.sla.ua.acceptable_use` and :ref:`sec.sla.sdm.data_retention_archival` Sections.
+  * 03/01/2023: :ref:`sec.sla.su.contributions` section updated to reflect that Indirect Fees are no longer factored in the Service Unit rate.
 
 The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated as needed, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. DEAC Cluster Users will be notified via email of significant updates after they have been made.
 
@@ -50,14 +53,12 @@ Acceptable Use
 
 Access to and use of DEAC Cluster resources is permitted for academic research and instructional activity only. The list of usage regulations below is not all encompassing; it is provided in an effort to promote awareness of acceptable use of the DEAC Cluster, and to ensure that the DEAC Cluster is used in an efficient, ethical, and lawful manner. If any user is unsure whether their usage, discovered actions, or observed behavior is acceptable on the DEAC Cluster, they should contact the HPC Team without hesitation. 
 
-Violation of any of the following usage regulations below may result in a variety of actions including, but not limited to: Suspension of DEAC Cluster account, investigation by Information Systems Information Security (InfoSec), and appropriate legal action where warranted. Relevant Federal law, North Carolina state laws, and Wake Forest University rules and regulations supersede any potential action in cases of conflict. 
-
 #. Users must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
 #. All users shall adhere to the Information Systems :download:`Policy on Responsible and Ethical Use of Computing Resources <https://docs.google.com/document/d/1ERgJ0aIBqTr9UQr6Vy6dNvb0nsKyGOZi2p1_MTZl9YA/edit?usp=sharing>` while operating on the DEAC Cluster. Students are also governed by the Wake Forest University `Code of Conduct <https://studentconduct.wfu.edu/undergraduate-student-handbook/>`_ while using the DEAC Cluster.
 #. To ensure the integrity of all research conducted on the DEAC Cluster, all users shall adhere to the :download:`WFU Policy on Research Misconduct <https://drive.google.com/file/d/18plsm-LGN82EVe5f1Gld1vsGpFz687b3/view>` and follow the responsibilities and guidelines within.
 #. Use of DEAC Cluster resources for unauthorized commercial activities, for personal gain, cryptocurrency mining, or any illegal activities is prohibited.
 #. DEAC Cluster accounts are to be used only for the purpose for which they are authorized and are not to be used for non-DEAC Cluster related activities. 
-#. DEAC Cluster users should adhere to the defined usage limitations as provided in the :ref:`sec.sla.fs` and :ref:`sec.sla.ul`.
+#. DEAC Cluster users should adhere to the defined usage limitations as provided in the :ref:`sec.sla.util` and :ref:`sec.sla.ul`.
 #. Users must adhere to the terms provided in the :ref:`Storage and Data Management Section<sec.sla.sdm>`.
 #. Electronic mail notifications sent from the DEAC Cluster are for authorized use only. Notifications sent to recipients other than themselves or users within their research group should only be done so with written consent. Fraudulent, harassing, or obscene messages and/or materials shall not be sent from or stored on the DEAC Cluster.
 #. The DEAC Cluster is not intended for classified government projects or data (ie, Secret, Top-Secret, FOUO, etc). The processing and storage of classified information is strictly prohibited.
@@ -70,12 +71,19 @@ Violation of any of the following usage regulations below may result in a variet
 #. Users shall not intentionally engage in activities to: degrade the performance of the DEAC Cluster or any Wake Forest system; obtain resources beyond those requested and allocated; circumvent computer security measures or gain unauthorized access to systems, accounts, or resources; misuse batch queues or other resources in ways not authorized or intended; deprive an authorized user access to a resource.
 #. Any discovered security vulnerabilities, misuse of resources, or violation of this agreement should be reported to the HPC Team immediately.
 
+.. warning::
+
+  Violation of any of the above usage regulations may result in a variety of actions including, but not limited to: Suspension of DEAC Cluster account, investigation by Information Systems Information Security (InfoSec), and appropriate legal action where warranted. Relevant Federal law, North Carolina state laws, and Wake Forest University rules and regulations supersede any potential action in cases of conflict. 
+
+
 .. _sec.sla.ua.acceptable_head_node_use:
 
 Acceptable Head Node Use
 ========================
 
-Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not designed nor intended to bear full computational workloads. Users must be cognizant that Head Nodes are shared resources in which user access is required to utilize DEAC Cluster resources. User resource consumption is **limited to 2 cores and 16GB of memory** while operating on the Head Nodes; if more resources are needed, those operations should be conducted via an interactive job through the DEAC Cluster’s scheduler. In addition to following guidelines of :ref:`Acceptable Use<sec.sla.ua.acceptable_use>`, the following list of acceptable Head Node usage below is intended to be all encompassing; any activity occurring from a Head Node not listed below is subject to termination by the HPC Team without prior notification. 
+Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not designed nor intended to bear full computational workloads. Users must be cognizant that Head Nodes are shared resources in which user access is required to utilize DEAC Cluster resources.
+
+In addition to following guidelines of :ref:`Acceptable Use<sec.sla.ua.acceptable_use>`, the following list of acceptable Head Node usage below is intended to be all encompassing; any activity occurring from a Head Node not listed below is subject to termination by the HPC Team without prior notification. 
 
 #. *Editing Files* - As the primary access point to all research data, scripts, and results, it is expected that users will commonly view, edit, and manipulate their files from the Head Nodes. Use of built-in editing tools like vim, nano, emacs, nedit, as well as use of third party tools such as Visual Studio Code are recommended.
 #. *Data Transfer* - The Head Nodes can be used to migrate data to and from DEAC Cluster storage. Whenever possible, data should be directly downloaded to head nodes from the internet via built-in commands like sftp, wget, or curl; if not possible, use of approved third party tools such as Visual Studio Code, WinSCP, and FileZilla can be used to move data to a user’s appropriate research storage path. 
@@ -83,6 +91,11 @@ Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not 
 #. *Compiling Software* - Users can use head nodes to compile software within the above stated resource limits, so long as it completes in under 8 hours.
 #. *Job Testing* - Prior to submitting jobs to the DEAC Cluster’s scheduler queue, it is assumed that all jobs are tested to ensure they run as expected. Processes under the above stated resource limits can be run via command-line directly on the Head Node for a maximum of 30 minutes. 
 #. *Job Submission* - All jobs submitted to the DEAC Cluster’s scheduler are done so from the Head Nodes.
+
+.. important::
+
+  User resource consumption is **limited to 2 cores and 16GB of memory** while operating on the Head Nodes; if more resources are needed, those operations should be conducted via an interactive job through the DEAC Cluster’s scheduler.
+
 
 .. _sec.sla.ua.job_cancellation:
 
@@ -143,7 +156,9 @@ Storage quotas are utilized on DEAC Cluster research storage paths to prevent un
     * 10TB per research groups. A group of three or more researchers conducting research under an individual research advisor.
     * 20TB per department; All individual researchers and research groups who fall under the same department.
 
-* Any research group, department use, or funded projects requiring an increase above these default quota limits must be paid for through a Service Unit purchase as outlined in the :ref:`Service Unit Section<sec.sla.su>`.
+.. Important:: 
+
+  Any research group, department use, or funded projects requiring an increase above these default quota limits must be paid for through a Service Unit purchase as outlined in the :ref:`Service Unit Section<sec.sla.su>`.
 
 .. _sec.sla.sdm.data_ownership:
 
@@ -222,7 +237,9 @@ Non-Permitted Data
     * Do not create unnecessary, secondary “backup” copies of data.
 * **Personal data**
 
-Any user found to not be following these guidelines will be warned and made to have that data removed within one week. After this initial warning, further incidents will be found in violation of the :ref:`User Agreement Section's terms for Acceptable Use<sec.sla.ua.acceptable_use>`.
+.. warning::
+
+  Any user found to not be following these guidelines will be contacted and made to have that data removed within one week. After this first instance, any additional incidents will be found in violation of the :ref:`User Agreement Section's terms for Acceptable Use<sec.sla.ua.acceptable_use>`.
 
 .. _sec.sla.sdm.data_backup:
 
@@ -274,7 +291,9 @@ Dissemination and Sharing
 
 Generally speaking, all users of the DEAC Cluster should comply with the NSF Proposal and Award Policy and Procedures Guide (PAPPG) `policy <https://www.nsf.gov/pubs/policydocs/pappg20_1/pappg_11.jsp#XID4>`_ on the dissemination and sharing of research results. Researcher advisors shall publish the findings from their research group projects as soon and as widely as possible. Additionally, research advisors, PIs, and Co-PIs should be encouraged to publish their findings in peer-reviewed journals and, if travel allows, present results at relevant conferences. Findings on the DEAC Cluster are not expected to be proprietary so no limits on dissemination should be expected. If data that supports disseminated findings must also be shared, coordination must occur with the HPC Team to make data accessible to individuals in the scientific community. 
 
-*All dissemination and shared findings* should reference the DEAC Cluster in accordance with the :ref:`first term for Acceptable Use<sec.sla.ua.acceptable_use>`.
+.. important::
+
+  All dissemination and shared findings* should reference the DEAC Cluster in accordance with the :ref:`first term for Acceptable Use<sec.sla.ua.acceptable_use>`.
 
 .. #############################################################################
 .. #############################################################################
@@ -292,7 +311,7 @@ Service Unit
 Purpose and Applicability
 =========================
 
-The DEAC Cluster offers baseline services and resources in support of research carried out by members of the WFU Undergraduate College and Graduate School of Arts and Sciences. **Baseline usage of the DEAC Cluster is provided at NO COST to these members as part of the centralized services provided by Information Systems.** See the :ref:`sec.sla.fs` and :ref:`sec.sla.ul` sections for more information on baseline expected usage.
+The DEAC Cluster offers baseline services and resources in support of research carried out by members of the WFU Undergraduate College and Graduate School of Arts and Sciences. **Baseline usage of the DEAC Cluster is provided at NO COST to these members as part of the centralized services provided by Information Systems.** See the :ref:`sec.sla.util` and :ref:`sec.sla.ul` sections for more information on baseline expected usage.
 
 There are two scenarios where payment should be made for the use of DEAC Cluster compute resources:
 
@@ -311,7 +330,7 @@ Contributions and/or chargebacks are made in the form of Service Units (SUs). **
 SU Contributions
 ================
 
-Researchers that are planning on conducting a significant amount of their work on the DEAC Cluster should purchase Service Units (SUs) as the preferred form of contribution. Purchasing SUs offers guaranteed, high priority, and expanded utilization of DEAC Cluster compute resources; increased research job allocation priority is applied for a duration of five years, adjusted annually based on total monetary investment. See the :ref:`sec.sla.fs` and :ref:`sec.sla.ul` sections for details on the benefits of contributions.
+Researchers that are planning on conducting a significant amount of their work on the DEAC Cluster should purchase Service Units (SUs) as the preferred form of contribution. Purchasing SUs offers guaranteed, high priority, and expanded utilization of DEAC Cluster compute resources; increased research job allocation priority is applied for a duration of five years, adjusted annually based on total monetary investment. See the :ref:`sec.sla.util` and :ref:`sec.sla.ul` sections for details on the benefits of contributions.
 
 * The HPC Team will work with any researcher, research group, department or party on a case-by-case basis to determine compute resource needs. This will determine the number of SUs to be purchased, if any.
 * The most common use case for the purchase of SUs would be for budgeting within grant applications. When applying for grants, the HPC Team can work with PIs to come up with cost estimates based on forecasted research needs.
@@ -378,8 +397,11 @@ Service Units (SUs) are derived from consumption of various types of resources o
 * The sum total of all SSUs is converted into a standard Service Unit in order to normalize the purchase/payment process.
 * The converted total of all Service Sub-Units is used to create the overall SU request or invoice.
 * The smallest base rate from all SSU types, and the most essential SSU, the Compute Rate, is used to convert the total cost into total SUs (1 Compute SSU = 1 SU).
-    * Service Unit Cost for **Contributions = $0.0103** (base rate only)
-    * Service Unit Cost for **Chargebacks   = $0.0218** (base rate plus indirect fees)
+
+.. admonition:: Current Service Unit Costs
+
+  * Service Unit Cost for **Contributions = $0.0103** (base rate only)
+  * Service Unit Cost for **Chargebacks   = $0.0218** (base rate plus indirect fees)
 
 .. _sec.sla.su.ssu_types.compute:
 
@@ -511,130 +533,173 @@ A newly hired researcher in the Engineering Department wishes to heavily utilize
 .. #############################################################################
 .. #############################################################################
 
-.. _sec.sla.fs:
+.. _sec.sla.util:
 
-*********************
-Fairshare Calculation
-*********************
+********************
+Expected Utilization
+********************
 
-Expected utilization of the DEAC Cluster by a research group is controlled by their **Fairshare** value. Fairshare is only a consideration that is enforced when the DEAC Cluster is *overutilized*. When overutilized, the DEAC Cluster’s scheduler tracks pending user tasks, or jobs, in a queue; the scheduler uses an assigned fairshare value from each user to assign priority to these queued jobs. In an *underutilized* cluster environment, jobs run as the resources are available (which, in most cases, is immediately). 
+Expected utilization of the DEAC Cluster can be defined as the amount of computational resources that a research group or department is expected to use. Expected Utilization is determined by a research group's parent department's investments into the DEAC Cluster compared to the total monetary investment (:math:`I_{\mathrm{tot}}`) over the past 5 years and controlled by **Fairshare** value. 
 
-* Fairshare values are assigned based upon a researcher’s representative investment into the DEAC Cluster compared to the total monetary investment (Itot) over the past 5 years. 
-* Contributions, investments, fairshare and expected usage are recalculated at the end of the fiscal year (June 30) and deployed to the DEAC Cluster scheduler configuration within one month of final calculations.
-* There are three investment types factored into the calculation of Fairshare values:
+
+.. important:: 
+
+  Investments, fairshare, and expected utilization are recalculated at the end of the fiscal year (June 30) and deployed to the DEAC Cluster scheduler configuration within one month of final calculations.
+
+
+.. _sec.sla.util.investment_types:
+
+Investment Types
+================
+
+* Expected utilization can be derived from the monthly computational capacity of the cluster by a ratio of applicable Investment types. 
+* There are three investment types factored into the calculation of Expected Utilization:
 
 .. math::
 
   I_{tot} = I_{\mathrm{IS}} + I_{\mathrm{WFU}} + I_{\mathrm{contrib}}
 
-.. _sec.sla.fs.investment_types:
-
-Investment Types
-================
-
-.. _sec.sla.fs.investment_types.i_is:
+.. _sec.sla.util.investment_types.i_is:
 
 Information Systems Investment (:math:`\mathbf{I_{\mathrm{IS}}}`)
 -----------------------------------------------------------------
 
-As a centralized resource, the Information System department budgets annual hardware refreshes to remove/replace DEAC Cluster resources greater than 5 years old based on overall utilization. This 5-year expected lifespan of investments is why the total investment period is equal to 5 years.
+As a centralized resource, the Information Systems department budgets annual hardware refreshes to remove/replace DEAC Cluster resources greater than 5 years old based on overall utilization. This 5-year expected lifespan of investments is why the total investment period is equal to 5 years.
 
-* The total Information Systems investment (:math:`I_{\mathrm{IS}}`), divided by the number of all active departments utilizing the DEAC Cluster (:math:`D_{\mathrm{active}}`), is equal to the equivalent baseline contribution amount (:math:`A_{\mathrm{base}}`):
-
-.. math::
-
-  A_{\mathrm{base}} = \frac{\mathrm{IS}}{D_{\mathrm{active}}}
-
-* The ratio of :math:`A_{\mathrm{base}}` to the DEAC Cluster’s total monetary investment (:math:`I_{{tot}}`) represents the baseline Fairshare (:math:`F_{\mathrm{base}}`) assigned to all researcher groups and/or departments by default.
-* The :math:`F_{\mathrm{base}}` value assigned to all research groups by default is currently: **.0579.**
-* **By default, a research group inherits this** :math:`F_{\mathrm{base}}` **value from their parent department and shares expected utilization with all researchers within that same department.**
-
-.. math::
-
-  F_{\mathrm{base}} = \frac{A_{\mathrm{base}}}{I_{tot}}
-
-* Chargebacks from non-WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) departments are factored into the DEAC Cluster as an Information Systems Investment (:math:`I_{\mathrm{IS}}`) and thus the baseline Fairshare (:math:`F_{\mathrm{base}}`).
+* The sum total of all investments from Information Systems over the previous 5 years is factored in to the value of (:math:`I_{\mathrm{IS}}`).
+* Chargebacks from non-WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) departments are factored into the DEAC Cluster as an Information Systems Investment (:math:`I_{\mathrm{IS}}`).
 
     * The DEAC Cluster is accessible to non-WFU UC/GSAS researchers if, and only if, those researchers are willing and able to pay for their consumed usage of resources in the form of a chargeback. See the :ref:`Service Unit Chargeback Section<sec.sla.su.chargebacks>` for more information on how chargebacks are calculated.
 
-.. _sec.sla.fs.investment_types.i_wfu:
+.. _sec.sla.util.investment_types.i_wfu:
 
 WFU Provost Office Investment (:math:`\mathbf{I_{\mathrm{WFU}}}`)
 -----------------------------------------------------------------
 
-The WFU Provost’s Office has several funding opportunities available to researchers. One such opportunity includes the Office of Research and Sponsored Programs (ORSP); which *annually matches up to $75,000 in grant fund contributions* made to the DEAC Cluster.
+The WFU Provost’s Office has several funding opportunities available to researchers, such as grant matching from the Office of Research and Sponsored Programs (ORSP).
 
-* The total investment provided by the WFU Provost office (:math:`I_{\mathrm{WFU}}`), divided by the number of WFU Provost supported departments utilizing the DEAC Cluster (:math:`D_{\mathrm{WFU}}`), equals an additional baseline contribution amount (:math:`A_{\mathrm{WFU}}`) for WFU Provost supported departments ONLY:
+.. admonition:: Grant Contribution Matching
 
-.. math::
-
-  A_{\mathrm{WFU}} = 
-  \begin{cases}
-  \dfrac{I_{\mathrm{WFU}}}{D_{\mathrm{WFU}}} & \text{for WFU UC/GSAS members}, \\\\
-  0 & \text{for all others}.
-  \end{cases}
-
-* The ratio of :math:`A_{\mathrm{WFU}}` to the DEAC Cluster’s total Investment (:math:`I_{{tot}}`) represents an additional fairshare increase (:math:`F_{\mathrm{WFU}}`) added only to WFU Provost supported researchers or departments:
+  ORSP will match up to **$75,000 annually** in grant fund contributions made to the DEAC Cluster.
+    
+* Provost's Office Investments (:math:`\mathbf{I_{\mathrm{WFU}}}`) only benefit WFU UC/GSAS researchers.
+* The sum total of all matched grant funds provided by ORSP, or funds directly provided by the provost's office in support of a specific project, count as a Provost's Office Investment (:math:`\mathbf{I_{\mathrm{WFU}}}`).
 
 .. math::
 
-  F_{\mathrm{WFU}} = \frac{A_{\mathrm{WFU}}}{I_{tot}}
+  I_{\mathrm{WFU}} = \sum{A_{\mathrm{WFU}}}
 
-.. _sec.sla.fs.investment_types.i_contrib:
 
-Researcher Contribution Investments (:math:`\mathbf{I_{\mathrm{contrib}}}`)
----------------------------------------------------------------------------
+
+.. _sec.sla.util.investment_types.i_contrib:
+
+Contribution Investments (:math:`\mathbf{I_{\mathrm{contrib}}}`)
+----------------------------------------------------------------
 
 See the :ref:`Service Unit Contributions Section<sec.sla.su.contributions>` for more information on how contributed amounts (:math:`A_{\mathrm{contrib}}`) are calculated and why they are made.
 
-* The sum total of all SU-based contributions (:math:`I_{\mathrm{contrib}}`) is factored into the total monetary investment (:math:`I_{{tot}}`) which influences the baseline fairshare (:math:`F_{\mathrm{base}}`) and additional fairshare increase (:math:`F_{\mathrm{WFU}}`) values:
+* SU Contributions (:math:`I_{\mathrm{contrib}}`) can come from departments or research groups.
+* The sum total of all SU-based contributions (:math:`I_{\mathrm{contrib}}`) is factored into the total monetary investment (:math:`I_{{tot}}`) which influences the baseline Expected Utilization for Research Groups (:math:`U_{\mathrm{Grp}}`):
 
 .. math::
 
   I_{\mathrm{contrib}} = \sum{A_{\mathrm{contrib}}}
 
-* SU Contributions (:math:`A_{\mathrm{contrib}}`) are counted solely toward the contributing research group or department’s final fairshare value (:math:`F_{\mathrm{final}}`). 
 
-    * Department based contributions are applied on a case-by-case basis, but most commonly, would be split amongst all associated research groups in that department, in a similar manner to how :math:`A_{\mathrm{WFU}}` and :math:`F_{\mathrm{WFU}}` are calculated.
-    * Research-Node purchases are NOT counted toward :math:`I_{\mathrm{contrib}}` nor :math:`A_{\mathrm{contrib}}`, as they are 1) not SU-based contributions, and 2) only benefit a specific research group rather than the entire DEAC Cluster user base. Matching ORSP funds may be counted toward :math:`I_{\mathrm{WFU}}` depending on cluster impact and benefit.
 
-* All contributing research groups will have their final fairshare value (:math:`F_{\mathrm{final}}`) assigned independently of their parent department; granting them an expected utilization independent from that of their department’s fairshare.
+.. _sec.sla.util.utilization_calculation:
 
-    * This counts each contributing research group’s usage separately from their department, and sets their fairshare above the baseline of an entire department’s non-contributing researchers as well, vastly increasing a research group’s priority overall on the cluster.
+Utilization Calculation
+=======================
 
-.. _sec.sla.fs.assigned_fairshare_value:
-
-Assigned Fairshare Value (:math:`\mathbf{F_{\mathrm{final}}}`)
-==============================================================
-
-The final Fairshare value (:math:`F_{\mathrm{final}}`) that is applied to a research group is extrapolated from the ratio sum of :math:`A_{\mathrm{base}}`, :math:`A_{\mathrm{WFU}}`, and :math:`A_{\mathrm{contrib}}`, over :math:`A_{\mathrm{base}}`; multiplied by their default applied Fairshare value (:math:`F_{\mathrm{base}}` plus :math:`F_{\mathrm{WFU}}`); this evaluation fairly multiplies default baseline fairshare values by the ratio of a research group’s investment amount to the baseline. For example, if a research group has contributed amounts double to that of the applicable baseline amount, their :math:`F_{\mathrm{final}}` should be double that of another group who has not contributed to the DEAC Cluster:
-
-.. math::
-  F_{\mathrm{final}} = \frac{ A_{\mathrm{base}} + A_{\mathrm{WFU}} + {A_{\mathrm{contrib}} }}{A_{\mathrm{base}}} \times (F_{\mathrm{base}} + F_{\mathrm{WFU}})
-
-.. _sec.sla.fs.expected_utilization:
-
-Expected Utilization (:math:`\mathbf{U_{\mathrm{final}}}`)
-==========================================================
-
-Expected utilization (:math:`U_{\mathrm{final}}`) percentage of DEAC Cluster resources is derived by normalizing all non-classroom assigned Fairshare values (:math:`F_{\mathrm{final}}`) to a scale of 1. By dividing a research group or department’s :math:`F_{\mathrm{final}}` by the sum total of all assigned research group and/or department Fairshare values (:math:`F_{{tot}}`), one can arrive at an expected utilization percentage (:math:`U_{\mathrm{final}}`):
+Each investment type establishes a baseline amount that is factored into a research group and department's overall utilization calculation. Each baseline utilization is based upon ratio of the maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`), which is equal to the number of monthly CPU Service Sub-Units, aka core hours, available on the cluster.
 
 .. math::
 
-  F_{tot} = \sum{F_\mathrm{final}}
+  U_{\mathrm{MAX}} = CPU_{\mathrm{monthly}}
 
-* The value of :math:`F_{tot}` is currently **1.6379**; therefore, the expected baseline usage percentage (:math:`U_{\mathrm{base}}`) of default :math:`F_{\mathrm{base}}` is equal to **3.53%** of DEAC Cluster resources (or *102,521 core hours per month*).
+.. _sec.sla.util.utilization_calculation.u_baseline:
 
-    * :math:`F_{tot}` is not equal to 1 due to how :math:`A_{base}` is factored into all contributing research group’s :math:`F_{\mathrm{final}}`. Essentially, :math:`A_{base}` is counted one extra time for every additional contributing group’s :math:`F_{\mathrm{final}}`, moving :math:`F_{tot}` further from 1 for every researcher contribution. 
-    * The DEAC Cluster’s scheduler will fairly assign priority regardless of whether or not :math:`F_{tot}` is equal to 1; normalizing fairshare to calculate :math:`U_{\mathrm{final}}` is only to help researchers understand their expected utilization and limits.
+Research Group Baseline (:math:`\mathbf{U_{\mathrm{Grp}}}`)
+-----------------------------------------------------------
+* Expected baseline monthly utilization is the computational workload that each research group on the DEAC Cluster should expect to use at no cost to them.
+* The research group baseline utilization (:math:`U_{\mathrm{Grp}}`) is calculated by multiplying the ratio of IS investment (:math:`\mathbf{I_{\mathrm{IS}}}`) vs Total investment (:math:`\mathbf{I_{\mathrm{Total}}}`) times the by the maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`), divided by the number of active groups using the cluster.
 
-* The *higher* the assigned :math:`F_{\mathrm{final}}`, the higher the expected utilization (:math:`U_{\mathrm{final}}`); conversely, the higher the value of :math:`F_{tot}`, the lower the :math:`U_{\mathrm{final}}`.
+    * External research groups are counted by one of the following largest common denominators: department level, center, or consortium.
+    * For example, an external department with 5 small research groups would count as a single "group" added to the group total.
 
-    * As more researchers contribute, and more departments start using the DEAC Cluster, a lower overall usage percentage would be expected. Ideally, as more researchers use the DEAC cluster and usage increases, the number of overall resources available should increase to share. 
+.. math::
 
-.. math:
+  U_{\mathrm{Grp}} = \frac{ I_{\mathrm{IS}} }{I_{\mathrm{total}}} \times \frac{U_{\mathrm{MAX}}}{ G_{\mathrm{Active}} }
 
-  U_{\mathrm{final}} = \frac{F_{\mathrm{final}}}{F_{tot}}
+.. admonition:: Current Research Group Baseline
+
+  The current baseline monthly utilization (:math:`U_{Grp}`) for research groups is **26,954 SUs**.
+
+* If a non-contributing group is operating outside of that monthly utilization on a regular basis, then they should consider contributing to the DEAC Cluster to help accomodate their elevated usage. 
+
+
+.. _sec.sla.util.utilization_calculation.u_wfu:
+
+Provost Office Baseline (:math:`\mathbf{U_{\mathrm{WFU}}}`)
+------------------------------------------------------------
+* Expected baseline monthly utilization of each WFU UC/GSAS department (:math:`U_{\mathrm{WFU}}`) is calculated by multiplying the ratio of Provost Office Investments (:math:`\mathbf{I_{\mathrm{WFU}}}`) vs Total investment (:math:`\mathbf{I_{\mathrm{Total}}}`) times the maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`), divided by the number of active WFU UC/GSAS departments using the cluster.
+
+.. math::
+
+  U_{\mathrm{WFU}} = \frac{ I_{\mathrm{WFU}} }{I_{\mathrm{total}}} \times \frac{U_{\mathrm{MAX}}}{ D_{\mathrm{Active}} }
+
+.. admonition:: Current Research Group Baseline
+
+  The current baseline monthly utilization for each WFU UC/GSAS department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **15,101 SUs**.
+
+
+.. _sec.sla.util.utilization_calculation.u_grp:
+
+Contribution Baseline (:math:`\mathbf{U_{\mathrm{Contrib}}}`)
+----------------------------------------------------------------
+* All department based contributions are applied to increase that Department's overall expected Utilization (:math:`U_{\mathrm{Dept}}`), benefitting all researchers in that department.
+* All research group contributions increase their expected utilization, but that utilization is considered as a part of an increase within their their parent department's overall expected Utilization (since they reside in that department).
+
+    * The main benefit to differentiate a contributing research group's Utilization from non-contributing in their department is access to an exclusive "High" QOS priority for their group ONLY, meaning they can submit jobs with an elevated priority above the "Normal" QOS.
+    * See the :ref:`Contributing Research Groups Section<sec.sla.ul.contributing_research_groups>` for more information.
+
+* Expected contribution monthly utilization (:math:`U_{\mathrm{Contrib}}`) is calculated by multiplying the ratio of the contributed amount (:math:`\mathbf{A_{\mathrm{Contrib}}}`) vs Total investment (:math:`\mathbf{I_{\mathrm{Total}}}`) times the by the max utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`).
+
+.. math::
+
+  U_{\mathrm{Contrib}} = \frac{ A_{\mathrm{Contrib}} }{I_{\mathrm{total}}} \times U_{\mathrm{MAX}}
+
+
+
+Overall Monthly Utilization (:math:`\mathbf{U_{\mathrm{Dept}}}`)
+----------------------------------------------------------------
+
+* Overall monthly utilization is derived from the 3 baseline values, and equates to how much each department can expect to be able to use monthly. 
+* Each department's overall monthly utilization (:math:`\mathbf{U_\mathrm{Dept}}`) is calculated by multiplying the research group baseline (:math:`\mathbf{U_{\mathrm{Grp}}}`) times the number of active research groups in the department (:math:`\mathbf{D_{\mathrm{Active}}}`), plus the Provost Office Departmental Baseline (:math:`\mathbf{U_{\mathrm{WFU}}}`), plus all applicable Contribution baselines (:math:`\mathbf{U_{\mathrm{Contrib}}}`).
+
+.. math::
+
+  U_{\mathrm{Dept}} = (U_{\mathrm{Grp}} \times{ D_{\mathrm{Active}} }) + U_{\mathrm{WFU}} + U_{\mathrm{Contrib}}
+
+
+* If a department or it's research groups have not contributed and are operating outside of their expected overall monthly utilization on a regular basis, then the department and/or one of it's research groups should consider contributing to the DEAC Cluster to help accomodate their elevated usage.
+
+.. _sec.sla.util.assigned_fairshare_value:
+
+Department Fairshare Value (:math:`\mathbf{F_{\mathrm{Dept}}}`)
+===============================================================
+
+Fairshare is derived from the Overall Monthly Utilization Expectation of each department, and is only a factor that is enforced when the DEAC Cluster is *overutilized*. When overutilized, the DEAC Cluster’s scheduler tracks pending user tasks, or jobs, in a queue; the scheduler uses the assigned fairshare value from a user's parent account to assign priority to these queued jobs. If a group is exceding it's expected utilization, the scheduler will decrease job priority accordingly.  In an *underutilized* cluster environment, jobs run as the resources are available (which, in most cases, is immediately). 
+
+* The assigned Fairshare value (:math:`F_{\mathrm{final}}`) that is applied to a research group is inherited from it's parent department.
+* This means all researchers within the same department affect their groups overall usage and priority.
+* The value is determined by the ratio of a parent department's expected overall monthly utilization (:math:`\mathbf{U_{\mathrm{Dept}}}`) versus the maximum utilization possible total (:math:`\mathbf{U_{\mathrm{MAX}}}`).
+
+.. math::
+  F_{\mathrm{Dept}} = \frac{ U_{\mathrm{Dept}} }{U_{\mathrm{MAX}}}
+
+* Because all expected utilization values are determined by a ratio of maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`) and applicable Investments, this creates a fair prioritization across all active research groups, departments and job submissions.
 
 
 .. #############################################################################
@@ -648,9 +713,14 @@ Expected utilization (:math:`U_{\mathrm{final}}`) percentage of DEAC Cluster res
 Usage Limitations
 *****************
 
-If a research group exceeds their expected utilization (:math:`U_{\mathrm{final}}`) of cluster resources, then the DEAC Cluster scheduler will temporarily adjust their assigned Fairshare Value (:math:`F_{\mathrm{final}}`) and priority in an attempt to make usage more “fair” for other research groups when overutilized. The time period that tracks resource consumption is reset on the first of each month.
+If a research group or department exceeds their expected utilization (:math:`U_{\mathrm{Dept}}`) of cluster resources, then the DEAC Cluster's scheduler will temporarily adjust their assigned Fairshare Value (:math:`F_{\mathrm{Dept}}`) and priority in an attempt to make usage more “fair” for other research groups when overutilized. The time period that tracks resource consumption is reset on the first of each month.
 
-Regardless of calculated :math:`U_{\mathrm{final}}` values, the DEAC Cluster exists to be utilized. Users should submit their jobs to the DEAC Cluster without hesitation if they have research to do! The nature of research means certain periods of the year are busier than others, and it is expected that researchers will exceed their :math:`U_{\mathrm{final}}` at some point. That being said, the DEAC Cluster is a shared resource and several guidelines on usage limitations should be followed by different group types when utilizing its resources. Failing to operate within these limits can result in termination of processes and be found in violation of :ref:`sec.sla.ua.acceptable_use` as outlined in the :ref:`sec.sla.ua`.
+.. important:: 
+
+  Regardless of calculated fairshare (:math:`U_{\mathrm{Dept}}`), the DEAC Cluster exists to be utilized. Users should submit their jobs to the DEAC Cluster without hesitation if they have research to do!
+
+The nature of research means certain periods of the year are busier than others, and it is expected that departments will exceed their fairshare (:math:`U_{\mathrm{Dept}}`) at some point. That being said, the DEAC Cluster is a shared resource and several guidelines on usage limitations should be followed by different group types when utilizing its resources. Failing to operate within these limits can result in termination of processes and be found in violation of :ref:`sec.sla.ua.acceptable_use` as outlined in the :ref:`sec.sla.ua`.
+
 
 .. _sec.sla.ul.baseline_research_groups:
 
@@ -659,7 +729,7 @@ Baseline Research Groups
 
 Any group that is using the DEAC Cluster without contribution, or under the requirement of chargebacks for usage, are described as Baseline Research Groups. These groups are expected to adhere to the following usage limits:
 
-* No Baseline Research Group usage of cluster resources should exceed **three times the value of** :math:`\mathbf{U_{\mathrm{base}}}` at any point during a usage period.
+* No Baseline Research Group usage of cluster resources should exceed **three times the value of** :math:`\mathbf{U_{\mathrm{Grp}}}` during a usage period without contacting the HPC Team.
 
     * *Exceptions:* During periods of extremely low cluster utilization (e.g. <25%), a research group may exceed this limit. It is requested that groups contact the HPC Team before doing so; and, if exceeding this limit, the HPC Team reserves the right to cancel jobs if other researcher jobs are queued for greater than two hours as a result.
 
@@ -672,28 +742,34 @@ Any group that is using the DEAC Cluster without contribution, or under the requ
 
     * Exception: None.
 
-* Baseline Research Groups only have access to the default "normal" QOS priority, meaning they cannot submit any jobs with elevated priority above their standard fairshare.
+.. warning::
+
+  Baseline Research Groups only have access to the default "normal" QOS priority, meaning they cannot submit any jobs with elevated priority above their standard fairshare.
+
 
 .. _sec.sla.ul.contributing_research_groups:
 
 Contributing Research Groups
 ============================
 
-Research Groups who have made monetary contributions  to the DEAC Cluster should already benefit from higher priority, resulting in lower wait times when the cluster is overutilized. In addition to higher fairshare, contributing research groups are also granted the following higher usage limits:
+Research Groups who have made monetary contributions to the DEAC Cluster should see several benefits from higher priority, resulting in lower wait times when the cluster is overutilized. In addition to higher fairshare, contributing research groups are also granted the following higher usage limits:
 
-* Contributing research groups, and individual researchers within shall not exceed **six times the value of** :math:`\mathbf{U_{\mathrm{final}}}` within a usage period.
+* Contributing research groups, and individual researchers within should not exceed **six times the value of** :math:`\mathbf{U_{\mathrm{final}}}` within a usage period without contacting the HPC Team first.
 
     * *Exceptions:* During periods of extremely low cluster utilization (e.g. 10-25%), usage may exceed this limit to meet research needs. 
     * Note: Unlike Baseline Research Groups, a single researcher may consume the entirety of this usage on behalf of a contributing research group.
     * Note: If exceeding this limit, the HPC Team will ensure parallelization and best practices are utilized for such large workloads, and ensures the right to lower the priority and/or cancel queued jobs if absolutely necessary.
 
-* Contributors can request reservation of resources when the need arises without notice. When requested, **reservations are limited to a maximum of 8 nodes and 1 month.**
+* Contributors can request reservation of resources when the need arises without notice. When requested, **reservations are limited to a maximum of 10 nodes and 3 months.**
 
     * Note: Reservations without prior notice cannot be guaranteed to have requested resources available immediately, depending on utilization.
 
-* Contributors have access to the default "normal" QOS, and an exclusive "High" QOS priority for their group; meaning they can submit jobs with an elevated priority above their standard fairshare.
+.. important::
 
-    * The "High" QOS is limited to a specific number of Core Hours, set by the size of your Contribution.
+  Contributors have access to the default "normal" QOS, and an exclusive "High" QOS priority for their group; meaning they can submit jobs with an elevated priority above their standard fairshare.
+
+* The "High" QOS is limited to a specific number of Core Hours, set by the size of your Contribution.
+
     * For example, if a researchGrp purchases 1,000,000 SUs, their group's "High" QOS can be used to elevate priority for multiple jobs until a sum total of 1,000,000 core hours are consumed.
     * If funds are contributed from a grant, the "High" QOS will ideally be used for jobs specifically related to that grant.
     * The naming scheme for each group's "High" QOS is the name of their researchGrp plus High, for example: "doeGrpHigh".
@@ -703,12 +779,23 @@ Research Groups who have made monetary contributions  to the DEAC Cluster should
 Class Groups
 ============
 
-By default, all classes that fall under a WFU UC/GSAS department will have nearly unrestricted access to the DEAC cluster for instructional use. Utilization by classes is considered wholly separate from that of researchers, and is the only percentage not based on the calculations provided in :ref:`sec.sla.fs`. While instructional learning with classes is a top priority, the DEAC Cluster is still a shared and regularly utilized resource by researchers. Instructors are asked to consider the following:
+By default, all classes that fall under a WFU UC/GSAS department will have nearly unrestricted access to the DEAC cluster for instructional use. Utilization by classes is considered wholly separate from that of researchers, and is the only percentage not based on the calculations provided in :ref:`sec.sla.util`. While instructional learning with classes is a top priority, the DEAC Cluster is still a shared and regularly utilized resource by researchers. Instructors are asked to consider the following:
 
-* **The allowed expected utilization** (:math:`\mathbf{U_{\mathrm{final}}}`) **for classes is 100%**; meaning classes are allowed to utilize 100% of DEAC Cluster resources for instruction and assignments, *only if needed.* 
+.. math::
+  U_{\mathrm{Class}} = U_{\mathrm{MAX}}
+
+* The allowed expected utilization for classes (:math:`\mathbf{U_{\mathrm{class}}}`) is equal to the Maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`); meaning classes are allowed to utilize 100% of DEAC Cluster resources for instruction and assignments, *only if needed.* 
 
     * *Exceptions:* Assignments and tasks related to instruction should run for *less than one week.*
-    * Note: Historically, classroom workloads are very small, have short deadlines, and impose a non-impactful, temporary workload on DEAC Cluster resources; therefore, a high :math:`F_{\mathrm{final}}` is assigned to help ensure assignment related tasks can run as soon as possible.
+    * Assuming a relatively small workload, the assigned class fairshare value (:math:`F_{\mathrm{class}}` is equal to the maximum fairshare of all departments combined, ensuring assignment related tasks can run as soon as possible.
+
+.. math::
+  F_{\mathrm{Class}} = \sum{F_{\mathrm{Dept}}}
+
+
+.. warning::
+
+  Historically, classroom workloads are very small, have short deadlines, and impose a non-impactful, temporary workload on DEAC Cluster resources; that is the assumed case for default class behavior. Exemptions may require action from the HPC Team.
 
 * Class groups can request reservation of resources without prior notice. When requested, **class reservations are limited to a maximum of 1 week.**
  
@@ -726,6 +813,3 @@ By default, all classes that fall under a WFU UC/GSAS department will have nearl
 .. #############################################################################
 .. #############################################################################
 .. #############################################################################
-
-
-
