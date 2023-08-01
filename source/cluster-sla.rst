@@ -36,7 +36,7 @@ User Agreement
 Account Eligibility and Sponsorhip
 ==================================
 
-**Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) as part of the centralized services provided by Information Systems.** These users will heretofor be called "*Interal*" Users.
+**Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) as part of the centralized services provided by Information Systems. These users will henceforth be called "*Interal*" Users.**
 
 * To access the DEAC Cluster, students, faculty and staff must formally request access from the HPC Team, either via email to `deac-help@wfu.edu <mailto:deac-help@wfu.edu>`_ or ticket submission to the HPC Team from `help.wfu.edu <https://help.wfu.edu>`_.
 * Students must have a Faculty sponsor who approves their account request. This sponsorship is required for research and instructional usage of the DEAC Cluster. Faculty sponsors take responsibility for their approved users’ actions on the cluster. 
@@ -45,7 +45,7 @@ Account Eligibility and Sponsorhip
 * Non-WFU parties are allowed access to the DEAC Cluster for research collaborations. The sponsoring research must request creation of a `guest account <https://help.wfu.edu/support/catalog/items/64>`_ for their collaborator and complete the guest account request process accordingly. If access is required beyond the original request’s term, a guest account `extension <https://help.wfu.edu/support/catalog/items/63>`_ must be requested.
 * `Students <https://help.wfu.edu/support/catalog/items/127>`_, `faculty or staff <https://help.wfu.edu/support/catalog/items/60>`_ may have their WFU account extended after leaving the University in order to continue research as an external collaborator with a currently employed researcher on the DEAC Cluster. The research sponsor must make a formal request via help.wfu.edu for an account extension for the external collaborator’s account. Account extensions may be requested for up to one year. If the collaboration continues beyond that year, the request must be made again before the term ends.
 
-**Usage of the DEAC Cluster by WFU affiliated parties outside of the WFU UC/GSAS, such as the School of Medicine, is provided only in a PAID USAGE format.** Any usage not paid for ahead of time must be paid for afterthefact in the form of a :ref:`Chargeback<sec.sla.su.chargebacks>`. These users will heretofor be called "*External*" Users.
+**Usage of the DEAC Cluster by WFU affiliated parties outside of the WFU UC/GSAS, such as the School of Medicine, is provided only in a PAID USAGE format. Any usage not paid for ahead of time must be paid for after the fact in the form of a :ref:`Chargeback<sec.sla.su.chargebacks>`. These users will henceforth be called "*External*" Users.**
 
 .. _sec.sla.ua.acceptable_use:
 
