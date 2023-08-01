@@ -6,6 +6,7 @@ DEAC Cluster Service Level Agreement
 
 .. admonition:: Recent Updates:
 
+  * 08/01/2023: Updated :ref:`sec.sla.ua.account_eligibility` section to clearly define "*Internal*" and "*External*" users for reference throughout SLA.
   * 07/14/2023: Updated :ref:`sec.sla.util` section to reflect new, simpler calculation method. Added admonition blocks to highlight key elements of SLA.
   * 04/25/2023: Added information about exclusive "High" QOS access for :ref:`sec.sla.ul.contributing_research_groups`
   * 03/28/2023: Added references and links to the WFU Policy on Research Misconduct under :ref:`sec.sla.ua.acceptable_use` and :ref:`sec.sla.sdm.data_retention_archival` Sections.
@@ -35,7 +36,7 @@ User Agreement
 Account Eligibility and Sponsorhip
 ==================================
 
-**Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) as part of the centralized services provided by Information Systems.**
+**Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) as part of the centralized services provided by Information Systems.** These users will heretofor be called "*Interal*" Users.
 
 * To access the DEAC Cluster, students, faculty and staff must formally request access from the HPC Team, either via email to `deac-help@wfu.edu <mailto:deac-help@wfu.edu>`_ or ticket submission to the HPC Team from `help.wfu.edu <https://help.wfu.edu>`_.
 * Students must have a Faculty sponsor who approves their account request. This sponsorship is required for research and instructional usage of the DEAC Cluster. Faculty sponsors take responsibility for their approved users’ actions on the cluster. 
@@ -44,7 +45,7 @@ Account Eligibility and Sponsorhip
 * Non-WFU parties are allowed access to the DEAC Cluster for research collaborations. The sponsoring research must request creation of a `guest account <https://help.wfu.edu/support/catalog/items/64>`_ for their collaborator and complete the guest account request process accordingly. If access is required beyond the original request’s term, a guest account `extension <https://help.wfu.edu/support/catalog/items/63>`_ must be requested.
 * `Students <https://help.wfu.edu/support/catalog/items/127>`_, `faculty or staff <https://help.wfu.edu/support/catalog/items/60>`_ may have their WFU account extended after leaving the University in order to continue research as an external collaborator with a currently employed researcher on the DEAC Cluster. The research sponsor must make a formal request via help.wfu.edu for an account extension for the external collaborator’s account. Account extensions may be requested for up to one year. If the collaboration continues beyond that year, the request must be made again before the term ends.
 
-**Usage of the DEAC Cluster by WFU affiliated parties outside of the WFU UC/GSAS, such as the School of Medicine, is provided only in a PAID USAGE format. See** :ref:`sec.sla.su.chargebacks` **for more information on how usage payments are calculated and made.**
+**Usage of the DEAC Cluster by WFU affiliated parties outside of the WFU UC/GSAS, such as the School of Medicine, is provided only in a PAID USAGE format.** Any usage not paid for ahead of time must be paid for afterthefact in the form of a :ref:`Chargeback<sec.sla.su.chargebacks>`. These users will heretofor be called "*External*" Users.
 
 .. _sec.sla.ua.acceptable_use:
 
@@ -54,7 +55,7 @@ Acceptable Use
 Access to and use of DEAC Cluster resources is permitted for academic research and instructional activity only. The list of usage regulations below is not all encompassing; it is provided in an effort to promote awareness of acceptable use of the DEAC Cluster, and to ensure that the DEAC Cluster is used in an efficient, ethical, and lawful manner. If any user is unsure whether their usage, discovered actions, or observed behavior is acceptable on the DEAC Cluster, they should contact the HPC Team without hesitation. 
 
 #. Users must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
-#. All users shall adhere to the Information Systems :download:`Policy on Responsible and Ethical Use of Computing Resources <https://docs.google.com/document/d/1ERgJ0aIBqTr9UQr6Vy6dNvb0nsKyGOZi2p1_MTZl9YA/edit?usp=sharing>` while operating on the DEAC Cluster. Students are also governed by the Wake Forest University `Code of Conduct <https://studentconduct.wfu.edu/undergraduate-student-handbook/>`_ while using the DEAC Cluster.
+#. Users shall adhere to the Information Systems :download:`Policy on Responsible and Ethical Use of Computing Resources <https://docs.google.com/document/d/1ERgJ0aIBqTr9UQr6Vy6dNvb0nsKyGOZi2p1_MTZl9YA/edit?usp=sharing>` while operating on the DEAC Cluster. Students are also governed by the Wake Forest University `Code of Conduct <https://studentconduct.wfu.edu/undergraduate-student-handbook/>`_ while using the DEAC Cluster.
 #. To ensure the integrity of all research conducted on the DEAC Cluster, all users shall adhere to the :download:`WFU Policy on Research Misconduct <https://drive.google.com/file/d/18plsm-LGN82EVe5f1Gld1vsGpFz687b3/view>` and follow the responsibilities and guidelines within.
 #. Use of DEAC Cluster resources for unauthorized commercial activities, for personal gain, cryptocurrency mining, or any illegal activities is prohibited.
 #. DEAC Cluster accounts are to be used only for the purpose for which they are authorized and are not to be used for non-DEAC Cluster related activities. 
@@ -129,13 +130,13 @@ Storage Access
 
 Only approved DEAC Cluster users can store data on DEAC Cluster storage; specifically, this includes active research paths, user home directories, and cloud archives.
 
-* Researchers eligible to access the DEAC Cluster at no cost as defined in the :ref:`Account Eligibility Section<sec.sla.ua.account_eligibility>` are provided access to DEAC Cluster research storage by default.
-* Researchers eligible to use the DEAC Cluster through chargeback-based access are not provided storage beyond a simple home directory (for usage as defined in :ref:`Permitted Data<sec.sla.sdm.permitted_data-homedir>`).
+* "*Internal*" Users have access the DEAC Cluster at no cost as defined in the :ref:`Account Eligibility Section<sec.sla.ua.account_eligibility>` are provided access to DEAC Cluster research storage by default.
+* "*External*" Users are not provided research storage beyond a simple home directory (for usage as defined in :ref:`Permitted Data<sec.sla.sdm.permitted_data-homedir>`).
 
     * Some researchers may have access to storage that is not maintained by the HPC Team, but configured for access through a special administrative agreement. 
     * Those researchers are expected to follow storage and data guidelines as defined in both this document AND the 3rd party administrators of their storage system. 
     * Access to 3rd party storage is not guaranteed by the HPC Team; availability and performance are fully under 3rd party administrator control.
-    * Chargeback-based researchers may be allowed to purchase research storage in order house data on the DEAC Cluster. See :ref:`Storage Sub Service-Units<sec.sla.su.ssu_types.storage>` for details.
+    * "*External*" Users may be allowed to purchase research storage in order house data on the DEAC Cluster. See :ref:`Storage Sub Service-Units<sec.sla.su.ssu_types.storage>` for details.
 * Collaborators and researchers from outside of Wake Forest University will have their storage access, requests and requirements reviewed on a case-by-case basis.
 
 Network and system firewalls will prevent unauthorized user access to DEAC Cluster research storage, while file system settings and permissions will limit research groups to only accessing their group’s data. These settings are managed and maintained by the HPC Team. By default, only the research groups working on the DEAC Cluster will have access to their relevant data. Research groups may include PIs, Co-PIs, Senior Personnel, Collaborators, post docs, graduate students, undergraduate students, staff, and approved sponsored guest accounts. 
@@ -265,7 +266,7 @@ In addition to a robust enterprise storage solution that is configured to preven
 Data Retention and Archival
 =============================
 
-All relevant project data will be retained for a minimum of five years after the project conclusion or five years after public release, whichever is later. Relevant data will remain on the DEAC Cluster’s storage or be migrated off to a connected secure cloud archive. Both locations are maintained by IS, and require dual factor authentication behind a secure network firewall to prevent unauthorized access. The following process is followed for data archival:
+All relevant project data will be retained for a minimum of five years after the project conclusion or five years after public release, whichever is later. Relevant data will remain on the DEAC Cluster’s storage or be migrated off to a connected secure cloud archive at no additional cost to "*Internal*" Users; "*External*" Users will pay 1:1 exact cost (calcuated seperately from standard storage costs). Both locations are maintained by IS, and require dual factor authentication behind a secure network firewall to prevent unauthorized access. The following process is followed for data archival:
 
 * The HPC Team will copy data identified by the requestor to the archive where it will reside on Cloud storage. 
 * Life span options for archived data are for five or ten years. Exceptions can be made upon request when needed (due to grant rules, publication requirements, etc).
@@ -311,18 +312,23 @@ Service Unit
 Purpose and Applicability
 =========================
 
-The DEAC Cluster offers baseline services and resources in support of research carried out by members of the WFU Undergraduate College and Graduate School of Arts and Sciences. **Baseline usage of the DEAC Cluster is provided at NO COST to these members as part of the centralized services provided by Information Systems.** See the :ref:`sec.sla.util` and :ref:`sec.sla.ul` sections for more information on baseline expected usage.
+The DEAC Cluster offers baseline services and resources in support of research carried out by the WFU Undergraduate College and Graduate School of Arts and Sciences. **Baseline usage of the DEAC Cluster is provided at NO COST to these "*Internal*" Users as part of the centralized services provided by Information Systems.** See the :ref:`sec.sla.util` and :ref:`sec.sla.ul` sections for more information on baseline expected usage.
 
 There are two scenarios where payment should be made for the use of DEAC Cluster compute resources:
 
-#. Members of the aforementioned colleges should consider :ref:`contributing to the DEAC Cluster<sec.sla.su.contributions>` via grant or start-up funds if they plan to use compute resources for their research above baseline expectations.
-#. Researchers outside of the aforementioned colleges do not have free access to the DEAC Cluster by default, and must pay for all utilized compute resources in the form of :ref:`Service Unit Chargebacks<sec.sla.su.chargebacks>`.
+#. "*Internal*" users should consider :ref:`contributing to the DEAC Cluster<sec.sla.su.contributions>` via grant or start-up funds if they plan to use compute resources for their research above baseline expectations. If usage exceeds baseline, they do not have to pay for that excessive usage; it is only highly encouraged. 
+#. "*External*" Users, outside of the aforementioned colleges, do not have free access to the DEAC Cluster by default, and must pay for all utilized compute resources in the form of :ref:`Service Unit Chargebacks<sec.sla.su.chargebacks>` if not pre-paid. 
 
-Contributions and/or chargebacks are made in the form of Service Units (SUs). **SUs are a DEAC Cluster service usage charge and do NOT tie specifically to hardware or software, so there are no follow-up asset tracking requirements.** SUs are based on overall hardware investment in the DEAC Cluster plus additional indirect fees where applicable (primarily for Chargebacks only). SU purchases also:
+
+Contributions and/or chargebacks are made in the form of Service Units (SUs). **SUs are a DEAC Cluster service usage charge and do NOT tie specifically to hardware or software, so there are no follow-up asset tracking requirements.** SUs are based on overall hardware investment in the DEAC Cluster plus additional operating fees where applicable. SU purchases also:
 
 * Go towards the continued maintenance, operation, and improvement of the DEAC Cluster.
 * Help forecast utilization of the DEAC Cluster and prioritize support provided by the HPC Team.
 * Track funding history and funding agency investments to help reinforce grant applications.
+
+.. important::
+
+  Service Unit Rates for "*Internal*" and "*External*" Users are **different.**
 
 
 .. _sec.sla.su.contributions:
@@ -338,7 +344,6 @@ Researchers that are planning on conducting a significant amount of their work o
 * Although not required, newly-hired faculty are encouraged to utilize start-up funds to purchase SUs if they intend to utilize significant DEAC Cluster resources for their research. The HPC Team is available to help forecast research needs and determine potential SU purchases.
 * The HPC Team quantifies estimated resource usage via Service Sub-Units (SSUs) that correlate with different types of consumable compute resources on the DEAC Cluster.
 
-    * By default, all SSU calculations for contributions do NOT include indirect fees.
     * The :ref:`sec.sla.su.ssu_types` section  provides the definition of these SSUs and how total SU numbers and costs are derived and calculated.
 
 * A non-standard, hardware-specific contribution can be made to purchase a Research-Node.
@@ -348,18 +353,17 @@ Researchers that are planning on conducting a significant amount of their work o
 
 .. _sec.sla.su.chargebacks:
 
-SU Chargebacks
-==============
+SU Chargebacks (for External Users)
+===================================
 
-Any external researcher, research group, department or party conducting research that is not directly sponsored by members of the WFU Undergraduate College and Graduate School of Arts and Sciences (i.e. via collaboration, consortium, class, etc.) must pay for their usage of the DEAC Cluster in the form of an annual Service Unit (SU) Chargeback.
+Any "*External*" Users, which would be a researcher, research group, department or party conducting research that is not directly sponsored by members of the WFU Undergraduate College and Graduate School of Arts and Sciences (i.e. via collaboration, consortium, class, etc.), must pay for their usage of the DEAC Cluster. If that usage is not paid ahead of time in a contribution, it must be in the form of an annual Service Unit (SU) Chargeback.
 
-* The SU Chargeback totals will be determined by consumed DEAC Cluster compute resources plus.
+* The SU Chargeback totals will be determined by consumed DEAC Cluster compute resources multiplied by the External SU Rate.
 * At the beginning of each calendar year, an invoice for total resource usage from the previous calendar year will be calculated and delivered to researchers, research group advisors, and/or department representatives.
 * Payment for this invoice will be due within 60 days of receipt. If a payment is not made within this time period, DEAC Cluster access may be denied until a payment is received or a payment timeline agreement is established.
-* Researchers may request SU Chargeback estimates up to once a month, based on current resource consumption rates.
+* "*External*" Users may request SU Chargeback estimates up to once a month, based on current resource consumption rates.
 * The HPC Team tracks resource consumption through a variety of tools and techniques that determine the invoiced SU Chargeback total. SUs are subdivided into Service Sub-Units (SSUs) that correlate with different types of consumable compute resources on the DEAC Cluster.
 
-    * By default, all SSU calculations for chargebacks include additional indirect fees.
     * The :ref:`sec.sla.su.ssu_types` section  provides the definition of these SSUs and how total SU numbers and costs are derived and calculated.
 
 .. _sec.sla.su.ssu_types:
@@ -369,8 +373,9 @@ Service Sub-Unit Types
 
 Service Units (SUs) are derived from consumption of various types of resources on the DEAC Cluster. Each usage type is tracked with a correlating Service Sub-Unit (SSU). Currently, there are three defined and tracked types: Compute, GPU, and Storage. These SSUs are defined in the subsections below, and have the following characteristics:
 
-* Each SSU type has a base rate used to determine the corresponding requested or charged amount; see subsections below for calculations.
-* SSU Rates are adjusted annually based on applicable hardware and indirect costs.
+* Each SSU type has an Internal Base Rate used to determine the corresponding requested or charged amount; see subsections below for calculations.
+* External Fees all factor Indirects (based on WFU F&A Rates) in order to cover relevant operational costs that Information Systems does not accomodate for "*External*" Users by default. Additional Service Costs, if applicable, are also included below. 
+* SSU Rates are reviewed and adjusted annually based on applicable hardware and additional operating costs.
 
 .. list-table:: SSU Rates
   :align: center
@@ -378,8 +383,8 @@ Service Units (SUs) are derived from consumption of various types of resources o
   :header-rows: 1
 
   * - SSU Type
-    - Base Rate
-    - Indirect
+    - Internal Base Rate
+    - External Fee
     - Unit
   * - Compute SSU
     - $0.0103
@@ -397,11 +402,12 @@ Service Units (SUs) are derived from consumption of various types of resources o
 * The sum total of all SSUs is converted into a standard Service Unit in order to normalize the purchase/payment process.
 * The converted total of all Service Sub-Units is used to create the overall SU request or invoice.
 * The smallest base rate from all SSU types, and the most essential SSU, the Compute Rate, is used to convert the total cost into total SUs (1 Compute SSU = 1 SU).
+* The External Rate is calcuated by adding the Internal Base Rate plus additional External Fee.
 
 .. admonition:: Current Service Unit Costs
 
-  * Service Unit Cost for **Contributions = $0.0103** (base rate only)
-  * Service Unit Cost for **Chargebacks   = $0.0218** (base rate plus indirect fees)
+  * **Internal Rate = $0.0103** (for "*Internal*" Users within the WFU UC/GSAS)
+  * **External Rate = $0.0218** (for "*External*" Users)
 
 .. _sec.sla.su.ssu_types.compute:
 
@@ -411,7 +417,7 @@ Compute Service Sub-Unit
 **A Compute SSU is defined as the cost of using one (1) CPU core for one (1) hour of wall time (also referred to as 1 core-hour) with a maximum utilization of four (4) GB of RAM per core for the duration of the work task.**
 
 * *The Base Compute Rate used to convert Compute SSUs to SUs is derived from the sum total cost of compute servers, divided by server lifespan, divided by the maximum number of core-hours in a year; plus the sum total cost of racks, PDUs, storage and network devices divided by total core-hours in a year.*
-* *The Compute Indirect Fee is derived from the sum total cost of HPC Team support time available in a year, divided by number of cores-hours (aka Service Indirect); minus storage portion of base rate if not using WFU storage (which is added regardless to maintain the same base rate); plus Wake Forest University F&A.*
+* *The Compute External Fee accounts for cost of HPC Team support time available in a year, divided by number of cores-hours (aka Service Cost); minus storage portion of base rate if not using WFU storage (which is added regardless to maintain the same base rate).*
 * If a work task requests greater than 4GB of memory per core requested, then Compute Service Sub-Units will be determined by memory consumption. This is done by taking a work task's time duration (in hours), multiplying it by the amount of memory (GB) consumed, and dividing by four (4). Whichever equation yields a higher Compute SSU amount will be selected as the consumed total for the work task. The DEAC Cluster's Scheduler automatically determines if this conversion as necessary for every work task.
 
     * The average memory per core on the DEAC Cluster is currently 4GB; if/when it changes, so too will the memory-based Compute SSU conversion.
@@ -427,7 +433,7 @@ GPU Service Sub-Unit
 **A GPU SSU is defined as the cost of using one (1) GPU Card for one (1) hour of wall time (also referred to as 1 GPU-hour) for a work task. A GPU Card is defined as a complete, encapsulated graphics processing unit containing all relevant hardware components.**
 
 * *The Base GPU Rate used to convert GPU SSUs to SUs is derived from the sum total cost of GPU servers and GPU cards, divided by the number of usable GPU-hours (GPU cards x days x hours available) possible in a year.*
-* *The GPU Indirect Fee is derived from the sum total of Service Indirect plus Wake Forest University F&A.*
+* *The GPU External Fee is derived from the sum total of Service Indirect.*
 * See :ref:`sec.sla.su.example.gpu`.
 
 .. _sec.sla.su.ssu_types.storage:
@@ -438,7 +444,7 @@ Storage Service Sub-Unit
 **A Storage Service Sub-Unit (SSU) is defined as having one (1) terabyte (TB) of dedicated DEAC Storage for one (1) month. DEAC Storage is defined as any IS managed, dedicated network storage device hosting data used for research on the DEAC Cluster.**
 
 * *The Base Storage Rate used to convert Storage SSUs to SUs is derived from the cost of a DEAC Storage disk, divided by the Terabytes per disk, divided by the 5-year disk lifespan, divided by a 1.1 data reduction ratio.*
-* *The Storage Indirect Fee is derived from Wake Forest University F&A.*
+* *The Storage External Fee does not factor in Service Indirect.*
 * **Storage SSU purchases do NOT exist in perpetuity.**
 * *Storage SSU purchases can be made in 12 month calendar year increments, starting every January, for a minimum of 12 months to a maximum of 60 months.*
 
@@ -448,7 +454,10 @@ Storage Service Sub-Unit
 * Upon the end of the initial purchase period, the HPC Team will review usage of DEAC Storage with the purchasing party and determine next steps.
 
     * If a Storage SSU purchase is not renewed, quotas will be reset to their default amount and excess data will require migration, deletion, or :ref:`archival<sec.sla.sdm.data_retention_archival>`.
-    * For WFU UC/GSAS researchers, data archival is conducted at no cost by the HPC Team; therefore, archive costs and retention periods should not be factored into Storage SSU purchases.
+    * For "*Internal*" Users, data archival is conducted at no cost by the HPC Team; therefore, archive costs and retention periods should not be factored into Storage SSU purchases.
+    * For "*External*" Users, data archival *can* be conducted by the HPC Team; however, the archive costs and retention periods must be factored seperately into budgets.o
+
+* For BULK storage purchases (exceeding 20TB), please contact the HPC Team for a bulk rate determined by the size of the overall need. 
 
 * See :ref:`sec.sla.su.example.storage`.
 
@@ -457,14 +466,14 @@ Storage Service Sub-Unit
 Example SU Purchase
 ===================
 
-Below are four examples of Service Unit requests and/or chargebacks. For any chargeback, indirect fees are included in the applied SSU Rate. For any contribution or chargeback, even if Compute SSUs are not factored, the Applicable Compute SSU rate is used for the overall SSU to SU conversion.
+Below are four examples of Service Unit requests for Contribution and/or Chargeback. For any case, the Internal or External rate is applied accordingly, depending on the category of User. For any Contribution or Chargeback, even if Compute SSUs are not factored, the Applicable Compute SSU rate is used for the overall SSU to SU conversion.
 
 .. _sec.sla.su.example.compute:
 
 Compute Request Example
 -----------------------
 
-A researcher wishes to submit a grant application and factor in the increased computational workload on DEAC. They are expected to submit 1,250 simulations over three years, and each simulation will require up to 32 cores and run for approximately 100 hours each.
+A Statistics faculty member (aka "*Internal*" Users) wishes to submit a grant application and factor in the increased computational workload on DEAC. They are expected to submit 1,250 simulations over three years, and each simulation will require up to 32 cores and run for approximately 100 hours each.
 
 * The total amount required to cover the increased computational workload is 4 million SUs.
 
@@ -473,13 +482,14 @@ A researcher wishes to submit a grant application and factor in the increased co
     * $41,200 SSU Total / Applicable Compute SSU rate ($0.0103) = 4 million SUs
 
 * The total amount cost requested within the grant application is $41,200, which can be paid up front, or annually based upon the grant timeline.
+* Because this is a grant contribution, ORSP should also be contacted about matching the amount!
 
 .. _sec.sla.su.example.gpu:
 
 GPU Chargeback Example
 ----------------------
 
-A non-Reynolda Campus researcher used 4 GPUs for a total of 232 hours last year on the DEAC Cluster.
+A non-Reynolda Campus researcher (aka "*External*" User) used 4 GPUs for a total of 232 hours last year on the DEAC Cluster.
 
 * The total amount required to cover the increased computational workload is 35,400 SUs.
 
@@ -494,7 +504,7 @@ A non-Reynolda Campus researcher used 4 GPUs for a total of 232 hours last year 
 Storage Purchase Example
 ------------------------
 
-An external researcher wishes to request a 4 TB quota increase for 36 months. Because the purchase occurs mid-year, the increased storage quota would be valid for 39 months from 09/2022 - 12/2025.
+A School of Medicine Post-Doc (aka "*External*" User) wishes to request a 4 TB quota increase for 36 months. Because the purchase occurs mid-year, the increased storage quota would be valid for 39 months from 09/2022 - 12/2025.
 
 * The required total purchase to meet this request is 350,600 SUs.
 
@@ -516,7 +526,7 @@ An external researcher wishes to request a 4 TB quota increase for 36 months. Be
 Multi-type Contribution Example
 -------------------------------
 
-A newly hired researcher in the Engineering Department wishes to heavily utilize the DEAC Cluster in their 2nd year at Wake Forest. While the School of Engineering is part of the WFU Undergraduate College, and default level access to DEAC resources and the HPC Team is free; they wish to contribute to DEAC knowing their storage footprint will increase, and they also desire a higher priority for an increased workload after their second year. Starting their 2nd year, they expect to consume 1 million core hours over the next three years, and require 5TB of storage.
+A newly hired researcher in the Engineering Department (aka "*Internal*" Users) wishes to heavily utilize the DEAC Cluster in their 2nd year at Wake Forest. While the School of Engineering is part of the WFU Undergraduate College, and default level access to DEAC resources and the HPC Team is free; they wish to contribute to DEAC knowing their storage footprint will increase, and they also desire a higher priority for an increased workload after their second year. Starting their 2nd year, they expect to consume 1 million core hours over the next three years, and require 5TB of storage.
 
 * The amount required to cover this request is 1,594,175 SUs.
 
@@ -567,9 +577,9 @@ Information Systems Investment (:math:`\mathbf{I_{\mathrm{IS}}}`)
 As a centralized resource, the Information Systems department budgets annual hardware refreshes to remove/replace DEAC Cluster resources greater than 5 years old based on overall utilization. This 5-year expected lifespan of investments is why the total investment period is equal to 5 years.
 
 * The sum total of all investments from Information Systems over the previous 5 years is factored in to the value of (:math:`I_{\mathrm{IS}}`).
-* Chargebacks from non-WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) departments are factored into the DEAC Cluster as an Information Systems Investment (:math:`I_{\mathrm{IS}}`).
+* Contributions and Chargebacks from "*External*" Users are factored into the DEAC Cluster as an Information Systems Investment (:math:`I_{\mathrm{IS}}`).
 
-    * The DEAC Cluster is accessible to non-WFU UC/GSAS researchers if, and only if, those researchers are willing and able to pay for their consumed usage of resources in the form of a chargeback. See the :ref:`Service Unit Chargeback Section<sec.sla.su.chargebacks>` for more information on how chargebacks are calculated.
+    * The DEAC Cluster is accessible to "*External*" Users if, and only if, they are willing and able to pay for their consumed usage of resources, whether it be ahead of time in the form of a :ref:`Contribution<sec.sla.su.contributions>`, or afterthe fact in the form of a :ref:`Chargeback<sec.sla.su.chargebacks>`.
 
 .. _sec.sla.util.investment_types.i_wfu:
 
@@ -580,9 +590,9 @@ The WFU Provost’s Office has several funding opportunities available to resear
 
 .. admonition:: Grant Contribution Matching
 
-  ORSP will match up to **$75,000 annually** in grant fund contributions made to the DEAC Cluster.
+  ORSP will match up to **$75,000 annually** in grant fund contributions made to the DEAC Cluster from all "*Internal*" Users.
     
-* Provost's Office Investments (:math:`\mathbf{I_{\mathrm{WFU}}}`) only benefit WFU UC/GSAS researchers.
+* Provost's Office Investments (:math:`\mathbf{I_{\mathrm{WFU}}}`) only benefit "*Internal*" Users.
 * The sum total of all matched grant funds provided by ORSP, or funds directly provided by the provost's office in support of a specific project, count as a Provost's Office Investment (:math:`\mathbf{I_{\mathrm{WFU}}}`).
 
 .. math::
@@ -643,7 +653,7 @@ Research Group Baseline (:math:`\mathbf{U_{\mathrm{Grp}}}`)
 
 Provost Office Baseline (:math:`\mathbf{U_{\mathrm{WFU}}}`)
 ------------------------------------------------------------
-* Expected baseline monthly utilization of each WFU UC/GSAS department (:math:`U_{\mathrm{WFU}}`) is calculated by multiplying the ratio of Provost Office Investments (:math:`\mathbf{I_{\mathrm{WFU}}}`) vs Total investment (:math:`\mathbf{I_{\mathrm{Total}}}`) times the maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`), divided by the number of active WFU UC/GSAS departments using the cluster.
+* Expected baseline monthly utilization of each "*Internal*" User department (:math:`U_{\mathrm{WFU}}`) is calculated by multiplying the ratio of Provost Office Investments (:math:`\mathbf{I_{\mathrm{WFU}}}`) vs Total investment (:math:`\mathbf{I_{\mathrm{Total}}}`) times the maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`), divided by the number of active "*Internal*" User departments using the cluster.
 
 .. math::
 
@@ -651,7 +661,7 @@ Provost Office Baseline (:math:`\mathbf{U_{\mathrm{WFU}}}`)
 
 .. admonition:: Current Research Group Baseline
 
-  The current baseline monthly utilization for each WFU UC/GSAS department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **15,101 SUs**.
+  The current baseline monthly utilization for each "*Internal*" User department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **15,101 SUs**.
 
 
 .. _sec.sla.util.utilization_calculation.u_grp:
@@ -779,7 +789,7 @@ Research Groups who have made monetary contributions to the DEAC Cluster should 
 Class Groups
 ============
 
-By default, all classes that fall under a WFU UC/GSAS department will have nearly unrestricted access to the DEAC cluster for instructional use. Utilization by classes is considered wholly separate from that of researchers, and is the only percentage not based on the calculations provided in :ref:`sec.sla.util`. While instructional learning with classes is a top priority, the DEAC Cluster is still a shared and regularly utilized resource by researchers. Instructors are asked to consider the following:
+By default, all classes that fall under an "*Internal*" User department will have nearly unrestricted access to the DEAC cluster for instructional use. Utilization by classes is considered wholly separate from that of researchers, and is the only percentage not based on the calculations provided in :ref:`sec.sla.util`. While instructional learning with classes is a top priority, the DEAC Cluster is still a shared and regularly utilized resource by researchers. Instructors are asked to consider the following:
 
 .. math::
   U_{\mathrm{Class}} = U_{\mathrm{MAX}}
