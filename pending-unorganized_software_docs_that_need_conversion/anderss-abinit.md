@@ -116,11 +116,11 @@ export MPIF90=mpiifort
 export MPIF77=mpiifort
 
 cd $SCRATCH
-wget https://www.abinit.org/sites/default/files/packages/abinit-9.10.1.tar.gz
-tar -xvf abinit-9.10.1.tar.gz
-cd abinit-9.10.1
+wget https://www.abinit.org/sites/default/files/packages/abinit-9.10.3.tar.gz
+tar -xvf abinit-9.10.3.tar.gz
+cd abinit-9.10.3
 mkdir -p build && cd build
-cp /deac/inf/adminGrp/anderss/repos/deac-config/abinit/abinit-9.10.1_impi_omp_static.ac9 $(hostname -s).ac9
+cp /deac/inf/adminGrp/anderss/repos/deac-examples/abinit/config/abinit-9.10.3_impi_omp_static.ac9 $(hostname -s).ac9
 
 export LD_LIBRARY_PATH="/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
 export LD_LIBRARY_PATH="/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
