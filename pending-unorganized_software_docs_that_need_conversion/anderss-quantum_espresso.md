@@ -6,63 +6,62 @@ Switching over to OMPI (4.1.1) + MKL SCALPACK works fine and does not hang at th
 ```sh
 ## Preamble
 cd $SCRATCH
-wget --no-check-certificate https://www.quantum-espresso.org/rdm-download/488/v7-2/a4f9009cdc1f006951914e4566c7623a/qe-7.2-ReleasePack.tar.gz
+wget --no-check-certificate https://www.quantum-espresso.org/download/software/qe-7.2-ReleasePack.tar.gz
 tar -xvf qe-7.2-ReleasePack.tar.gz
 
 module purge
-module load compilers/gcc/10.2.0 \
-            compilers/intel/2021.2 \
-            mpi/openmpi/4.1.1/intel/2021.2 \
-            libs/intel/mkl/2021.2 \
-            libs/libxc/5.2.3/intel/2021.2 \
-            utils/cmake/3.23.1 \
-            utils/git/2.36.1
-
 # module load compilers/gcc/10.2.0 \
 #             compilers/intel/2021.2 \
-#             mpi/intel/2021.2 \
+#             mpi/openmpi/4.1.1/intel/2021.2 \
 #             libs/intel/mkl/2021.2 \
 #             libs/libxc/5.2.3/intel/2021.2 \
 #             utils/cmake/3.23.1 \
 #             utils/git/2.36.1
-# export CC=icc
-# export CXX=icpc
-# export FC=ifort
-# export F95=ifort
-# export F90=ifort
-# export F77=ifort
-# export MPICC=mpiicc
-# export MPICXX=mpiicpc
-# export MPIF90=mpiifort
-# export MPIF77=mpiifort
+
+module load compilers/gcc/10.2.0 \
+            compilers/intel/2021.2 \
+            mpi/intel/2021.2 \
+            libs/intel/mkl/2021.2 \
+            libs/libxc/5.2.3/intel/2021.2 \
+            utils/cmake/3.23.1 \
+            utils/git/2.36.1
+export CC=icc
+export CXX=icpc
+export FC=ifort
+export F95=ifort
+export F90=ifort
+export F77=ifort
+export MPICC=mpiicc
+export MPICXX=mpiicpc
+export MPIF90=mpiifort
+export MPIF77=mpiifort
 unset CPP
 # export CPP='icc -E'
 
 ## Using cmake # ONLY METHOD THAT I CAN GET TO WORK 100% BUT CANNOT DO STATIC MKL
-cd ${SCRATCH}/qe-7.2 && mkdir -p build && cd build
+cd ${SCRATCH}/qe-7.2 && mkdir -p ${SCRATCH}/qe-7.2/build && cd ${SCRATCH}/qe-7.2/build
 
-cmake -DCMAKE_INSTALL_PREFIX="/deac/opt/rhel7/qe/7.2" \
+# cmake -DCMAKE_INSTALL_PREFIX="/deac/opt/rhel7/qe/7.2" \
+cmake -DCMAKE_INSTALL_PREFIX="/home/anderss/software/qe/7.2" \
       -DCMAKE_C_COMPILER=mpiicc \
       -DCMAKE_Fortran_COMPILER=mpiifort \
       -DCMAKE_C_FLAGS_RELEASE="-O2 -DNDEBUG -march=cascadelake -mtune=cascadelake" \
       -DCMAKE_Fortran_FLAGS_RELEASE="-O2 -DNDEBUG -march=cascadelake -mtune=cascadelake" \
       -DCMAKE_BUILD_TYPE=RelWithDebInfo \
       -DQE_ENABLE_MPI=on \
+      -DQE_ENABLE_OPENMP=on \
       -DQE_ENABLE_SCALAPACK=on \
       -DENABLE_SCALAPACK_MPI=on \
       -DQE_ENABLE_LIBXC=on \
+      -DLIBXC_INCLUDE_DIR="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
+      -DLIBXC_INCLUDE_DIR_F03="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
+      -DLIBXC_INCLUDE_DIR_F90="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
+      -DLIBXC_LIBRARIES="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxc.a" \
+      -DLIBXC_LIBRARIES_F03="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxcf03.a" \
+      -DLIBXC_LIBRARIES_F90="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxcf90.a" \
       ..
 
-      # -DQE_ENABLE_STATIC_BUILD=on \
-      # -DQE_ENABLE_OPENMP=on \
-      # -DBLA_STATIC=on \
-      # -DLIBXC_INCLUDE_DIR="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
-      # -DLIBXC_INCLUDE_DIR_F03="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
-      # -DLIBXC_INCLUDE_DIR_F90="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/include" \
-      # -DLIBXC_LIBRARIES="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxc.a" \
-      # -DLIBXC_LIBRARIES_F03="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxcf03.a" \
-      # -DLIBXC_LIBRARIES_F90="/deac/opt/rhel7/libxc/5.2.3-intel_impi_2021.2_static/lib/libxcf90.a" \
-      # -DBLA_STATIC=on # doesnt work with scalapack (-l in wrong place)
+      # -DBLA_STATIC=on \ # doesnt work with scalapack (-l in wrong place)
       # -DQE_ENABLE_STATIC_BUILD=on # doesnt work with impi (infinite mpi loop)
 
 make -j8 all
@@ -72,6 +71,7 @@ make -j8 all
 # of the bin directory to the root of QE source tree and run tests in the
 # test-suite directory under that root.
 
+export OMP_NUM_THREADS=1
 ctest -j8 -L "system--pw" --output-on-failure     # pass: all
 ctest -j8 -L "system--cp" --output-on-failure     # pass: all
 # ctest -j8 -L "system--hp" --output-on-failure     # fail: all
