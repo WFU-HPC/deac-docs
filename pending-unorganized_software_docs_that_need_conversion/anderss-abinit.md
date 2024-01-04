@@ -37,11 +37,11 @@ export MPIF77=mpiifort
 
 ```sh
 cd $SCRATCH
-wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_12_2/source/hdf5-1.12.2.tar.bz2
-tar -xvf hdf5-1.12.2.tar.bz2
-cd hdf5-1.12.2
+wget https://hdf-wordpress-1.s3.amazonaws.com/wp-content/uploads/manual/HDF5/HDF5_1_14_3/src/hdf5-1.14.3.tar.bz2
+tar -xvf hdf5-1.14.3.tar.bz2
+cd hdf5-1.14.3
 
-./configure --prefix="/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static" \
+./configure --prefix="/deac/opt/rhel7/hdf5/1.14.3-intel_impi_2021.2_static" \
             --enable-unsupported \
             --enable-symbols=yes \
             --disable-threadsafe \
@@ -66,9 +66,24 @@ wget https://downloads.unidata.ucar.edu/netcdf-c/4.9.0/netcdf-c-4.9.0.tar.gz
 tar -xvf netcdf-c-4.9.0.tar.gz
 cd netcdf-c-4.9.0
 
-export LD_LIBRARY_PATH="/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
+export LD_LIBRARY_PATH="/deac/opt/rhel7/hdf5/1.14.3-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
 
-./configure --prefix="/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static" --enable-v2 --enable-utilities --enable-static --enable-largefile --enable-netcdf-4 --enable-fsync --enable-dynamic-loading --disable-shared --enable-parallel4 --disable-dap --disable-jna --disable-pnetcdf --disable-hdf4 CPPFLAGS="-I/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/include" LDFLAGS="-L/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib"
+./configure --prefix="/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static" \
+            --enable-v2 \
+            --enable-utilities \
+            --enable-static \
+            --enable-largefile \
+            --enable-netcdf-4 \
+            --enable-fsync \
+            --enable-dynamic-loading \
+            --disable-shared \
+            --enable-parallel4 \
+            --disable-dap \
+            --disable-jna \
+            --disable-pnetcdf \
+            --disable-hdf4 \
+            CPPFLAGS="-I/deac/opt/rhel7/hdf5/1.14.3-intel_impi_2021.2_static/include" \
+            LDFLAGS="-L/deac/opt/rhel7/hdf5/1.14.3-intel_impi_2021.2_static/lib"
 make
 make check
 make install && make clean
@@ -84,7 +99,13 @@ cd netcdf-fortran-4.5.4
 
 export LD_LIBRARY_PATH="/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
 
-./configure --prefix=/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static --disable-shared --enable-static --disable-doxygen CPPFLAGS="-I/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/include -I/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/include" LDFLAGS="-L/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static -L/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib " LIBS="-L/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib -lnetcdf -L/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib -lhdf5_hl -lhdf5 -lm -lz -lsz -lbz2 -lxml2 -lcurl"
+./configure --prefix=/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static \
+            --disable-shared \
+            --enable-static \
+            --disable-doxygen \
+            CPPFLAGS="-I/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/include -I/deac/opt/rhel7/hdf5/1.14.3-intel_impi_2021.2_static/include" \
+            LDFLAGS="-L/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static -L/deac/opt/rhel7/hdf5/1.14.3-intel_impi_2021.2_static/lib " \
+            LIBS="-L/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib -lnetcdf -L/deac/opt/rhel7/hdf5/1.14.3-intel_impi_2021.2_static/lib -lhdf5_hl -lhdf5 -lm -lz -lsz -lbz2 -lxml2 -lcurl"
 make
 make check
 make install && make clean
@@ -122,7 +143,7 @@ cd abinit-9.10.3
 mkdir -p build && cd build
 cp /deac/inf/adminGrp/anderss/repos/deac-examples/abinit/config/abinit-9.10.3_impi_omp_static.ac9 $(hostname -s).ac9
 
-export LD_LIBRARY_PATH="/deac/opt/rhel7/hdf5/1.12.2-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
+export LD_LIBRARY_PATH="/deac/opt/rhel7/hdf5/1.14.3-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
 export LD_LIBRARY_PATH="/deac/opt/rhel7/netcdf-c/4.9.0-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
 export LD_LIBRARY_PATH="/deac/opt/rhel7/netcdf-fortran/4.5.4-intel_impi_2021.2_static/lib:${LD_LIBRARY_PATH}"
 export LD_LIBRARY_PATH="/deac/opt/rhel7/libxc/6.2.2-intel_2021.2_static/lib:${LD_LIBRARY_PATH}"
