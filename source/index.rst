@@ -37,7 +37,7 @@ DEAC Docs: The Official Docs for the DEAC cluster
 .. #############################################################################
 
 The WFU DEAC HPC Cluster is a centrally funded resource, meaning it is a free
-tool for all Wake Forest University Reynolda Campus researchers and students.
+tool for all members of the WFU Undergraduate College and Graduate School of Arts and Sciences.
 The HPC Team is here to train users, troubleshoot scripts, upgrade hardware and
 software, and support user needs. This documentation is a starting point and
 reference for all DEAC Cluster users. They are intended to be a community
