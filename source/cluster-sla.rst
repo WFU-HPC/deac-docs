@@ -744,7 +744,7 @@ Any group that is using the DEAC Cluster without contribution, or under the requ
 
 * No Baseline Research Group usage of cluster resources should exceed **three times the value of** :math:`\mathbf{U_{\mathrm{Grp}}}` during a usage period without contacting the HPC Team.
 
-    * *Exceptions:* During periods of extremely low cluster utilization (e.g. <25%), a research group may exceed this limit. It is requested that groups contact the HPC Team before doing so; and, if exceeding this limit, the HPC Team reserves the right to cancel jobs if other researcher jobs are queued for greater than two hours as a result.
+    * *Exceptions:* During periods of extremely low cluster utilization (e.g. <25%), a research group may exceed this limit. It is requested that groups contact the HPC Team before doing so; and, if exceeding this limit, the HPC Team reserves the right to cancel jobs if other researcher jobs are queued for greater than twenty four hours as a result.
 
 * No single researcher from a Baseline Research Group should exceed **three times the value of** :math:`\mathbf{U_{\mathrm{base}}}` at any point during a usage period.
 
