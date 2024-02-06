@@ -740,9 +740,9 @@ The nature of research means certain periods of the year are busier than others,
 General Limitations
 ===================
 
-* Users should not submit more than 10,000 jobs at a time. Exceeding this limit can cause backlogging and errors to occur.
-* Generally, users should aim to submit small, parallelized batches of jobs, versus large, monolithic jobs. 
-* Small partition, single-core jobs requesting <5GB memory, are considered non-impactful to queue wait times as they utilize backfill algorithm to be assigned resources.
+* Users should not submit more than 10,000 jobs at a time. Exceeding this limit can cause backlogging and errors to occur for other cluster users.
+* Users should aim to submit small, parallelized batches of jobs, versus large, monolithic jobs. 
+* Small partition, single-core jobs requesting <5GB memory, are considered to be non-impactful to queue wait times as they utilize the backfill algorithm to be assigned resources.
 * The HPC Team prefers to let the scheduler assign queued job priority during busy periods; please wait at least 48 hours before contacting the HPC Team about long wait times. 
 
 
