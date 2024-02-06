@@ -735,6 +735,17 @@ If a research group or department exceeds their expected utilization (:math:`U_{
 The nature of research means certain periods of the year are busier than others, and it is expected that departments will exceed their fairshare (:math:`U_{\mathrm{Dept}}`) at some point. That being said, the DEAC Cluster is a shared resource and several guidelines on usage limitations should be followed by different group types when utilizing its resources. Failing to operate within these limits can result in termination of processes and be found in violation of :ref:`sec.sla.ua.acceptable_use` as outlined in the :ref:`sec.sla.ua`.
 
 
+.. _sec.sla.ul.general_limitations:
+
+General Limitations
+===================
+
+* Users should not submit more than 10,000 jobs at a time. Exceeding this limit can cause backlogging and errors to occur.
+* Generally, users should aim to submit small, parallelized batches of jobs, versus large, monolithic jobs. 
+* Small partition, single-core jobs requesting <5GB memory, are considered non-impactful to queue wait times as they utilize backfill algorithm to be assigned resources.
+* The HPC Team prefers to let the scheduler assign queued job priority during busy periods; please wait at least 48 hours before contacting the HPC Team about long wait times. 
+
+
 .. _sec.sla.ul.baseline_research_groups:
 
 Baseline Research Groups
