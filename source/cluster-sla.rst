@@ -740,7 +740,8 @@ The nature of research means certain periods of the year are busier than others,
 General Limitations
 ===================
 
-* Users should not submit more than 10,000 jobs at a time. Exceeding this limit can cause backlogging and errors to occur for other cluster users.
+* The DEAC Cluster is limited to 50,000 submitted jobs (which includes queued and running). Users will receive a "sleeping and retrying" message when this limit is reached.
+* Users can not submit more than 10,000 jobs at a time. Users will receive an error upon submission when they pass this limit. Up to 500 jobs (per user) receive increased priority due to waiting in the queue.
 * Users should aim to submit small, parallelized batches of jobs, versus large, monolithic jobs. 
 * Small partition, single-core jobs requesting <5GB memory, are considered to be non-impactful to queue wait times as they utilize the backfill algorithm to be assigned resources.
 * The HPC Team prefers to let the scheduler assign queued job priority during busy periods; please wait at least 48 hours before contacting the HPC Team about long wait times. 
