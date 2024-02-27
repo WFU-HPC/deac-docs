@@ -1,4 +1,4 @@
-# LAMMPS
+# LAMMPS (Updated for 2023)
 
 ```sh
 module purge && module load python/3.8.13 \
