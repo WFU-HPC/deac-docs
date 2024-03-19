@@ -1,4 +1,4 @@
-# Open MPI (Updated to 2022)
+# Open MPI (CONVERTED TO DSS)
 
 
 ## Introduction

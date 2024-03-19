@@ -1,4 +1,4 @@
-# NAMD on the DEAC Cluster
+# NAMD on the DEAC Cluster (CONVERTED TO DSS)
 
 ```sh
 module use /deac/opt/modulefiles/rocky9-noarch /deac/opt/modulefiles/rocky9-zen4

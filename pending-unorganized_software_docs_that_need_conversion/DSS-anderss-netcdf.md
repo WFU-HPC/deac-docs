@@ -1,4 +1,4 @@
-# NetCDF Stack (HDF5, NetCDF-C, NetCDF-FORTRAN; also see ABINIT)
+# NetCDF Stack (CONVERTED TO DSS)
 
 ## GCC
 

@@ -19,13 +19,6 @@ make -j$CORES && make check && make install && make clean
 ./configure --prefix="$target" --enable-sse2 --enable-avx --enable-avx2 --enable-avx512 --enable-shared --enable-static --disable-mpi --enable-threads  --enable-openmp --enable-float
 make -j$CORES && make check && make install && make clean
 
-
-
-
-
-
-
-
 ################################################################################
 # Intel+IMPI start
 ################################################################################

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+```sh
 # Basic Modules
 module load compilers/gcc/10.2.0 utils/cmake/3.23.1 utils/git/2.36.1
 
@@ -180,3 +181,4 @@ sbatch --partition=gpu \
 # env -i bash --noprofile --norc
 # . /usr/share/Modules/init/bash
 # . /deac/phy/natalieGrp/software/miniconda3/etc/profile.d/conda.sh
+```

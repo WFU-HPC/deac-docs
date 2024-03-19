@@ -1,18 +1,15 @@
-# VASP 6+ (Updated for 2023)
+# VASP 6+ (CONVERTED TO DSS)
 
 ## CPU Version with Intel Toolchain
 
 ```sh
-cd $SCRATCH
-
 module purge
-module load compilers/gcc/10.2.0 \
-            compilers/intel/2021.2 \
-            mpi/intel/2021.2 \
-            libs/intel/mkl/2021.2
+module load compilers/gcc/10.2.0 compilers/intel/2021.2 mpi/intel/2021.2 libs/intel/mkl/2021.2
 
-tar -xvf /deac/inf/adminGrp/anderss/tarballs/vasp.6.4.2.tgz
-cd ${SCRATCH}/vasp.6.4.2/
+
+tar -xf /deac/opt/tarballs/vasp/vasp.6.4.2.tgz -C /tmp
+cd /tmp/vasp.6.4.2
+
 # cp $RESEARCHPATH/repos/deac-config/vasp/makefile.include.intel_impi_omp_mkl makefile.include
 cat <<EOF > makefile.include
 # Default precompiler options
@@ -113,10 +110,10 @@ time ./runtest -f impi+omp.conf 2> test2.e 1> test2.o # 33m23.328s w/4 cores,2 t
 time ./runtest -f impi+omp.conf 2> test3.e 1> test3.o # 29m52.853s w/4 cores,4 threads
 make cleantest
 
-cd ${SCRATCH}/vasp.6.4.2
-rm -r ${SCRATCH}/vasp.6.4.2/build
+cd /tmp/vasp.6.4.2
+rm -r /tmp/vasp.6.4.2/build
 
-cp -r ${SCRATCH}/vasp.6.4.2 /deac/opt/rhel7/vasp/6.4.2wannier-intel_2021.2
+cp -r /tmp/vasp.6.4.2 /deac/opt/rhel7/vasp/6.4.2wannier-intel_2021.2
 ```
 
 

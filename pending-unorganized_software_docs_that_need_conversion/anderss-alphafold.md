@@ -1,3 +1,4 @@
+```sh
 #!/bin/bash
 
 # Directory
@@ -35,3 +36,4 @@ wget --no-check-certificate -P ${ALPHAFOLD_PATH}/alphafold/common/ https://git.s
 # Patch openmm for docker stuff, even though we're not using docker
 cd ${CONDA_PREFIX}/lib/python3.*/site-packages
 patch -p0 < ${ALPHAFOLD_PATH}/docker/openmm.patch
+```
