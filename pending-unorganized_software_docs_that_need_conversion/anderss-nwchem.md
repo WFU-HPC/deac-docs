@@ -1,26 +1,28 @@
-# NWChem (updated for 2022)
+# NWChem (updated for 2024 and DSS)
 
 ```sh
-srun -p gpu --pty -N 1 -n 32 --mem=16G --time=00-24:00:00 /bin/bash
+# srun -p gpu --pty -N 1 -n 32 --mem=16G --time=00-24:00:00 /bin/bash
 
-module load python/3.8.13 compilers/gcc/10.2.0 compilers/intel/2021.2 mpi/openmpi/4.1.1/intel/2021.2 libs/intel/mkl/2021.2 libs/elpa/2022.05.001/intel/2021.2
+# module load python/3.8.13 compilers/gcc/10.2.0 compilers/intel/2021.2 mpi/openmpi/4.1.1/intel/2021.2 libs/intel/mkl/2021.2 libs/elpa/2022.05.001/intel/2021.2
 
-export TMPDIR="/scratch/${SLURM_JOB_ID}"
-export NWCHEM_TOP="${TMPDIR}/nwchem-7.0.2"
+module load compilers/gcc/12.3.0 mpi/openmpi/4.1.6_gcc libs/intel/mkl/2023.2.0 libs/elpa/2024.03.001 apps/python/3.11.8
+
+export TMPDIR="/tmp"
+export NWCHEM_TOP="${TMPDIR}/nwchem-7.2.2"
 export NWCHEM_TARGET=LINUX64
-export ARMCI_NETWORK=MPI-PR
+export ARMCI_NETWORK=MPI-MT
 export NWCHEM_MODULES="all python"
 export USE_MPI=y
 export USE_SCALAPACK=y
 export BLAS_SIZE=8
 export SCALAPACK_SIZE=8
-export BLASOPT="-L$MKLROOT/lib/intel64 -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl"
-export LAPACK_LIB="$BLASOPT"
-export SCALAPACK="-L$MKLROOT/lib/intel64 -lmkl_scalapack_ilp64 -lmkl_intel_ilp64 -lmkl_sequential -lmkl_core -lmkl_blacs_openmpi_ilp64 -lpthread -lm -ldl"
-export ELPA="-I$ELPAHOME/include -L$ELPAHOME/lib -lelpa"
-export USE_OPENMP=0
+export BLASOPT="$MKL_GNU_MULTITHREAD"
+export LAPACK_LIB="$MKL_GNU_MULTITHREAD"
+export SCALAPACK="$MKL_GNU_SCALAPACK_MULTITHREAD"
+export ELPA="-I${ELPAHOME}/include/elpa_openmp-2024.03.001 -L${ELPAHOME}/lib -lelpa_openmp"
+export USE_OPENMP=y
 export CCSDTQ=TRUE
-export PYTHONVERSION=3.8
+export PYTHONVERSION=3.11
 ## The following two options help if only shared storage is available. Since
 ## our users can run on the local /scratch directory of each node, these are
 ## not necessary.
@@ -28,15 +30,16 @@ export PYTHONVERSION=3.8
 # export USE_NOIO=TRUE
 
 cd $TMPDIR
-wget https://github.com/nwchemgit/nwchem/releases/download/v7.0.2-release/nwchem-7.0.2-release.revision-b9985dfa-src.2020-10-12.tar.bz2
-tar -xvf nwchem-7.0.2-release.revision-b9985dfa-src.2020-10-12.tar.bz2
+# wget https://github.com/nwchemgit/nwchem/releases/download/v7.0.2-release/nwchem-7.0.2-release.revision-b9985dfa-src.2020-10-12.tar.bz2
+wget https://github.com/nwchemgit/nwchem/releases/download/v7.2.2-release/nwchem-7.2.2-release.revision-74936fb9-src.2023-11-03.tar.bz2
+tar -xvf nwchem-7.2.2-release.revision-74936fb9-src.2023-11-03.tar.bz2
 # cd nwchem-7.0.2
 
 ## Build, takes a VERY long time (almost 10 hours!!)
 # sed -i 's/CPP=fpp -P//g' ${NWCHEM_TOP}/src/config/makefile.h
 cd ${NWCHEM_TOP}/src
 make nwchem_config
-time make -j32
+time make -j64
 make test && mpirun -np 2 ./nwchem_test
 
 ## Site installation, just copying several things

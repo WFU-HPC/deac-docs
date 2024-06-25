@@ -7,40 +7,6 @@ Software Packages
 .. #############################################################################
 .. #############################################################################
 
---------
-RAXML-NG
---------
-
-From the GitHub repo:
-
-.. code-block:: bash
-
-    module load rhel7/gcc/10.1.0 rhel7/openmpi/4.0.2-gcc-4.8 rhel7/cmake/3.14
-    git clone --recursive https://github.com/amkozlov/raxml-ng
-    cd raxml-ng && mkdir -p build-mpi && mkdir -p build-pthreads
-    cd build-mpi
-    cmake -DCMAKE_INSTALL_PREFIX:PATH=/deac/opt/rhel7/raxml-ng/0.9.0 -DUSE_MPI=ON .. && make && make install
-    cd ../build-pthreads
-    cmake -DCMAKE_INSTALL_PREFIX:PATH=/deac/opt/rhel7/raxml-ng/0.9.0 .. && make && make install
-
-For specific GitHub releases:
-
-.. code-block:: bash
-
-    module load rhel7/gcc/10.1.0 rhel7/openmpi/4.0.2-gcc-4.8 rhel7/cmake/3.14
-    wget https://github.com/amkozlov/raxml-ng/releases/download/1.0.0/raxml-ng_v1.0.0_source.zip
-    mkdir -p raxml-ng && cd raxml-ng && unzip ../raxml-ng_v1.0.0_source.zip
-    mkdir -p build-mpi && mkdir -p build-pthreads
-    cd build-mpi
-    cmake -DCMAKE_INSTALL_PREFIX:PATH=/deac/opt/rhel7/raxml-ng/1.0.0 -DUSE_MPI=ON .. && make && make install
-    cd ../build-pthreads
-    cmake -DCMAKE_INSTALL_PREFIX:PATH=/deac/opt/rhel7/raxml-ng/1.0.0 .. && make && make install
-
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-
 -------
 IQ-TREE
 -------
@@ -60,61 +26,6 @@ IQ-TREE
 .. #############################################################################
 
 ------
-Siesta
-------
-
-.. code-block:: bash
-
-    module load rhel7/gcc/6.2.0 \
-                rhel7/gcc/6.2.0-libs \
-                rhel7/compilers/intel-2018-lp64 \
-                rhel7/openmpi/4.0.2-intel-2018
-
-    PREFIX="/target/siesta/dir"
-    SIESTA_ROOT="/siesta/source/dir"
-    MKLLIBS=""${MKLROOT}/lib/intel64""
-
-    mkdir -p ${SIESTA_ROOT}/Obj ${SIESTA_ROOT}/Obj_trans
-
-    ## Siesta
-    cd ${SIESTA_ROOT}/Obj
-    ../Src/obj_setup.sh
-    ../Src/configure --enable-mpi \
-                     --with-blas="${MKLLIBS}/libmkl_intel_lp64.so ${MKLLIBS}/libmkl_sequential.so ${MKLLIBS}/libmkl_core.so /lib64/libpthread.so /lib64/libm.so /lib64/libdl.so" \
-                     --with-lapack="${MKLLIBS}/libmkl_intel_lp64.so ${MKLLIBS}/libmkl_sequential.so ${MKLLIBS}/libmkl_core.so /lib64/libpthread.so /lib64/libm.so /lib64/libdl.so" \
-                     --with-blacs="${MKLLIBS}/libmkl_scalapack_lp64.so ${MKLLIBS}/libmkl_blacs_openmpi_lp64.so ${MKLLIBS}/libmkl_intel_lp64.so ${MKLLIBS}/libmkl_sequential.so ${MKLLIBS}/libmkl_core.so /lib64/libpthread.so /lib64/libm.so /lib64/libdl.so" \
-                     --with-scalapack="${MKLLIBS}/libmkl_scalapack_lp64.so ${MKLLIBS}/libmkl_blacs_openmpi_lp64.so" \
-                     MPIFC="/deac/opt/rhel7/openmpi/4.0.2-intel-2018/bin/mpif90"
-    make
-    install siesta $PREFIX
-
-    ## Transiesta
-    cd ${SIESTA_ROOT}/Obj_trans
-    ../Src/obj_setup.sh
-    ../Src/configure --enable-mpi \
-                     --with-blas="${MKLLIBS}/libmkl_intel_lp64.so ${MKLLIBS}/libmkl_sequential.so ${MKLLIBS}/libmkl_core.so /lib64/libpthread.so /lib64/libm.so /lib64/libdl.so" \
-                     --with-lapack="${MKLLIBS}/libmkl_intel_lp64.so ${MKLLIBS}/libmkl_sequential.so ${MKLLIBS}/libmkl_core.so /lib64/libpthread.so /lib64/libm.so /lib64/libdl.so" \
-                     --with-blacs="${MKLLIBS}/libmkl_scalapack_lp64.so ${MKLLIBS}/libmkl_blacs_openmpi_lp64.so ${MKLLIBS}/libmkl_intel_lp64.so ${MKLLIBS}/libmkl_sequential.so ${MKLLIBS}/libmkl_core.so /lib64/libpthread.so /lib64/libm.so /lib64/libdl.so" \
-                     --with-scalapack="${MKLLIBS}/libmkl_scalapack_lp64.so ${MKLLIBS}/libmkl_blacs_openmpi_lp64.so" \
-                     MPIFC="/deac/opt/rhel7/openmpi/4.0.2-intel-2018/bin/mpif90"
-    make transiesta
-    install transiesta $PREFIX
-
-    ## Utils (Optional)
-    cd ${SIESTA_ROOT}/Util
-    ./build_all.sh
-    for FILE in $(find . -type f -perm /u=x,g=x,o=x -exec ls {} \;); do cp $FILE $PREFIX; done
-    cp TBTrans/MPI/int_explorer     $PREFIX
-    cp TBTrans/tbtrans              $PREFIX
-    cp TBTrans_rep/MPI/int_explorer ${PREFIX}/int_explorer_rep
-    cp TBTrans_rep/tbtrans          ${PREFIX}/tbtrans_rep
-
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-
-------
 OpenDX
 ------
 
@@ -123,36 +34,8 @@ Need to add how to set up the ``examples``, found in that same repo.
 .. code-block:: bash
 
     git clone git@github.com:grifsf/opendx.git && cd opendx/dx-4.4.4
-    ./configure --prefix=/deac/opt/rhel7/opendx --enable-smp-linux
+    ./configure --prefix=/home/anderss/opendx --enable-smp-linux
     make -j4 && make check && make install
-
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-
--------
-FPLO 18
--------
-
-.. code-block:: bash
-
-    module load compilers/gcc/6.5.0 compilers/intel/2018.5 libs/intel/mkl/2018.5
-
-    cd $TMPDIR
-    unzip FPLO-18-20210225T134536Z-001.zip
-    cd $TMPDIR/FPLO-18 && echo y | sh ftreeinst.sh
-    cd $TMPDIR/FPLO-18/FPLO/FPLO18.00-52/install && printf "ifort\ngcc\ng++\ny\n" | ./MMakefile
-    cd $TMPDIR/FPLO-18/FPLO/FPLO18.00-52 && make && make install
-    cd $TMPDIR/FPLO-18/FPLO/FPLO18.00-52/PYTHON && printf "3\n\n\n\n\n" | make
-    cd $TMPDIR/FPLO-18/FPLO/FPLO18.00-52/XFBP_rel/XFBP && make -f makefile clean && make -f makefile && make -f makefile install
-    cd $TMPDIR/FPLO-18/FPLO/FPLO18.00-52/XFPLO_rel/XFPLO && make -f makefile && make -f makefile install
-
-There may be an issue with MKL that is solved with this (per the official documentation), but honestly seems a bit dangerous:
-
-.. code-block:: bash
-
-    export LD_PRELOAD=$MKLROOT/lib/intel64/libmkl_sequential.so:$MKLROOT/lib/intel64/libmkl_core.so
 
 .. #############################################################################
 .. #############################################################################
@@ -209,32 +92,6 @@ directly. It can also be integrated within conventional python scripts via the
 normal ``import pyspark`` type statements.
 
 You can refer to the many online tutorials for using Spark with Python.
-
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-
---------
-Rosetta3
---------
-
-The Rosetta software suite includes algorithms for computational modeling and
-analysis of protein structures. You will need to obtain a license and download
-the software from https://www.rosettacommons.org/.
-
-.. code-block:: bash
-
-    module load compilers/gcc/10.2.0
-
-    export VERSION="2021.07.61567"
-    tar -xvf $RESEARCHPATH/tarballs/rosetta_src_${VERSION}_bundle.tgz -C $TMPDIR
-
-    # Check the deac-config repo for a site.settings.deac file. Move this to
-    # $TMPDIR/rosetta_src_${VERSION}_bundle/main/source/tools/build/site.settings
-
-    cd $TMPDIR/rosetta_src_2021.07.61567_bundle/main/source/
-    time ./scons.py -j8 mode=release extras=static bin
 
 .. #############################################################################
 .. #############################################################################
