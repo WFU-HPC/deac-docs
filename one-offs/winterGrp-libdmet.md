@@ -1,24 +1,26 @@
-# Libdmet (Updated for 2023)
+# Libdmet (Updated for 2024 after DSS, BUT MAYBE NO WORH PORTING? I DUNNO ANY MORE)
 
 ```sh
-export PREFIX=/deac/phy/winterGrp/software/libdmet_env
-mkdir -p $PREFIX
-mkdir -p $PREFIX/../modules
+export ENVTARG=/deac/opt/rocky9-noarch/deac-envs/winterGrp/env-libdmet
+export SOFTARG=/deac/opt/rocky9-noarch/libdmet/libdmet_preview
+mkdir -p $ENVTARG
 
-module purge && module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0 libs/libxc/6.2.2/gcc/10.2.0 python/3.8.13 utils/cmake/3.23.1
+# module purge && module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0 libs/libxc/6.2.2/gcc/10.2.0 python/3.8.13 utils/cmake/3.23.1
+module purge && module load compilers/gcc/12.3.0 apps/python/3.11.8 mpi/openmpi/4.1.6 libs/libxc/6.2.2
+export PVER=$(python3 --version | awk '{print $2}' | awk -F. '{print $1"."$2}')
 
-python3 -m venv $PREFIX
-source ${PREFIX}/bin/activate
+python3 -m venv $ENVTARG
+source ${ENVTARG}/bin/activate
 
-pip3 install block2-mpi
-export LIBRARY_PATH="${PREFIX}/lib:$LIBRARY_PATH"
-export LD_LIBRARY_PATH="${PREFIX}/lib:$LD_LIBRARY_PATH"
+python3 -m pip install block2-mpi matplotlib
+export LIBRARY_PATH="${ENVTARG}/lib:$LIBRARY_PATH"
+export LD_LIBRARY_PATH="${ENVTARG}/lib:$LD_LIBRARY_PATH"
 # export CMAKE_CONFIGURE_ARGS="-DBLA_VENDOR=Intel10_64lp_seq -DBUILD_MARCH_NATIVE=ON -DBUILD_LIBXC=OFF"
 export CMAKE_CONFIGURE_ARGS="-DBLAS_LIBRARIES=-l:libmkl_gf_lp64.so.1;-l:libmkl_sequential.so.1;-l:libmkl_core.so.1 -DBUILD_MARCH_NATIVE=ON -DBUILD_LIBXC=OFF"
-pip3 install git+https://github.com/pyscf/pyscf
-pip3 install git+https://github.com/pyscf/dmrgscf 
+python3 -m pip install git+https://github.com/pyscf/pyscf
+python3 -m pip install git+https://github.com/pyscf/dmrgscf 
 
-cat <<EOF > ${PREFIX}/lib/python3.8/site-packages/pyscf/dmrgscf/settings.py
+cat <<EOF > ${ENVTARG}/lib/python${PVER}/site-packages/pyscf/dmrgscf/settings.py
 #
 # This file is an example to set the environment.
 # The configs will be used in dmrgci.py and chemps2.py
@@ -30,8 +32,8 @@ from pyscf import lib
 # To install Block as the FCI solver for CASSCF, see
 #       http://sunqm.github.io/Block/build.html
 #       https://github.com/sanshar/Block
-BLOCKEXE = '${PREFIX}/bin/block2'
-BLOCKEXE_COMPRESS_NEVPT = '${PREFIX}/bin/block2'
+BLOCKEXE = '${ENVTARG}/bin/block2'
+BLOCKEXE_COMPRESS_NEVPT = '${ENVTARG}/bin/block2'
 BLOCKSCRATCHDIR = os.path.join('/scratch', str(os.environ.get("SLURM_JOB_ID")), str(os.getpid()))
 #BLOCKRUNTIMEDIR = '.'
 BLOCKRUNTIMEDIR = os.path.join(os.path.join('/scratch', str(os.environ.get("SLURM_JOB_ID")), str(os.getpid())))
@@ -39,41 +41,47 @@ MPIPREFIX = 'mpirun'  # change to srun for SLURM job system
 BLOCKVERSION = None
 EOF
 
-chmod +x ${PREFIX}/lib/python3.8/site-packages/pyscf/dmrgscf/nevpt_mpi.py
+chmod +x ${ENVTARG}/lib/python${PVER}/site-packages/pyscf/dmrgscf/nevpt_mpi.py
 
 ################################################################################
 ################################################################################
 
-git clone https://github.com/gkclab/libdmet_preview.git ${PREFIX}/../libdmet_preview
+git clone https://github.com/gkclab/libdmet_preview.git ${SOFTARG}
+find $SOFTARG \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i -e 's|np\.product|np\.prod|g'
+find $SOFTARG \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i -e 's|np\.complex|complex|g'
+find $SOFTARG \( -type d -name .git -prune \) -o -type f -print0 | xargs -0 sed -i -e 's|complex128|complex|g'
 
-cat <<EOF > ${PREFIX}/../libdmet_preview/settings_DEAC.py
+
+cat <<EOF > ${SOFTARG}/settings_DEAC.py
 # YOU NEED TO COPY THIS TO libdmet/solver/settings.py IN ORDER TO USE BLOCK
 # block folder
-BLOCKPATH = '${PREFIX}/bin/'
+BLOCKPATH = '${ENVTARG}/bin/'
 use_prebuild = False
-BLOCK2PATH = "${PREFIX}/bin"
+BLOCK2PATH = "${ENVTARG}/bin"
 
 # Genetic algorithm reorder
-GAOPTEXE = "${PREFIX}/bin/gaopt"
+GAOPTEXE = "${ENVTARG}/bin/gaopt"
 GAOPT2 = BLOCK2PATH + "/gaopt"
 EOF
 
-cat <<EOF > ${PREFIX}/../libdmet_preview/libdmet/solver/settings.py
+cat <<EOF > ${SOFTARG}/libdmet/solver/settings.py
 # YOU NEED TO COPY THIS TO libdmet/solver/settings.py IN ORDER TO USE BLOCK
 # block folder
-BLOCKPATH = '${PREFIX}/bin/'
+BLOCKPATH = '${ENVTARG}/bin/'
 use_prebuild = False
-BLOCK2PATH = "${PREFIX}/bin"
+BLOCK2PATH = "${ENVTARG}/bin"
 
 # Genetic algorithm reorder
-GAOPTEXE = "${PREFIX}/bin/gaopt"
+GAOPTEXE = "${ENVTARG}/bin/gaopt"
 GAOPT2 = BLOCK2PATH + "/gaopt"
 EOF
 
 ################################################################################
 ################################################################################
 
-cat <<EOF > ${PREFIX}/../modules/libdmet_new
+mkdir -p /deac/opt/modulefiles/rocky9-noarch/apps
+
+cat <<EOF > /deac/opt/modulefiles/rocky9-noarch/apps/libdmet
 #%Module########################################################################
 ##
 ## Custom module for winterGrp 'libdmet' software environment
@@ -87,35 +95,125 @@ proc ModulesHelp { } {
 
 module-whatis   "Custom module for winterGrp 'libdmet' software environment"
 
-set basedir "${PREFIX}"
+if { [module-info command load] } {
+    if {[getenv --return-value VIRTUAL_ENV] ne ""} {
+        puts stderr ""
+        puts stderr "########################################################################"
+        puts stderr "It seems like you may have another virtual environment activated!"
+        puts stderr "Please deactivate other environments before loading this module."
+        puts stderr "########################################################################"
+        exit
+    }
+}
 
-module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0 libs/libxc/6.2.2/gcc/10.2.0
+
+module load compilers/gcc/12.3.0 apps/python/3.11.8 mpi/openmpi/4.1.6 libs/libxc/6.2.2
+
+set envdir  "$ENVTARG"
+set sofdir  "$SOFTARG"
+set basedir "$TARGET"
+
+if { [module-info shelltype sh] && [module-info mode load] } {
+    puts stdout ". \$envdir/bin/activate ;"
+} elseif { [module-info shelltype csh] && [module-info mode load] } {
+    puts stdout "source \$envdir/bin/activate.csh ;"
+}
+
+if { [module-info mode load] } {
+    puts stderr ""
+    puts stderr "########################################################################"
+    puts stderr "This module activates the Python virtual environment located at:"
+    puts stderr "\$envdir"
+    puts stderr "WARNING: Your shell prompt will not change!"
+    puts stderr "WARNING: You need to deactivate any previously activated environments!"
+    puts stderr "########################################################################"
+}
+
+if { [module-info command unload] && [module-info command purge] } {
+    puts stdout "deactivate ;"
+}
+
+if {[getenv --return-value SLURM_JOB_ID] ne ""} {
+    setenv  PYSCF_TMPDIR    "/scratch/\$env(SLURM_JOB_ID)"
+} else {
+    setenv  PYSCF_TMPDIR    "/scratch/\$env(USER)"
+}
 
 ################################################################################
 ################################################################################
 
-prepend-path    PATH                \$basedir/bin
-prepend-path    LD_LIBRARY_PATH     \$basedir/lib
-prepend-path    LIBRARY_PATH        \$basedir/lib
+prepend-path    PATH                \$envdir/bin
+prepend-path    LD_LIBRARY_PATH     \$envdir/lib
+prepend-path    LIBRARY_PATH        \$envdir/lib
 prepend-path    LD_PRELOAD          libgomp.so
-prepend-path    LD_PRELOAD          \$basedir/lib/libmkl_gnu_thread.so.1
-prepend-path    LD_PRELOAD          \$basedir/lib/libmkl_gf_lp64.so.1
-prepend-path    LD_PRELOAD          \$basedir/lib/libmkl_core.so.1
-prepend-path    LD_PRELOAD          \$basedir/lib/libmkl_avx2.so.1
-prepend-path    LD_PRELOAD          \$basedir/lib/libmkl_def.so.1
+prepend-path    LD_PRELOAD          \$envdir/lib/libmkl_gnu_thread.so.1
+prepend-path    LD_PRELOAD          \$envdir/lib/libmkl_gf_lp64.so.1
+prepend-path    LD_PRELOAD          \$envdir/lib/libmkl_core.so.1
+prepend-path    LD_PRELOAD          \$envdir/lib/libmkl_avx2.so.1
+prepend-path    LD_PRELOAD          \$envdir/lib/libmkl_def.so.1
+prepend-path    PYTHONPATH          \$sofdir
+
+setenv  OMP_NUM_THREADS  1
+setenv  VIRTUAL_ENV                 \$envdir
+setenv  VIRTUAL_ENV_DISABLE_PROMPT  1
+setenv  VIRTUAL_ENV_PROMPT          "(env-libdmet) "
 EOF
 ```
 
 How to run:
 
 ```sh
-module purge && module load libdmet_new
+module purge && module load libdmet
 
-export OMP_NUM_THREADS=1
 export PYSCF_TMPDIR="/scratch/${SLURM_JOB_ID}"
 
-source /deac/phy/winterGrp/software/libdmet_env/bin/activate
+source ${ENVTARG}/bin/activate
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## DEPRECATED
@@ -208,7 +306,7 @@ EOF
 ################################################################################
 ################################################################################
 
-cat <<EOF > ${PREFIX}/modules/libdmet
+cat <<EOF > ${PREFIX}/modules/apps/libdmet
 #%Module########################################################################
 ##
 ## Custom module for winterGrp 'libdmet' software environment

@@ -1,0 +1,144 @@
+#!/bin/bash
+
+# Target installation directory
+export TARGET="/tmp/hdeac/phy/natalieGrp/software/publiccode"
+mkdir -p $TARGET
+
+################################################################################
+# Conda environment
+################################################################################
+
+module load compilers/gcc/12.3.0 apps/anaconda3/2024.02
+conda create --prefix=${TARGET}/env-allegro python=3.10 -y                                               # UPDATE POINT: MOVE TO PY3.11
+conda activate ${TARGET}/env-allegro
+
+# conda install pytorch=1.11.0=py3.10_cuda11.5_cudnn8.3.2_0 -c pytorch -c nvidia -y
+# conda install pytorch=1.12.1=py3.10_cuda11.6_cudnn8.3.2_0 -c pytorch -c nvidia -y
+conda install pytorch=1.13.1=py3.10_cuda11.7_cudnn8.5.0_0 -c pytorch -c nvidia -y                        # UPDATE POINT: MOVE TO TORCH 2+
+# conda install pytorch=2.3.1=py3.10_cuda11.8_cudnn8.7.0_0 -c pytorch -c nvidia -y
+
+
+
+################################################################################
+# e3nn
+################################################################################
+
+pip3 install e3nn
+
+################################################################################
+# nequip
+################################################################################
+
+pip3 install nequip
+
+################################################################################
+# allegro
+################################################################################
+
+git clone https://github.com/mir-group/allegro.git ${TARGET}/allegro
+cd ${TARGET}/allegro && python3 -m pip install . && cd - && rm -rf ${TARGET}/allegro
+
+################################################################################
+# pair_allegro
+################################################################################
+
+git clone https://github.com/mir-group/pair_allegro.git ${TARGET}/pair_allegro
+cd ${TARGET}/pair_allegro && git checkout 55f19d3bbdf90ef156bd6a8ac3336b1d5aa15da3 && cd -
+
+################################################################################
+# use slurm to compile lammps on GPU node
+################################################################################
+
+module load mpi/openmpi/4.1.6 libs/intel/mkl/2023.2.0 libs/fftw/3.3.10 libs/hdf5/1.14.3 libs/netcdf-c/4.9.2 nvidia/cuda11/cuda/11.8.0 nvidia/cuda11/cudnn/8.7.0.84
+
+git clone https://github.com/lammps/lammps.git /tmp/lammps
+cd /tmp/lammps && git checkout 9b989b186026c6fe9da354c79cc9b4e152ab03af && cd -
+# git clone --depth=1 https://github.com/lammps/lammps.git /tmp/lammps
+cd ${TARGET}/pair_allegro && ./patch_lammps.sh /tmp/lammps && cd - #&& rm -rf ${TARGET}/pair_allegro
+
+cat << EOD > /tmp/lammps/cmake/presets/DEAC.cmake
+# preset that will explicitly request gcc/g++ compilers with support for MPI and OpenMP
+
+set(CMAKE_C_COMPILER            "$BASECC"   CACHE STRING "" FORCE)
+set(CMAKE_CXX_COMPILER          "$BASECXX"  CACHE STRING "" FORCE)
+set(CMAKE_Fortran_COMPILER      "$BASEFC"   CACHE STRING "" FORCE)
+set(CMAKE_CXX_FLAGS_RELEASE     "-O3 -march=znver3 -mtune=znver3            -DNDEBUG" CACHE STRING "" FORCE)
+set(CMAKE_C_FLAGS_RELEASE       "-O3 -march=znver3 -mtune=znver3            -DNDEBUG" CACHE STRING "" FORCE)
+set(CMAKE_Fortran_FLAGS_RELEASE "-O3 -march=znver3 -mtune=znver3 -std=f2003 -DNDEBUG" CACHE STRING "" FORCE)
+
+set(MPI_C                       "$BASECC"       CACHE STRING "" FORCE)
+set(MPI_CXX                     "$BASECXX"      CACHE STRING "" FORCE)
+set(MPI_Fortran                 "$BASEFC"       CACHE STRING "" FORCE)
+set(MPI_C_COMPILER              "$MPICC"    CACHE STRING "" FORCE)
+set(MPI_CXX_COMPILER            "$MPICXX"   CACHE STRING "" FORCE)
+set(MPI_Fortran_COMPILER        "$MPIFC"    CACHE STRING "" FORCE)
+
+unset(HAVE_OMP_H_INCLUDE CACHE)
+set(OpenMP_C                    "$BASECC"       CACHE STRING "" FORCE)
+set(OpenMP_CXX                  "$BASECXX"      CACHE STRING "" FORCE)
+set(OpenMP_Fortran              "$BASEFC"       CACHE STRING "" FORCE)
+set(OpenMP_C_FLAGS              "$FLAGOMP"  CACHE STRING "" FORCE)
+set(OpenMP_CXX_FLAGS            "$FLAGOMP"  CACHE STRING "" FORCE)
+set(OpenMP_Fortran_FLAGS        "$FLAGOMP"  CACHE STRING "" FORCE)
+# set(OpenMP_C_LIB_NAMES          "gomp"      CACHE STRING "" FORCE)
+# set(OpenMP_CXX_LIB_NAMES        "gomp"      CACHE STRING "" FORCE)
+# set(OpenMP_gomp_LIBRARY         "libgomp.so" CACHE PATH "" FORCE)
+
+set(FFTW3_LIBRARY               "${FFTWROOT}/lib/libfftw3.a"       CACHE PATH "" FORCE)
+set(FFTW3_OMP_LIBRARY           "${FFTWROOT}/lib/libfftw3_omp.a"   CACHE PATH "" FORCE)
+set(HDF5_C_COMPILER_EXECUTABLE  "${HDF5_PATH}/bin/h5pcc"           CACHE PATH "" FORCE)
+set(NETCDF_LIBRARY              "${NETCDF_C_PATH}/lib/libnetcdf.a" CACHE PATH "" FORCE)
+EOD
+export NVCC_APPEND_FLAGS='-allow-unsupported-compiler'
+mkdir -p /tmp/lammps/build && cd /tmp/lammps/build
+cmake   -C /tmp/lammps/cmake/presets/DEAC.cmake \
+        -C /tmp/lammps/cmake/presets/most.cmake \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX="${TARGET}/lammps" \
+        -DPKG_OPENMP=on \
+        -DBUILD_OMP=on \
+        -DCMAKE_PREFIX_PATH="$(python3 -c 'import torch;print(torch.utils.cmake_prefix_path)')" \
+        -DCUDA_NVCC_EXECUTABLE="$(which nvcc)" \
+        -DCUDA_TOOLKIT_ROOT_DIR="$CUDA_HOME" \
+        -DCUDNN_LIBRARY_PATH="${CUDNNDIR}/lib/libcudnn.so" \
+        -DTORCH_CUDA_ARCH_LIST="7.0 8.0 9.0" \
+        -DMKL_INCLUDE_DIR="${MKLROOT}/include" \
+        -DLAMMPS_INSTALL_RPATH=on \
+        ../cmake
+make -j32
+make install
+# EOF
+# )
+
+sbatch --partition=gpu \
+       --nodelist=usb-gpu-04 \
+       --ntasks-per-node=32 \
+       --output=${HOME}/lammps_build.out \
+       --wrap="${LAMMPS_BUILD}"
+
+# sed -i -e 's/  torch::jit::getBailoutDepth() = jit_bailout_depth;/  torch::jit::FusionStrategy strat = {{torch::jit::FusionBehavior::DYNAMIC, 1}};\n  torch::jit::setFusionStrategy(strat);/g' /tmp/lammps/src/pair_allegro.cpp
+
+################################################################################
+################################################################################
+
+## actually running the dang thing
+
+# sbatch --partition=gpu \
+#        --nodelist=usb-gpu-04 \
+#        --ntasks-per-node=2 \
+#        --cpus-per-task=2 \
+#        --output=slurm \
+#        --wrap ". ${MINICONDA}/etc/profile.d/conda.sh; conda activate allegro; module load compilers/gcc/10.2.0 mpi/intel/2021.2 libs/intel/mkl/2021.2; export OMP_NUM_THREADS=2; cd /deac/inf/adminGrp/anderss/scratch/allegro_testing/tutorial/lammps_run; mpirun ${RESEARCHPATH}/scratch/natalieGrp/lammps/bin/lmp -in si_rdf.in"
+
+# module purge && module load compilers/gcc/10.2.0 mpi/intel/2021.2 cuda/11.8
+# conda activate allegro
+# export LAMMPS_PATH="/deac/phy/natalieGrp/software/publiccode/lammps"
+# export PATH="${LAMMPS_PATH}/bin:$PATH"
+# export LAMMPS_POTENTIALS="${LAMMPS_PATH}/share/lammps/potentials"
+# export MSI2LMP_LIBRARY="${LAMMPS_PATH}/share/lammps/frc_files"
+
+## If you need a vanilla environment (think: tcsh)
+
+# env -i bash --noprofile --norc
+# . /usr/share/Modules/init/bash
+# . /deac/phy/natalieGrp/software/miniconda3/etc/profile.d/conda.sh

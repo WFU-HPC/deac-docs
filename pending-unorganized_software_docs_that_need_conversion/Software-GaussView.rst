@@ -1,42 +1,4 @@
-.. contents::
-   :depth: 3
-..
-
-`Category:Software </Category:Software>`__
-
-Overview
-========
-
-`GaussView 5 <http://www.gaussian.com/g_prod/gv5b.htm>`__ is a molecular
-and reaction visualization tool available from the
-`Gaussian <http://www.gaussian.com/>`__ corporation.
-
-Version
-=======
-
-Versions on the cluster include:
-
-:\* **5.0.9** For the Red Hat Enterprise Linux 6 (RHEL6) system image,
-we have upgraded the GaussView version to GaussView 5.0.9. The software
-is installed along side the Gaussian 09 software underneath the
-/deac/opt/gaussian directory on the cluster. Please refer to the
-`Software:Gaussian </Software:Gaussian>`__ web page for more information
-about the location of the specific Gaussian builds in use on the
-cluster.
-
-Usage Restrictions
-==================
-
-Access to the software is restricted to faculty, staff, and students of
-the Reynolda Campus of Wake Forest University. Users requesting access
-to the software **MUST** request that access via the Request Tracker
-system by sending email to deac-help@wfu.edu.
-
-**NOTE:** You will be required to read and agree to the license terms
-for Gaussian found in the `License:Gaussian </License:Gaussian>`__
-article.
-
-Using GaussView 5
+Using GaussView 5 (CONVERTED TO DSS 2024)
 =================
 
 Setup is similar to that for `Gaussian
