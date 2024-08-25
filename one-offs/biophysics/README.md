@@ -1,4 +1,4 @@
-# DEACFold and MaSIF Environments
+# DEACFold, MaSIF, and AlphaFold Environments
 
 ## DEACFold
 
@@ -38,7 +38,7 @@ example cases:
 ```sh
 #!/bin/bash
 #SBATCH --job-name=RoseTTAFold-All-Atom
-#SBATCH --account=adminGrp
+#SBATCH --account=albaneseGrp
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -84,7 +84,7 @@ example cases:
 ```sh
 #!/bin/bash
 #SBATCH --job-name=LigandMPNN
-#SBATCH --account=adminGrp
+#SBATCH --account=albaneseGrp
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -140,7 +140,7 @@ example cases:
 ```sh
 #!/bin/bash
 #SBATCH --job-name=RFdiffusion
-#SBATCH --account=adminGrp
+#SBATCH --account=albaneseGrp
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -188,7 +188,7 @@ Once you have registered your token, here is a basic Slurm script to run the exa
 ```sh
 #!/bin/bash
 #SBATCH --job-name=ESM3
-#SBATCH --account=adminGrp
+#SBATCH --account=albaneseGrp
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -250,7 +250,7 @@ Now that you have the examples, here is a basic Slurm script to run them:
 ```sh
 #!/bin/bash
 #SBATCH --job-name=OpenMM
-#SBATCH --account=adminGrp
+#SBATCH --account=albaneseGrp
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -313,7 +313,7 @@ example cases:
 ```sh
 #!/bin/bash
 #SBATCH --job-name=OpenMM
-#SBATCH --account=adminGrp
+#SBATCH --account=albaneseGrp
 #SBATCH --partition=gpu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
@@ -334,4 +334,78 @@ cd /deac/chm/albaneseGrp/software/masif-neosurf
 
 # without ligand
 ./preprocess_pdb.sh example/1a7x.pdb 1A7X_A -o example/output/
+```
+
+
+## AlphaFold2
+
+The previous installation of AlphaFold2 is still functional and has produced
+good results in the past. It will be worth it to install AlphaFold3 when it is
+released in some form, and I will update the documentation accordingly.
+
+Below is the Slurm script:
+
+```sh
+#!/bin/bash
+#!/bin/bash
+#SBATCH --job-name=AlphaFold
+#SBATCH --account=albaneseGrp
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=8
+#SBATCH --cpus-per-task=1
+#SBATCH --gres=gpu:A100_80:1
+#SBATCH --mem=32GB
+#SBATCH --time=0-01:00:00
+
+# source alphafold-only miniconda
+. /deac/opt/rhel7-noarch/alphafold/miniconda3/etc/profile.d/conda.sh
+
+# activate the environment
+conda activate alphafold
+
+# convenient environment variables
+export ALPHAFOLD_DATA="/deac/data/alphafold_data"
+export SCRATCH="/scratch/$SLURM_JOB_ID"
+export INPUT="${SCRATCH}/query.fasta"
+export OUTPUT="${SCRATCH}/output_dir"
+export DATE="2020-05-14"
+
+# make your output directory
+mkdir -p $OUTPUT
+
+# create example fasta file
+cat <<EOF > "$INPUT"
+>dummy_sequence
+GWSTELEKHREELKEFLKKEGITNVEIRIDNGRLEVRVEGGTERLKRFLEELRQKLEKKGYTVDIKIE
+EOF
+
+# running alphafold
+python3 /deac/opt/rhel7-noarch/alphafold/alphafold-2.3.2/run_alphafold.py \
+    --hhblits_binary_path="${CONDA_PREFIX}/bin/hhblits" \
+    --hhsearch_binary_path="${CONDA_PREFIX}/bin/hhsearch" \
+    --jackhmmer_binary_path="${CONDA_PREFIX}/bin/jackhmmer" \
+    --kalign_binary_path="${CONDA_PREFIX}/bin/kalign" \
+    --uniref90_database_path="${ALPHAFOLD_DATA}/uniref90/uniref90.fasta" \
+    --mgnify_database_path="${ALPHAFOLD_DATA}/mgnify/mgy_clusters_2022_05.fa" \
+    --data_dir="${ALPHAFOLD_DATA}" \
+    --template_mmcif_dir="${ALPHAFOLD_DATA}/pdb_mmcif/mmcif_files" \
+    --obsolete_pdbs_path="${ALPHAFOLD_DATA}/pdb_mmcif/obsolete.dat" \
+    --pdb70_database_path="${ALPHAFOLD_DATA}/pdb70/pdb70" \
+    --uniref30_database_path="${ALPHAFOLD_DATA}/uniref30/UniRef30_2021_03" \
+    --bfd_database_path="${ALPHAFOLD_DATA}/bfd/bfd_metaclust_clu_complete_id30_c90_final_seq.sorted_opt" \
+    --fasta_paths="$INPUT" \
+    --output_dir="$OUTPUT" \
+    --max_template_date="$DATE" \
+    --db_preset=full_dbs \
+    --model_preset=monomer \
+    --benchmark=false \
+    --use_precomputed_msas=false \
+    --num_multimer_predictions_per_model=5 \
+    --use_gpu_relax=true \
+    --logtostderr
+
+# copy results back to somewhere useful
+mv "$OUTPUT" "${SLURM_SUBMIT_DIR}/${SLURM_JOB_ID}"
+
 ```
