@@ -9,6 +9,9 @@ Frequently Asked Questions (FAQ)
 
 .. _sec.faq.general
 
+General
+=======
+
 * What is a High Performance Computing Cluster?
 
     * General cluster information can be found :ref:`here<sec.cluster_overview>`.
