@@ -7,31 +7,34 @@ Frequently Asked Questions (FAQ)
    :depth: 3
 ..
 
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+
 .. _sec.faq.general
 
+*******
 General
-=======
+*******
 
 * What is a High Performance Computing Cluster?
-
     * General cluster information can be found :ref:`here<sec.cluster_overview>`.
-must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for 
 
 * Who can use the DEAC Cluster?
-
     * Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to any WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) department who contributes centralized funding to Information Systems. Essentially, this is all affiliated WFU Departments except for the School of Medicine.
     * Researcher's from the School of Medicine can use the DEAC cluster for research and instructional activity with a :ref:`contribution<sec.sla.su.contributions> `of funds before use, or :ref:`chargeback<sec.sla.su.chargebacks>` payment for use after the fact.
 
 * How do I get a DEAC Cluster account?
-
     * Submit an account request here:
       https://help.wfu.edu/support/catalog/items/123
 
 
 .. _sec.faq.new_users:
 
+******************
 New User Questions
-==================
+******************
 
 * How do I log in?
 
@@ -61,8 +64,9 @@ New User Questions
 
 .. _sec.faq.using:
 
+*****************
 Using the Cluster
-=================
+*****************
 
 * How do I submit jobs to the cluster?
 
@@ -89,8 +93,9 @@ Using the Cluster
 
 .. _sec.faq.grants:
 
+***********************
 Grants and Publications
-=======================
+***********************
 
 * I'm writing a grant. Do you have a facility description?
 
