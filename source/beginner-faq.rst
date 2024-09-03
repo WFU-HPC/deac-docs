@@ -15,19 +15,17 @@ Frequently Asked Questions (FAQ)
 
 * What is a High Performance Computing Cluster?
 
-    * General cluster information can be found `HERE </Cluster:General_Overview>`__.
+    * General cluster information can be found :ref:`here`<sec.cluster_overview>`.
 
 * Who can use the DEAC Cluster?
 
-    * The DEAC HPC Cluster is a free tool for all Wake Forest University
-      Reynolda Campus researchers and students.
-    * Researchers from the School's of Business, Law, Divinity, and Medicine,
-      can use the cluster with a contribution of funds.
+    * Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to any WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) department who contributes centralized funding to Information Systems. Essentially, this is all affiliated WFU Departments except for the School of Medicine.
+    * Researcher's from the School of Medicine can use the DEAC cluster for research and instructional activity with a :ref:`contribution`<sec.sla.su.contributions> of funds before use, or :ref:`chargeback`<sec.sla.su.chargebacks> payment for use after the fact.
 
 * How do I get a DEAC Cluster account?
 
     * Submit an account request here:
-      https://help.wfu.edu/support/catalog/items/72
+      https://help.wfu.edu/support/catalog/items/123
 
 .. #############################################################################
 .. #############################################################################
@@ -39,14 +37,13 @@ Frequently Asked Questions (FAQ)
 New User Questions
 ==================
 
-* How do I change my password?
-
-    * Follow the guidelines provided: `Information:Passwords </Information:Passwords>`__
-
 * How do I log in?
 
-    * Users can only login `via ssh </Quick_Start_Guide:SSH>`__ to our
-      `headnodes </Cluster:Headnodes>`__ while on a WFU Network (or VPN).
+    * Users can only connect to our login nodes while on a WFU Network, 'eduroam' wireless, or VPN.
+
+* What password do I use?
+
+    * Users will login with the password they use to access their WFU email. There are no standalone passwords to access the DEAC Cluster.
 
 * How do I open graphical applications from the cluster?
 
@@ -55,7 +52,7 @@ New User Questions
 
 * What kind of hardware is in the cluster?
 
-    * `Cluster:Access_and_Layout </Cluster:Access_and_Layout>`__
+    * See :ref:`Cluster Hardware`<sec.hardware>
 
 * How many nodes does the cluster have?
 
