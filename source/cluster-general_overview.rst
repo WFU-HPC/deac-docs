@@ -1,4 +1,4 @@
-.. sec.cluster_overview:
+.. _sec.cluster_overview:
 
 ================
 General Overview
