@@ -55,7 +55,7 @@ New User Questions
 
 * How many nodes does the cluster have?
 
-    * `Cluster:Hardware Configuration </Cluster:Hardware_Configuration>`__
+    * See :ref:`Cluster Hardware<sec.hardware>`
 
 * What scheduler does the DEAC cluster use?
 
