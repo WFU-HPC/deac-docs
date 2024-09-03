@@ -15,7 +15,7 @@ Frequently Asked Questions (FAQ)
 
 * What is a High Performance Computing Cluster?
 
-    * General cluster information can be found :ref:`here`<sec.cluster_overview>`.
+    * General cluster information can be found :ref:`here`<sec.cluster_overview>.
 
 * Who can use the DEAC Cluster?
 
