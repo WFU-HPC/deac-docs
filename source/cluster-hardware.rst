@@ -1,3 +1,5 @@
+.. _sec.hardware
+
 ===========================
 Resources: General Hardware
 ===========================
@@ -10,27 +12,25 @@ Resources: General Hardware
 Cluster Architectural Features
 ==============================
 
-`thumb|400px|Center|Cisco UCS with Blades </File:UCS_B200_Chassis.jpg>`__
-
-Head Nodes
+Login Nodes
 ----------
 
-*  Users connect to and interact with the cluster via **head nodes**.
+*  Users connect to and interact with the cluster via **login nodes**.
 
 *  These systems have the exact same software installations as the cluster **compute nodes** plus some additional interactive tools for end user environments.
 
 Compute Nodes
 -------------
 
-*  Constructed of Cisco UCS Hardware, the compute nodes (where all the job processing takes place) are grouped by into different categories by type.
+*  Constructed of a blend of Penguin Computing and Cisco UCS Hardware, the compute nodes (where all the job processing takes place) are grouped into different categories by type.
 
-*  'Cisco UCS' nodes are grouped and can be designated by their fabric connection (backend switch) listed below.
+*  All new nodes added to the DEAC Cluster will be provided by 'Penguin Computing'. They can be identified by their use of 'AMD' CPUs and 25G network connection. They are named 'cpu-amd-##'
 
-*  All UCS blades are connected through a singular tengig fabric.
+*  All 'Cisco UCS' nodes are legacy hardware, and can be designated by their use of 'Intel' CPUs and 10G network connection. They are named 'cpu-intel-##'.
 
-*  Nodes can also be grouped by their chassis designation, **comp##**, denoting sets of up to 8 corresponding compute nodes contained within the same physical chassis..
+*  Penguin Computing nodes are logically seperated from Cisco UCS nodes. Meaning jobs will not run between cpu-amd-## and cpu-intel-## nodes by default.
 
-*  Parallel processing jobs are strongly encouraged to request that all nodes for a job belong to a single category or processor type.
+* Parallel processing jobs are strongly encouraged to request that all nodes for a job belong to a single category or processor type.
 
 *  See `SLURM:Quick Start Guide </SLURM:Quick_Start_Guide>`__ and `SLURM:Job Script Templates </SLURM:Job_Script_Templates>`__ for examples of how to do this.
 
@@ -39,42 +39,44 @@ SLURM Node Features
 
 *  All compute nodes have assigned features within SLURM. These features can be specified as constraints to limit node selection for jobs. They are:
 
-   * head : These nodes are used to submit jobs to SLURM, and are not assigned to any partition
+   * login: These nodes are used to submit jobs and are not assigned to any partition to execute jobs.
 
-   * gpu : These nodes have GPU's installed and available
+   * amd : These nodes contain amd cores (64-core)
 
-   * comp## : These nodes belong to an Alumni Hall (comp0#) or A1A (comp2#) located chassis ##, e.g. comp07, comp25, etc. are node properties.
+   * zen# : This designates the revision of amd core architecture (the higher the number, the newer the architecture).
 
-   * scr220gb : These nodes have 220GB of local scratch disk space to use for jobs
-
-   * scr425gb : These nodes have 425GB of local scratch disk space to use for jobs
+   * intel : These nodes contain intel cores
 
    * skylake : These nodes have `Intel's Xeon E5 Skylake </Information:Intel_chip_architecture#Architectures>`__ based processors (44-core UCS nodes)
 
    * cascade : These nodes have `Intel's Xeon Gold Cascade Lake </Information:Intel_chip_architecture#Architectures>`__ based processors (44 and 48-core UCS nodes)
 
-*  A complete list of a nodes attributes can be found with the `scontrol command listed here </SLURM:Quick_Start_Guide#Node_information>`__
+   * rocky9 : Designates the operating system installed on the node.
 
 Physical Hardware Specifications
 ================================
 
-Aggregate Information
+Overall Information
 ---------------------
 
-   *  Nodes or Blades : 94 nodes
-   *  Processors : 4,224 cores
-   *  GPU cores : 68,608 cores
-   *  Memory : 18.67TB
-   *  Storage : 287
+   *  All Nodes : 88 nodes
+   *  Processors : 5,052 cores
+   *  GPU cores : 192,512 CUDA cores
+   *  Memory : 40.68TB
+   *  Storage : 287 TB
 
 .. _compute-nodes-1:
 
 Compute Nodes
 -------------
 
-*  88 - **Cisco B-series Blades - 3,976 cores, 16.50TB RAM total**:
+*  21 - **Penguin Altus Nodes - 1,344 cores, 16.50TB RAM total**:
 
-   *  26 Skylake Blades with 44 cores -- 192GB RAM
+   *  4 Zen4 Nodes with 64 cores, 2.3TB RAM
+
+   *  17 Zen4 Nodes with 64 Cores, 678GB RAM
+
+* 62 - **Cisco UCS B200M5 Nodes - 2,832 cores, 17TB RAM total**:
    
    *  36 Cascade Lake Blades with 44 cores -- 192GB RAM
    
@@ -85,42 +87,38 @@ GPU Nodes
 
 For in-depth GPU information, see `Information:GPU_Computing </Information:GPU_Computing>`__
 
-*  1 - **UCS C240 Nodes (44 cores)**:
-
-   *  2x **P100** GPU cards
+*  2 - Penguin Computing Altus (64 cores):
+   * 4X ** A100 80GB** GPU Cards
+   * 768GB RAM
+   * 6190 CUDA cores each (24768 total)
+*  2 - Penguin Computing Altus (64 cores):
+   * 4X ** A100 40GB** GPU Cards
+   * 1.1TB RAM
+   * 6190 CUDA cores each (24768 total)
+*  2 - Penguin Computing Altus (64 cores):
+   * 4X ** V100 32GB** GPU Cards
+   * 1TB RAM
+   * 5120 CUDA cores each (20480 total)
    
-   *  256GB RAM
-   
-   *  3,584 CUDA cores per card
-   
-   *  7168 CUDA cores total!
-
 *  1 - **UCS C480 Node (64 cores)**:
-
    *  6x **V100** GPU cards
-   
    *  768 GB RAM
-   
    *  5,120 CUDA cores per Tesla
-   
    *  30,720 CUDA cores total!
-   
+
 *  1 - **UCS C480 Nodes (48 cores)**:
-
-   *  6x **V100** GPU cards
-   
+   *  6x **V100** GPU cards   
    *  188 GB RAM
-   
    *  5,120 CUDA cores per Tesla
-   
    *  30,720 CUDA cores total!
 
-**Total GPU cores - 68,608!**
+**Total GPU cores - 280,320!**
+
 
 Storage
 -------
 
-**NetApp A300 Storage Array (220TB shared via NFS)**
+**NetApp A300 Storage Array (287TB shared via NFS)**
 
    *  `Technical Specs <https://www.netapp.com/media/19747-storage-review-netapp-a300-print.pdf>`__
    
