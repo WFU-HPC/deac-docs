@@ -15,12 +15,12 @@ Frequently Asked Questions (FAQ)
 
 * What is a High Performance Computing Cluster?
 
-    * General cluster information can be found :ref:`here`<sec.cluster_overview>.
+    * General cluster information can be found :ref:`here<sec.cluster_overview>`.
 
 * Who can use the DEAC Cluster?
 
     * Usage of the DEAC Cluster for research and instructional activities is provided at NO COST to any WFU Undergraduate College and Graduate School of Arts and Sciences (WFU UC/GSAS) department who contributes centralized funding to Information Systems. Essentially, this is all affiliated WFU Departments except for the School of Medicine.
-    * Researcher's from the School of Medicine can use the DEAC cluster for research and instructional activity with a :ref:`contribution`<sec.sla.su.contributions> of funds before use, or :ref:`chargeback`<sec.sla.su.chargebacks> payment for use after the fact.
+    * Researcher's from the School of Medicine can use the DEAC cluster for research and instructional activity with a :ref:`contribution<sec.sla.su.contributions> `of funds before use, or :ref:`chargeback<sec.sla.su.chargebacks>` payment for use after the fact.
 
 * How do I get a DEAC Cluster account?
 
@@ -52,7 +52,7 @@ New User Questions
 
 * What kind of hardware is in the cluster?
 
-    * See :ref:`Cluster Hardware`<sec.hardware>
+    * See :ref:`Cluster Hardware<sec.hardware>`
 
 * How many nodes does the cluster have?
 
