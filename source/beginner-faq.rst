@@ -15,6 +15,7 @@ General
 * What is a High Performance Computing Cluster?
 
     * General cluster information can be found :ref:`here<sec.cluster_overview>`.
+must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for 
 
 * Who can use the DEAC Cluster?
 
@@ -98,6 +99,7 @@ Grants and Publications
 * I'm writing a paper using data from the cluster. Are there any special
   acknowledgements that are required?
 
+    * Yes. Users *must* :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for any finds contributing toward publications, journal articles, etc.
     * `Information:Regarding Publications </Information:Regarding_Publications>`__
 
 * My paper has been accepted for publication. Is there anything else I need to do?
