@@ -26,61 +26,38 @@ understanding how they work.
 The Basics
 ==========
 
-In general, according to the opinion of this author, Linux-based,
-Beowulf style clusters generally have the following characteristics:
+High Performance Computing, or HPC, is a technology that allows people to process huge amounts of data and solve large, complex, and parallel problems at very high speeds. The technology upon which HPC operates is referred to as a Cluster, or Supercomputer, which is a series of commercially available hardware, configured to efficiently work together as a singular system.
 
-:; Login Nodes ("`head nodes </Cluster:Headnodes>`__") : Server(s) that
-users interactively log in to in order to use the system
-
-:; Computational Nodes : Any number of servers that will handle the
-majority of the computations
-
-:; Pervasive storage : Common set of home and research directories that
-are available on all login and computational nodes.
-
-:; Common system image : The Linux operating system installation on the
-login and computational nodes are nearly identical.
-
-:; Parallel Programming Middleware : OpenMP multi-threading capable
-compilers and Message Passing Interface (MPI) library support.
-
-:; Resource Manager and Job Scheduler : Software that tracks resources
-(processors, memory, node attributes), their availability, and schedules
-computational jobs on those resources based on pre-established policies
+The components often found in an HPC Cluster are:
+* Node : Generic term used to describe a system or server that is configured as part of a Cluster.
+* Login Nodes : Server(s) that users interacte with directly in order to use the system.
+* Compute Nodes : Any number of servers where the majority of computations are executed and majority of resources (CPU, RAM) are found
+* GPU Nodes : Any number of servers where specific computations requiring GPU resources are executed.
+* Persistent Storage : Common set of home and research directories that are available on all Cluster Nodes.
+* Common system image : The operating system installed on cluster nodes, almost always Linux.
+* Resource Manager : Software that tracks resources (processors, memory, node attributes) availability
+* Job Scheduler : Software that allocates user's computational tasks (a "job") to be executed on requested resources based on pre-established policies
 and cluster usage.
+* Parallel Programming Middleware : OpenMP multi-threading capable compilers and Message Passing Interface (MPI) library support.
+
 
 Clusters versus Workstations
 ============================
 
-Generally, the login nodes of the cluster behave identically to any
-Linux workstation that you would log in to remotely using an SSH client.
+Generally, the login nodes of the cluster behave identically to any Linux workstation that you would log in to remotely using an SSH client.
 
--  Typical login shells, Linux commands, filesystem layout
--  Standard Red Hat Enterprise Linux software available
--  Additional software repositories available (EPEL from Fedora Project,
-   for example)
+*  Typical login shells, Linux commands, filesystem layout
+*  Standard Red Hat Enterprise Linux compatible software available
+*  Additional software repositories available (EPEL from Fedora Project, for example)
 
 Some pretty significant differences do exist:
 
--  Most, if not all, of your computational work is not done
-   interactively on the login nodes
--  You use the computational nodes by packaging your work into "jobs".
--  Jobs are submitted to the resource manager and job scheduler.
--  The cluster runs those jobs on your behalf, as you, but you have no
-   direct access to the job while it is running.
+#.  Most, if not all, of your computational work is not done interactively on the login nodes.
+#.  Users do not need to be present while majority of tasks are running.
+#.  You use the computational nodes by packaging your work into "jobs".
+#.  Jobs are submitted to the resource manager and job scheduler.
+#.  The cluster runs those jobs on your behalf, as you, but you have no direct access to the job while it is running.
 
-Graphical interfaces
-====================
-
-Unfortunately, most Linux Beowulf clusters don't have a graphical
-desktop front-end that you can navigate. Even when they do, those
-interfaces would only present you with a graphical view of the login
-nodes. This limitation does not typically pose significant issues as
-graphical software on clusters support the X Windowing protocol. For
-clients that supports it, you can open (most) graphical software from
-the login nodes on your local client. For example, you can open a
-Firefox web browser that is running on the login node but displayed on
-your laptop.
 
 References
 ==========
