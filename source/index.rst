@@ -68,8 +68,7 @@ Important Links
   users new and old.
 * `DEAC Cluster YouTube channel <https://youtube.com/WakeHPC>`_: Video content
   featuring tutorials/training and user research.
-* `DEAC Cluster Twitter page <https://twitter.com/WakeHPC>`_: Public
-  announcements and updates regarding the Cluster.
+
 
 
 First Steps
