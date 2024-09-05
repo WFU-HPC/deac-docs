@@ -1,4 +1,4 @@
-.. _sec.hardware
+.. _sec.hardware:
 
 ===========================
 Resources: General Hardware
@@ -8,79 +8,37 @@ Resources: General Hardware
    :depth: 3
 ..
 
-
-Cluster Architectural Features
-==============================
-
-Login Nodes
-----------
-
-*  Users connect to and interact with the cluster via **login nodes**.
-
-*  These systems have the exact same software installations as the cluster **compute nodes** plus some additional interactive tools for end user environments.
-
-Compute Nodes
--------------
-
-*  Constructed of a blend of Penguin Computing and Cisco UCS Hardware, the compute nodes (where all the job processing takes place) are grouped into different categories by type.
-
-*  All new nodes added to the DEAC Cluster will be provided by 'Penguin Computing'. They can be identified by their use of 'AMD' CPUs and 25G network connection. They are named 'cpu-amd-##'
-
-*  All 'Cisco UCS' nodes are legacy hardware, and can be designated by their use of 'Intel' CPUs and 10G network connection. They are named 'cpu-intel-##'.
-
-*  Penguin Computing nodes are logically seperated from Cisco UCS nodes. Meaning jobs will not run between cpu-amd-## and cpu-intel-## nodes by default.
-
-* Parallel processing jobs are strongly encouraged to request that all nodes for a job belong to a single category or processor type.
-
-*  See `SLURM:Quick Start Guide </SLURM:Quick_Start_Guide>`__ and `SLURM:Job Script Templates </SLURM:Job_Script_Templates>`__ for examples of how to do this.
-
-SLURM Node Features
--------------------
-
-*  All compute nodes have assigned features within SLURM. These features can be specified as constraints to limit node selection for jobs. They are:
-
-   * login: These nodes are used to submit jobs and are not assigned to any partition to execute jobs.
-
-   * amd : These nodes contain amd cores (64-core)
-
-   * zen# : This designates the revision of amd core architecture (the higher the number, the newer the architecture).
-
-   * intel : These nodes contain intel cores
-
-   * skylake : These nodes have `Intel's Xeon E5 Skylake </Information:Intel_chip_architecture#Architectures>`__ based processors (44-core UCS nodes)
-
-   * cascade : These nodes have `Intel's Xeon Gold Cascade Lake </Information:Intel_chip_architecture#Architectures>`__ based processors (44 and 48-core UCS nodes)
-
-   * rocky9 : Designates the operating system installed on the node.
+.. _sec.hardware.physical:
 
 Physical Hardware Specifications
 ================================
 
+.. _sec.hardware.physical.all:
+
 Overall Information
----------------------
+-------------------
 
-   *  All Nodes : 88 nodes
-   *  Processors : 5,052 cores
-   *  GPU cores : 192,512 CUDA cores
-   *  Memory : 40.68TB
-   *  Storage : 287 TB
+*  :ref:`Compute Nodes<sec.hardware.physical.compute>`: 83 - 4176 Cores, 33.5TB RAM
+*  :ref:`GPU Nodes<sec.hardware.physical.gpu>`: 7 - 32 GPU Cards, 192,512 CUDA cores, 448 Cores, 5.3TB RAM
+*  :ref:`Persistent Storage<sec.hardware.physical.storage>`: 287 TB
+*  :ref:`Login Nodes<sec.hardware.physical.login>`: 3 - 144 Cores, 1.6TB RAM
 
-.. _compute-nodes-1:
+.. _sec.hardware.physical.compute:
 
 Compute Nodes
 -------------
 
-*  21 - **Penguin Altus Nodes - 1,344 cores, 16.50TB RAM total**:
+*  21 - **Penguin Computing Altus Nodes** - 1,344 cores, 16.50TB RAM total:
 
-   *  4 Zen4 Nodes with 64 cores, 2.3TB RAM
+	* 4 - Zen4 Nodes with 64 cores, 2.3TB RAM, 1.8TB Scratch
+	* 17 - Zen4 Nodes with 64 Cores, 678GB RAM, 1.8TB Scratch
 
-   *  17 Zen4 Nodes with 64 Cores, 678GB RAM
-
-* 62 - **Cisco UCS B200M5 Nodes - 2,832 cores, 17TB RAM total**:
+*  62 - **Cisco UCS B200M5 Nodes**  - 2,832 cores, 17TB RAM total:
    
-   *  36 Cascade Lake Blades with 44 cores -- 192GB RAM
-   
-   *  26 Cascade Lake Blades with 48 cores -- 192GB RAM
+	* 36 - Cascade Lake Blades with 44 cores -- 192GB RAM, 425GB Scratch
+	* 26 - Cascade Lake Blades with 48 cores -- 192GB RAM, 425GB Scratch
+
+.. _sec.hardware.physical.gpu:
 
 GPU Nodes
 ---------
@@ -88,135 +46,121 @@ GPU Nodes
 For in-depth GPU information, see `Information:GPU_Computing </Information:GPU_Computing>`__
 
 *  2 - Penguin Computing Altus (64 cores):
-   * 4X ** A100 80GB** GPU Cards
-   * 768GB RAM
-   * 6190 CUDA cores each (24768 total)
+	*  4 -  ** A100 80GB** GPU Cards
+	*  6,190 CUDA cores per card (24,768 per node)
+	*  768GB RAM
+	*  1.8TB Scratch 
 *  2 - Penguin Computing Altus (64 cores):
-   * 4X ** A100 40GB** GPU Cards
-   * 1.1TB RAM
-   * 6190 CUDA cores each (24768 total)
-*  2 - Penguin Computing Altus (64 cores):
-   * 4X ** V100 32GB** GPU Cards
-   * 1TB RAM
-   * 5120 CUDA cores each (20480 total)
-   
+	*  4 - ** A100 40GB** GPU Cards
+	*  6,190 CUDA cores per card (24,768 per node)
+	*  1TB RAM
+	*  1.8TB Scratch 
+*  1 - Penguin Computing Altus (64 cores):
+	*  4 - ** V100 32GB** GPU Cards
+	*  5,120 CUDA cores per card (20,480 per node)
+	*  1TB RAM
+	*  1.8TB Scratch 
 *  1 - **UCS C480 Node (64 cores)**:
-   *  6x **V100** GPU cards
-   *  768 GB RAM
-   *  5,120 CUDA cores per Tesla
-   *  30,720 CUDA cores total!
-
+	*  6 - **V100** GPU cards
+	*  5,120 CUDA cores per card (30,720 per node)
+	*  768 GB RAM
+        *  932GB Scratch
 *  1 - **UCS C480 Nodes (48 cores)**:
-   *  6x **V100** GPU cards   
-   *  188 GB RAM
-   *  5,120 CUDA cores per Tesla
-   *  30,720 CUDA cores total!
+	*  6 - **V100** GPU cards   
+	*  5,120 CUDA cores per card (30,720 per node)
+	*  188 GB RAM
+        *  1.8TB Scratch
 
-**Total GPU cores - 280,320!**
+.. _sec.hardware.physical.storage:
 
+Persistent Storage
+------------------
 
-Storage
--------
+*  **NetApp** A300 Storage Array (287TB shared via NFS):
 
-**NetApp A300 Storage Array (287TB shared via NFS)**
+	* `Technical Specs <https://www.netapp.com/media/19747-storage-review-netapp-a300-print.pdf>`__
+	* `Hardware Datasheet <https://www.data-storage.uk/wp-content/uploads/NetApp_AFF.pdf>`__
+	* `NetApp YouTube Channel <https://www.youtube.com/channel/UCraITOUxo4l3oYQBH8fofyw>`__
 
-   *  `Technical Specs <https://www.netapp.com/media/19747-storage-review-netapp-a300-print.pdf>`__
-   
-   *  `Hardware Datasheet <https://www.data-storage.uk/wp-content/uploads/NetApp_AFF.pdf>`__
-   
-   *  `NetApp YouTube Channel <https://www.youtube.com/channel/UCraITOUxo4l3oYQBH8fofyw>`__
-   
 * Disk Layout: 52 - 3.8TB SSD
 
    *  Storage Efficiency includes Dedupe, Compression, and Compaction
-   
    *  Nightly and weekly snapshots for restore
-
    *  Cloud backup enabled
-   
 
-**Amazon Glacier Cloud Storage (unlimited)**
+* **Amazon** Glacier Cloud Storage (unlimited)
 
    *  Unlimited cloud storage with variable data expiration.
    *  *Host* of cluster archive storage
 
+.. _sec.hardware.physical.login:
 
-References
-==========
+Login Nodes
+-----------
 
-.. raw:: html
+   *  2 - **Penguin Computing** Altus Nodes (Newer AMD Architecture):
 
-   <references/>
+	* AMD Zen4 CPUs with 64 cores
+	* 768GB RAM 
+	* 1.8TB Scratch
 
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
+   *  1 - **Cisco UCS** B200M5 Nodes (Legacy Intel Architecture):
 
-All compute nodes on the DEAC cluster contain INTEL CPUs. Since the DEAC
-Cluster adds hardware annually, it is important to know the difference
-between chip architecture found on each node. Obviously, newer nodes
-house the most recent architectures. Read below to learn more about
-INTEL CPUs and their release schedule.
+	* Intel Cascade Lake with 16 cores
+	* 120GB RAM total
+        * 415GB Scratch
 
-Process-Architecture-Optimization
-=================================
+.. _sec.hardware.arch:
 
-*  In March 2016, Intel officially said it could no longer maintain it's "tick-tock" model
+Cluster Architectural Features
+==============================
 
-   *  Click [http://www.extremetech.com/extreme/225353-intel-formally-kills-its-tick-tock-approach-to-processor-development HERE] to read an article about the new model.
+.. _sec.hardware.arch.login:
 
-*  This was first apparent in mid 2015, when Intel said the cycle was turning from 2 years into 2.5 years (TICK-TOCK-TOCK)
+Login Node Features
+-------------------
 
-   *  Click [http://arstechnica.com/gadgets/2015/07/intel-confirms-tick-tock-shattering-kaby-lake-processor-as-moores-law-falters/ HERE] for more information.
+*  Users connect to and interact with the cluster via **login nodes**.
+*  The login nodes have the exact same software installations as the cluster **compute nodes** plus some additional interactive tools for end user environments.
+*  There are three login nodes are available, 2 matching newer Penguin Computing AND Compute Nodes, and 1 matching the old Cisco UCS Intel Compute Nodes.
 
-`600px|Process-Architecture-Optimization Model </File:Intel-PAO.png>`__
+.. _sec.hardware.arch.compute:
 
-Tick-Tock Model
-===============
+Compute Nodes Features
+----------------------
 
-*  Intel processor manufacturing operates on a "tick-tock" model that follows Moore's law
-   
-   *  Click [http://www.intel.com/content/www/us/en/silicon-innovations/intel-tick-tock-model-general.html HERE] to read an article about their general model.
+*  Because the DEAC Cluster is **not homogenous**, there are multiple compute nodes grouped into different categories by type.
 
-   *  **TICK**: when die shrink occurs (ie, 22nm to 14nm)
+	*  All new nodes added to the DEAC Cluster will be provided by **'Penguin Computing'**.
 
-   *  **TOCK**: new architecture on same die size
+		*  They can be identified by their use of 'AMD' CPUs and 25G network connection.
+		*  They are named 'cpu-amd-##'
 
-`600px|Tick-Tock Model </File:Intel-tick-tock-diagram.png>`__
+	*  All 'Cisco UCS' nodes are legacy hardware, some portion of which will remain on DEAC until 2027.
 
-Architectures
-=============
+		*  They can be designated by their use of 'Intel' CPUs and 10G network connection.
+		*  They are named 'cpu-intel-##'.
 
-A list of Intel's architecture models is as follows
+*  Penguin Computing nodes are logically seperated from Cisco UCS nodes.
 
-*  5100 - Woodcrest (65nm Conroe) - 2-core
+	*  Jobs will not run between cpu-amd-## and cpu-intel-## nodes by default.
 
-   ** 5300 - Clovertown (65nm Conroe) - 4-core that were 2x Woodcrest on
-same die (no integration)
+*  Parallel processing jobs are strongly encouraged to request that all nodes for a job belong to a single category or processor type.
 
-*  5400 - Harpertown (45nm Penryn)
+*  See `SLURM:Quick Start Guide </SLURM:Quick_Start_Guide>`__ and `SLURM:Job Script Templates </SLURM:Job_Script_Templates>`__ for examples of how to do this.
 
-*  5500 - Gainestown (45nm Nehalem)
+.. _sec.hardware.arch.slurm:
 
-   *  5600 - Westmere (32nm Nehalem)
+SLURM Node Features
+-------------------
 
-*  E5-2600 - Sandy Bridge (32nm Sandy Bridge) - Supports up to dual socket systems
+*  All compute nodes have assigned features within SLURM. These features can be specified as constraints to limit node selection for jobs. They are:
 
-   *  E5-2600v2 - Ivy Bridge (22nm Sandy Bridge)
-
-*  E5-2600v3 - Haswell (22nm Haswell)
-
-   *  E5-2600v4 - Broadwell (14nm Haswell)
-   
-*  M3-6Y30 - Skylake (14nm Skylake)
-
-   *  Gold-6240R - Cascade Lake (14nm Skylake)
-   
-   *  (TBD) - Icelake (10nm Skylake)
-
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
-.. #############################################################################
+   * login: These nodes are used to submit jobs and are not assigned to any partition to execute jobs.
+   * amd : These nodes contain amd cores (64-core)
+   * zen# : This designates the revision of amd core architecture (the higher the number, the newer the architecture).
+   * intel : These nodes contain intel cores
+   * skylake : These nodes have `Intel's Xeon E5 Skylake </Information:Intel_chip_architecture#Architectures>`__ based processors (44-core UCS nodes)
+   * cascade : These nodes have `Intel's Xeon Gold Cascade Lake </Information:Intel_chip_architecture#Architectures>`__ based processors (44 and 48-core UCS nodes)
+   * rocky9 : Designates the operating system installed on the node.
 

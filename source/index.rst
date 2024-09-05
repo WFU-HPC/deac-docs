@@ -36,78 +36,71 @@ DEAC Docs: The Official Docs for the DEAC cluster
 .. #############################################################################
 .. #############################################################################
 
-The WFU DEAC HPC Cluster is a centrally funded resource, meaning it is a free
-tool for all members of the WFU Undergraduate College and Graduate School of Arts and Sciences.
-The HPC Team is here to train users, troubleshoot scripts, upgrade hardware and
-software, and support user needs. This documentation is a starting point and
-reference for all DEAC Cluster users. They are intended to be a community
-resource for information sharing.
+The DEAC Cluster is a centralized service provided by Information systems. Baseline usage of the DEAC Cluster for research and instructional activities is provided at no additional to faculty, students, and staff within any department that receive support by Information System. These departments include the School of Law, Divinity, Business, Graduate School of Arts and Sciences, and WFU Undergraduate College. The School of Medicine is allowed to use the DEAC Cluster in a PAID USAGE format only. The DEAC Cluster is supported by The HPC Team, who are available to provide training, troubleshooting, data management, software installation, server configuraiton, and hardware maintenance.
 
-    .. * All entries should aim to make the cluster user experience easier.
-    .. * We encourage all users to frequently consult these docs as content is
-    ..   always being updated.
-    .. * The side bar index is categorized and is roughly structured to be followed
-    ..   from top to bottom:
+This wiki is intended to be a community resource for information sharing.
+	* The HPC Team will aim to make entries as up-to-date as possible; however, the cluster is a constantly evolving tool. Contact the HPC Team if you discover any noticable differences or misinformation.
+	* The HPC Team encourages users to share this wiki amongst team members to held advance knowledge. 
+	* Users should utilize the side bar to navigate the wiki from high to low-level information as needed.
 
-    ..     * Newer, less experienced cluster users should carefully review the
-    ..       topmost sections in the side bar.
-    ..     * Experienced/expert users will find various in-depth guides in
-    ..       subsequent sections.
-
-Note: Users must be on a WFU network or connected via VPN in order to access and login to the head nodes!
 
 Important Links
 ===============
 
-* `DEAC-Help Email (deac-help@wfu.edu) <mailto:deac-help@wfu.edu>`_: Your direct
-  line to the HPC Team.
-* `Main website <https://hpc.wfu.edu>`_: General information about the cluster,
-  highlighting its capabilities and publicizing some interesting results.
-* `DEAC Cluster Documentation <https://deac-wiki.readthedocs.io>`_: Public
-  content that provides useful information (such as this article) for cluster
-  users new and old.
-* `DEAC Cluster YouTube channel <https://youtube.com/WakeHPC>`_: Video content
-  featuring tutorials/training and user research.
+* `DEAC Help Email (deac-help@wfu.edu) <mailto:deac-help@wfu.edu>`_: Your direct line to the HPC Team for support.
+* `Main website <https://hpc.wfu.edu>`_: General information about the cluster, highlighting its capabilities and publicizing some interesting results.
+* `DEAC Login <https://login.deac.wfu.edu>`_: Login portal to the DEAC Cluster for existing users.
+* `DEAC Cluster Documentation <https://deac-wiki.readthedocs.io>`_: Public content that provides useful information (such as this article) for cluster users new and old.
+* `DEAC Cluster YouTube channel <https://youtube.com/WakeHPC>`_: Video content featuring tutorials/training and user research.
 
 
-
-First Steps
-===========
+Getting Started
+===============
 
 .. _sec.index:request_access:
 
-Account Requests
-----------------
-
-If you're reading this page, you almost certainly have it by now. So, this
-section will focus mainly on being a central location for existing users to
-reference in helping potential new users get access.
+New Users
+---------
 
 * Request an Account: https://help.wfu.edu/support/catalog/items/123
-* Review the :ref:`sec.policies`.
 
-.. * Request access to licensed software: Certain licensed software requires electronic acceptance of the licenses. To determine if the software you wish to use requires these extra measures, please view https://wiki.deac.wfu.edu/index.php/Category:License for a list of software with special requirements.
+	* No user has access to the DEAC Cluster and it's resources without submitting an account request.
+	* New faculty user requests should expect a member of the HPC Team to schedule a meeting to review cluster resources, HPC Team services, and research requirements.
+        * New student user requests *require* research advisor approval before an account is created and associated with a research group. Faculty who submit student account requests to join their own group imply automatic approval.
+
+* Review the :ref:`Service Level Agreement<sec.sla>` for usage guidelines.
+
+	* This living document contains all acceptable usage guidelines and general rules that should be followed by cluster users
+	* Standard baseline usage is covered, as well as how to gain priority access on the cluster via contributions.
+
+* Review the :ref:`General Overview<sec.cluster_overview>` for general terminology and workflow.
+	
+	* This will give you a better understand of cluster basics.
+	* Knowing terms will help you better understand communications from the HPC Team.
 
 .. _sec.index:getting_access:
 
 Accessing the Cluster
 ---------------------
 
-There are two primary entry points in which users connect to the
-cluster for various resources:
+There are two primary entry points in which users connect to the cluster for various resources:
 
-#. **Shell Access** via SSH - Users connect to the interactive login nodes, aka
-   :ref:`sec.qs0:cluster_headnodes`, using the SSH protocol, provided by any
-   number of freely available clients (VS Code, OpenSSH, MobaXterm, putty,
-   etc.). This is the only protocol supported for command line access (i.e.
-   interactive logins) to the cluster and is available from the general Internet
-   without restriction. The :ref:`SSH Section <sec.qs0:ssh>` is a good place to
-   start.   
-#. **File Transfer** via SCP/SFTP - Users can migrate data onto and off of the
-   cluster using secure file transfer protocols, also based on the underlying
-   SSH protocol suite. The utilities, which are also freely available (VS Code,
-   OpenSSH, WinSCP, etc.) work similar to historical FTP clients but securely
-   authenticate and transfer the files between destination.
+#. **User Interface** via HTTPS
+
+	* Users can connect through a web User Interface via `DEAC Login <https://login.deac.wfu.edu>`_
+	* This user interface allows terminal connectivity, interactive sessions, and file transfer capability.
+	* **This method is strongly recommended as the preffered method of accessing the DEAC Cluster.**
+
+#. **Shell Access** via SSH -
+
+	* Users can connect using the SSH protocol via any number of freely available clients (VS Code, OpenSSH, MobaXterm, PuTTY, etc.).
+	* SSH is the only protocol supported for direct command line access to DEAC Cluster Login nodes.
+	* If you are unfamiliar with the SSH protocol, we strongly encourage you to utilize the User Interface above.
+
+#. **File Transfer** via SCP/SFTP -
+
+	* Users can migrate data onto and off of the cluster using secure file transfer protocols, also based on the underlying SSH protocol suite.
+	* Several utilities are also freely available (VS Code, OpenSSH, WinSCP, etc.) to securely authenticate and transfer files to/from DEAC Cluster Login Nodes.
 
 .. #############################################################################
 .. #############################################################################
@@ -118,8 +111,6 @@ cluster for various resources:
     * beginner-quickstart_00_connect
     * beginner-quickstart_02_using
     * beginner-quickstart_03_jobs
-    * beginner-faq
-    * cluster-policies
     * cluster-general_overview
     * cluster-hardware
     * cluster-gpu_resources
@@ -138,27 +129,13 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Getting Started
-
-   beginner-quickstart_00_connect
-   beginner-quickstart_01_linux
-   beginner-quickstart_02_using
-   beginner-quickstart_03_jobs
-   beginner-linux_commands
-   beginner-faq
-   beginner-videos
-
-
-.. toctree::
-   :maxdepth: 1
    :caption: About the Cluster
 
+   cluster-faq
    cluster-sla
-   cluster-policies
    cluster-general_overview
    cluster-hardware
    cluster-gpu_resources
-   cluster-usnic
    cluster-performance
    cluster-stats
 
@@ -188,6 +165,8 @@ Table of Contents
    :maxdepth: 1
    :caption: Reference Documentation
 
+   beginner-linux_commands
+   beginner-videos
    reference-slurm_torque
    reference-repcom_meetings
 
