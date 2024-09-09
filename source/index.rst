@@ -78,6 +78,11 @@ New Users
 	* This will give you a better understand of cluster basics.
 	* Knowing terms will help you better understand communications from the HPC Team.
 
+* Review the :ref:`Frequently Asked Questions<sec.faq>` and review answers.
+
+	* This is where answers to commonly asked questions are stored. 
+	* Quick references can also be found here if you forgot where important links are located.
+
 .. _sec.index:getting_access:
 
 Accessing the Cluster
