@@ -622,8 +622,8 @@ See the :ref:`Service Unit Contributions Section<sec.sla.su.contributions>` for 
 
 .. _sec.sla.util.utilization_calculation:
 
-Utilization Calculation
-=======================
+Baseline Utilization Calculation
+================================
 
 Each investment type establishes a baseline amount that is factored into a research group and department's overall utilization calculation. Each baseline utilization is based upon ratio of the maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`), which is equal to the number of monthly CPU Service Sub-Units, aka core hours, available on the cluster.
 
@@ -635,7 +635,7 @@ Each investment type establishes a baseline amount that is factored into a resea
 
 Research Group Baseline (:math:`\mathbf{U_{\mathrm{Grp}}}`)
 -----------------------------------------------------------
-* Expected baseline monthly utilization is the computational workload that each research group on the DEAC Cluster should expect to use at no cost to them.
+* Expected baseline monthly utilization is the computational workload that each research group on the DEAC Cluster should expect to be able to use at no cost to them.
 * The research group baseline utilization (:math:`U_{\mathrm{Grp}}`) is calculated by multiplying the ratio of IS investment (:math:`\mathbf{I_{\mathrm{IS}}}`) vs Total investment (:math:`\mathbf{I_{\mathrm{Total}}}`) times the by the maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`), divided by the number of active groups using the cluster.
 
     * External research groups are counted by one of the following largest common denominators: department level, center, or consortium.
@@ -647,7 +647,7 @@ Research Group Baseline (:math:`\mathbf{U_{\mathrm{Grp}}}`)
 
 .. admonition:: Current Research Group Baseline
 
-  The current baseline monthly utilization (:math:`U_{Grp}`) for research groups is **26,954 SUs**.
+  The current baseline monthly utilization (:math:`U_{Grp}`) for research groups is **26,046 SUs**.
 
 * If a non-contributing group is operating outside of that monthly utilization on a regular basis, then they should consider contributing to the DEAC Cluster to help accomodate their elevated usage. 
 
@@ -664,7 +664,7 @@ Provost Office Baseline (:math:`\mathbf{U_{\mathrm{WFU}}}`)
 
 .. admonition:: Current Research Group Baseline
 
-  The current baseline monthly utilization for each "*Internal*" User department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **15,101 SUs**.
+  The current baseline monthly utilization for each "*Internal*" User department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **11,239 SUs**.
 
 
 .. _sec.sla.util.utilization_calculation.u_grp:
