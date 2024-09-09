@@ -8,23 +8,35 @@ Grant Writing
    :depth: 3
 ..
 
-Updated information for 2021/2022
-=================================
+No grant application is the same and therefore no single description can be best fit each proposal. Below is a general template two liner description, however, the HPC Team would prefer all faculty contact the HPC team at deac-help@wfu.edu before submitting a grant that will utilize the DEAC Cluster. The HPC Team needs to fully understand software, storage, compute, and timeline for the grant to provide the best write-up possible and accurately estimate needs.
 
-Please contact the HPC team directly at deac-help@wfu.edu for information on how
-to request and allocate grant funds for the DEAC Cluster.
+.. _sec.grant_writing.decsription:
 
-**Also remember that you MUST acknowledge the DEAC Cluster in any and all
-publications where it was used**. Please do so by including this **exact**
-statement:
+Template Description
+--------------------
 
 .. code-block:: none
+     The WFU DEAC Cluster Facility is a centrally managed, University supported,
+     high performance computing environment containing over 5,000 processors,
+     40TB of memory, 32 GPUs, and 287TB of disk storage jointly funded by faculty
+     research grant awards and the University. The cluster supports faculty from
+     15 departments, including: Biomed, Business, Chemistry, Computer Science,
+     Engineering, and Physics. All grant contributions are applied as a service
+     fee to gain additional priority and/or storage above free-tier baseline utilization.
+     All acquired service fees are applied to offset the annual cost Information
+     Systems incurs to operate and maintain the DEAC Cluster Facility. 
 
-    Computations were performed on the Wake Forest University DEAC Cluster, a
-    centrally managed resource with support provided in part by the University.
 
-Once your manuscript has been published, please send us (via deac-help@wfu.edu)
-the DOI or link.
+===============
+Acknowledgement
+===============
+
+.. important::
+  Users must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
+
+Acknowledgements help show the importance of the DEAC Cluster Facility to researchers at Wake Forest University. This includes the resources provided and services rendered by the HPC Team.
+
+Once your manuscript has been published, please send the HPC Team (via deac-help@wfu.edu) the DOI or link.
 
 
 .. .. #############################################################################
@@ -59,20 +71,6 @@ the DOI or link.
 .. .. #############################################################################
 .. .. #############################################################################
 
-.. .. _sec.grant_writing.current.two_liner:
-
-.. Official Cluster Two-Liner
-.. --------------------------
-
-..     The WFU DEAC Cluster Facility is a centrally managed, University supported,
-..     high performance computing environment with 89 computational nodes
-..     containing 3,820 processors, 19TB of total memory, and 170TB of disk storage
-..     jointly funded by faculty research grant awards and the University. The
-..     cluster supports faculty from 13 departments, including: Biomed, Business,
-..     Chemistry, Computer Science, Engineering, and Physics. All capital expenses
-..     and grant contributions will be purchased through the Procurement Uniform
-..     Guidance, and be open-bid to resellers, and added to this pre-existing
-..     infrastructure.
 
 .. .. #############################################################################
 .. .. #############################################################################
