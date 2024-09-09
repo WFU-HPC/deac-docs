@@ -73,10 +73,11 @@ New Users
 	* This living document contains all acceptable usage guidelines and general rules that should be followed by cluster users
 	* Standard baseline usage is covered, as well as how to gain priority access on the cluster via contributions.
 
-* Review the :ref:`General Overview<sec.cluster_overview>` for general terminology and workflow.
+* Review the :ref:<sec.cluster_overview> for general terminology and workflow.
 	
 	* This will give you a better understand of cluster basics.
 	* Knowing terms will help you better understand communications from the HPC Team.
+        * Learn how each general term applies to the DEAC Cluster.
 
 * Review the :ref:`Frequently Asked Questions<sec.faq>` and review answers.
 

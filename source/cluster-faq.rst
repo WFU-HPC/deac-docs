@@ -92,10 +92,10 @@ New User Questions
 	* Users can login with the password they use to access their WFU email or an SSH Key.
 	* There are no standalone passwords to access the DEAC Cluster.
 
-* What kind of hardware is in the cluster?
+* What kind of hardware resources are in the DEAC Cluster?
 
 	* The DEAC Cluster is known as a heterogeneous cluster, meaning it is comprised of several different hardware configurations and node types.
-	* See :ref:`Cluster Hardware<sec.hardware>` for an indepth overview of hardware.
+	* See :ref:<sec.hardware> for an indepth overview of hardware.
 
 * How do I open graphical applications from the cluster?
 
