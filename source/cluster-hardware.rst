@@ -1,7 +1,7 @@
 .. _sec.hardware:
 
 ===========================
-Resources: General Hardware
+Cluster Resource Overview
 ===========================
 
 .. contents::

@@ -88,9 +88,9 @@ New Users
 Accessing the Cluster
 ---------------------
 
-There are two primary entry points in which users connect to the cluster for various resources:
+There are three primary methods in which users connect to the cluster:
 
-#. **User Interface** via HTTPS
+#. **User Interface** via HTTPS - 
 
 	* Users can connect through a web User Interface via `DEAC Login <https://login.deac.wfu.edu>`_
 	* This user interface allows terminal connectivity, interactive sessions, and file transfer capability.
@@ -134,8 +134,8 @@ Table of Contents
 
    cluster-faq
    cluster-sla
-   cluster-general_overview
    cluster-hardware
+   cluster-general_overview
    cluster-gpu_resources
    cluster-performance
    cluster-stats

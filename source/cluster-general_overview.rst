@@ -1,8 +1,8 @@
 .. _sec.cluster_overview:
 
-================
-General Overview
-================
+====================
+General HPC Overview
+====================
 
 .. contents::
    :depth: 3
@@ -23,8 +23,8 @@ The goal of this article is simply to familiarize you with Beowulf
 clusters, the relevant terminology, and to help ease you into
 understanding how they work.
 
-The Basics
-==========
+The Basic Terminology
+=====================
 
 High Performance Computing, or HPC, is a technology that allows people to process huge amounts of data and solve large, complex, and parallel problems at very high speeds. The technology upon which HPC operates is referred to as a Cluster, or Supercomputer, which is a series of commercially available hardware, configured to efficiently work together as a singular system.
 
@@ -49,19 +49,36 @@ The components often found in an HPC Cluster are:
 *  Parallel Programming Middleware :
 	* OpenMP multi-threading capable compilers and Message Passing Interface (MPI) library support.
 
+The Basics on DEAC
+==================
+
 .. figure:: images/Cluster_Layout.jpg
 
     General Illustration of DEAC Cluster Architecture
 
-DEAC Headnodes
-==============
+DEAC Login Nodes
+----------------
 
-The DEAC Cluster has three head nodes:
+The DEAC Cluster has three login nodes:
 
-* **gemini.deac.wfu.edu** (WFU College and most Schools)
-* **pegasus.deac.wfu.edu** (WFU College and most Schools)
-* **hydra.deac.wfu.edu** (WFU School of Medicine ONLY)
+* **apollo.deac.wfu.edu** (Modern AMD Architecture)
+* **artemis.deac.wfu.edu** (Modern AMD Architecture)
+* **gemini.deac.wfu.edu** (Legacy Intel Architecture)
 
+DEAC Compute Nodes
+------------------
+
+DEAC GPU Nodes
+--------------
+
+DEAC Persistent Storage
+-----------------------
+
+DEAC System Image
+-----------------
+
+DEAC Scheduler
+--------------
 
 References
 ==========
