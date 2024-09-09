@@ -16,6 +16,7 @@ Template Description
 --------------------
 
 .. code-block:: none
+
      The WFU DEAC Cluster Facility is a centrally managed, University supported,
      high performance computing environment containing over 5,000 processors,
      40TB of memory, 32 GPUs, and 287TB of disk storage jointly funded by faculty
