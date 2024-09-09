@@ -27,9 +27,8 @@ Template Description
      Systems incurs to operate and maintain the DEAC Cluster Facility. 
 
 
-===============
 Acknowledgement
-===============
+---------------
 
 .. important::
   Users must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
