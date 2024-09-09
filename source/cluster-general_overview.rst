@@ -67,18 +67,23 @@ The DEAC Cluster has three login nodes:
 
 DEAC Compute Nodes
 ------------------
+Info about Compute Nodes
 
 DEAC GPU Nodes
 --------------
+Info about GPU Nodes
 
 DEAC Persistent Storage
 -----------------------
+Info about storage
 
 DEAC System Image
 -----------------
+Info about system image and Rocky
 
 DEAC Scheduler
 --------------
+Info about Scheduler
 
 References
 ==========

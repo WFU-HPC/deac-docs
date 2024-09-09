@@ -134,8 +134,8 @@ Table of Contents
 
    cluster-faq
    cluster-sla
-   cluster-hardware
    cluster-general_overview
+   cluster-hardware
    cluster-gpu_resources
    cluster-performance
    cluster-stats
