@@ -4,18 +4,9 @@
 Grant Writing
 =============
 
-.. contents::
-   :depth: 3
-..
+No grant application is the same and therefore no single description can be best fit each proposal. Below is a general template two liner description, however, the HPC Team would prefer all faculty contact the HPC team at deac-help@wfu.edu before submitting a grant that will utilize the DEAC Cluster. 
 
-No grant application is the same and therefore no single description can be best fit each proposal. Below is a general template two liner description, however, the HPC Team would prefer all faculty contact the HPC team at deac-help@wfu.edu before submitting a grant that will utilize the DEAC Cluster. The HPC Team needs to fully understand software, storage, compute, and timeline for the grant to provide the best write-up possible and accurately estimate needs.
-
-.. _sec.grant_writing.decsription:
-
-Template Description
---------------------
-
-.. code-block:: none
+.. admonition:: Template Description
 
      The WFU DEAC Cluster Facility is a centrally managed, University supported,
      high performance computing environment containing over 5,000 processors,
@@ -27,9 +18,7 @@ Template Description
      All acquired service fees are applied to offset the annual cost Information
      Systems incurs to operate and maintain the DEAC Cluster Facility. 
 
-
-Acknowledgement
----------------
+The HPC Team needs to fully understand software, storage, compute, and timeline for the grant to provide the best write-up possible and accurately estimate needs. At the end of your grant, please work with the HPC Team to determine which data should be archived and kept according to grant requirements, which data is desired to be kept on research storage (if any), and what data can be deleted.
 
 .. important::
   Users must :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for all findings, publications, manuscripts, posters, and/or oral presentations that result directly or indirectly from the use of its resources.
