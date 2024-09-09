@@ -113,16 +113,12 @@ There are two primary entry points in which users connect to the cluster for var
 .. #############################################################################
 ..
     The following documents have content, but need to be converted to reStructuredText:
-    * beginner-quickstart_00_connect
-    * beginner-quickstart_02_using
-    * beginner-quickstart_03_jobs
     * cluster-general_overview
     * cluster-hardware
     * cluster-gpu_resources
-    * cluster-usnic
     * cluster-performance
-    * research-starting_new
     * research-archiving
+    * research-starting_new
     * software-packages
     * software-building
     * software-licensing
@@ -149,9 +145,8 @@ Table of Contents
    :maxdepth: 1
    :caption: Research on DEAC
 
-   research-starting_new
-   research-acknowledging_deac
    research-grant_writing
+   research-acknowledging_deac
    research-archiving
    research-featured_research
 
