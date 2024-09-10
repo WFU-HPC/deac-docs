@@ -45,7 +45,7 @@ DEAC Cluster Usage
 	* Any faculty, student, or staff member within any department who receives support by Information Systems.
 	* These departments include the School of Law, Divinity, Business, Graduate School of Arts and Sciences, and WFU Undergraduate College.
 	* External collaborators and users from the School of Medicine are allowed to use the DEAC Cluster with certain caveats and additional rules.
-	* More information can be found under the :ref:<sec.sla.ua.account_eligibility> section of our Service Level Agreement.
+	* More information can be found under the :ref:`Account Eligibility<sec.sla.ua.account_eligibility>` section of our Service Level Agreement.
 
 * What can the DEAC Cluster be used for?
 
@@ -61,13 +61,13 @@ DEAC Cluster Usage
 
 	* Baseline usage is defined as the total number available Core Hours on the DEAC Cluster, divided by the total number of active departmental research groups.
 	* As of 2024, Baseline usage for research groups is **26,046 Core Hours**
-	* More detailed information can be found under the :ref:<sec.sla.util.utilization_calculation> section of our Service Level Agreement.
+	* More detailed information can be found under the :ref:`Utilization Calculation<sec.sla.util.utilization_calculation>` section of our Service Level Agreement.
 
 * How much data storage do users have?
 
 	* Research groups are provided a 2TB "baseline" quota when joining the DEAC Cluster at no cost.
 	* This amount may be increased up to 10TB, provided the research group's department total footprint is less than 20TB.
-	* More detailed information can be found under the :ref:<sec.sla.sdm.storage_quotas> section of our Service Level Agreement.
+	* More detailed information can be found under the :ref:`Storage Quota`Storage Quotas<sec.sla.sdm.storage_quotas> section of our Service Level Agreement.
 
 * What if you need more than "baseline" usage?
 
@@ -95,7 +95,7 @@ New User Questions
 * What kind of hardware resources are in the DEAC Cluster?
 
 	* The DEAC Cluster is known as a heterogeneous cluster, meaning it is comprised of several different hardware configurations and node types.
-	* See :ref:<sec.hardware> for an indepth overview of hardware.
+	* See :ref:`Cluster Resource Overview<sec.hardware>` for an indepth overview of hardware.
 
 * How do I open graphical applications from the cluster?
 
