@@ -9,9 +9,6 @@ General HPC Overview
 ..
 
 
-Overview
-========
-
 There is a great deal of history that can be told about how Linux-based,
 Beowulf style clusters originated and evolved over the years (starting
 from 1994 [1]_ until the present). For those interested in the history
@@ -22,6 +19,8 @@ http://ibiblio.org/pub/Linux/docs/HOWTO/archive/Beowulf-HOWTO.html
 The goal of this article is simply to familiarize you with Beowulf
 clusters, the relevant terminology, and to help ease you into
 understanding how they work.
+
+.. _sec.cluster_overview.basics:
 
 The Basic Terminology
 =====================
@@ -49,6 +48,8 @@ The components often found in an HPC Cluster are:
 *  Parallel Programming Middleware :
 	* OpenMP multi-threading capable compilers and Message Passing Interface (MPI) library support.
 
+.. _sec.cluster_overview.deacbasics:
+
 The Basics on DEAC
 ==================
 
@@ -67,11 +68,17 @@ The DEAC Cluster has three login nodes:
 
 DEAC Compute Nodes
 ------------------
-Info about Compute Nodes
+
+DEAC Cluster Compute nodes are refreshed annually and targetted for retirement after 5 years. This annual refresh means our node types are often not all the same, and could have different number of cores, memory, scratch space, or even CPU Architecture. When requesting large amount of resources, this could limit what nodes are able to meet your request. Changes in CPU Architecture may also cause variance in job run times, depending on the age of the node used.
+
+For more information, look at the :ref:<sec.hardware.physical.compute> section on our :ref:<sec.hardware> page, or feel free to contact the HPC Team.
 
 DEAC GPU Nodes
 --------------
-Info about GPU Nodes
+
+DEAC Cluster GPU nodes are refreshed as required based upon user demand. Each node is targetted for retirement after 5 years, but the GPU cards within may be used for longer, depending upon their relevance. Similar to our Compute Nodes, each GPU Node may have a varying number of resources, including GPU Card type and number available. When requesting specific GPU types, this could limit what nodes are able to meet your request. 
+
+For more information, look at the :ref:<sec.cluster_gpu> page, or feel free to contact the HPC Team.
 
 DEAC Persistent Storage
 -----------------------
@@ -84,6 +91,9 @@ Info about system image and Rocky
 DEAC Scheduler
 --------------
 Info about Scheduler
+
+
+.. _sec.cluster_overview.references:
 
 References
 ==========
