@@ -1,4 +1,4 @@
-.. _sec.cluster_gpu:
+.. _sec.cluster-gpu:
 
 ====================
 Cluster GPU Overview
@@ -8,16 +8,14 @@ Cluster GPU Overview
    :depth: 3
 ..
 
-
-Overview
-========
+GPU resources are a powerful tool utilized to accelerate research via massive parallelization of simple calculations. They have been essential to the explosion of AI, Machine Learning, and Large Language Model growth and utilization in research. 
 
 -  CUDA Toolkit Website [1]_
 -  Tesla Based Products [2]_
 -  Tesla Software Development Tools [3]_
 
 
-.. _sec.cluster_gpu.cuda:
+.. _sec.cluster-gpu.cuda:
 
 CUDA Specifics
 ==============
@@ -29,7 +27,7 @@ CUDA Driver Version / Runtime Version : 11.8.0 / 12.4.1
 CUDA Capability Major/Minor version number: 10.0
 
 
-.. _sec.cluster_gpu.jobsub:
+.. _sec.cluster-gpu.jobsub:
 
 Job Submission
 ==============
@@ -38,7 +36,7 @@ Support for GPU job submission is enabled the GRES (generic resource) configurat
 
 Users must submit all GPU jobs to the **gpu** partition, and request a minimum of one GPU to successfully start.
 
-.. _sec.cluster_gpu.references:
+.. _sec.cluster-gpu.references:
 
 References
 ==========
@@ -60,12 +58,17 @@ References
    https://slurm.schedmd.com/gres.html
 
 
-.. _sec.cluster_gpu.devinfo:
+.. _sec.cluster-gpu.devinfo:
 
 Device Information
 ==================
 
-.. _sec.cluster_gpu.devinfo.a10080gb:
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+
+.. _sec.cluster-gpu.devinfo.a10080gb:
 
 Tesla A100 80GB GPU Nodes
 -------------------------
@@ -137,7 +140,12 @@ Tesla A100 80GB GPU Nodes
  deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 12.4, CUDA Runtime Version = 12.4, NumDevs = 4, Device0 = NVIDIA A100 80GB PCIe, Device1 = NVIDIA A100 80GB PCIe, Device2 = NVIDIA A100 80GB PCIe, Device3 = NVIDIA A100 80GB PCIe Result = PASS
 
 
-.. _sec.cluster_gpu.devinfo.a10040gb:
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+
+.. _sec.cluster-gpu.devinfo.a10040gb:
 
 Tesla A100 40GB GPU Nodes
 -------------------------
@@ -209,7 +217,12 @@ Tesla A100 40GB GPU Nodes
  deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 12.4, CUDA Runtime Version = 12.4, NumDevs = 4, Device0 = NVIDIA A100-PCIE-40GB, Device1 = NVIDIA A100-PCIE-40GB, Device2 = NVIDIA A100-PCIE-40GB, Device3 = NVIDIA A100-PCIE-40GB Result = PASS
 
 
-.. _sec.cluster_gpu.devinfo.v10032gb:
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+
+.. _sec.cluster-gpu.devinfo.v10032gb:
 
 Tesla V100 32 GPU Nodes
 -----------------------
@@ -280,6 +293,11 @@ Tesla V100 32 GPU Nodes
 
  deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 12.4, CUDA Runtime Version = 12.4, NumDevs = 4, Device0 = Tesla V100-PCIE-32GB, Device1 = Tesla V100-PCIE-32GB, Device2 = Tesla V100-PCIE-32GB, Device3 = Tesla V100-PCIE-32GB Result = PASS
 
+
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
 
 * From gpu-v100-0[2-3] V100 32GB (Legacy Architecture) nodes:
 
@@ -366,4 +384,9 @@ Tesla V100 32 GPU Nodes
  > Peer access from Tesla V100-PCIE-32GB (GPU5) -> Tesla V100-PCIE-32GB (GPU4) : Yes
 
  deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 12.4, CUDA Runtime Version = 12.4, NumDevs = 6, Device0 = Tesla V100-PCIE-32GB, Device1 = Tesla V100-PCIE-32GB, Device2 = Tesla V100-PCIE-32GB, Device3 = Tesla V100-PCIE-32GB, Device4 = Tesla V100-PCIE-32GB, Device5 = Tesla V100-PCIE-32GB Result = PASS
+
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
 

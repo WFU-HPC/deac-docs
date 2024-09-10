@@ -116,7 +116,7 @@ There are three primary methods in which users connect to the cluster:
     The following documents have content, but need to be converted to reStructuredText:
     * cluster-general_overview
     * cluster-hardware
-    * cluster-gpu_resources
+    * cluster-gpu
     * cluster-performance
     * research-archiving
     * research-starting_new
@@ -137,7 +137,7 @@ Table of Contents
    cluster-sla
    cluster-general_overview
    cluster-hardware
-   cluster-gpu_resources
+   cluster-gpu
    cluster-performance
    cluster-stats
 

@@ -78,7 +78,7 @@ DEAC GPU Nodes
 
 DEAC Cluster GPU nodes are refreshed as required based upon user demand. Each node is targetted for retirement after 5 years, but the GPU cards within may be used for longer, depending upon their relevance. Similar to our Compute Nodes, each GPU Node may have a varying number of resources, including GPU Card type and number available. When requesting specific GPU types, this could limit what nodes are able to meet your request. 
 
-For more information, look at the :ref:<sec.cluster_gpu> page, or feel free to contact the HPC Team.
+For more information, look at the :ref:<sec.cluster-gpu> page, or feel free to contact the HPC Team.
 
 DEAC Persistent Storage
 -----------------------
