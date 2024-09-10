@@ -43,7 +43,7 @@ Compute Nodes
 GPU Nodes
 ---------
 
-For more in-depth GPU information, see the :ref:<sec.cluster-gpu> page, or feel free to contact the HPC Team.
+For more in-depth GPU information, see the :ref:`Cluster GPU Resources<sec.cluster-gpu>` page, or feel free to contact the HPC Team.
 
 *  2 - Penguin Computing Altus (64 cores):
 	*  4 -  ** A100 80GB** GPU Cards
