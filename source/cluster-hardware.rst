@@ -147,7 +147,7 @@ Compute Nodes Features
 
 *  Parallel processing jobs are strongly encouraged to request that all nodes for a job belong to a single category or processor type.
 
-*  See `SLURM:Quick Start Guide </SLURM:Quick_Start_Guide>`__ and `SLURM:Job Script Templates </SLURM:Job_Script_Templates>`__ for examples of how to do this.
+.. #### UPDATE:*  See `SLURM:Quick Start Guide </SLURM:Quick_Start_Guide>`__ and `SLURM:Job Script Templates </SLURM:Job_Script_Templates>`__ for examples of how to do this.
 
 .. _sec.hardware.arch.slurm:
 

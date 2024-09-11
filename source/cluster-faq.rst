@@ -65,15 +65,26 @@ DEAC Cluster Usage
 
 * How much data storage do users have?
 
-	* Research groups are provided a 2TB "baseline" quota when joining the DEAC Cluster at no cost.
+	* Research groups are provided a 2TB "baseline" quota, at no additional cost, only to be used for research conducted on the DEAC Cluster.
 	* This amount may be increased up to 10TB, provided the research group's department total footprint is less than 20TB.
-	* More detailed information can be found under the :ref:`Storage Quota`Storage Quotas<sec.sla.sdm.storage_quotas> section of our Service Level Agreement.
+	* If either of those limits are exceeded, additional storage may be purchased in the form of Service Units, for up to Five-year terms.
+	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
 
 * What if you need more than "baseline" usage?
 
-	* Users are allowed to consumed more than expected baseline usage on the DEAC Cluster
+	* Users are allowed to consumed more than expected baseline usage on the DEAC Cluster.
 	* HOWEVER, there is no guarantee resources will be available during periods of high utilization.
 	* Furthermore, as researcher groups exceed "baseline" usage, their department's priority will be lowered by the Scheduler's fairshare algorithm, meaning other research groups working within "baseline" may receive higher priority during periods of high utilization.
+	* To guarantee High Priority access to DEAC Resources and reduce potential wait times for resources, researchers can contribute funds toward the DEAC Cluster at an amount commensurate to their expected usage.
+	* More detailed information can be found under the :ref:`Contributions<sec.sla.su.contributions>` section of our Service Level Agreement.
+
+* Should I allocate funds to the DEAC Cluster?
+
+	* It is not necessary to allocate funds to the DEAC Cluster, as stated above, baseline usage is allowed at no additional cost.
+	* If you expect to need more than the provided baseline storage, or believe you will greatly exceed baseline usage, then contributing funds may help ensure that the DEAC Cluster can fully suite your research needs.
+	* If you aren't sure what your usage will be, and/or aren't sure if it makes sense to contribute funds, do not hesitate to contact the HPC Team at deac-help@wfu.edu to start a conversation.
+
+ 
 
 ******************
 New User Questions
@@ -116,25 +127,25 @@ Using the Cluster
 
 * How do I submit jobs to the cluster?
 
-    * Use **sbatch** to submit to the job queue. See the
-      `SLURM:Quick Start Guide </SLURM:Quick_Start_Guide>`__.
+	* Use **sbatch** to submit to the job queue. 
+	* More examples coming soon!
 
 * What software is installed on the cluster?
 
-    * `:Category:Software </:Category:Software>`__
+	* Please visit the :ref:`Packages`<sec.software-packages>` page for more information.
 
 * What SLURM attributes does the cluster use?
 
-    * `Cluster:Hardware Configuration#SLURM Node Features </Cluster:Hardware_Configuration#SLURM_Node_Features>`__
+	* Jobs are allocated based upon the `CR_Core_Type Consumable Resources Setting in Slurm <https://slurm.schedmd.com/slurm.conf.html#OPT_CR_Core_Memory>`_.
+	* Please see the current :ref:`Slurm Job Constraints<sec.hardware.arch.slurm>` for list of current constraints that can be used for job selection.
 
 * How many jobs can I submit?
 
-    * Please refer to the `Cluster:User Agreement </Cluster:User_Agreement>`__
+	* Please see the current job submission limit under the :ref:`general limitations`<sec.sla.ul.general_limitations>` section of our Service Level Agreement.
 
 * How does information get added to the wiki?
 
-    * This wiki is intended to be updated with information from users... send the HPC Team
-      an email with info to deac-help@wfu.edu
+	* This wiki is intended to be updated with information from users... send the HPC Team an email with info to deac-help@wfu.edu
 
 
 .. _sec.faq.grants:
@@ -150,7 +161,6 @@ Grants and Publications
 * I'm writing a paper using data from the cluster. Are there any special acknowledgements that are required?
 
     * Yes. Users *must* :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for any finds contributing toward publications, journal articles, etc.
-    * `Information:Regarding Publications </Information:Regarding_Publications>`__
 
 * My paper has been accepted for publication. Is there anything else I need to do?
 
