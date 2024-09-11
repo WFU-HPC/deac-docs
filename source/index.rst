@@ -168,8 +168,8 @@ Table of Contents
 
    beginner-linux_commands
    beginner-videos
-   reference-slurm_torque
-   reference-repcom_meetings
+i..   reference-slurm_torque
+..   reference-repcom_meetings
 
 
 .. #############################################################################

@@ -1,3 +1,5 @@
+.. _sec.software-licensing
+
 =================
 Licensed Software
 =================
@@ -7,9 +9,43 @@ Licensed Software
 ..
 
 
-----------------------
+----------------
+Hosting Licenses
+----------------
+
+* The DEAC Cluster has the ability to host licensed software at a network, group, and user level; licenses may be perpetual or updated annually.
+* Most network licenses are hosted on a Wake Forest University License Server via FlexLM
+	* The HPC Team also runs several non-FlexLM License Manager services.
+* To add or update a license, contact the HPC Team at deac-help@wfu.edu to explore options
+
+
+---------------------------
+Available Licensed Software
+---------------------------
+
+Matlab
+======
+
+Mathematica
+===========
+
+Maple
+=====
+
+LS-Dyna
+=======
+
+Stata
+=====
+
+SAS
+===
+
+COMSOL
+======
+
 Gaussian and GaussView
-----------------------
+======================
 
 * Because of the inseparability of the Gaussian 09 and GaussView 5 software, you
   must agree to both agreements in order to gain access to either software
@@ -18,7 +54,7 @@ Gaussian and GaussView
   09" shall be conferred to mean both products.
 
 Important Highlights
-====================
+--------------------
 
 **PLEASE NOTE:** These summary highlights are provided for reference and are not
 to be construed as the complete licensing terms NOR should they be considered
@@ -57,12 +93,11 @@ systems administration team to adequately ensure compliance:
 .. #############################################################################
 .. #############################################################################
 
-----
 VASP
-----
+====
 
 Important Highlights
-====================
+--------------------
 
 **PLEASE NOTE:** These summary highlights are provided for reference and are not
 to be construed as the complete licensing terms NOR should they be considered
