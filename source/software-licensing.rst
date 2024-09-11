@@ -5,7 +5,7 @@ Licensed Software
 =================
 
 .. contents::
-   :depth: 3
+   :depth: 4
 ..
 
 

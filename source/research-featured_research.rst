@@ -24,6 +24,56 @@ think are representative of your work.
 .. #############################################################################
 .. #############################################################################
 
+.. _sec.featured_research.environmental_econ:
+
+Green Jobs Economic Impact with Mark Curtis
+===========================================
+
+Watch our research highlight video on Environmental Economic Research on the DEAC Cluster!
+
+.. raw:: html
+
+    <div style="text-align: center; margin-bottom: 2em;">
+    <iframe width="100%" height="480" src="https://www.youtube.com/embed/5t4ykT7kht8?si=fHIpbmX0vnMA6_N9" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+
+.. _sec.featured_research.undergrad_ml:
+
+Machine Learning with Nathan Whitener
+=====================================
+
+Watch our research highlight video on Undergraduate Research with Machine Learning on the DEAC Cluster!
+
+.. raw:: html
+
+    <div style="text-align: center; margin-bottom: 2em;">
+    <iframe width="100%" height="480" src="https://www.youtube.com/embed/UScbXSHJJQw?si=U2pnB-A5u9rcp8Ry" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+
+.. _sec.featured_research.data_mining:
+
+Data Mining with Sarah Parsons
+==============================
+
+Watch our research highlight video on Data Mining on the DEAC Cluster!
+
+.. raw:: html
+
+    <div style="text-align: center; margin-bottom: 2em;">
+    <iframe width="100%" height="480" src="https://www.youtube.com/embed/kObCkN4sckc?si=J5T0yvfzm5MXzMVd" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+
+
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+
+
+
 .. _sec.featured_research.salsbury:
 
 Structural Comparison of ATP-binding Effects

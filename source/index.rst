@@ -138,8 +138,8 @@ Table of Contents
    cluster-general_overview
    cluster-hardware
    cluster-gpu
-   cluster-performance
    cluster-stats
+..   cluster-performance
 
 
 .. toctree::
@@ -168,7 +168,7 @@ Table of Contents
 
    beginner-linux_commands
    beginner-videos
-i..   reference-slurm_torque
+..   reference-slurm_torque
 ..   reference-repcom_meetings
 
 
