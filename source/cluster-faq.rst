@@ -183,7 +183,7 @@ Grants and Publications
 
 	* If you plan to use the DEAC Cluster for grant related-work, it may be helpful to allocated funds to the DEAC Cluster in the form of a :ref:`contribution<sec.sla.su.contributions>`.
 	* This contribution can be to add necessary storage, and/or add high priority access, especially if expected to be above "baseline" usage.
-	* The :ref:`Office of Research and Sponsored Programs<https://research.wfu.edu/funding/internal-funding/>` (under ORSP) provides 1:1 matching up to $75,000 per fiscal year for all outside grant contributions that benefit general DEAC Cluster usage.
+	* The `Office of Research and Sponsored Programs<https://research.wfu.edu/funding/internal-funding/>`_ (under ORSP) provides 1:1 matching up to $75,000 per fiscal year for all outside grant contributions that benefit general DEAC Cluster usage.
 
 * I'm writing a paper using data from the cluster. Are there any special acknowledgements that are required?
 
