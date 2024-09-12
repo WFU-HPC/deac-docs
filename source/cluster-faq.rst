@@ -34,10 +34,11 @@ General
 	* A core hour hour can be defined as the use of a single CPU Core for one hour.
 	* The total number of Core Hours on a cluster can be determined by multiplying the number of CPU cores by the hours in a year.
 
+
 .. _sec.faq.new_users:
 
 ******************
-DEAC Cluster Usage
+Should I Use DEAC?
 ******************
 
 * Who can use the DEAC Cluster?
@@ -52,23 +53,35 @@ DEAC Cluster Usage
 	* Research and classroom instructional activity only.
 	* More detailed information can be found under the :ref:`acceptable use<sec.sla.ua.acceptable_use>` section of our Service Level Agreement.
 
+* When should someone consider using the DEAC Cluster?
+
+	* There are three scenarios that usually require the use of HPC:
+	#. You have to run an application/script/simulation too many times.
+	#. Your application/script/simulation takes too long to run.
+	#. Your data source and/or results are too big to store locally.
+
 * How much does it cost to use the DEAC Cluster?
 
-	* Baseline usage of the DEAC Cluster is provided at no additional cost to faculty, students, and staff as part of the centralized services provided by Information Systems.
+	* "Baseline" usage of the DEAC Cluster is provided at no additional cost to faculty, students, and staff as part of the centralized services provided by Information Systems.
 	* Users from the School of Medicine using the DEAC Cluster outside of a collaboration must pay to use the DEAC Cluster in a PAID format only, either :ref:`pre<sec.sla.su.contributions>` or :ref:`post<sec.sla.su.chargebacks>` usage.
-
-* What does "baseline" usage mean?
-
-	* Baseline usage is defined as the total number available Core Hours on the DEAC Cluster, divided by the total number of active departmental research groups.
-	* As of 2024, Baseline usage for research groups is **26,046 Core Hours**
-	* More detailed information can be found under the :ref:`Utilization Calculation<sec.sla.util.utilization_calculation>` section of our Service Level Agreement.
 
 * How much data storage do users have?
 
 	* Research groups are provided a 2TB "baseline" quota, at no additional cost, only to be used for research conducted on the DEAC Cluster.
-	* This amount may be increased up to 10TB, provided the research group's department total footprint is less than 20TB.
-	* If either of those limits are exceeded, additional storage may be purchased in the form of Service Units, for up to Five-year terms.
 	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
+
+
+***********************
+What Is Baseline Usage?
+***********************
+
+* What does "baseline" usage mean?
+
+	* Baseline usage is defined as the equitable, evenly distributed use of the DEAC Cluster's centralized resources across all active research groups.
+        * Baseline usage is calculated by taking the total monthly number available Core Hours on the DEAC Cluster, divided by the total number of active departmental research groups.
+	* As of 2024, Baseline usage for research groups is **26,046 Core Hours per month**.
+        * All users should be expect to be able to utilize the DEAC Cluster per month without contention.
+	* More detailed information can be found under the :ref:`Utilization Calculation<sec.sla.util.utilization_calculation>` section of our Service Level Agreement.
 
 * What if you need more than "baseline" usage?
 
@@ -78,19 +91,25 @@ DEAC Cluster Usage
 	* To guarantee High Priority access to DEAC Resources and reduce potential wait times for resources, researchers can contribute funds toward the DEAC Cluster at an amount commensurate to their expected usage.
 	* More detailed information can be found under the :ref:`Contributions<sec.sla.su.contributions>` section of our Service Level Agreement.
 
-* Should I allocate funds to the DEAC Cluster?
+* What if you need more than "baseline" storage?
 
-	* It is not necessary to allocate funds to the DEAC Cluster, as stated above, baseline usage is allowed at no additional cost.
+	* Research storage amounts may be increased up to 10TB per research group, provided the research group's department total footprint is less than 20TB.
+	* If either of those limits are exceeded, additional storage may be allocated via Contribution, for up to Five-year terms.
+	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
+
+* Should I allocate grant or start-up funds to the DEAC Cluster?
+
+	* It is not necessary to allocate funds to the DEAC Cluster; as stated above, baseline usage is allowed at no additional cost and you can also exceed that baseline amount.
 	* If you expect to need more than the provided baseline storage, or believe you will greatly exceed baseline usage, then contributing funds may help ensure that the DEAC Cluster can fully suite your research needs.
-	* If you aren't sure what your usage will be, and/or aren't sure if it makes sense to contribute funds, do not hesitate to contact the HPC Team at deac-help@wfu.edu to start a conversation.
+	* If you aren't sure what your usage will be, are unsure of timeline, and/or aren't sure if it makes sense to contribute funds, do not hesitate to contact the HPC Team at deac-help@wfu.edu to start a conversation.
 
- 
 
-******************
-New User Questions
-******************
 
-* How do I get a DEAC Cluster account?
+***************
+How Do I Login?
+***************
+
+* Okay, how do I sign up for a DEAC Cluster account?
 
 	* Submit an account request here: https://help.wfu.edu/support/catalog/items/123
 
@@ -113,17 +132,18 @@ New User Questions
 	* The recommend method is to utilize graphical applications via our `DEAC Login Portal <https://login.deac.wfu.edu>`_ with Interactive Applications or Virtual Desktop.
 	* Or configure your laptop SSH session with X-Windows (no longer recommended).
 
-* What scheduler does the DEAC cluster use?
-
-	* The scheduler used on the DEAC Cluster is `SLURM <https://slurm.schedmd.com/>`_!
-	* Slurm also acts as the resource manager, meaning it has knowledge of all available resources upon which to schedule jobs.
 
 
 .. _sec.faq.using:
 
-*****************
-Using the Cluster
-*****************
+************
+DEAC Details
+************
+
+* What scheduler does the DEAC cluster use?
+
+	* The scheduler used on the DEAC Cluster is `SLURM <https://slurm.schedmd.com/>`_!
+	* Slurm also acts as the resource manager, meaning it has knowledge of all available resources upon which to schedule jobs.
 
 * How do I submit jobs to the cluster?
 
@@ -156,12 +176,20 @@ Grants and Publications
 
 * I'm writing a grant. Do you have a facility description?
 
-    * We do! Find the most up to date description :ref:`here<sec.grant_writing>`
+	* We do have a template description, however, we recommend contacting the HPC Team at deac-help@wfu.edu for a tailored description to best fit your grant needs.
+	* Find the most up to date description :ref:`here<sec.grant_writing>`
+
+* Should I include a contribution to the DEAC Cluster in my grant?
+
+	* If you plan to use the DEAC Cluster for grant related-work, it may be helpful to allocated funds to the DEAC Cluster in the form of a :ref:`contribution<sec.sla.su.contributions>`.
+	* This contribution can be to add necessary storage, and/or add high priority access, especially if expected to be above "baseline" usage.
+	* The :ref:`Office of Research and Sponsored Programs<https://research.wfu.edu/funding/internal-funding/>` (under ORSP) provides 1:1 matching up to $75,000 per fiscal year for all outside grant contributions that benefit general DEAC Cluster usage.
 
 * I'm writing a paper using data from the cluster. Are there any special acknowledgements that are required?
 
-    * Yes. Users *must* :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for any finds contributing toward publications, journal articles, etc.
+	* Yes. Users *must* :ref:`acknowledge the DEAC Cluster<sec.acknowledging>` for any finds contributing toward publications, journal articles, etc.
 
 * My paper has been accepted for publication. Is there anything else I need to do?
 
-    * `Information:Regarding Publications </Information:Regarding_Publications>`__
+	* Yes. Once your publication has been accepted, please send us the DOI and other relevant information to deac-help@wfu.edu.
+
