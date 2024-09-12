@@ -55,7 +55,8 @@ Should I Use DEAC?
 
 * When should someone consider using the DEAC Cluster?
 
-	* There are three scenarios that usually require the use of HPC:
+	The three most common scenarios that usually require the use of HPC are:
+
 	#. You have to run an application/script/simulation too many times.
 	#. Your application/script/simulation takes too long to run.
 	#. Your data source and/or results are too big to store locally.
@@ -183,7 +184,7 @@ Grants and Publications
 
 	* If you plan to use the DEAC Cluster for grant related-work, it may be helpful to allocated funds to the DEAC Cluster in the form of a :ref:`contribution<sec.sla.su.contributions>`.
 	* This contribution can be to add necessary storage, and/or add high priority access, especially if expected to be above "baseline" usage.
-	* The `Office of Research and Sponsored Programs<https://research.wfu.edu/funding/internal-funding/>`_ (under ORSP) provides 1:1 matching up to $75,000 per fiscal year for all outside grant contributions that benefit general DEAC Cluster usage.
+	* The `Office of Research and Sponsored Programs <https://research.wfu.edu/funding/internal-funding/>`_ (under ORSP) provides 1:1 matching up to $75,000 per fiscal year for all outside grant contributions that benefit general DEAC Cluster usage.
 
 * I'm writing a paper using data from the cluster. Are there any special acknowledgements that are required?
 
