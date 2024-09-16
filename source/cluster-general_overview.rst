@@ -1,4 +1,4 @@
-.. _sec.cluster_overview:
+.. _sec.cluster-general_overview:
 
 ====================
 General HPC Overview
@@ -69,28 +69,37 @@ The DEAC Cluster has three login nodes:
 DEAC Compute Nodes
 ------------------
 
-DEAC Cluster Compute nodes are refreshed annually and targetted for retirement after 5 years. This annual refresh means our node types are often not all the same, and could have different number of cores, memory, scratch space, or even CPU Architecture. When requesting large amount of resources, this could limit what nodes are able to meet your request. Changes in CPU Architecture may also cause variance in job run times, depending on the age of the node used.
+DEAC Cluster Compute nodes are refreshed annually and targetted for retirement after 5 years. This annual refresh means our node types are often not all the same, and could have different number of cores, memory, scratch space, or even CPU Architecture. You may hear this referred to as a non-homogenous cluster configuration. When requesting large amount of resources, this could limit what nodes are able to meet your request. Changes in CPU Architecture may also cause variance in job run times, depending on the age of the node used.
 
-For more information, look at the :ref:<sec.hardware.physical.compute> section on our :ref:<sec.hardware> page, or feel free to contact the HPC Team.
+For more information, look at the :ref:`Physical Compute<sec.hardware.physical.compute>` section on our :ref:`Cluster Resource Overview<sec.hardware>` page, or feel free to contact the HPC Team.
 
 DEAC GPU Nodes
 --------------
 
 DEAC Cluster GPU nodes are refreshed as required based upon user demand. Each node is targetted for retirement after 5 years, but the GPU cards within may be used for longer, depending upon their relevance. Similar to our Compute Nodes, each GPU Node may have a varying number of resources, including GPU Card type and number available. When requesting specific GPU types, this could limit what nodes are able to meet your request. 
 
-For more information, look at the :ref:<sec.cluster-gpu> page, or feel free to contact the HPC Team.
+For more information, look at the :ref:`Cluster GPU Overview<sec.cluster-gpu>` page, or feel free to contact the HPC Team.
 
 DEAC Persistent Storage
 -----------------------
-Info about storage
+
+The DEAC Cluster uses high-speed, enterprise-level, network attached storage to store all active research data. All DEAC Cluster nodes are connected to this shared storage via 10Gb network connection with the NFS protocol. All users are provided with a /home directory and a research path. A user's /home directory is intended only for configuration type files; all relevant research data, output, and scripts should be stored in your research path. 
+
+For more information, look at the :ref:`Persistent Storage<sec.hardware.physical.storage>` page, or read about how to use storage on our :ref:`Storage and Data Management<sec.sla.sdm>` section of our Service Level Agreement.
 
 DEAC System Image
 -----------------
-Info about system image and Rocky
+
+The DEAC Cluster operates on the Rocky 9 Operating System. Rocky Linux is an open source enterprise Linux distribution that provides a reliable and stable operating system for a variety of sectors, including enterprise, cloud, AI/ML, simulation, and HPC. It was created by one of the original CentOS founders, Gregory Kurtzer, to achieve the original goals of CentOS as a production-ready downstream version of RHEL. It is hosted by the Rocky Enterprise Software Foundation (RESF), with CIQ providing enterprise-level support and oversight. 
+
+For more information, check out the `CIQ FAQ Page <https://ciq.com/company/faqs/>`_.
 
 DEAC Scheduler
 --------------
-Info about Scheduler
+
+The DEAC Cluster uses Slurm Workload Manager as it's job scheduler and resource manager. Slurm essentially acts as the "Brain" of the DEAC Cluster, with knowledge of all resources - available and in use - and processes utilizing them. It also keeps running tabs on queued tasks and ensures fair utilization amongst all of our research groups. 
+
+For more information, check out the `SchedMD Slurm Documentation Page <https://slurm.schedmd.com/>`_.
 
 
 .. _sec.cluster_overview.references:
