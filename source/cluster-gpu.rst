@@ -57,6 +57,12 @@ References
 .. [4]
    https://slurm.schedmd.com/gres.html
 
+.. [5]
+   https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/a100/pdf/nvidia-a100-datasheet-us-nvidia-1758950-r4-web.pdf
+
+.. [6]
+   https://images.nvidia.com/content/technologies/volta/pdf/volta-v100-datasheet-update-us-1165301-r5.pdf
+
 
 .. _sec.cluster-gpu.devinfo:
 
@@ -72,6 +78,8 @@ Device Information
 
 Tesla A100 80GB GPU Nodes
 -------------------------
+
+* A100 Spec Sheet [5]_
 
 * From gpu-a100-0[1-2] A100_80GB node:
 
@@ -150,6 +158,8 @@ Tesla A100 80GB GPU Nodes
 Tesla A100 40GB GPU Nodes
 -------------------------
 
+* A100 Spec Sheet [5]_
+
 * From gpu-a100-0[3-4] A100_40GB node:
 
 .. code-block:: none
@@ -226,6 +236,8 @@ Tesla A100 40GB GPU Nodes
 
 Tesla V100 32 GPU Nodes
 -----------------------
+
+* V100 Spec Sheet [6]_
 
 * From gpu-v100-01 V100 32GB node:
 

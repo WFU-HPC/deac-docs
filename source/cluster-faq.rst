@@ -20,7 +20,7 @@ General
 
 * What is a High Performance Computing (HPC) Cluster?
 
-	* General information about HPC can be found :ref:`here<sec.cluster_overview>`.
+	* General information about HPC can be found :ref:`here<sec.cluster-general_overview>`.
 
 * How is using a HPC Cluster different from a workstation?
 
@@ -95,7 +95,7 @@ What Is Baseline Usage?
 * What if you need more than "baseline" storage?
 
 	* Research storage amounts may be increased up to 10TB per research group, provided the research group's department total footprint is less than 20TB.
-	* If either of those limits are exceeded, additional storage may be allocated via Contribution, for up to Five-year terms.
+	* If either of those limits are exceeded, additional storage may be allocated via :ref:`Contribution<sec.sla.su.contributions>`, for up to Five-year terms.
 	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
 
 * Should I allocate grant or start-up funds to the DEAC Cluster?
@@ -137,9 +137,9 @@ How Do I Login?
 
 .. _sec.faq.using:
 
-************
-DEAC Details
-************
+*********************
+Tell me more about...
+*********************
 
 * What scheduler does the DEAC cluster use?
 
@@ -169,11 +169,27 @@ DEAC Details
 	* This wiki is intended to be updated with information from users... send the HPC Team an email with info to deac-help@wfu.edu
 
 
+.. _sec.faq.funding:
+
+*******************
+How is DEAC Funded?
+*******************
+
+* Who pays for the DEAC Cluster?
+
+	* The DEAC Cluster is a centrally funded service, with funding allocated annually as part of the Information Systems budget.
+	* Annual expenses are offset by researcher :ref:`Contributions<sec.sla.su.contributions>` or :ref:`Chargebacks<sec.sla.su.chargebacks>` in exchange for above baseline resource utilization (storage, core/memory requirements) with high priority access.
+	* The `Office of Research and Sponsored Programs <https://research.wfu.edu/funding/internal-funding/>`_ (under ORSP) provides 1:1 matching on grant based Contributions up to $75,000 per fiscal year, which also helps offset annual expenses.
+
+* Who pays for the HPC Team?
+
+	* The HPC Team is comprised of full-time, non-exempt staff within the Information Systems department.
+
 .. _sec.faq.grants:
 
-***********************
-Grants and Publications
-***********************
+**************************
+Grants and Publications...
+**************************
 
 * I'm writing a grant. Do you have a facility description?
 
