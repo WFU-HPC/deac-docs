@@ -95,7 +95,7 @@ There are three primary methods in which users connect to the cluster:
 
 	* Users can connect through a web User Interface via `DEAC Login <https://login.deac.wfu.edu>`_
 	* This user interface allows terminal connectivity, interactive sessions, and file transfer capability.
-	* **This method is strongly recommended as the preffered method of accessing the DEAC Cluster.**
+	* **This method is currently in BETA but we encourage users to login and try some of the new features with Open OnDemand. New features will be added and changed during this BETA period.**
 
 #. **Shell Access** via SSH -
 
