@@ -163,6 +163,69 @@ python3 ./scripts/run_inference.py \
 ```
 
 
+### RFDiffusion AA
+
+* Info: https://github.com/baker-laboratory/rf_diffusion_all_atom
+* Module file: `module load envs/biophysics/deacfold`
+
+Just as before, loading the module file listed above will enable the Python
+environment to run RFdiffusion. This repo has also been adapted to the paths and
+software on the DEAC Cluster with a local clone at `$RFDIFFUSIONAA_ROOT` so make a
+copy in your research path:
+
+```sh
+module load envs/biophysics/deacfold
+cp -r $RFDIFFUSIONAA_ROOT /deac/chm/albaneseGrp/software/rf_diffusion_all_atom
+module purge
+```
+
+or any other location you wish to use. **You should only do this once!**
+
+Now that you have your own local copy, here is a basic Slurm script to run the
+example cases:
+
+```sh
+#!/bin/bash
+#SBATCH --job-name=RFdiffusionAA
+#SBATCH --account=albaneseGrp
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --gres=gpu:A100_80:1
+#SBATCH --mem=16GB
+#SBATCH --time=0-01:00:00
+
+## load the software environment
+module load envs/biophysics/deacfold
+
+## change into your local repo
+cd /deac/chm/albaneseGrp/software/rf_diffusion_all_atom
+
+## run the examples
+python3 run_inference.py \
+        inference.deterministic=True \
+        diffuser.T=100 \
+        inference.output_prefix=output/ligand_only/sample \
+        inference.input_pdb=input/7v11.pdb \
+        contigmap.contigs=[\'150-150\'] \
+        inference.ligand=OQO \
+        inference.num_designs=1 \
+        inference.design_startnum=0
+
+python3 run_inference.py \
+        inference.deterministic=True \
+        diffuser.T=200 \
+        inference.output_prefix=output/ligand_protein_motif/sample \
+        inference.input_pdb=input/1haz.pdb \
+        contigmap.contigs=[\'10-120,A84-87,10-120\'] \
+        contigmap.length="150-150" \
+        inference.ligand=CYC \
+        inference.num_designs=1 \
+        inference.design_startnum=0
+```
+
+
 ### ESM3
 
 * Info: https://github.com/evolutionaryscale/esm
@@ -358,8 +421,8 @@ Below is the Slurm script:
 #SBATCH --mem=32GB
 #SBATCH --time=0-01:00:00
 
-# source alphafold-only miniconda
-. /deac/opt/rhel7-noarch/alphafold/miniconda3/etc/profile.d/conda.sh
+# load anaconda and relevant cuda
+module load apps/anaconda3/2024.02 nvidia/cuda12/cuda
 
 # activate the environment
 conda activate alphafold

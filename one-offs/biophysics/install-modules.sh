@@ -47,6 +47,7 @@ setenv  HYDRA_FULL_ERROR            1
 setenv ROSETTAFOLDAA_ROOT           "\${basedir}/repos/RoseTTAFold-All-Atom"
 setenv LIGANDMPNN_ROOT              "\${basedir}/repos/LigandMPNN"
 setenv RFDIFFUSION_ROOT             "\${basedir}/repos/RFdiffusion"
+setenv RFDIFFUSIONAA_ROOT           "\${basedir}/repos/rf_diffusion_all_atom"
 setenv ESM_ROOT                     "\${basedir}/repos/esm"
 setenv OPENMM_ROOT                  "\${basedir}/progs/openmm-8.1.2"
 
