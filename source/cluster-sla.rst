@@ -742,7 +742,7 @@ General Limitations
 
 * The DEAC Cluster is limited to 50,000 submitted jobs (which includes queued and running). Users will receive a "sleeping and retrying" message when this limit is reached.
 * Users can not submit more than 10,000 jobs at a time. Users will receive an error upon submission when they pass this limit. Up to 1,000 jobs can run at a time, jobs will be queued with "QOSMaxJobsPerUserLimit" as the reason if the limit is reached. 
-* Up to 500 jobs (per user) receive increased priority due to waiting in the queue.
+* Up to 100 jobs (per account) receive increased priority due to waiting in the queue.
 * Users should aim to submit small, parallelized batches of jobs, versus large, monolithic jobs. 
 * Small partition, single-core jobs requesting <5GB memory, are considered to be non-impactful to queue wait times as they utilize the backfill algorithm to be assigned resources.
 * The HPC Team prefers to let the scheduler assign queued job priority during busy periods; please wait at least 48 hours before contacting the HPC Team about long wait times. 
@@ -799,6 +799,7 @@ Research Groups who have made monetary contributions to the DEAC Cluster should 
     * For example, if a researchGrp purchases 1,000,000 SUs, their group's "High" QOS can be used to elevate priority for multiple jobs until a sum total of 1,000,000 core hours are consumed.
     * If funds are contributed from a grant, the "High" QOS will ideally be used for jobs specifically related to that grant.
     * The naming scheme for each group's "High" QOS is the name of their researchGrp plus High, for example: "doeGrpHigh".
+    * There is no limit to how many submitted jobs receive increased priority due to waiting in the queue.
 
 .. _sec.sla.ul.class_groups:
 
