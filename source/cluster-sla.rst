@@ -6,12 +6,12 @@ DEAC Cluster Service Level Agreement
 
 .. admonition:: Recent Updates:
 
+  * 10/09/2024: Added :ref:`sec.sla.util.assigned_fairshare_value.calculation` section to clearly show how priority is calculated. 
+  * 08/01/2024: Added updated baseline totals.
   * 01/09/2024: Updated Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2024 biannual review.
   * 08/01/2023: Updated :ref:`sec.sla.ua.account_eligibility` section to clearly define "*Internal*" and "*External*" users for reference throughout SLA.
   * 07/14/2023: Updated :ref:`sec.sla.util` section to reflect new, simpler calculation method. Added admonition blocks to highlight key elements of SLA.
   * 04/25/2023: Added information about exclusive "High" QOS access for :ref:`sec.sla.ul.contributing_research_groups`
-  * 03/28/2023: Added references and links to the WFU Policy on Research Misconduct under :ref:`sec.sla.ua.acceptable_use` and :ref:`sec.sla.sdm.data_retention_archival` Sections.
-  * 03/01/2023: :ref:`sec.sla.su.contributions` section updated to reflect that Indirect Fees are no longer factored in the Service Unit rate.
 
 The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated as needed, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. DEAC Cluster Users will be notified via email of significant updates after they have been made.
 
@@ -562,10 +562,10 @@ Expected utilization of the DEAC Cluster can be defined as the amount of computa
 
 .. _sec.sla.util.investment_types:
 
-Investment Types
-================
+Derived from Investment Types
+=============================
 
-* Expected utilization can be derived from the monthly computational capacity of the cluster by a ratio of applicable Investment types. 
+* Expected utilization is derived from the monthly computational capacity of the cluster by a ratio of applicable Investment types.
 * There are three investment types factored into the calculation of Expected Utilization:
 
 .. math::
@@ -700,8 +700,13 @@ Overall Monthly Utilization (:math:`\mathbf{U_{\mathrm{Dept}}}`)
 
 .. _sec.sla.util.assigned_fairshare_value:
 
+Assigned Fairshare
+==================
+
+.. _sec.sla.util.assigned_fairshare_value.department:
+
 Department Fairshare Value (:math:`\mathbf{F_{\mathrm{Dept}}}`)
-===============================================================
+---------------------------------------------------------------
 
 Fairshare is derived from the Overall Monthly Utilization Expectation of each department, and is only a factor that is enforced when the DEAC Cluster is *overutilized*. When overutilized, the DEAC Cluster’s scheduler tracks pending user tasks, or jobs, in a queue; the scheduler uses the assigned fairshare value from a user's parent account to assign priority to these queued jobs. If a group is exceding it's expected utilization, the scheduler will decrease job priority accordingly.  In an *underutilized* cluster environment, jobs run as the resources are available (which, in most cases, is immediately). 
 
@@ -713,6 +718,47 @@ Fairshare is derived from the Overall Monthly Utilization Expectation of each de
   F_{\mathrm{Dept}} = \frac{ U_{\mathrm{Dept}} }{U_{\mathrm{MAX}}}
 
 * Because all expected utilization values are determined by a ratio of maximum utilization possible (:math:`\mathbf{U_{\mathrm{MAX}}}`) and applicable Investments, this creates a fair prioritization across all active research groups, departments and job submissions.
+
+.. _sec.sla.util.assigned_fairshare_value.calculation:
+
+Priority Calculation
+--------------------
+
+The Priority Calculation equation used by the DEAC Cluster is as follows:
+
+.. math::
+ Job_priority =
+    	(PriorityWeightFairshare) * (1000) +
+     (PriorityWeightAge) * (3000) +
+   	 (PriorityWeightPartition) * (500) +
+     (PriorityWeightQOS) * (3000) +
+     - nice_factor
+
+* PriorityWeightFairshare = Based upon a leveled Department Fairshare (:math:`\mathbf{F_{\mathrm{Dept}}}`) starting value, and `adjusted by Slurm <https://slurm.schedmd.com/fair_tree.html>`_ based on monthly utilization compared to expected baseline.
+* PriorityWeightAge = Slurm assigned value based on wait time (up to 7 day max; up to 100 jobs per group simultaneously)
+* PriorityWeightPartition = DEAC partition values as follows: small=20; large=10; gpu=40; (all all others=10)
+* PriorityWeightQOS = 0 for normal QOS (default), and 10 for any high QOS (only available for :ref:`contributors<sec.sla.ul.contributing_research_groups>).
+* nice_factor = A way to manually adjust job importance by weight of +/-2147483645 (via --nice directive). A positive value lowers priority; only admins can assign a negative value to increase priority. 
+
+The higher the overall calculated value, the higher the priority. The most complicated aspect of this calculation is "`leveled fairshare <https://slurm.schedmd.com/fair_tree.html", where Slurm takes the standard assigned integer value and levels it on a scale of 0 to 1. In the following example, we'll use a new user example (leveld fairshare of 1). If a user submits a job via their normal QOS to the large partition, the calculation is as follows:
+
+.. math::
+  Job_Priority = 1 * 1000 + 0 * 3000 + 10 * 500 + 0 * 3000 = 1000 + 500 = 1500
+
+If the user has made a contribution, and submits a job via their high QOS to the large partition, the calculation is as follows:
+
+.. math::
+  Job_Priority = 1 * 1000 + 0 * 3000 + 10 * 500 + 10 * 3000 = 1000 + 500 + 3000 = 4500
+
+This highlights how a contributing group receives a ``three times`` increase in priority via their high QOS from the same starting point for a job submission. 
+
+If a non-contributing user has waited 7 days for their job to start (the maximum time factor), then their fairshare will have increased to the same priority as the high QOS:
+
+.. math::
+  Job_Priority = 1 * 1000 + 1 * 3000 + 10 * 500 + 0 * 3000 = 1000 + 3000 + 500 = 4500
+
+This time-based increase helps ensure a level of balance so that non-contributing users can still have jobs run after a certain amount of wait time. 
+
 
 
 .. #############################################################################
