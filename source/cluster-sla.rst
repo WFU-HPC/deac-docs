@@ -727,7 +727,7 @@ Priority Calculation
 The Priority Calculation equation used by the DEAC Cluster is as follows:
 
 .. math::
- Job_priority =
+ JobPriority =
     	(PriorityWeightFairshare) * (1000) +
      (PriorityWeightAge) * (3000) +
    	 (PriorityWeightPartition) * (500) +
@@ -737,7 +737,7 @@ The Priority Calculation equation used by the DEAC Cluster is as follows:
 * PriorityWeightFairshare = Based upon a leveled Department Fairshare (:math:`\mathbf{F_{\mathrm{Dept}}}`) starting value, and `adjusted by Slurm <https://slurm.schedmd.com/fair_tree.html>`_ based on monthly utilization compared to expected baseline.
 * PriorityWeightAge = Slurm assigned value based on wait time (up to 7 day max; up to 100 jobs per group simultaneously)
 * PriorityWeightPartition = DEAC partition values as follows: small=20; large=10; gpu=40; (all all others=10)
-* PriorityWeightQOS = 0 for normal QOS (default), and 10 for any high QOS (only available for :ref:`contributors<sec.sla.ul.contributing_research_groups>).
+* PriorityWeightQOS = 0 for normal QOS (default), and 10 for any high QOS (only available for :ref:`contributors<sec.sla.ul.contributing_research_groups>`).
 * nice_factor = A way to manually adjust job importance by weight of +/-2147483645 (via --nice directive). A positive value lowers priority; only admins can assign a negative value to increase priority. 
 
 The higher the overall calculated value, the higher the priority. The most complicated aspect of this calculation is "`leveled fairshare <https://slurm.schedmd.com/fair_tree.html", where Slurm takes the standard assigned integer value and levels it on a scale of 0 to 1. In the following example, we'll use a new user example (leveld fairshare of 1). If a user submits a job via their normal QOS to the large partition, the calculation is as follows:
