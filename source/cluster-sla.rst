@@ -726,6 +726,7 @@ Priority Calculation
 
 The Priority Calculation equation used by the DEAC Cluster is as follows:
 
+\begin{flalign}
 .. math::
  JobPriority = \\\\
     	(PriorityWeightFairshare) * (1000) + \\\\
@@ -733,6 +734,7 @@ The Priority Calculation equation used by the DEAC Cluster is as follows:
    	 (PriorityWeightPartition) * (500) + \\\\
      (PriorityWeightQOS) * (3000) + \\\\
      - nice_factor
+\end{flalign}
 
 * PriorityWeightFairshare = Based upon a leveled Department Fairshare (:math:`\mathbf{F_{\mathrm{Dept}}}`) starting value, and `adjusted by Slurm <https://slurm.schedmd.com/fair_tree.html>`_ based on monthly utilization compared to expected baseline.
 * PriorityWeightAge = Slurm assigned value based on wait time (up to 7 day max; up to 100 jobs per group simultaneously)
