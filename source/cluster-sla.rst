@@ -727,11 +727,11 @@ Priority Calculation
 The Priority Calculation equation used by the DEAC Cluster is as follows:
 
 .. math::
- JobPriority =
-    	(PriorityWeightFairshare) * (1000) +
-     (PriorityWeightAge) * (3000) +
-   	 (PriorityWeightPartition) * (500) +
-     (PriorityWeightQOS) * (3000) +
+ JobPriority = \
+    	(PriorityWeightFairshare) * (1000) + \
+     (PriorityWeightAge) * (3000) + \
+   	 (PriorityWeightPartition) * (500) + \
+     (PriorityWeightQOS) * (3000) + \
      - nice_factor
 
 * PriorityWeightFairshare = Based upon a leveled Department Fairshare (:math:`\mathbf{F_{\mathrm{Dept}}}`) starting value, and `adjusted by Slurm <https://slurm.schedmd.com/fair_tree.html>`_ based on monthly utilization compared to expected baseline.
@@ -743,19 +743,19 @@ The Priority Calculation equation used by the DEAC Cluster is as follows:
 The higher the overall calculated value, the higher the priority. The most complicated aspect of this calculation is "`leveled fairshare <https://slurm.schedmd.com/fair_tree.html", where Slurm takes the standard assigned integer value and levels it on a scale of 0 to 1. In the following example, we'll use a new user example (leveld fairshare of 1). If a user submits a job via their normal QOS to the large partition, the calculation is as follows:
 
 .. math::
-  Job_Priority = 1 * 1000 + 0 * 3000 + 10 * 500 + 0 * 3000 = 1000 + 500 = 1500
+  JobPriority = 1 * 1000 + 0 * 3000 + 10 * 500 + 0 * 3000 = 1000 + 500 = 1500
 
 If the user has made a contribution, and submits a job via their high QOS to the large partition, the calculation is as follows:
 
 .. math::
-  Job_Priority = 1 * 1000 + 0 * 3000 + 10 * 500 + 10 * 3000 = 1000 + 500 + 3000 = 4500
+  JobPriority = 1 * 1000 + 0 * 3000 + 10 * 500 + 10 * 3000 = 1000 + 500 + 3000 = 4500
 
 This highlights how a contributing group receives a ``three times`` increase in priority via their high QOS from the same starting point for a job submission. 
 
 If a non-contributing user has waited 7 days for their job to start (the maximum time factor), then their fairshare will have increased to the same priority as the high QOS:
 
 .. math::
-  Job_Priority = 1 * 1000 + 1 * 3000 + 10 * 500 + 0 * 3000 = 1000 + 3000 + 500 = 4500
+  JobPriority = 1 * 1000 + 1 * 3000 + 10 * 500 + 0 * 3000 = 1000 + 3000 + 500 = 4500
 
 This time-based increase helps ensure a level of balance so that non-contributing users can still have jobs run after a certain amount of wait time. 
 
