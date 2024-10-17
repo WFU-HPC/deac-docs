@@ -1,4 +1,4 @@
-# DEACFold, MaSIF, and AlphaFold Environments
+# DEACFold, MaSIF, AlphaFold, and BindCraft Environments
 
 ## DEACFold
 
@@ -355,7 +355,7 @@ etc. and not with the Python or external dependencies. The MaSIF-neosurf
 examples do seem to work fine, which is why I include them in the Slurm script
 below.
 
-It seems like calculations should be run directly in of the directories
+It seems like calculations should be run directly in the repo directories
 themselves and there are local clones at `$MASIF_ROOT`, `$MASIFSEED_ROOT`, and
 `$MASIFNEOSURF_ROOT` that you can copy to your research path:
 
@@ -470,5 +470,57 @@ python3 /deac/opt/rhel7-noarch/alphafold/alphafold-2.3.2/run_alphafold.py \
 
 # copy results back to somewhere useful
 mv "$OUTPUT" "${SLURM_SUBMIT_DIR}/${SLURM_JOB_ID}"
+```
 
+
+## BindCraft
+
+The BindCraft environment includes:
+
+* Python 3.11
+* CUDA 12.6
+* Jax 0.4.27
+* Jaxlib 0.4.23-cuda
+
+This was created separately from the main `DEACFold` environment because of concflicts arising from using Jax and CUDA. 
+
+It seems like calculations should be run directly in the repo directories
+themselves and there is a local clone at `$BINDCRAFT_ROOT` that you can copy to
+your research path:
+
+```sh
+module load envs/biophysics/bindcraft
+cp -r $BINDCRAFT_ROOT /deac/chm/albaneseGrp/software/BindCraft
+module purge
+```
+
+or any other location you wish to use. **You should only do this once!** This
+clone has been tweaked a little bit to work with the installed software.
+
+Now that you have your own local copy, here is a basic Slurm script to run the
+example case:
+
+```sh
+#!/bin/bash
+#SBATCH --job-name=BindCraft
+##SBATCH --account=albaneseGrp
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=1
+#SBATCH --gres=gpu:A100_80:1
+#SBATCH --mem=16GB
+#SBATCH --time=0-01:00:00
+
+## load the software environment
+module load envs/biophysics/bindcraft
+
+## change into work directory
+cd /deac/chm/albaneseGrp/software/BindCraft
+
+## run the example
+python3 -u ./bindcraft.py \
+            --settings './settings_target/PDL1.json' \
+            --filters './settings_filters/default_filters.json' \
+            --advanced './settings_advanced/4stage_multimer.json'
 ```

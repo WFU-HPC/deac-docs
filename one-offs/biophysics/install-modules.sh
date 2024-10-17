@@ -109,3 +109,47 @@ source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activat
 source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/libxml2_activate.sh"
 source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/~cuda-nvcc_activate.sh"
 EOF
+
+cat << EOF > /deac/opt/modulefiles/rocky9-noarch/envs/biophysics/bindcraft
+#%Module
+##
+## python evironment using pixi
+
+proc ModulesHelp { } {
+    puts stderr "\tSets up a python environment using Pixi."
+}
+
+module-whatis   "Sets up a python environment using Pixi"
+
+module load compilers/gcc/12.3.0
+
+set environment     "env-bindcraft"
+set basedir         "/deac/opt/rocky9-noarch/deac-envs/biophysics"
+
+################################################################################
+################################################################################
+
+prepend-path    PATH                "/deac/opt/rocky9-noarch/pixi/bin"
+prepend-path    PATH                "\${basedir}/\${environment}/.pixi/envs/default/bin"
+
+setenv  PIXI_EXE                    "/deac/opt/rocky9-noarch/pixi/bin/pixi"
+setenv  PIXI_PROJECT_MANIFEST       "\${basedir}/\${environment}/pixi.toml"
+setenv  PIXI_PROJECT_ROOT           "\${basedir}/\${environment}"
+setenv  PIXI_PROJECT_NAME           "bindcraft"
+setenv  PIXI_IN_SHELL               "1"
+setenv  PIXI_PROJECT_VERSION        "0.1.0"
+setenv  PIXI_ENVIRONMENT_NAME       "default"
+setenv  PIXI_ENVIRONMENT_PLATFORMS  "linux-64"
+setenv  PIXI_PROMPT                 "(bindcraft) "
+setenv  CONDA_DEFAULT_ENV           "bindcraft"
+setenv  CONDA_PREFIX                "\${basedir}/\${environment}/.pixi/envs/default"
+
+setenv BINDCRAFT_ROOT                   "\${basedir}/repos/BindCraft"
+
+# source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/activate-binutils_linux-64.sh"
+# source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/activate-gcc_linux-64.sh"
+# source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/activate-gxx_linux-64.sh"
+source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/libglib_activate.sh"
+source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/libxml2_activate.sh"
+source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/~cuda-nvcc_activate.sh"
+EOF
