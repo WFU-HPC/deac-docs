@@ -532,6 +532,10 @@ of the AlphaFold 3 model parameters before using. I have obtained this model for
 general use on the DEAC Cluster, but we could all get in trouble if anyone
 violates these terms.
 
+This environment is not designed in the same way as the other ones featured
+above. It is safest to purge any previously loaded modules or deactivate any
+other environments before working with the AlphaFold 3 environment.
+
 Below is the Slurm script:
 
 ```sh
