@@ -410,7 +410,6 @@ Below is the Slurm script:
 
 ```sh
 #!/bin/bash
-#!/bin/bash
 #SBATCH --job-name=AlphaFold
 #SBATCH --account=albaneseGrp
 #SBATCH --partition=gpu
@@ -523,4 +522,66 @@ python3 -u ./bindcraft.py \
             --settings './settings_target/PDL1.json' \
             --filters './settings_filters/default_filters.json' \
             --advanced './settings_advanced/4stage_multimer.json'
+```
+
+## AlphaFold 3
+
+Please read the [terms of
+use](https://github.com/google-deepmind/alphafold3/blob/main/WEIGHTS_TERMS_OF_USE.md)
+of the AlphaFold 3 model parameters before using. I have obtained this model for
+general use on the DEAC Cluster, but we could all get in trouble if anyone
+violates these terms.
+
+Below is the Slurm script:
+
+```sh
+#!/bin/bash
+#SBATCH --job-name=AlphaFold3
+#SBATCH --account=albaneseGrp
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=4
+#SBATCH --gres=gpu:A100_80:1
+#SBATCH --mem=8GB
+#SBATCH --time=00-01:00:00
+
+# load the alphafold3 environment
+module load envs/biophysics/alphafold3
+
+# convenient environment variables
+export SCRATCH="/scratch/$SLURM_JOB_ID"
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# make your input and output directories
+mkdir -p ${SCRATCH}/af_input
+mkdir -p ${SCRATCH}/af_output
+
+# create your input file
+cat << EOF > ${SCRATCH}/af_input/alphafold_input.json
+{
+  "name": "2PV7",
+  "sequences": [
+    {
+      "protein": {
+        "id": ["A", "B"],
+        "sequence": "GMRESYANENQFGFKTINSDIHKIVIVGGYGKLGGLFARYLRASGYPISILDREDWAVAESILANADVVIVSVPINLTLETIERLKPYLTENMLLADLTSVKREPLAKMLEVHTGAVLGLHPMFGADIASMAKQVVVRCDGRFPERYEWLLEQIQIWGAKIYQTNATEHDHNMTYIQALRHFSTFANGLHLSKQPINLANLLALSSPIYRLELAMIGRLFAQDAELYADIIMDKSENLAVIETLKQTYDEALTFFENNDRQGFIDAFHKVRDWFGDYSEQFLKESRQLLQQANDLKQG"
+      }
+    }
+  ],
+  "modelSeeds": [1],
+  "dialect": "alphafold3",
+  "version": 1
+}
+EOF
+
+# running alphafold
+python3 ${ALPHAFOLD3_ROOT}/run_alphafold.py \
+    --model_dir="/deac/data/alphafold3_models" \
+    --db_dir="/deac/data/alphafold3_data" \
+    --json_path="${SCRATCH}/af_input/alphafold_input.json" \
+    --output_dir="${SCRATCH}/af_output"
+
+# copy results back to somewhere useful
+mv ${SCRATCH}/af_output/2pv7 /your/research/path/directory
 ```

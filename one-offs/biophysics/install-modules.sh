@@ -5,6 +5,9 @@ TARGET=/deac/opt/rocky9-noarch/deac-envs/biophysics
 
 mkdir -p $MODPATH
 
+################################################################################
+################################################################################
+
 cat << EOF > ${MODPATH}/deacfold
 #%Module
 ##
@@ -54,6 +57,9 @@ setenv OPENMM_ROOT                  "\${basedir}/progs/openmm-8.1.2"
 source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/libglib_activate.sh"
 source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/libxml2_activate.sh"
 EOF
+
+################################################################################
+################################################################################
 
 cat << EOF > ${MODPATH}/masif
 #%Module
@@ -110,7 +116,10 @@ source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activat
 source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/~cuda-nvcc_activate.sh"
 EOF
 
-cat << EOF > /deac/opt/modulefiles/rocky9-noarch/envs/biophysics/bindcraft
+################################################################################
+################################################################################
+
+cat << EOF > ${MODPATH}/bindcraft
 #%Module
 ##
 ## python evironment using pixi
@@ -152,4 +161,41 @@ setenv BINDCRAFT_ROOT                   "\${basedir}/repos/BindCraft"
 source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/libglib_activate.sh"
 source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/libxml2_activate.sh"
 source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/~cuda-nvcc_activate.sh"
+EOF
+
+################################################################################
+################################################################################
+
+cat << EOF > ${MODPATH}/alphafold3
+#%Module
+##
+## python evironment using pixi
+
+proc ModulesHelp { } {
+    puts stderr "\tSets up a python environment using Pixi."
+}
+
+module-whatis   "Sets up a python environment using Pixi"
+
+conflict envs
+
+module load compilers/gcc/12.3.0 apps/python/3.11.8
+
+set environment     "env-alphafold3"
+set basedir         "$TARGET"
+
+################################################################################
+################################################################################
+
+prepend-path    PATH                \${basedir}/progs/hmmer/bin
+prepend-path    PATH                \${basedir}/\${environment}/bin
+
+setenv  VIRTUAL_ENV                     "\${basedir}/env-alphafold3"
+setenv  VIRTUAL_ENV_PROMPT              "(env-alphafold3)"
+#setenv  PS1                             "(env-alphafold3) [\\u@\\h \\W]\\$"
+setenv  XLA_CLIENT_MEM_FRACTION         0.95
+setenv  XLA_PYTHON_CLIENT_PREALLOCATE   true
+setenv  XLA_FLAGS                       "--xla_gpu_enable_triton_gemm=false"
+
+setenv  ALPHAFOLD3_ROOT                 "\${basedir}/repos/alphafold3"
 EOF
