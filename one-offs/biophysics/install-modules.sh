@@ -169,13 +169,13 @@ EOF
 cat << EOF > ${MODPATH}/alphafold3
 #%Module
 ##
-## python evironment using pixi
+## python evironment using venv
 
 proc ModulesHelp { } {
-    puts stderr "\tSets up a python environment using Pixi."
+    puts stderr "\tSets up a python environment using venv."
 }
 
-module-whatis   "Sets up a python environment using Pixi"
+module-whatis   "Sets up a python environment using venv"
 
 conflict envs
 
@@ -198,4 +198,75 @@ setenv  XLA_PYTHON_CLIENT_PREALLOCATE   true
 setenv  XLA_FLAGS                       "--xla_gpu_enable_triton_gemm=false"
 
 setenv  ALPHAFOLD3_ROOT                 "\${basedir}/repos/alphafold3"
+EOF
+
+################################################################################
+################################################################################
+
+cat << EOF > ${MODPATH}/chailab
+#%Module
+##
+## python evironment using venv
+
+proc ModulesHelp { } {
+    puts stderr "\tSets up a python environment using venv."
+}
+
+module-whatis   "Sets up a python environment using venv"
+
+conflict envs
+
+module load compilers/gcc/12.3.0 apps/python/3.11.8
+
+set environment     "env-chailab"
+set basedir         "$TARGET"
+
+################################################################################
+################################################################################
+
+prepend-path    PATH                \${basedir}/\${environment}/bin
+
+setenv  VIRTUAL_ENV                     "\${basedir}/env-chailab"
+setenv  VIRTUAL_ENV_PROMPT              "(env-chailab)"
+#setenv  PS1                             "(env-chailab) [\\u@\\h \\W]\\$"
+EOF
+
+################################################################################
+################################################################################
+
+cat << EOF > ${MODPATH}/colabfold
+#%Module
+##
+## python evironment using pixi
+
+proc ModulesHelp { } {
+    puts stderr "\tSets up a python environment using Pixi."
+}
+
+module-whatis   "Sets up a python environment using Pixi"
+
+module load compilers/gcc/12.3.0
+
+set environment     "env-colabfold"
+set basedir         "/deac/opt/rocky9-noarch/deac-envs/biophysics"
+
+################################################################################
+################################################################################
+
+prepend-path    PATH                "/deac/opt/rocky9-noarch/pixi/bin"
+prepend-path    PATH                "\${basedir}/\${environment}/.pixi/envs/default/bin"
+
+setenv  PIXI_EXE                    "/deac/opt/rocky9-noarch/pixi/bin/pixi"
+setenv  PIXI_PROJECT_MANIFEST       "\${basedir}/\${environment}/pixi.toml"
+setenv  PIXI_PROJECT_ROOT           "\${basedir}/\${environment}"
+setenv  PIXI_PROJECT_NAME           "colabfold"
+setenv  PIXI_IN_SHELL               "1"
+setenv  PIXI_PROJECT_VERSION        "0.1.0"
+setenv  PIXI_ENVIRONMENT_NAME       "default"
+setenv  PIXI_ENVIRONMENT_PLATFORMS  "linux-64"
+setenv  PIXI_PROMPT                 "(colabfold) "
+setenv  CONDA_DEFAULT_ENV           "colabfold"
+setenv  CONDA_PREFIX                "\${basedir}/\${environment}/.pixi/envs/default"
+
+source-sh bash "\${basedir}/\${environment}/.pixi/envs/default/etc/conda/activate.d/libxml2_activate.sh"
 EOF

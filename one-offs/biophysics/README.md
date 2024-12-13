@@ -589,3 +589,47 @@ python3 ${ALPHAFOLD3_ROOT}/run_alphafold.py \
 # copy results back to somewhere useful
 mv ${SCRATCH}/af_output/2pv7 /your/research/path/directory
 ```
+
+## Colabfold
+
+* Info: https://github.com/YoshitakaMo/localcolabfold
+* Module file: `module load envs/biophysics/colabfold`
+
+Load the module file listed above to enable the Python environment to run
+colabfold.
+
+Below is the Slurm script:
+
+```sh
+#!/bin/bash
+#SBATCH --job-name=Colabfold
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=4
+#SBATCH --gres=gpu:A100_80:1
+#SBATCH --mem=8GB
+#SBATCH --time=00-01:00:00
+
+# load the alphafold3 environment
+module load envs/biophysics/colabfold
+
+# convenient environment variables
+export SCRATCH="/scratch/$SLURM_JOB_ID"
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# create your input file
+cat << EOF > ${SCRATCH}/input.fasta
+>sp|P61823
+MALKSLVLLSLLVLVLLLVRVQPSLGKETAAAKFERQHMDSSTSAASSSNYCNQMMKSRN
+LTKDRCKPVNTFVHESLADVQAVCSQKNVACKNGQTNCYQSYSTMSITDCRETGSSKYPN
+CAYKTTQANKHIIVACEGNPYVPVHFDASV
+EOF
+
+# running colabfold
+colabfold_batch ${SCRATCH}/input.fasta ${SCRATCH}/output
+
+# copy results back to somewhere useful
+mv ${SCRATCH}/output /your/research/path/directory
+```
+
