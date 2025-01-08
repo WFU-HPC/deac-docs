@@ -12,7 +12,7 @@ No grant application is the same and therefore no single description can be best
      high performance computing environment containing over 5,000 processors,
      40TB of memory, 32 GPUs, and 287TB of disk storage jointly funded by faculty
      research grant awards and the University. The cluster supports faculty from
-     15 departments, including: Biomed, Business, Chemistry, Computer Science,
+     16 departments, including: Biomed, Business, Chemistry, Computer Science,
      Engineering, and Physics. All grant contributions are applied as a service
      fee to gain additional priority and/or storage above free-tier baseline utilization.
      All acquired service fees are applied to offset the annual cost Information
