@@ -633,3 +633,64 @@ colabfold_batch ${SCRATCH}/input.fasta ${SCRATCH}/output
 mv ${SCRATCH}/output /your/research/path/directory
 ```
 
+
+## ESMFold
+
+* Info: https://github.com/facebookresearch/esm
+* Module file: `module load envs/biophysics/esmfold`
+
+Load the module file listed above to enable the Python environment to run
+colabfold.
+
+Below is the Slurm script:
+
+```sh
+#!/bin/bash
+#SBATCH --job-name=ESMFold
+#SBATCH --partition=gpu
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=4
+#SBATCH --gres=gpu:A100_80:1
+#SBATCH --mem=32GB
+#SBATCH --time=00-01:00:00
+
+# load the alphafold3 environment
+module load envs/biophysics/esmfold
+
+# convenient environment variables
+export SCRATCH="/scratch/$SLURM_JOB_ID"
+export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+
+# create your example python file
+cat << EOF > ${SCRATCH}/esmfold.py
+#!/usr/bin/env python3
+
+import torch
+import esm
+
+model = esm.pretrained.esmfold_v1()
+model = model.eval().cuda()
+
+# Optionally, uncomment to set a chunk size for axial attention. This can help reduce memory.
+# Lower sizes will have lower memory requirements at the cost of increased speed.
+# model.set_chunk_size(128)
+
+sequence = "MKTVRQERLKSIVRILERSKEPVSGAQLAEELSVSRQVIVQDIAYLRSLGYNIVATPRGYVLAGG"
+# Multimer prediction can be done with chains separated by ':'
+
+with torch.no_grad():
+    output = model.infer_pdb(sequence)
+
+with open("result.pdb", "w") as f:
+    f.write(output)
+
+import biotite.structure.io as bsio
+struct = bsio.load_structure("result.pdb", extra_fields=["b_factor"])
+print(struct.b_factor.mean())  # this will be the pLDDT
+# 88.3
+EOF
+
+# running esmfold
+python3 ${SCRATCH}/esmfold.py
+```
