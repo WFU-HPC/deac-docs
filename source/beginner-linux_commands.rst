@@ -1,8 +1,8 @@
 .. _sec.linux:
 
-========================
-Linux Command Cheatsheet
-========================
+==========
+Linux Help
+==========
 
 .. contents::
    :depth: 3
@@ -13,21 +13,65 @@ Linux Command Cheatsheet
 .. #############################################################################
 .. #############################################################################
 
-This is a summary of many commonly used Linux commands. We also recommend the
-:download:`FOSSwire Unix/Linux Command Reference
-<https://files.fosswire.com/2007/08/fwunixref.pdf>` and the `Stanford
-University OpenClassroom's "Practical Unix" class
-<http://openclassroom.stanford.edu/MainFolder/CoursePage.php?course=PracticalUnix>`_.
+Below is a summary of many commonly used Linux commands. There are several excellent 
+tutorials and tools available online. Below is a list that we have compiled:
+
+.. _sec.linux.references:
+
+Linux Reference Material
+========================
+
+.. _sec.linux.training:
+
+Linux Training
+--------------
+* `<linuxjourney.com>`_
+* `<linuxcommand.org>`_
+* `<linuxsurvival.com>`_
+* `<lym.readthedocs.io>`_
+* `<ryanstutorials.net/linuxtutorial/>`_
+* `<docs.rockylinux.org/labs/>`_
+
+.. _sec.linux.basics:
+
+Linux Basics
+------------
+* `<docs.rockylinux.org/books/admin_guide/00-toc/>`_
+* `<wiki.archlinux.org>`_
+* `<debian.org>`_
+* `<reddit.com/r/linux4noobs/>`_
+
+.. _sec.linux.info:
+
+Linux Command Info
+------------------
+* `<explainshell.com>`_
+* `<tldr.sh>`_
+* `<gto76.github.io/linux-cheatsheet/>`_
+* :download:`<files.fosswire.com/2007/08/fwunixref.pdf>`_
+
+.. _sec.linux.wikis:
+
+Linux Wikis
+-----------
+* `<wiki.rockylinux.org>`_
+* `<wiki.archlinux.org>`_
+* `<wiki.debian.org>`_
 
 .. #############################################################################
 .. #############################################################################
 .. #############################################################################
 .. #############################################################################
+
+.. _sec.linux.command_references:
+
+Command References
+==================
 
 .. _sec.linux.file_commands:
 
 File Commands
-=============
+-------------
 
 * ``ls`` -- directory listing
 * ``ls -al`` -- formatted listing with hidden files
@@ -57,7 +101,7 @@ File Commands
 .. _sec.linux.process_management:
 
 Process Management
-==================
+------------------
 
 * ``ps`` -- display your currnet active processes
 * ``top`` -- display all running processes
@@ -74,7 +118,7 @@ Process Management
 .. _sec.linux.file_permissions:
 
 File Permissions
-================
+----------------
 
 * ``chmod mode file`` -- change permissions of ``file`` to given ``mode``; mode
   can be ``[ugoa...][[+-=][perms...]...]``
@@ -94,7 +138,7 @@ File Permissions
 .. _sec.linux.searching:
 
 Searching Within Files
-======================
+----------------------
 
 These commands can be used to find content within files:
 
@@ -112,7 +156,7 @@ These commands can be used to find content within files:
 .. _sec.linux.system_info:
 
 System Info
-===========
+-----------
 
 * ``date`` -- show current date and time
 * ``cal`` -- show this month's calendar
@@ -139,7 +183,7 @@ System Info
 .. _sec.linux.compression:
 
 Compression
-===========
+-----------
 
 * ``tar cf dir.tar dir`` -- create a tar file named `dir.tar` containing all
   files in the directory `dir`
@@ -161,7 +205,7 @@ Compression
 .. _sec.linux.internet:
 
 Internet and Network
-====================
+--------------------
 
 * ``jwhois domain`` -- print administrative and contact information for the owner of `domain`
 * ``dig domain`` -- print DNS information for `domain`
@@ -177,7 +221,7 @@ Internet and Network
 .. _sec.linux.package_installation:
 
 Package Installation from Source
-================================
+--------------------------------
 
 Typical GNU-style source packages for software follow this recipe for building:
 
@@ -199,7 +243,7 @@ more work than this.
 .. _sec.linux.other:
 
 Other Useful Commands
-=====================
+---------------------
 
 * ``Ctrl-C`` -- halts the current command (send signal ``SIGINT``)
 * ``Ctrl-Z`` -- pauses the current command
