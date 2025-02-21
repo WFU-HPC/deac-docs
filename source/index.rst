@@ -166,8 +166,8 @@ Table of Contents
    :maxdepth: 1
    :caption: Reference Documentation
 
-   beginner-linux_commands
-   beginner-videos
+   reference-linux
+   reference-videos
 ..   reference-slurm_torque
 ..   reference-repcom_meetings
 
