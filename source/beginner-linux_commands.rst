@@ -65,8 +65,8 @@ Linux Wikis
 
 .. _sec.linux.command_references:
 
-Command References
-==================
+Linux Command References
+========================
 
 .. _sec.linux.file_commands:
 
