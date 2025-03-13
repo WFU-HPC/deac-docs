@@ -177,9 +177,9 @@ How is DEAC Funded?
 
 * Who pays for the DEAC Cluster?
 
-	* The DEAC Cluster is a centrally funded service, with funding allocated annually as part of the Information Systems budget.
+	* The DEAC Cluster is a centrally funded services. Funding is allocated annually as part of the `Information Systems <https://is.wfu.edu>`_ budget that goes toward operations and annual hardware refreshes.
 	* Annual expenses are offset by researcher :ref:`Contributions<sec.sla.su.contributions>` or :ref:`Chargebacks<sec.sla.su.chargebacks>` in exchange for above baseline resource utilization (storage, core/memory requirements) with high priority access.
-	* The `Office of Research and Sponsored Programs <https://research.wfu.edu/funding/internal-funding/>`_ (under ORSP) provides 1:1 matching on grant based Contributions up to $75,000 per fiscal year, which also helps offset annual expenses.
+	* The `Office of Research and Sponsored Programs <https://research.wfu.edu/funding/internal-funding/>`_ (under ORSP) provides 1:1 matching on external grant based Contributions up to $75,000 per fiscal year, which IS receives to help offset annual expenses.
 
 * Who pays for the HPC Team?
 
