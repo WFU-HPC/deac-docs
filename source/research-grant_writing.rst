@@ -4,13 +4,18 @@
 Grant Writing
 =============
 
+.. _sec.grant_writing.template:
+
 No grant application is the same and therefore no single description can be best fit each proposal. Below is a general template two liner description, however, the HPC Team would prefer all faculty contact the HPC team at deac-help@wfu.edu before submitting a grant that will utilize the DEAC Cluster. 
+
+Template Description 
+====================
 
 .. admonition:: Template Description
 
      The WFU DEAC Cluster Facility is a centrally managed, University supported,
      high performance computing environment containing over 5,000 processors,
-     40TB of memory, 32 GPUs, and 287TB of disk storage jointly funded by faculty
+     40TB of memory, 36 GPUs, and 287TB of disk storage jointly funded by faculty
      research grant awards and the University. The cluster supports faculty from
      16 departments, including: Biomed, Business, Chemistry, Computer Science,
      Engineering, and Physics. All grant contributions are applied as a service
@@ -26,6 +31,34 @@ The HPC Team needs to fully understand software, storage, compute, and timeline 
 Acknowledgements help show the importance of the DEAC Cluster Facility to researchers at Wake Forest University. This includes the resources provided and services rendered by the HPC Team.
 
 Once your manuscript has been published, please send the HPC Team (via deac-help@wfu.edu) the DOI or link.
+
+
+.. _sec.grant_writing.feor:
+
+.. admonition:: Resource Statement
+
+    Below is a template Facilities, Equipment, and Other Resources statement that can be used by faculty to be included in various grant applications.
+
+Facilities, Equipment, and Other Resources 
+==========================================
+
+------------------------
+Facilities and Equipment 
+------------------------
+WFU will provide all infrastructure components needed to support computational research on a High Performance Computing (HPC) Solution, including the data center facility, power, uninterruptible power supply (UPS), computer room air conditioning (CRAC) units and chillers, fire suppression, network connectivity, and internet routing. WFU will also provide hardware and software support through the Information Systems (IS) Department and the HPC Team. 
+
+---------------
+Other Resources 
+---------------
+IS utilizes two data centers and Amazon Web Services (AWS) to host instructional, and research computational services for WFU faculty and students. 
+
+AWS is utilized primarily for Enterprise services support, but a small number of virtual desktop environments have been created in support of classroom instruction. This includes t2.micro systems (1 vCPU and 1GB of memory) for the majority of instances, and g4dn.xlarge (4 vCPU, 16 GB of memory, and 125GB NVMe) used for students in a Computer Science Neural Networks & Deep Learning class. Both of these virtual desktop system types are configured by IS Infrastructure Admins as needed each semester. 
+
+The main WFU Data Center is located in Alumni Hall, and hosts the bulk of WFU’s current HPC Solution, the DEAC Cluster. The DEAC Cluster (https://hpc.wfu.edu) is a traditional HPC Cluster design to support CPU-intensive workloads, with baseline usage available for all faculty and students to use at no cost. The DEAC Cluster is centrally funded by the IS Department, with user contributions providing resources enhancements as needed by faculty who are seeking above baseline utilization or have non-standard resource requirements. A small portion of DEAC Cluster resources are hosted in the A1A Data Center, located off campus, to provide redundancy in the event of a major outage.
+
+Total resources available on the DEAC Cluster include 106 dedicated nodes, containing 5312 CPU Cores, 41TB of memory, 287 TB storage, and 192,512 CUDA Cores. The facility is a heterogeneous collection of Compute nodes with AMD EPYC based Milan and Genoa 64-bit CPUs connected via 25GB Ethernet, as well as older Compute Nodes with Intel Xeon based Cascade Lake 64-bit CPUs contained within a 10G connected Cisco Unified Computing System (UCS). 7 GPU nodes contain all CUDA cores from a mix of 36 GPUs Cards, including V100s, A100s (40GB & 80GB), and L40Ss. The cluster storage environment consists primarily of a NetApp AFF A300 storage array, hosting over 287 TB of shared storage via NFS; and an unlimited AWS cloud-based archive. Each storage path is available via 10-gigabit Ethernet from redundant connections; volume configuration follows best practices to provide the utmost reliability, availability, and security to users. Additionally, every node contains at least 2TB of local, temporary scratch space to assist with higher IO throughput.
+
+All DEAC Cluster resources are managed and maintained by the WFU HPC Team, with facility, network, and data center teams providing additional support as needed. Faculty and student users of DEAC Cluster resources are supported by the HPC Team. All DEAC Cluster compute resources are accessible via https through a web portal and/or SSH to three user-facing login nodes, where users submit jobs to run via the SLURM Workload Manager. Research storage is designed with department based root directories, and correlating research groups paths underneath. The HPC Team controls access to research group members and path permissions, making modifications to membership only after receiving research group advisor written permission via email. Users conduct all research from their research group paths, with all correlating research related source data, scripts, and output stored within. 
 
 
 .. .. #############################################################################
