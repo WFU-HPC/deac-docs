@@ -160,7 +160,7 @@ SLURM Node Features
    * amd : These nodes contain amd cores (64-core)
    * zen# : This designates the revision of amd core architecture (the higher the number, the newer the architecture).
    * intel : These nodes contain intel cores
-   * skylake : These nodes have `Intel's Xeon E5 Skylake </Information:Intel_chip_architecture#Architectures>`__ based processors (44-core UCS nodes)
-   * cascade : These nodes have `Intel's Xeon Gold Cascade Lake </Information:Intel_chip_architecture#Architectures>`__ based processors (44 and 48-core UCS nodes)
+   * skylake : These nodes have Intel's Xeon E5 Skylake based processors (44-core UCS nodes)
+   * cascade : These nodes have Intel's Xeon Gold Cascade Lake based processors (44 and 48-core UCS nodes)
    * rocky9 : Designates the operating system installed on the node.
 

@@ -123,7 +123,6 @@ There are three primary methods in which users connect to the cluster:
     * software-packages
     * software-building
     * software-licensing
-    * reference-slurm_torque
 
 =================
 Table of Contents
@@ -168,7 +167,7 @@ Table of Contents
 
    reference-linux
    reference-videos
-..   reference-slurm_torque
+   reference-slurm
 ..   reference-repcom_meetings
 
 

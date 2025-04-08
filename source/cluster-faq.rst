@@ -155,10 +155,14 @@ Tell me more about...
 
 	* Please visit the :ref:`Packages`<sec.software-packages>` page for more information.
 
+* Are there specific SLURM settings configured on DEAC?
+
+        * YES! See :ref:`DEAC Cluster Slurm Specifics <sec.slurm.deac>` for more information.
+ 
 * What SLURM attributes does the cluster use?
 
 	* Jobs are allocated based upon the `CR_Core_Type Consumable Resources Setting in Slurm <https://slurm.schedmd.com/slurm.conf.html#OPT_CR_Core_Memory>`_.
-	* Please see the current :ref:`Slurm Job Constraints<sec.hardware.arch.slurm>` for list of current constraints that can be used for job selection.
+	* Please see the current :ref:`Slurm Job Constraints<sec.slurm.deac.features>` for list of current constraints that can be used for job selection.
 
 * How many jobs can I submit?
 
