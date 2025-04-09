@@ -99,6 +99,44 @@ DEAC Cluster Slurm Specifics
 
 The DEAC Cluster has a few configuration specifics that make it unique from a defacto Slurm install. They are listed below. 
 
+.. _sec.slurm.deac.example:
+
+Example
+-------
+
+Below is an example job that can run on the DEAC Cluster. Normally, an **\-\-account=** directive entry exists, but in this examples case, the default account will be used. It is highly recommended to include an account specification, especially for users who belong to multiple research groups.
+
+.. code-block:: bash
+
+     #!/bin/bash
+     #SBATCH --job-name="Example_Submission"
+     #SBATCH --partition=small
+     #SBATCH --nodes=1
+     #SBATCH --ntasks-per-node=1
+     #SBATCH --mem=5GB
+     #SBATCH --time=00-00:05:00
+     #SBATCH --mail-user=%u@wfu.edu
+     #SBATCH --mail-type=BEGIN,END,FAIL
+     #SBATCH --output=slurm-%x-%j.o
+     
+     echo "Running Job $SLURM_JOB_ID"  #Print Slurm Job ID
+     
+     pwd                               #Print current working directory
+     cd /home/$USER                    #Go to homedir and print so you see change 
+     pwd
+     cd /scratch/$SLURM_JOB_ID         #Change to temp scratch dir
+     pwd
+     
+     which python3                     #Show default python3 path
+     python3 -V                        #Show default python3 version
+     
+     module load apps/python/3.11.8    #Load python3 modulefile
+     which python3                     #Show updated python3 path
+     python3 -V                        #Show updated python3 version
+     module list                       #Show loaded modules
+
+     hostname                          #Print compute node hostname where job ran
+
 .. _sec.slurm.deac.accounts:
 
 Accounts
@@ -113,13 +151,14 @@ Each Slurm Account inherits it's priority from the parent department. So in this
 Partitions
 ----------
 
-The DEAC Cluster has 4 primary partitions
+The DEAC Cluster has 4 primary partitions:
 
 * **large** - Jobs > 1 node, <180 days; the default partition.
 * **small** - Jobs = 1 node, <1 day; receives double partition priority as large.
 * **gpu** - Jobs <= 2 nodes, <28 days; only partition with GPU resources.
 * **interactive** - Jobs = 1 node, <1 day; all interactive jobs run here.
 
+The small, large, and interactive partitions share the same nodes. The only difference is the limits set by running jobs, and the priority assigned to each job upon submission. The GPU partition is comprised of GPU nodes, which can also be found in the interactive partition.
 
 .. _sec.slurm.deac.features:
 
