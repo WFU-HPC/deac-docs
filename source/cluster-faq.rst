@@ -149,7 +149,7 @@ Tell me more about...
 * How do I submit jobs to the cluster?
 
 	* Use **sbatch** to submit to the job queue. 
-	* More examples coming soon!
+	* Please see :ref:`Slurm Help<sec.slurm>` for documentation references, command info, and examples.
 
 * What software is installed on the cluster?
 
