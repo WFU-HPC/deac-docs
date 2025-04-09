@@ -104,7 +104,7 @@ The DEAC Cluster has a few configuration specifics that make it unique from a de
 Accounts
 --------
 
-Each research group corresponds to a shared Slurm account for tracking utilization. IE, Engineering Professor Adam Carlson would have a "carlsonGrp" Slurm account for which he and all of his sponsored researchers would utilize when submitting jobs to Slurm. The account is specified using the Slurm_accounts_ **- -accounts=** directive in a batch job submission. 
+Each research group corresponds to a shared Slurm account for tracking utilization. IE, Engineering Professor Adam Carlson would have a "carlsonGrp" Slurm account for which he and all of his sponsored researchers would utilize when submitting jobs to Slurm. The account is specified using the Slurm_accounts_ directive (**- -accounts=**) in a batch job submission. 
 
 Each Slurm Account inherits it's priority from the parent department. So in this case, carlsonGrp would inherit their priority from the "egr" Slurm parent account. This is important to know because all Slurm child accounts to egr affect the overall priority for each other. Same goes for all corresponding departments
 
@@ -126,7 +126,7 @@ The DEAC Cluster has 4 primary partitions
 Node Features
 -------------
 
-Because the DEAC Cluster is heterogeneous, we use node Features to identify differences between node types. Features can be referenced using the Slurm_constraints_ **- -constraints=** directive in a batch job submission. Valid features and constraint options are as follows:
+Because the DEAC Cluster is heterogeneous, we use node Features to identify differences between node types. Features can be referenced using the Slurm_constraints_ directive (**- -constraints=**) in a batch job submission. Valid features and constraint options are as follows:
 
 * login: These nodes are used to submit jobs and are not assigned to any partition to execute jobs.
 * amd : These nodes contain amd cores (64-core)
