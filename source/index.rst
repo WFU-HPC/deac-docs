@@ -165,8 +165,8 @@ Table of Contents
    :maxdepth: 1
    :caption: Reference Documentation
 
-   reference-linux
    reference-videos
+   reference-linux
    reference-slurm
 ..   reference-repcom_meetings
 
