@@ -17,25 +17,23 @@ The HPC Team cannot possibly keep up with the constant slew of updates to Slurm 
 
 Official Documentation
 ----------------------
-* The Slurm_homepage_.
+* Official Slurm_Documentation_ Homepage.
 * Quick_Start_User_Guide_.
 * Command_Summary_ (2-page sheet).
-* Slurm_docs_.
 * Slurm_FAQ_.
 * Slurm NEWS_ (changes in recent versions of Slurm)
-* Subscribe to Slurm_mailing_lists_.
-* The slurm_devel_archive_.
-* Slurm_publications_ and presentations.
+* Subscribe to Slurm_Mailing_Lists_.
+* Slurm_Publications_ and presentations.
 * Youtube `videos about Slurm <https://www.youtube.com/c/SchedMDSlurm/videos>`_.
-* Slurm_tutorials_.
-* Slurm_man_pages_ overview of man-pages, configuration files, and daemons.
-* Slurm_bugs_ tracking system.
-* Slurm_Quick_Start_ admin guide.
-* `Large Cluster Administration Guide <https://slurm.schedmd.com/big_sys.html>`_ (clusters containing 1024 nodes or more).
+* Slurm_Tutorials_.
+* Slurm_Man_Pages_ overview of man-pages, configuration files, and daemons.
+* Slurm_Bugs_ tracking system.
+* Slurm_Quick_Start_ administrator guide.
+* The Slurm_Developer_Archive_.
 * `Slurm Troubleshooting Guide <https://slurm.schedmd.com/troubleshoot.html>`_.
+* `Support for Multi-core/Multi-thread Architectures <https://slurm.schedmd.com/mc_support.html>`_.
 * `Slurm Elastic Computing (Cloud Bursting) <https://slurm.schedmd.com/elastic_computing.html>`_ (Google Cloud, Amazon EC2 etc.)
 * `Slurm containers guide <https://slurm.schedmd.com/containers.html>`_.
-* `Support for Multi-core/Multi-thread Architectures <https://slurm.schedmd.com/mc_support.html>`_.
 
 Non-official Documentation
 --------------------------
@@ -47,23 +45,23 @@ Non-official Documentation
 
 .. _Slurm_Quick_Start: https://slurm.schedmd.com/quickstart_admin.html
 .. _Quick_Start_User_Guide: https://slurm.schedmd.com/quickstart.html
-.. _Slurm_homepage: https://www.schedmd.com/
 .. _SchedMD: https://www.schedmd.com/
-.. _Slurm_docs: https://slurm.schedmd.com/
+.. _Slurm_Documentation: https://slurm.schedmd.com/
 .. _Command_Summary: https://slurm.schedmd.com/pdfs/summary.pdf
 .. _Slurm_FAQ: https://slurm.schedmd.com/faq.html
-.. _Slurm_download: https://slurm.schedmd.com/download.html
-.. _Slurm_mailing_lists: https://lists.schedmd.com/mailman3/postorius/lists/
-.. _slurm_devel_archive: https://groups.google.com/forum/#!forum/slurm-devel
-.. _Slurm_publications: https://slurm.schedmd.com/publications.html
-.. _Slurm_tutorials: https://slurm.schedmd.com/tutorials.html
-.. _Slurm_bugs: https://bugs.schedmd.com
-.. _Slurm_man_pages: https://slurm.schedmd.com/man_index.html
+.. _Slurm_Download: https://slurm.schedmd.com/download.html
+.. _Slurm_Mailing_Lists: https://lists.schedmd.com/mailman3/postorius/lists/
+.. _Slurm_Developer_Archive: https://groups.google.com/forum/#!forum/slurm-devel
+.. _Slurm_Publications: https://slurm.schedmd.com/publications.html
+.. _Slurm_Tutorials: https://slurm.schedmd.com/tutorials.html
+.. _Slurm_Bugs: https://bugs.schedmd.com
+.. _Slurm_Man_Pages: https://slurm.schedmd.com/man_index.html
 .. _NEWS: https://github.com/SchedMD/slurm/blob/master/NEWS
 .. _Slurm_git_repo: https://github.com/SchedMD/slurm
 .. _Slurm_git_commits: https://github.com/SchedMD/slurm/commits/
-.. _Slurm_constraints: https://slurm.schedmd.com/sbatch.html#OPT_constraint
-.. _Slurm_accounts: https://slurm.schedmd.com/sbatch.html#OPT_account
+.. _Slurm_Constraints: https://slurm.schedmd.com/sbatch.html#OPT_constraint
+.. _Slurm_Accounts: https://slurm.schedmd.com/sbatch.html#OPT_account
+.. _Slurm_Large_Clusters: https://slurm.schedmd.com/big_sys.html
 
 
 
