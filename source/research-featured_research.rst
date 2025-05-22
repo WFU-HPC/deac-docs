@@ -13,11 +13,13 @@ Featured Research
 .. #############################################################################
 .. #############################################################################
 
-We want to hear about your work!
+If following our process for :ref:`Acknowledging the WFU HPC Facility<sec.acknowledging>` properly, all publications which reference
+the DEAC Cluster's DOI should be found on `Google Scholar <https://scholar.google.com/scholar?hl=en&as_sdt=0%2C34&q=10.57682%2FG13Z-2362>`_.
 
-If you would like to be included for our Featured Research, please send us a
-brief blurb about your project, relevant publication info, and any figures you
-think are representative of your work.
+Beyond publications, if you have links to posters or presentations you would like to provide, please share them so we reference them here!
+
+Furthermore, if you would like to be interviewed for a Featured Research video, please send us a
+brief blurb about your project, relevant publication info, and what you would like to talk about.
 
 .. #############################################################################
 .. #############################################################################
@@ -183,3 +185,4 @@ Notes/Questions/Thoughts:
     * Van der Waals interactions? No
     * Climbing image NEB vs. regular
     * Supercell size effects
+

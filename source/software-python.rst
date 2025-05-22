@@ -7,9 +7,9 @@ Python
 .. #############################################################################
 .. #############################################################################
 
--------
+-------------
 Installations
--------
+-------------
 
 Available Versions
 ==================
@@ -47,9 +47,9 @@ directory or research path. For more advanced Python environment installations,
 the HPC Team is willing to install Python environments for individual research
 groups or projects. 
 
--------
+------------------------------
 Creating a Virtual Environment
--------
+------------------------------
 
 Any user can create their own virtual environment in order to install
 python packages for specific research projects performed on the DEAC
