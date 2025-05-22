@@ -12,22 +12,17 @@ Installations
 -------
 
 Available Versions
-============
+==================
 
-* Intel Python 3.7.4
-
-  * python/intelpython3/3.7.4
-
-* Python 3.8.13
-
-  * python/3.8.13
+* Python 3.9.18 (system)
+* Python 3.11.8 (module)
 
 Default Python Packages
-============
+=======================
 
-The HPC Facility provides compiled installations of Python3 available for
-general cluster use. Each Python installation has common Python packages
-pre-installed that users can load out of the box. These packages include:
+The HPC Facility provides a compiled installation of Python3 available for
+general cluster use. The module loaded Python installation has over 190 
+common Python packages pre-installed that users can load out of the box, including:
 
 * jupyter
 * matplotlib
@@ -46,10 +41,10 @@ To see a full list of installed Python packages user can run the command:
     pip3 freeze
 
 
-The HPC Team recommends that users install their own Python packages
-utilizing Python environments or by installing packages into their home
-directory. For more advanced Python environment installations, the HPC
-Team is willing to install Python environments for individual research
+If Users wish to install their own Python packages, the HPC Team recommends 
+that users utilize Python environments installing packages into their home 
+directory or research path. For more advanced Python environment installations, 
+the HPC Team is willing to install Python environments for individual research
 groups or projects. 
 
 -------
@@ -58,83 +53,26 @@ Creating a Virtual Environment
 
 Any user can create their own virtual environment in order to install
 python packages for specific research projects performed on the DEAC
-Cluster.
-
--------
-Installing Python Packages
--------
--------
-Phonopy (UPDATED FOR 2023)
--------
-
-Website: https://phonopy.github.io/phonopy
+Cluster. You can learn more about this process `here from Python <https://docs.python.org/3/library/venv.html>`_ 
+and `here from a 3rd party <https://www.geeksforgeeks.org/python-virtual-environment/>`_.
 
 
-Introduction
-============
+Running a Python Job
+====================
 
-Phonopy is an open source package for phonon calculations at harmonic and
-quasi-harmonic levels.
-
-
-Installation
-============
-
-We are going to install Phonopy from source, in your local user account. We will
-integrate it with the Intel Distribution for Python (3.7.4) that comes with the
-Intel Parallel Suite XE 2020. This distribution comes bundled with highly
-optimized math libraries, such as the Intel MKL, offering better performance for
-numerical calculations. We will be following `the official installation
-instructions <https://phonopy.github.io/phonopy/install.html>`_ from the
-developer.
-
-Load the module for the aforementioned Python distribution
-
-.. code-block:: none
-
-    module load python/intelpython3/3.7.4
-
-and verify that the correct Python binary being used with ``which python``
-
-Download the `latest release from GitHub
-<https://github.com/phonopy/phonopy/releases>`_, or clone `the repository
-<https://github.com/phonopy/phonopy.git>`_ if you want to stay current with the
-development releases. Either way, go into the directory and modify the
-installation script; change the line
+For our example Python job, we will use `Phonopy <https://phonopy.github.io/phonopy>`_ , an open source package for phonon calculations at harmonic and
+quasi-harmonic levels. It is already installed on the DEAC Cluster, but you can also check for the latest version 
+`here <https://github.com/phonopy/phonopy/releases>`_. If you install a version to a local environment be sure to
+change this line in the installation script from ``False`` to ``True`` to enable the built-in OpenMP parallelism:
 
 .. code-block:: none
 
     with_openmp = False
 
-from ``False`` to ``True`` to enable the built-in OpenMP parallelism. Run the
-installation script,
+We also have installed the tornado module, which allows Phonopy to display plots for viewing with a web-browser;
+however, it is incredibly slow since you are connecting via SSH to a remote machine. We also do not allow any
+calculations on the login nodes, so the best way to use the software is via our queue system, Slurm.
 
-.. code-block:: none
-
-    python setup.py install --user
-
-The ``--user`` flag will tell python that this is going to be a local
-installation. You may also want to install Tornado, which is one of the
-graphical dependencies of Phonopy,
-
-.. code-block:: none
-
-    pip install tornado --user
-
-This will allow Phonopy to display plots for viewing with a web-browser;
-however, it is incredibly slow since you are connecting via SSH to a remote
-machine. We also so not allow any calculations on the head nodes, so the
-prefered way to use the software is via our queue system, Slurm.
-
-Finally, execute the following lines to have access to the newly installed
-package withing your environment and Python scripts,
-
-.. code-block:: none
-
-    export PATH="$HOME/.local/bin:$PATH"
-    export PYTHONPATH="$HOME/.local/lib"
-
-or add them to your ``.bashrc`` to make these changes persistent.
 
 
 Usage
@@ -150,7 +88,6 @@ to run the calculation for yourself. An example Slurm script could be like this:
     #!/bin/bash
     #SBATCH --job-name="phonopy-NaCl"     # Name that appears in queue
     #SBATCH --partition=small             # Resource group (small/medium/large)
-    #SBATCH --account=generalgrp          # Research group
     #SBATCH --nodes=1                     # Number of Nodes
     #SBATCH --ntasks-per-node=1           # Number of tasks (MPI processes)
     #SBATCH --cpus-per-task=20            # Number of threads per task (OMP threads)
@@ -159,10 +96,11 @@ to run the calculation for yourself. An example Slurm script could be like this:
     #SBATCH --output="SLURM-phonopy-%j.o" # Slurm stdout, %j is the job number
     #SBATCH --error="SLURM-phonopy-%j.e"  # Slurm stderr, %j is the job number
     #SBATCH --mail-type=BEGIN,END,FAIL    # Mail sent on begin, end/failure
-    #SBATCH --mail-user=user@wfu.edu   # User email
+    #SBATCH --mail-user=%u@wfu.edu        # User email
+    ###SBATCH --account=<FIXME>           # Remove two leading # and update FIXME to use non-default account
 
     # Load the Intel Python module
-    module load python/intelpython3/3.7.4
+    module load apps/python/3.11.8
 
     # Set the number of OpenMP threads to be used equal to the Slurm allocated CPUs
     export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
@@ -170,6 +108,7 @@ to run the calculation for yourself. An example Slurm script could be like this:
     # Run the program
     cd $HOME/phonopy-NaCl
     python NaCl.py
+
 
 It will run the calculation on 20 cores on a single node using OpenMP
 parallelization. It should take less than a minute, and yield results that
