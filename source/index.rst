@@ -52,7 +52,7 @@ Important Links
 * `DEAC Login <https://login.deac.wfu.edu>`_: Login portal to the DEAC Cluster for existing users.
 * `DEAC Cluster YouTube channel <https://youtube.com/WakeHPC>`_: Video content featuring tutorials/training and user research.
 * `DEAC Cluster Documentation <https://deac-wiki.readthedocs.io>`_: Public content that provides useful information (such as this article) for cluster users new and old.
-* `DEAC Cluster Documentation AI Chat <https://notebooklm.google.com/notebook/7f5b7f16-36a1-4595-a4c1-bc3d3e7d04d0>`_: For approved DEAC Cluster Users **ONLY**! AI Chatbot trained on DEAC documentation to help users quickly find answers.
+* `DEAC Cluster Documentation AI Chat <https://notebooklm.google.com/notebook/7f5b7f16-36a1-4595-a4c1-bc3d3e7d04d0>`_: For approved DEAC Cluster Users **ONLY**! This AI tool is trained on DEAC documentation to help users quickly find answers.
 
 
 

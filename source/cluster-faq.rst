@@ -4,11 +4,14 @@
 Frequently Asked Questions (FAQ)
 ################################
 
+.. _DEAC Docs AI Chat: https://notebooklm.google.com/notebook/7f5b7f16-36a1-4595-a4c1-bc3d3e7d04d0
+.. |DEAC Docs AI Chat| replace:: **DEAC Docs AI Chat**
+
 .. tip:: 
 
-  The fastest way to get answers to questions is use the `DEAC Docs AI Chat <https://notebooklm.google.com/notebook/7f5b7f16-36a1-4595-a4c1-bc3d3e7d04d0>`_, powered by Google's NotebookLM!
+  |DEAC Docs AI Chat|_ is the *fastest* way to lookup information about the DEAC Cluster!
 
-  This AI tool is only accessible to approved DEAC Cluster users, and is trained on source material provided by the HPC Team. It references a source link(s) with every responses, allowing users to dig deeper. Try it out and send feedback to the HPC Team at deac-help@wfu.edu!
+  This AI tool is powered by Google's NotebookLM and is only accessible to approved DEAC Cluster users. It is trained on material provided by the HPC Team and cites source link(s) with every response. Feel free to send feedback to the HPC Team at deac-help@wfu.edu!
 
 .. contents::
    :depth: 3
