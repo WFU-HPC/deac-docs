@@ -3,6 +3,13 @@
 ################################
 Frequently Asked Questions (FAQ)
 ################################
+
+.. tip:: 
+
+  The fastest way to get answers to questions is use the `DEAC Docs AI Chat <https://notebooklm.google.com/notebook/7f5b7f16-36a1-4595-a4c1-bc3d3e7d04d0>`_, powered by Google's NotebookLM!
+
+  This AI tool is only accessible to approved DEAC Cluster users, and is trained on source material provided by the HPC Team. It references a source link(s) with every responses, allowing users to dig deeper. Try it out and send feedback to the HPC Team at deac-help@wfu.edu!
+
 .. contents::
    :depth: 3
 ..
@@ -13,6 +20,7 @@ Frequently Asked Questions (FAQ)
 .. #############################################################################
 
 .. _sec.faq.general:
+
 
 *******
 General
