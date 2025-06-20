@@ -20,6 +20,9 @@ pixi init
 pixi project channel add bioconda
 pixi add python==3.11 pip pdbfixer mmseqs2==15.6f452 kalign2==2.04 hhsuite==3.3.0
 
+
+
+
 ################################################################################
 ## pip install ugh
 ################################################################################
