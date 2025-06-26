@@ -12,19 +12,29 @@ mkdir -p $REPOS
 mkdir -p $PROGS
 mkdir -p $MODPATH
 
-cd $ENVIRONMENT
+module load compilers/gcc/12.3.0 apps/python/3.11.8
 
 ################################################################################
 # initialize environment
 ################################################################################
 
-module load apps/python/3.11.8
-
 python3 -m venv ${ENVIRONMENT}
 . ${ENVIRONMENT}/bin/activate
 
 ################################################################################
-# download repo and install
+## alphafold3
+################################################################################
+
+cd ${REPOS}/alphafold3
+
+python3 -m pip install -r dev-requirements.txt
+python3 -m pip install --no-deps .
+
+# Build chemical components database (this binary was installed by pip).
+build_data
+
+################################################################################
+# download boltz repo and install
 ################################################################################
 
 git clone git@github.com:yehlincho/BoltzDesign1.git ${REPOS}/BoltzDesign1
@@ -76,12 +86,16 @@ set basedir         "$SOFTWARE"
 ################################################################################
 ################################################################################
 
-prepend-path    PATH                ${ENVIRONMENT}/bin
-prepend-path    PYTHONPATH          ${REPOS}/BoltzDesign1/boltzdesign
+prepend-path    PATH                    "\${basedir}/\${environment}/bin"
+prepend-path    PATH                    "\${basedir}/progs/hmmer/bin"
+prepend-path    PYTHONPATH              "\${basedir}/repos/BoltzDesign1/boltzdesign"
 
-setenv  VIRTUAL_ENV                  "\${basedir}/env-boltz"
-setenv  VIRTUAL_ENV_PROMPT           "(env-boltz)"
-#setenv  PS1                         "(env-boltz) [\\u@\\h \\W]\\$"
+setenv  VIRTUAL_ENV                     "\${basedir}/env-boltz"
+setenv  VIRTUAL_ENV_PROMPT              "(env-boltz)"
+setenv  XLA_CLIENT_MEM_FRACTION         0.95
+setenv  XLA_PYTHON_CLIENT_PREALLOCATE   true
+setenv  XLA_FLAGS                       "--xla_gpu_enable_triton_gemm=false"
 
-setenv BOLTZROOT                    ${REPOS}/BoltzDesign1 
+setenv  BOLTZROOT                       "\${basedir}/repos/BoltzDesign1"
+setenv  ALPHAFOLD3_ROOT                 "\${basedir}/repos/alphafold3"
 EOF
