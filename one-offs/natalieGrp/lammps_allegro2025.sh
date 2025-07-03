@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Go ahead and do this whole thing on a GPU node,
+# Go ahead and do this whole thing on a GPU node:
 # save yourself some time and headache.
 
 ################################################################################
@@ -9,15 +9,19 @@
 ################################################################################
 ################################################################################
 
+ssh gpu-a100-03.deac.wfu.edu
+
 mkdir -p /scratch/anderss
 export SOFTWARE="/deac/opt/rocky9-noarch/deac-envs/natalieGrp"
-export ENVIRONMENT="${SOFTWARE}/env-allegro2025"
+export ENVIRONMENT="${SOFTWARE}/env-allegro2025a"
 
 module load compilers/gcc/12.3.0 apps/python/3.11.8
 
 python3 -m venv $ENVIRONMENT
 . ${ENVIRONMENT}/bin/activate
 python3 -m pip install torch torchvision torchaudio nequip wandb nequip-allegro
+python3 -m pip install cuequivariance-torch cuequivariance-ops-torch-cu12
+
 
 ## Testing nequip on a GPU node
 # module load compilers/gcc/12.3.0 apps/python/3.11.8
@@ -37,14 +41,16 @@ exit
 ################################################################################
 ################################################################################
 
+ssh gpu-a100-03.deac.wfu.edu
+
 export SOFTWARE="/deac/opt/rocky9-noarch/deac-envs/natalieGrp"
-export ENVIRONMENT="${SOFTWARE}/env-allegro2025"
+export ENVIRONMENT="${SOFTWARE}/env-allegro2025a"
 
 module load compilers/gcc/12.3.0 nvidia/cuda12/cuda/12.4.1 mpi/openmpi/4.1.6 apps/python/3.11.8
 
 . ${ENVIRONMENT}/bin/activate
 
-git clone git@github.com:mir-group/pair_nequip_allegro.git ${SOFTWARE}/pair_nequip_allegro
+git clone git@github.com:mir-group/pair_nequip_allegro.git ${SOFTWARE}/pair_nequip_allegro -b v0.7.0
 git clone -b release --depth=1 https://github.com/lammps/lammps /tmp/lammps
 cd ${SOFTWARE}/pair_nequip_allegro
 ./patch_lammps.sh /tmp/lammps
@@ -53,7 +59,7 @@ mkdir -p /tmp/lammps/build && cd /tmp/lammps/build
 cmake   ../cmake \
         -C /tmp/lammps/cmake/presets/kokkos-cuda.cmake \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX="${SOFTWARE}/lammps-2Apr2025" \
+        -DCMAKE_INSTALL_PREFIX="${SOFTWARE}/lammps-2Apr2025a" \
         -DCMAKE_PREFIX_PATH="$(python3 -c 'import torch;print(torch.utils.cmake_prefix_path)')" \
         -DLAMMPS_INSTALL_RPATH=ON \
         -DNEQUIP_AOT_COMPILE=ON \
@@ -66,6 +72,9 @@ make install
 cd $HOME
 rm -rf /tmp/lammps
 
+## UGHGGGGGGHGGGGGHHHHHHHHHHHHHHHHHHHHHHHHHH
+scp gpu-a100-01.deac.wfu.edu:/usr/lib64/libcuda.so.1 ${SOFTWARE}/lammps-2Apr2025a/.
+
 ################################################################################
 ################################################################################
 # part 2: module
@@ -73,7 +82,7 @@ rm -rf /tmp/lammps
 ################################################################################
 
 mkdir -p /deac/opt/modulefiles/rocky9-noarch/envs
-cat << EOF > /deac/opt/modulefiles/rocky9-noarch/envs/allegro2025
+cat << EOF > /deac/opt/modulefiles/rocky9-noarch/envs/allegro2025a
 #%Module
 ##
 ## python evironment using venv
@@ -86,19 +95,20 @@ module-whatis   "Sets up a python environment using venv"
 
 module load compilers/gcc/12.3.0 nvidia/cuda12/cuda/12.4.1 mpi/openmpi/4.1.6 apps/python/3.11.8
 
-set environment     "env-allegro2025"
+set environment     "env-allegro2025a"
 set basedir         "${SOFTWARE}"
 
 ################################################################################
 ################################################################################
 
 prepend-path    PATH                \${basedir}/\${environment}/bin
-prepend-path    PATH                \${basedir}/lammps-2Apr2025/bin
+prepend-path    PATH                \${basedir}/lammps-2Apr2025a/bin
+append-path     LD_LIBRARY_PATH     \${basedir}/lammps-2Apr2025a
 
 setenv  VIRTUAL_ENV                 "$ENVIRONMENT"
 setenv  VIRTUAL_ENV_PROMPT          "\$environment"
 setenv  PYTHONWARNINGS              "ignore"
 setenv  OMPI_MCA_mpi_cuda_support   1
-setenv  LAMMPS_ROOT                 "\${basedir}/lammps-2Apr2025"
+setenv  LAMMPS_ROOT                 "\${basedir}/lammps-2Apr2025a"
 EOF
 
