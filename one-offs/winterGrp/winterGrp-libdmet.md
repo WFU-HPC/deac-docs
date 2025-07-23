@@ -1,8 +1,8 @@
-# Libdmet (Updated for 2024 after DSS, BUT MAYBE NO WORH PORTING? I DUNNO ANY MORE)
+# Libdmet (Updated for 2025 after DSS, BUT MAYBE NO WORH PORTING? I DUNNO ANY MORE)
 
 ```sh
-export ENVTARG=/deac/opt/rocky9-noarch/deac-envs/winterGrp/env-libdmet
-export SOFTARG=/deac/opt/rocky9-noarch/libdmet/libdmet_preview
+export ENVTARG=/deac/phy/winterGrp/members/ganto21/libdmet/env-libdmet
+export SOFTARG=/deac/phy/winterGrp/members/ganto21/libdmet/libdmet/libdmet_preview
 mkdir -p $ENVTARG
 
 # module purge && module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0 libs/libxc/6.2.2/gcc/10.2.0 python/3.8.13 utils/cmake/3.23.1
@@ -79,9 +79,9 @@ EOF
 ################################################################################
 ################################################################################
 
-mkdir -p /deac/opt/modulefiles/rocky9-noarch/apps
+mkdir -p /deac/phy/winterGrp/members/ganto21/libdmet/modulefiles
 
-cat <<EOF > /deac/opt/modulefiles/rocky9-noarch/apps/libdmet
+cat <<EOF > /deac/phy/winterGrp/members/ganto21/libdmet/modulefiles/libdmet
 #%Module########################################################################
 ##
 ## Custom module for winterGrp 'libdmet' software environment
@@ -105,7 +105,6 @@ if { [module-info command load] } {
         exit
     }
 }
-
 
 module load compilers/gcc/12.3.0 apps/python/3.11.8 mpi/openmpi/4.1.6 libs/libxc/6.2.2
 
@@ -169,47 +168,6 @@ export PYSCF_TMPDIR="/scratch/${SLURM_JOB_ID}"
 
 source ${ENVTARG}/bin/activate
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
