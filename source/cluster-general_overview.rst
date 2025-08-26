@@ -57,14 +57,17 @@ The Basics on DEAC
 
     General Illustration of DEAC Cluster Architecture
 
+
+
 DEAC Login Nodes
 ----------------
 
-The DEAC Cluster has three login nodes:
+The DEAC Cluster has two login nodes:
 
-* **apollo.deac.wfu.edu** (Modern AMD Architecture)
-* **artemis.deac.wfu.edu** (Modern AMD Architecture)
-* **gemini.deac.wfu.edu** (Legacy Intel Architecture)
+* **apollo.deac.wfu.edu**
+* **artemis.deac.wfu.edu**
+
+These dedicated nodes are not to be confused with our web-based login portal, **login.deac.wfu.edu** which is a hosted on a VM
 
 DEAC Compute Nodes
 ------------------
