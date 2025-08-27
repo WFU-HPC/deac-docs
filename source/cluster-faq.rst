@@ -91,7 +91,7 @@ What Is Baseline Usage?
 
 	* Baseline usage is defined as the equitable, evenly distributed use of the DEAC Cluster's centralized resources across all active research groups.
         * Baseline usage is calculated by taking the total monthly number available Core Hours on the DEAC Cluster, divided by the total number of active departmental research groups.
-	* As of 2024, Baseline usage for research groups is **26,046 Core Hours per month**.
+	* As of 2025, Baseline usage for research groups is **21,214 Core Hours per month**.
         * All users should be expect to be able to utilize the DEAC Cluster per month without contention.
 	* More detailed information can be found under the :ref:`Utilization Calculation<sec.sla.util.utilization_calculation>` section of our Service Level Agreement.
 
