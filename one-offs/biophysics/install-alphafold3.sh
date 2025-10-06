@@ -5,10 +5,12 @@ export ENVIRONMENT=${SOFTWARE}/env-alphafold3
 export REPOS=${SOFTWARE}/repos
 export PROGS=${SOFTWARE}/progs
 
+
 mkdir -p $SOFTWARE
 mkdir -p $ENVIRONMENT
 mkdir -p $REPOS
 mkdir -p $PROGS
+
 
 module load compilers/gcc/12.3.0 apps/python/3.11.8
 

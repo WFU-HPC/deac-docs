@@ -6,12 +6,10 @@ DEAC Cluster Service Level Agreement
 
 .. admonition:: Recent Updates:
 
+  * 08/27/2025: Updated Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2025 biannual review.
   * 10/09/2024: Added :ref:`sec.sla.util.assigned_fairshare_value.calculation` section to clearly show how priority is calculated. 
   * 08/01/2024: Added updated baseline totals.
   * 01/09/2024: Updated Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2024 biannual review.
-  * 08/01/2023: Updated :ref:`sec.sla.ua.account_eligibility` section to clearly define "*Internal*" and "*External*" users for reference throughout SLA.
-  * 07/14/2023: Updated :ref:`sec.sla.util` section to reflect new, simpler calculation method. Added admonition blocks to highlight key elements of SLA.
-  * 04/25/2023: Added information about exclusive "High" QOS access for :ref:`sec.sla.ul.contributing_research_groups`
 
 The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated as needed, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. DEAC Cluster Users will be notified via email of significant updates after they have been made.
 
@@ -388,16 +386,16 @@ Service Units (SUs) are derived from consumption of various types of resources o
     - External Fee
     - Unit
   * - Compute SSU
-    - $0.0103
+    - $0.0065
     - $0.0137
     - Per Core-Hour
   * - GPU SSU
-    - $0.1616
-    - $0.0888
+    - $0.1611
+    - $0.0915
     - Per GPU-Hour
   * - Storage SSU
-    - $34.00
-    - $15.00
+    - $6.00
+    - $3.00
     - Per TB / Month
 
 * The sum total of all SSUs is converted into a standard Service Unit in order to normalize the purchase/payment process.
@@ -407,8 +405,8 @@ Service Units (SUs) are derived from consumption of various types of resources o
 
 .. admonition:: Current Service Unit Costs
 
-  * **Internal Rate = $0.0103** (for "*Internal*" Users within the WFU UC/GSAS)
-  * **External Rate = $0.0240** (for "*External*" Users)
+  * **Internal Rate = $0.0065** (for "*Internal*" Users within the WFU UC/GSAS)
+  * **External Rate = $0.0202** (for "*External*" Users)
 
 .. _sec.sla.su.ssu_types.compute:
 
@@ -479,8 +477,8 @@ A Statistics faculty member (aka "*Internal*" Users) wishes to submit a grant ap
 * The total amount required to cover the increased computational workload is 4 million SUs.
 
     * 1,250 simulations x 32 cores x 100 hrs = 4 million Compute SSUs
-    * 4 million Compute SSUs x $0.0103 Compute SSU Applied Internal Rate = $41,200
-    * $41,200 SSU Total / Applicable Compute SSU internal rate ($0.0103) = 4 million SUs
+    * 4 million Compute SSUs x $0.0065 Compute SSU Applied Internal Rate = $26,000
+    * $26,000 SSU Total / Applicable Compute SSU internal rate ($0.0065) = 4 million SUs
 
 * The total amount cost requested within the grant application is $41,200, which can be paid up front, or annually based upon the grant timeline.
 * Because this is a grant contribution, ORSP should also be contacted about matching the amount!
@@ -495,8 +493,8 @@ A non-Reynolda Campus researcher (aka "*External*" User) used 4 GPUs for a total
 * The total amount required to cover the increased computational workload is 35,400 SUs.
 
     * 4 GPUs x 232 hours = 928 GPU SSUs
-    * 928 GPU SSUs x $0.2505 GPU SSU Applied External Rate = $232.46
-    * $232.46 SSU Total / Applicable Compute SSU external rate ($0.0240) = 11,285 SUs
+    * 928 GPU SSUs x $0.2527 GPU SSU Applied External Rate = $232.51
+    * $232.51 SSU Total / Applicable Compute SSU external rate ($0.0202) = 11,609 SUs
 
 * The total amount that will be charged back to cover usage will be $232.46, which should be paid within 60 days of receiving the usage invoice.
 
@@ -510,16 +508,10 @@ A School of Medicine Post-Doc (aka "*External*" User) wishes to request a 4 TB q
 * The required total purchase to meet this request is 350,600 SUs.
 
     * 4TB x 39 Months = 156 Storage SSUs
-    * 156 Storage SSUs x $49.00 Storage SSU Applied External Rate = $7,644.00
-    * $7,644.00 SSU Total / Applicable Compute SSU external rate ($0.0240) = 318,500 SUs
+    * 156 Storage SSUs x $9.00 Storage SSU Applied External Rate = $1,404.00
+    * $1,404.00 SSU Total / Applicable Compute SSU external rate ($0.0202) = 69,505 SUs
 
-* Total cost is $7,644.00, which can be paid up front:
-
-* Alternatively the total cost can be paid annually:
-
-    * First invoice on January 2024 is for 15-months:	$2,940.00
-    * Second invoice on January 2025 is for 12-months:	$2,352.00
-    * Third invoice on January 2026 is for 12-months:	$2,352.00
+* Total cost is $1,404.00, which can be paid up front or evenly annually if the total amount is too large.
 
 
 .. _sec.sla.su.example.multi:
@@ -532,13 +524,13 @@ A newly hired researcher in the Engineering Department (aka "*Internal*" Users) 
 * The amount required to cover this request is 1,609,874 SUs.
 
     * 5TB x 36 Months = 180 Storage SSUs
-    * 180 Storage SSUs x $34.00 Storage SSU Applied Internal Rate = $6,120.00
+    * 180 Storage SSUs x $6.00 Storage SSU Applied Internal Rate = $1,080.00
     * 20 x 2 GPU jobs x 25 hours = 1000 GPU SSUs 
-    * 1000 GPU SSUs x $0.1617 GPU SSU Applied Internal Rate = $161.70
-    * 1 million Compute SSUs x $0.0103 Compute SSU Applied Internal Rate = $10,300.00
-    * $16,581.70 SSU Total Cost / Applicable Compute SSU internal rate ($0.0103) = 1,609,874 SUs
+    * 1000 GPU SSUs x $0.1611 GPU SSU Applied Internal Rate = $161.10
+    * 1 million Compute SSUs x $0.0065 Compute SSU Applied Internal Rate = $6,500.00
+    * $7,741.10 SSU Total Cost / Applicable Compute SSU internal rate ($0.0065) = 1,190,938 SUs
 
-* Total cost is $16,581.70, which can be paid up front using available start-up funds.
+* Total cost is $7,741.10, which can be paid up front using available start-up funds.
 
 
 .. #############################################################################
@@ -647,7 +639,7 @@ Research Group Baseline (:math:`\mathbf{U_{\mathrm{Grp}}}`)
 
 .. admonition:: Current Research Group Baseline
 
-  The current baseline monthly utilization (:math:`U_{Grp}`) for research groups is **26,046 SUs**.
+  The current baseline monthly utilization (:math:`U_{Grp}`) for research groups is **21,214 SUs**.
 
 * If a non-contributing group is operating outside of that monthly utilization on a regular basis, then they should consider contributing to the DEAC Cluster to help accomodate their elevated usage. 
 
@@ -664,7 +656,7 @@ Provost Office Baseline (:math:`\mathbf{U_{\mathrm{WFU}}}`)
 
 .. admonition:: Current Research Group Baseline
 
-  The current baseline monthly utilization for each "*Internal*" User department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **11,239 SUs**.
+  The current baseline monthly utilization for each "*Internal*" User department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **12,680 SUs**.
 
 
 .. _sec.sla.util.utilization_calculation.u_grp:

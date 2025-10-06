@@ -2,26 +2,29 @@
 # see https://theory.cm.utexas.edu/vtsttools/index.html
 
 # download vtstcode
-wget --no-check-certificate https://theory.cm.utexas.edu/code/vtstcode-199.tgz -O /tmp/vtstcode-199.tgz
-tar -xf /tmp/vtstcode-199.tgz -C /tmp
+# wget --no-check-certificate https://theory.cm.utexas.edu/code/vtstcode-199.tgz -O /tmp/vtstcode-199.tgz
+# tar -xf /tmp/vtstcode-199.tgz -C /tmp
+
+wget --no-check-certificate https://theory.cm.utexas.edu/code/vtstcode-209.tgz -O /tmp/vtstcode-209.tgz
+tar -xf /tmp/vtstcode-209.tgz -C /tmp
 
 # extract vasp
-tar -xf /deac/opt/tarballs/vasp/vasp.6.4.3.tgz -C /tmp
+tar -xf /deac/opt/tarballs/vasp/vasp.6.5.1.tgz -C /tmp
 
 # backup files
-cp /tmp/vasp.6.4.3/src/main.F  /tmp/vasp.6.4.3/src/main.F.bak
-cp /tmp/vasp.6.4.3/src/chain.F /tmp/vasp.6.4.3/src/chain.F.bak
-cp /tmp/vasp.6.4.3/src/.objects /tmp/vasp.6.4.3/src/.objects.bak
-cp /tmp/vasp.6.4.3/src/makefile /tmp/vasp.6.4.3/src/makefile.bak
+cp /tmp/vasp.6.5.1/src/main.F  /tmp/vasp.6.5.1/src/main.F.bak
+cp /tmp/vasp.6.5.1/src/chain.F /tmp/vasp.6.5.1/src/chain.F.bak
+cp /tmp/vasp.6.5.1/src/.objects /tmp/vasp.6.5.1/src/.objects.bak
+cp /tmp/vasp.6.5.1/src/makefile /tmp/vasp.6.5.1/src/makefile.bak
 
 # cd /tmp
-# diff -urN vasp.6.4.3 vasp.6.4.3.vtstcode/
+# diff -urN vasp.6.5.1 vasp.6.5.1.vtstcode/
 
 # generate patch file (see https://theory.cm.utexas.edu/vtsttools/installation.html)
-cat <<EOF > /tmp/vasp.6.4.3/vtstcode.patch
-diff -urN vasp.6.4.3/src/main.F vasp.6.4.3.vtstcode/src/main.F
---- vasp.6.4.3/src/main.F	2024-03-19 05:18:08.000000000 -0400
-+++ vasp.6.4.3.vtstcode/src/main.F	2024-07-03 13:59:21.336020202 -0400
+cat <<EOF > /tmp/vasp.6.5.1/vtstcode.patch
+diff -urN vasp.6.5.1/src/main.F vasp.6.5.1.vtstcode/src/main.F
+--- vasp.6.5.1/src/main.F	2024-03-19 05:18:08.000000000 -0400
++++ vasp.6.5.1.vtstcode/src/main.F	2024-07-03 13:59:21.336020202 -0400
 @@ -963,7 +963,7 @@
  ! init all chains (INCAR reader)
  !-----------------------------------------------------------------------
@@ -47,9 +50,9 @@ diff -urN vasp.6.4.3/src/main.F vasp.6.4.3.vtstcode/src/main.F
 
        CALL PARALLEL_TEMPERING(NSTEP,T_INFO%NIONS,DYN%POSION,DYN%VEL,TOTEN,TIFOR,DYN%TEBEG,DYN%TEEND, &
             LATT_CUR%A,LATT_CUR%B,IO%IU6)
-diff -urN vasp.6.4.3/src/makefile vasp.6.4.3.vtstcode/src/makefile
---- vasp.6.4.3/src/makefile	2024-03-19 05:18:07.000000000 -0400
-+++ vasp.6.4.3.vtstcode/src/makefile	2024-07-03 13:58:35.785093946 -0400
+diff -urN vasp.6.5.1/src/makefile vasp.6.5.1.vtstcode/src/makefile
+--- vasp.6.5.1/src/makefile	2024-03-19 05:18:07.000000000 -0400
++++ vasp.6.5.1.vtstcode/src/makefile	2024-07-03 13:58:35.785093946 -0400
 @@ -16,7 +16,7 @@
  OFLAG=\$(OFLAG_2)
  OFLAG_IN=\$(OFLAG)
@@ -68,9 +71,9 @@ diff -urN vasp.6.4.3/src/makefile vasp.6.4.3.vtstcode/src/makefile
  	\$(MAKE) depend
 
  depend: \$(F90SRC)
-diff -urN vasp.6.4.3/src/.objects vasp.6.4.3.vtstcode/src/.objects
---- vasp.6.4.3/src/.objects	2024-03-19 05:18:07.000000000 -0400
-+++ vasp.6.4.3.vtstcode/src/.objects	2024-07-03 13:58:35.785093946 -0400
+diff -urN vasp.6.5.1/src/.objects vasp.6.5.1.vtstcode/src/.objects
+--- vasp.6.5.1/src/.objects	2024-03-19 05:18:07.000000000 -0400
++++ vasp.6.5.1.vtstcode/src/.objects	2024-07-03 13:58:35.785093946 -0400
 @@ -127,6 +127,10 @@
  	dos.o \\
  	elf.o \\
@@ -85,23 +88,24 @@ diff -urN vasp.6.4.3/src/.objects vasp.6.4.3.vtstcode/src/.objects
 EOF
 
 # copy files from vtstcode to vasp source
-cp -r /tmp/vtstcode-199/vtstcode6.4/* /tmp/vasp.6.4.3/src/.
+# cp -r /tmp/vtstcode-199/vtstcode6.4/* /tmp/vasp.6.5.1/src/.
+cp -r /tmp/vtstcode-209/vtstcode6.5.1/* /tmp/vasp.6.5.1/src/.
 
 # patch the code
-cd /tmp/vasp.6.4.3
+cd /tmp/vasp.6.5.1
 patch -p1 -i vtstcode.patch
 
 # now generate final tar file for use with DSS
 cd /tmp
-mv /tmp/vasp.6.4.3 /tmp/vasp.6.4.3.vtstcode
-tar -czf /tmp/vasp.6.4.3.vtstcode.tgz ./vasp.6.4.3.vtstcode
+mv /tmp/vasp.6.5.1 /tmp/vasp.6.5.1.vtstcode
+tar -czf /tmp/vasp.6.5.1.vtstcode.tgz ./vasp.6.5.1.vtstcode
 
 # copy new tarball to /deac/opt/tarballs
-cp /tmp/vasp.6.4.3.vtstcode.tgz /deac/opt/tarballs/vasp/vasp.6.4.3.vtstcode.tgz
+cp /tmp/vasp.6.5.1.vtstcode.tgz /deac/opt/tarballs/vasp/vasp.6.5.1.vtstcode.tgz
 
 # remove spurious files
 cd $HOME
-rm -rf /tmp/vasp.6.4.3* /tmp/vtstcode-199*
+rm -rf /tmp/vasp.6.5.1* /tmp/vtstcode-209*
 
 ################################################################################
 ################################################################################
