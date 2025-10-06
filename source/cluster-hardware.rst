@@ -18,24 +18,25 @@ Physical Hardware Specifications
 Overall Information
 -------------------
 
-*  :ref:`Compute Nodes<sec.hardware.physical.compute>`: 83 - 4176 Cores, 33.5TB RAM
-*  :ref:`GPU Nodes<sec.hardware.physical.gpu>`: 7 - 32 GPU Cards, 192,512 CUDA cores, 448 Cores, 5.3TB RAM
+*  :ref:`Compute Nodes<sec.hardware.physical.compute>`: 84 - 4,576 Cores, 41TB RAM
+*  :ref:`GPU Nodes<sec.hardware.physical.gpu>`: 9 - 34 GPU Cards, 214,752 CUDA cores, 576 Cores, 8.75TB RAM
 *  :ref:`Persistent Storage<sec.hardware.physical.storage>`: 287 TB
-*  :ref:`Login Nodes<sec.hardware.physical.login>`: 3 - 144 Cores, 1.6TB RAM
+*  :ref:`Login Nodes<sec.hardware.physical.login>`: 2 - 128 Cores, 1.5TB RAM
+*  :ref:`Education Cluster<sec.hardware.physical.education>`: 16 - 704 Cores, 3TB RAM
 
 .. _sec.hardware.physical.compute:
 
 Compute Nodes
 -------------
 
-*  21 - **Penguin Computing Altus Nodes** - 1,344 cores, 16.50TB RAM total:
+*  34 - **Penguin Computing Altus Nodes** - 2,176 cores, 31.7 RAM total:
 
 	* 4 - Zen4 Nodes with 64 cores, 2.3TB RAM, 1.8TB Scratch
-	* 17 - Zen4 Nodes with 64 Cores, 678GB RAM, 1.8TB Scratch
+	* 30 - Zen4 Nodes with 64 Cores, 768GB RAM, 1.8TB Scratch
 
-*  62 - **Cisco UCS B200M5 Nodes**  - 2,832 cores, 17TB RAM total:
+*  50 - **Cisco UCS B200M5 Nodes**  - 2,400 cores, 9.375TB RAM total:
    
-	* 36 - Cascade Lake Blades with 44 cores -- 192GB RAM, 425GB Scratch
+	* 24 - Cascade Lake Blades with 44 cores -- 192GB RAM, 425GB Scratch
 	* 26 - Cascade Lake Blades with 48 cores -- 192GB RAM, 425GB Scratch
 
 .. _sec.hardware.physical.gpu:
@@ -45,6 +46,11 @@ GPU Nodes
 
 For more in-depth GPU information, see the :ref:`Cluster GPU Overview<sec.cluster-gpu>` page, or feel free to contact the HPC Team.
 
+*  1 - Penguin Computing Altus (64 cores):
+	*  2 -  ** H200 80GB** GPU Cards
+	*  16,896 CUDA cores per card (33,792 per node)
+	*  2TB RAM
+	*  6.8TB Scratch 
 *  2 - Penguin Computing Altus (64 cores):
 	*  4 -  ** A100 80GB** GPU Cards
 	*  6,190 CUDA cores per card (24,768 per node)
@@ -55,21 +61,11 @@ For more in-depth GPU information, see the :ref:`Cluster GPU Overview<sec.cluste
 	*  6,190 CUDA cores per card (24,768 per node)
 	*  1TB RAM
 	*  1.8TB Scratch 
-*  1 - Penguin Computing Altus (64 cores):
+*  4 - Penguin Computing Altus (64 cores):
 	*  4 - ** V100 32GB** GPU Cards
 	*  5,120 CUDA cores per card (20,480 per node)
 	*  1TB RAM
 	*  1.8TB Scratch 
-*  1 - **UCS C480 Node (64 cores)**:
-	*  6 - **V100** GPU cards
-	*  5,120 CUDA cores per card (30,720 per node)
-	*  768 GB RAM
-        *  932GB Scratch
-*  1 - **UCS C480 Nodes (48 cores)**:
-	*  6 - **V100** GPU cards   
-	*  5,120 CUDA cores per card (30,720 per node)
-	*  188 GB RAM
-        *  1.8TB Scratch
 
 .. _sec.hardware.physical.storage:
 
@@ -104,11 +100,17 @@ Login Nodes
 	* 768GB RAM 
 	* 1.8TB Scratch
 
-   *  1 - **Cisco UCS** B200M5 Nodes (Legacy Intel Architecture):
 
-	* Intel Cascade Lake with 16 cores
-	* 120GB RAM total
-        * 415GB Scratch
+.. _sec.hardware.physical.education:
+
+Education Cluster
+-----------------
+
+Dedicated legacy hardware, not covered by support, for classes and academic learning. Help ensure availability for assignments and prevent impact to ongoing research.
+
+*  16 - **Cisco UCS B200M5 Nodes**  - 704 cores, 3TB RAM total:
+   
+	* 16 - Sky Lake Blades with 44 cores -- 192GB RAM, 425GB Scratch
 
 .. _sec.hardware.arch:
 
