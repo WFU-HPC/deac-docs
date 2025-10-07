@@ -1,20 +1,24 @@
+# Interactive jobs on the DEAC Cluster
+
 If you want an interactive session, you have two choices:
 
-1. (Recommended) Use `salloc` to allocate the resources for the job, and then run your commands directly on the head-node. MPI programs will run automatically on the compute nodes but you will remain logged in on the head-node at all times. For instance,
+1. Use `salloc` to allocate the resources for the job, and then run your commands directly on the head-node. MPI programs will run automatically on the compute nodes but you will remain logged in on the head-node at all times. For instance,
 
 ```sh
 # prepare environment
-module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0
+module load compilers/gcc/12.3.0 mpi/openmpi/4.1.6
 
 # request interactive session (verify with `squeue -u $USER`)
 # you are still on head-node, but in new bash shell
-salloc -p medium -w comp-08-1,comp-08-2 -N 2 --ntasks-per-node 1 --mem 1G --time 00-00:05:00 bash
+salloc --partition=small --node-list=cpu-intel-01 --nodes=1 --ntasks-per-node=4 --mem=1G --time=00-00:05:00 /bin/bash
 
 # run commands
-mpirun ./a.out
+mpirun hw_mpi
 
-    Hello world from processor comp-08-1.deac.wfu.edu, rank 0 out of 2 processors
-    Hello world from processor comp-08-2.deac.wfu.edu, rank 1 out of 2 processors
+    Hello world from rank 1 out of 4 processors with name cpu-intel-01.deac.wfu.edu
+    Hello world from rank 2 out of 4 processors with name cpu-intel-01.deac.wfu.edu
+    Hello world from rank 3 out of 4 processors with name cpu-intel-01.deac.wfu.edu
+    Hello world from rank 0 out of 4 processors with name cpu-intel-01.deac.wfu.edu
 
 # exit out of shell to deallocate the resources
 exit
@@ -25,22 +29,72 @@ exit
 
 ```sh
 # execute bash via pseudoterminal directly on node. you will be dropped into a new shell on the compute node
-srun -p medium -w comp-08-1,comp-08-2 -N 2 --ntasks-per-node 1 --mem=1GB --time=00-00:05:00 --pty /bin/bash
+srun --partition=small --nodelist=cpu-intel-01 --nodes=1 --ntasks-per-node=4 --mem=1GB --time=00-00:05:00 --pty /bin/bash
 
 # prepare environment
-module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0
+module load compilers/gcc/12.3.0 mpi/openmpi/4.1.6
 
-# run commands; however, we need to use rsh and specify the OpenMPI prefix
-# this allows the internode connectivity within the srun interactive session
-# and correctly populates the environment in the secondary node(s)
-# $MPIHOME comes from the aformentioned modulefile
-mpirun --prefix $MPIHOME -mca plm rsh ./a.out
+# run commands
+mpirun hw_mpi
 
-    Hello world from processor comp-08-1.deac.wfu.edu, rank 0 out of 2 processors
-    Hello world from processor comp-08-2.deac.wfu.edu, rank 1 out of 2 processors
+    Hello world from rank 0 out of 4 processors with name cpu-intel-01.deac.wfu.edu
+    Hello world from rank 1 out of 4 processors with name cpu-intel-01.deac.wfu.edu
+    Hello world from rank 2 out of 4 processors with name cpu-intel-01.deac.wfu.edu
+    Hello world from rank 3 out of 4 processors with name cpu-intel-01.deac.wfu.edu
+
+## DEPRECATED BUT KEPT FOR HISTORICAL REASONS
+## run commands; however, we need to use rsh and specify the OpenMPI prefix
+## this allows the internode connectivity within the srun interactive session
+## and correctly populates the environment in the secondary node(s)
+## $MPIHOME comes from the aformentioned modulefile
+# mpirun --prefix $MPIHOME -mca plm rsh hw_mpi
+
+# exit out of the pseudoterminal to deallocate the resources
+exit
 ```
 
-## Using a GUI via X11 Forwarding
+
+## Appendix 1: MPI Hello World
+
+Here is a simple MPI "hello world" program:
+
+```c
+#include <mpi.h>
+#include <stdio.h>
+
+int main(int argc, char** argv) {
+    // Initialize the MPI environment
+    MPI_Init(NULL, NULL);
+
+    // Get the number of processes
+    int world_size;
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
+
+    // Get the rank of the process
+    int world_rank;
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+
+    // Get the name of the processor
+    char processor_name[MPI_MAX_PROCESSOR_NAME];
+    int name_len;
+    MPI_Get_processor_name(processor_name, &name_len);
+
+    // Print off a hello world message
+    printf("Hello world from rank %d out of %d processors with name %s\n", world_rank, world_size, processor_name);
+
+    // Finalize the MPI environment.
+    MPI_Finalize();
+}
+```
+
+Save that to a file (`mpi_hello_world.c`) and then compile it with:
+
+```sh
+mpicc mpi_hello_world.c -o hw_mpi
+```
+
+
+## Appendix 2: Using a GUI via X11 Forwarding (Deprecated)
 
 Using the GUI will require you to remain connected to the cluster for the entire
 duration of your work. Severing your connection will kill your job almost
@@ -49,7 +103,7 @@ immediately.
 For Windows, we recommend using [MobaXterm](https://mobaxterm.mobatek.net/)
 which has good X11 capabilities. The free "Home Edition" is perfectly suited for
 this task. Set up a new "Session" with SSH and log in to either
-`gemini.deac.wfu.edu` or `pegasus.deac.wfu.edu` using your username.
+`artemis.deac.wfu.edu` or `apollo.deac.wfu.edu` using your username.
 
 Once on the cluster, request an interactive SLURM session to gain access to a
 compute node:

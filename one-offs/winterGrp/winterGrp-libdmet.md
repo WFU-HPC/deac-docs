@@ -1,8 +1,8 @@
 # Libdmet (Updated for 2025 after DSS, BUT MAYBE NO WORH PORTING? I DUNNO ANY MORE)
 
 ```sh
-export ENVTARG=/deac/phy/winterGrp/members/ganto21/libdmet/env-libdmet
-export SOFTARG=/deac/phy/winterGrp/members/ganto21/libdmet/libdmet/libdmet_preview
+export ENVTARG=/home/anderss/hdeac/phy/winterGrp/members/ganto21/libdmet/env-libdmet
+export SOFTARG=/home/anderss/hdeac/phy/winterGrp/members/ganto21/libdmet/libdmet/libdmet_preview
 mkdir -p $ENVTARG
 
 # module purge && module load compilers/gcc/10.2.0 mpi/openmpi/4.1.1/gcc/10.2.0 libs/libxc/6.2.2/gcc/10.2.0 python/3.8.13 utils/cmake/3.23.1
@@ -43,6 +43,19 @@ EOF
 
 chmod +x ${ENVTARG}/lib/python${PVER}/site-packages/pyscf/dmrgscf/nevpt_mpi.py
 
+cat <<EOF > ${SOFTARG}/libdmet/solver/settings.py
+# YOU NEED TO COPY THIS TO libdmet/solver/settings.py IN ORDER TO USE BLOCK
+# block folder
+#BLOCKPATH = '/deac/phy/winterGrp/members/ganto21/libdmet/env-libdmet/bin/'
+BLOCKPATH = '/deac/phy/winterGrp/software/bin'
+use_prebuild = False
+BLOCK2PATH = "/deac/phy/winterGrp/members/ganto21/libdmet/env-libdmet/bin"
+
+# Genetic algorithm reorder
+GAOPTEXE = "/deac/phy/winterGrp/members/ganto21/libdmet/env-libdmet/bin/gaopt"
+GAOPT2 = BLOCK2PATH + "/gaopt"
+EOF
+
 ################################################################################
 ################################################################################
 
@@ -79,9 +92,9 @@ EOF
 ################################################################################
 ################################################################################
 
-mkdir -p /deac/phy/winterGrp/members/ganto21/libdmet/modulefiles
+mkdir -p /home/anderss/hdeac/phy/winterGrp/members/ganto21/libdmet/modulefiles
 
-cat <<EOF > /deac/phy/winterGrp/members/ganto21/libdmet/modulefiles/libdmet
+cat <<EOF > /home/anderss/hdeac/phy/winterGrp/members/ganto21/libdmet/modulefiles/libdmet
 #%Module########################################################################
 ##
 ## Custom module for winterGrp 'libdmet' software environment
@@ -168,6 +181,82 @@ export PYSCF_TMPDIR="/scratch/${SLURM_JOB_ID}"
 
 source ${ENVTARG}/bin/activate
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
