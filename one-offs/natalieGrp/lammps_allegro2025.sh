@@ -9,11 +9,10 @@
 ################################################################################
 ################################################################################
 
-ssh gpu-a100-02.deac.wfu.edu
+ssh gpu-h200-01.deac.wfu.edu
 
-# mkdir -p /scratch/anderss
 export SOFTWARE="/deac/opt/rocky9-noarch/deac-envs/natalieGrp"
-export ENVIRONMENT="${SOFTWARE}/env-allegro2025a"
+export ENVIRONMENT="${SOFTWARE}/env-allegro2025c"
 
 module load compilers/gcc/12.3.0 apps/python/3.11.8
 
@@ -41,25 +40,31 @@ exit
 ################################################################################
 ################################################################################
 
-ssh gpu-a100-02.deac.wfu.edu
+ssh gpu-h200-01.deac.wfu.edu
 
 export SOFTWARE="/deac/opt/rocky9-noarch/deac-envs/natalieGrp"
-export ENVIRONMENT="${SOFTWARE}/env-allegro2025a"
+export ENVIRONMENT="${SOFTWARE}/env-allegro2025c"
 
-module load compilers/gcc/12.3.0 nvidia/cuda12/cuda/12.4.1 mpi/openmpi/4.1.6 apps/python/3.11.8
+module load compilers/gcc/12.3.0 mpi/openmpi/4.1.6 apps/python/3.11.8 nvidia/cuda12/cuda/12.8.1
 
 . ${ENVIRONMENT}/bin/activate
 
-git clone git@github.com:mir-group/pair_nequip_allegro.git ${SOFTWARE}/pair_nequip_allegro -b v0.7.0
-git clone -b release --depth=1 https://github.com/lammps/lammps /tmp/lammps
+git clone git@github.com:mir-group/pair_nequip_allegro.git ${SOFTWARE}/pair_nequip_allegroa -b v0.7.0
+# git clone -b release --depth=1 https://github.com/lammps/lammps /tmp/lammps
+git clone --branch stable_22Jul2025_update1 https://github.com/lammps/lammps /tmp/lammps
 cd ${SOFTWARE}/pair_nequip_allegro
 ./patch_lammps.sh /tmp/lammps
 mkdir -p /tmp/lammps/build && cd /tmp/lammps/build
 
+# grep versionadd /tmp/lammps/src/library.cpp | grep 2025 | sort -u # lammps version string
+
+# export TORCH_CUDA_ARCH_LIST="70;80;90"
+# export CUDAARCHS="70;80;90"
+
 cmake   ../cmake \
         -C /tmp/lammps/cmake/presets/kokkos-cuda.cmake \
         -DCMAKE_BUILD_TYPE=Release \
-        -DCMAKE_INSTALL_PREFIX="${SOFTWARE}/lammps-22Jul2025" \
+        -DCMAKE_INSTALL_PREFIX="${SOFTWARE}/lammps-22Jul2025a" \
         -DCMAKE_PREFIX_PATH="$(python3 -c 'import torch;print(torch.utils.cmake_prefix_path)')" \
         -DLAMMPS_INSTALL_RPATH=ON \
         -DNEQUIP_AOT_COMPILE=ON \
@@ -74,7 +79,8 @@ cd $HOME
 rm -rf /tmp/lammps
 
 ## UGHGGGGGGHGGGGGHHHHHHHHHHHHHHHHHHHHHHHHHH
-scp gpu-a100-01.deac.wfu.edu:/usr/lib64/libcuda.so.1 ${SOFTWARE}/lammps-22Jul2025/.
+## UPDATE 2025/10 MAYBE NO LONGER NEEDED?!?!?!?
+#scp gpu-a100-01.deac.wfu.edu:/usr/lib64/libcuda.so.1 ${SOFTWARE}/lammps-22Jul2025a/.
 
 ################################################################################
 ################################################################################
@@ -83,7 +89,7 @@ scp gpu-a100-01.deac.wfu.edu:/usr/lib64/libcuda.so.1 ${SOFTWARE}/lammps-22Jul202
 ################################################################################
 
 mkdir -p /deac/opt/modulefiles/rocky9-noarch/envs
-cat << EOF > /deac/opt/modulefiles/rocky9-noarch/envs/allegro2025a
+cat << EOF > /deac/opt/modulefiles/rocky9-noarch/envs/allegro2025c
 #%Module
 ##
 ## python evironment using venv
@@ -96,20 +102,20 @@ module-whatis   "Sets up a python environment using venv"
 
 module load compilers/gcc/12.3.0 nvidia/cuda12/cuda/12.4.1 mpi/openmpi/4.1.6 apps/python/3.11.8
 
-set environment     "env-allegro2025a"
+set environment     "env-allegro2025c"
 set basedir         "${SOFTWARE}"
 
 ################################################################################
 ################################################################################
 
 prepend-path    PATH                \${basedir}/\${environment}/bin
-prepend-path    PATH                \${basedir}/lammps-22Jul2025/bin
-append-path     LD_LIBRARY_PATH     \${basedir}/lammps-22Jul2025
+prepend-path    PATH                \${basedir}/lammps-22Jul2025a/bin
+append-path     LD_LIBRARY_PATH     \${basedir}/lammps-22Jul2025a
 
 setenv  VIRTUAL_ENV                 "$ENVIRONMENT"
 setenv  VIRTUAL_ENV_PROMPT          "\$environment"
 setenv  PYTHONWARNINGS              "ignore"
 setenv  OMPI_MCA_mpi_cuda_support   1
-setenv  LAMMPS_ROOT                 "\${basedir}/lammps-22Jul2025"
+setenv  LAMMPS_ROOT                 "\${basedir}/lammps-22Jul2025a"
 EOF
 
