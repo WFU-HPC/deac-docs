@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# UPDATED on 2025/10/31 (spooky)
+
 # Go ahead and do this whole thing on a GPU node:
 # save yourself some time and headache.
 
@@ -79,8 +81,8 @@ cd $HOME
 rm -rf /tmp/lammps
 
 ## UGHGGGGGGHGGGGGHHHHHHHHHHHHHHHHHHHHHHHHHH
-## UPDATE 2025/10 MAYBE NO LONGER NEEDED?!?!?!?
-#scp gpu-a100-01.deac.wfu.edu:/usr/lib64/libcuda.so.1 ${SOFTWARE}/lammps-22Jul2025a/.
+## UPDATE 2025/10 STILL NEEDED
+#scp gpu-h200-01.deac.wfu.edu:/usr/lib64/libcuda.so.1 ${SOFTWARE}/lammps-22Jul2025a/.
 
 ################################################################################
 ################################################################################
