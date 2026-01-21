@@ -198,6 +198,8 @@ setenv  XLA_PYTHON_CLIENT_PREALLOCATE   true
 setenv  XLA_FLAGS                       "--xla_gpu_enable_triton_gemm=false"
 
 setenv  ALPHAFOLD3_ROOT                 "\${basedir}/repos/alphafold3"
+setenv  ALPHAFOLD3_MODELS               "/deac/data/alphafold3_models"
+setenv  ALPHAFOLD3_DATA                 "/deac/data/alphafold3_data"
 EOF
 
 ################################################################################

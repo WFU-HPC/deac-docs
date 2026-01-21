@@ -1,12 +1,15 @@
 ```sh
 #!/bin/bash
 
+export TARGET=/deac/sta/classes/sta720/software/cmdstan/2.37.0
+export MODULE=/deac/sta/classes/sta720/software/modulefiles/cmdstan/2.37.0
+
 ## build
 module load compilers/gcc/12.3.0
 
-mkdir -p /deac/opt/rocky9-noarch/cmdstan
-git clone https://github.com/stan-dev/cmdstan.git --recursive --branch v2.36.0 /deac/opt/rocky9-noarch/cmdstan/2.36.0
-cd /deac/opt/rocky9-noarch/cmdstan/2.36.0
+mkdir -p $(dirname $TARGET)
+git clone https://github.com/stan-dev/cmdstan.git --recursive --branch v2.37.0 $TARGET
+cd $TARGET
 make build -j16
 
 ## testing
@@ -17,8 +20,8 @@ bin/stansummary output.csv
 rm output.csv
 
 ## module
-mkdir -p /deac/opt/modulefiles/rocky9-noarch/apps/cmdstan
-cat << EOF > /deac/opt/modulefiles/rocky9-noarch/apps/cmdstan/2.36.0
+mkdir -p $(dirname $MODULE)
+cat << EOF > $MODULE
 #%Module
 ##
 ## cmdstan
@@ -31,7 +34,7 @@ module-whatis   "cmdstan"
 
 module load compilers/gcc/12.3.0
 
-set basedir         "/deac/opt/rocky9-noarch/cmdstan/2.36.0"
+set basedir         "$TARGET"
 
 ################################################################################
 ################################################################################
@@ -40,10 +43,13 @@ prepend-path    PATH                "\${basedir}/bin"
 
 setenv CMDSTANROOT                  "\$basedir"
 EOF
+```
 
 ## cmdstanr
+
+```sh
 module purge
-module load apps/cmdstan/2.36.0 apps/r/4.3.3
+module load apps/cmdstan/2.37.0 apps/r/4.3.3
 ```
 
 ```R
