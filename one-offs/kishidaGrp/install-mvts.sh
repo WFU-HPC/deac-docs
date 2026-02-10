@@ -9,7 +9,7 @@ mkdir -p $ENVIRONMENT
 cat << EOF > ${ENVIRONMENT}/pixi.toml
 [workspace]
 authors = ["Sean Anderson <anderss@wfu.edu>"]
-channels = ["conda-forge", "msys2"]
+channels = ["pytorch", "conda-forge", "msys2"]
 name = "mvts"
 platforms = ["linux-64"]
 version = "0.1.0"
@@ -21,12 +21,24 @@ python = "3.8.*"
 pip = "*"
 tqdm = "*"
 tensorflow = "*"
-ipykernel = "*"
 lightning = "*"
 seaborn = "*"
 openpyxl = "*"
 tmux = "*"
 jupyter = ">=1.1.1,<2"
+ipykernel = "*"
+pandas = "*"
+pytorch = "*"
+torchvision = "*"
+scikit-learn = "*"
+torchinfo = "*"
+tornado = "*"
+tensorboard = "*"
+torchmetrics = "*"
+sqlite = "*"
+uvicorn = "*"
+ipython = "*"
+scipy = "*"
 EOF
 
 cd $ENVIRONMENT
