@@ -6,10 +6,10 @@ DEAC Cluster Service Level Agreement
 
 .. admonition:: Recent Updates:
 
+  * 04/23/2026: Updated :ref:`Storage and Data Management Section<sec.sla.sdm>` to reflect new VAST array.
   * 08/27/2025: Updated Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2025 biannual review.
   * 10/09/2024: Added :ref:`sec.sla.util.assigned_fairshare_value.calculation` section to clearly show how priority is calculated. 
   * 08/01/2024: Added updated baseline totals.
-  * 01/09/2024: Updated Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2024 biannual review.
 
 The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated as needed, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. DEAC Cluster Users will be notified via email of significant updates after they have been made.
 
@@ -76,25 +76,25 @@ Access to and use of DEAC Cluster resources is permitted for academic research a
   Violation of any of the above usage regulations may result in a variety of actions including, but not limited to: Suspension of DEAC Cluster account, investigation by Information Systems Information Security (InfoSec), and appropriate legal action where warranted. Relevant Federal law, North Carolina state laws, and Wake Forest University rules and regulations supersede any potential action in cases of conflict. 
 
 
-.. _sec.sla.ua.acceptable_head_node_use:
+.. _sec.sla.ua.acceptable_login_node_use:
 
-Acceptable Head Node Use
-========================
+Acceptable Login Node Use
+=========================
 
-Access to the DEAC Cluster is provided via Head Nodes. These head nodes are not designed nor intended to bear full computational workloads. Users must be cognizant that Head Nodes are shared resources in which user access is required to utilize DEAC Cluster resources.
+Access to the DEAC Cluster is provided via Login Nodes. These login nodes are not designed nor intended to bear full computational workloads. Users must be cognizant that Login Nodes are shared resources in which user access is required to utilize DEAC Cluster resources.
 
-In addition to following guidelines of :ref:`Acceptable Use<sec.sla.ua.acceptable_use>`, the following list of acceptable Head Node usage below is intended to be all encompassing; any activity occurring from a Head Node not listed below is subject to termination by the HPC Team without prior notification. 
+In addition to following guidelines of :ref:`Acceptable Use<sec.sla.ua.acceptable_use>`, the following list of acceptable Login Node usage below is intended to be all encompassing; any activity occurring from a Login Node not listed below is subject to termination by the HPC Team without prior notification. 
 
-#. *Editing Files* - As the primary access point to all research data, scripts, and results, it is expected that users will commonly view, edit, and manipulate their files from the Head Nodes. Use of built-in editing tools like vim, nano, emacs, nedit, as well as use of third party tools such as Visual Studio Code are recommended.
-#. *Data Transfer* - The Head Nodes can be used to migrate data to and from DEAC Cluster storage. Whenever possible, data should be directly downloaded to head nodes from the internet via built-in commands like sftp, wget, or curl; if not possible, use of approved third party tools such as Visual Studio Code, WinSCP, and FileZilla can be used to move data to a user’s appropriate research storage path. 
-#. *Monitoring Jobs* - Users can monitor scheduler queues, their running processes, and job results from the head nodes. While users can monitor other users within the scheduler queue, regular monitoring of any user beyond their research group is not recommended. 
-#. *Compiling Software* - Users can use head nodes to compile software within the above stated resource limits, so long as it completes in under 8 hours.
-#. *Job Testing* - Prior to submitting jobs to the DEAC Cluster’s scheduler queue, it is assumed that all jobs are tested to ensure they run as expected. Processes under the above stated resource limits can be run via command-line directly on the Head Node for a maximum of 30 minutes. 
-#. *Job Submission* - All jobs submitted to the DEAC Cluster’s scheduler are done so from the Head Nodes.
+#. *Editing Files* - As the primary access point to all research data, scripts, and results, it is expected that users will commonly view, edit, and manipulate their files from the Login Nodes. Use of built-in editing tools like vim, nano, emacs, nedit, as well as use of third party tools such as Visual Studio Code are recommended.
+#. *Data Transfer* - While the Login Portal is the easiest method to migrate to and from DEAC Cluster storage, large datasets (>25GB) should be directly downloaded to login nodes from the internet via built-in command line tools like sftp, wget, or curl. If not possible, third party tools such as Visual Studio Code, WinSCP, and FileZilla can also be used to connect to login nodes and transfer data to a user’s appropriate research storage path. 
+#. *Monitoring Jobs* - Users can monitor scheduler queues, their running processes, and job results from the login nodes. While users can monitor other users within the scheduler queue, regular monitoring of any user beyond their research group is not recommended. 
+#. *Compiling Software* - Users can use login nodes to compile software within the above stated resource limits, so long as it completes in under 8 hours.
+#. *Job Testing* - Prior to submitting jobs to the DEAC Cluster’s scheduler queue, it is assumed that all jobs are tested to ensure they run as expected. Processes under the above stated resource limits can be run via command-line directly on the Login Node for a maximum of 30 minutes. 
+#. *Job Submission* - All jobs submitted to the DEAC Cluster’s scheduler are done so from the Login Nodes.
 
 .. important::
 
-  User resource consumption is **limited to 2 cores and 16GB of memory** while operating on the Head Nodes; if more resources are needed, those operations should be conducted via an interactive job through the DEAC Cluster’s scheduler.
+  User resource consumption is **limited to 2 cores and 16GB of memory** while operating on the Login Nodes; if more resources are needed, those operations should be conducted via an interactive job through the DEAC Cluster’s scheduler.
 
 
 .. _sec.sla.ua.job_cancellation:
@@ -102,7 +102,7 @@ In addition to following guidelines of :ref:`Acceptable Use<sec.sla.ua.acceptabl
 Job Cancellation
 ================
 
-The HPC Team reserves the right to terminate running jobs, head node processes, and other operations on the DEAC Cluster without notification for the following reasons:
+The HPC Team reserves the right to terminate running jobs, login node processes, and other operations on the DEAC Cluster without notification for the following reasons:
 
 * Emergency node maintenance.
 * Suspected unacceptable usage of resources.
@@ -147,14 +147,13 @@ Storage Quotas
 
 Storage quotas are utilized on DEAC Cluster research storage paths to prevent unexpected and accidental growth of filesystems. The following quotas are defined, configured, and implemented by the HPC Team:
 
-* Reynolda Campus researchers and departments are provided quotas for research paths starting at 1TB. 
+* Reynolda Campus researchers and departments are provided quotas for research paths starting at 10TB per active research group. 
 
-    * These quotas can be increased after an explicit request for additional space is made, and the need identified by the HPC Team. 
+	* These quotas can be increased only with a departmental agreement to share active research group storage internally, or with a research group contribution for additional storage.
 
-* Expansion of data quotas are allowed at no cost up to the following limits:
-    * 2TB per researcher. Any individual in a department conducting research independently, or a relatively small research groups where the vast majority of all research data is associated with one individual.
-    * 10TB per research groups. A group of three or more researchers conducting research under an individual research advisor.
-    * 20TB per department; All individual researchers and research groups who fall under the same department.
+* Storage quotas are allowed at no cost up to the following limits:
+	* 10TB per active research group.
+	* All active research groups within the same department can choose to share their respective quotas for a singular large quote (example: 7 active groups equals 70TB department quota).
 
 .. Important:: 
 
@@ -173,6 +172,8 @@ Researchers should be good stewards of their data – this includes keeping only
 * If a research group advisor leaves WFU and data ownership/lifecycle is not pre-determined during the exit process, the responsibility will be deferred solely to the HPC Team who will work with departments and/or collaborators to determine data retention.
 
 As researchers leave the University, it does NOT trigger automatic archival of research data. Data is left in place for new data owners and research groups to continue using unless direction otherwise is explicitly provided during the exit process.
+
+Inactive data that has not been accessed in over 2 years, may be required to be archive depending on storage availability. 
 
 .. _sec.sla.sdm.permitted_data:
 
@@ -347,7 +348,7 @@ Researchers that are planning on conducting a significant amount of their work o
 
 * A non-standard, hardware-specific contribution can be made to purchase a Research-Node.
 
-    * A Research-Node is essentially a dedicated Head Node to be used only by the purchasing research group.
+    * A Research-Node is essentially a dedicated Compute Node to be used only by the purchasing research group via dedicated partition or through the Login Portal.
     * This hardware-based contribution method is *only offered as a last resort*, limited only to those groups who cannot conduct their work on current DEAC resources and/or setup.
 
 .. _sec.sla.su.chargebacks:

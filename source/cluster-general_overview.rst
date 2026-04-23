@@ -86,7 +86,7 @@ For more information, look at the :ref:`Cluster GPU Overview<sec.cluster-gpu>` p
 DEAC Persistent Storage
 -----------------------
 
-The DEAC Cluster uses high-speed, enterprise-level, network attached storage to store all active research data. All DEAC Cluster nodes are connected to this shared storage via 10Gb network connection with the NFS protocol. All users are provided with a /home directory and a research path. A user's /home directory is intended only for configuration type files; all relevant research data, output, and scripts should be stored in your research path. 
+The DEAC Cluster uses high-speed, enterprise-level, network attached storage to store all active research data. All DEAC Cluster nodes are connected to this shared storage via 100Gb network connection with the NFS protocol. All users are provided with a /home directory and a research path. A user's /home directory is intended only for configuration type files; all relevant research data, output, and scripts should be stored in your research path. 
 
 For more information, look at the :ref:`Persistent Storage<sec.hardware.physical.storage>` page, or read about how to use storage on our :ref:`Storage and Data Management<sec.sla.sdm>` section of our Service Level Agreement.
 

@@ -79,7 +79,7 @@ Should I Use DEAC?
 
 * How much data storage do users have?
 
-	* Research groups are provided a 2TB "baseline" quota, at no additional cost, only to be used for research conducted on the DEAC Cluster.
+	* Active research groups are allowed up to a 10TB "baseline" quota, at no additional cost, only to be used for research conducted on the DEAC Cluster.
 	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
 
 
@@ -105,8 +105,7 @@ What Is Baseline Usage?
 
 * What if you need more than "baseline" storage?
 
-	* Research storage amounts may be increased up to 10TB per research group, provided the research group's department total footprint is less than 20TB.
-	* If either of those limits are exceeded, additional storage may be allocated via :ref:`Contribution<sec.sla.su.contributions>`, for up to Five-year terms.
+	* Additional storage may be allocated via :ref:`Contribution<sec.sla.su.contributions>`, for up to Five-year terms.
 	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
 
 * Should I allocate grant or start-up funds to the DEAC Cluster?

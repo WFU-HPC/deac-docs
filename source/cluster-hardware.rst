@@ -20,7 +20,7 @@ Overall Information
 
 *  :ref:`Compute Nodes<sec.hardware.physical.compute>`: 84 - 4,576 Cores, 41TB RAM
 *  :ref:`GPU Nodes<sec.hardware.physical.gpu>`: 9 - 34 GPU Cards, 214,752 CUDA cores, 576 Cores, 8.75TB RAM
-*  :ref:`Persistent Storage<sec.hardware.physical.storage>`: 287 TB
+*  :ref:`Persistent Storage<sec.hardware.physical.storage>`: 1PB TB
 *  :ref:`Login Nodes<sec.hardware.physical.login>`: 2 - 128 Cores, 1.5TB RAM
 *  :ref:`Education Cluster<sec.hardware.physical.education>`: 16 - 704 Cores, 3TB RAM
 
@@ -72,22 +72,25 @@ For more in-depth GPU information, see the :ref:`Cluster GPU Overview<sec.cluste
 Persistent Storage
 ------------------
 
-*  **NetApp** A300 Storage Array (287TB shared via NFS):
+*  **VAST** DataStore Storage Arrays (600GB + 400GB shared via NFS):
 
-	* `Technical Specs <https://www.netapp.com/media/19747-storage-review-netapp-a300-print.pdf>`__
-	* `Hardware Datasheet <https://www.data-storage.uk/wp-content/uploads/NetApp_AFF.pdf>`__
-	* `NetApp YouTube Channel <https://www.youtube.com/channel/UCraITOUxo4l3oYQBH8fofyw>`__
+	* Two identical arrays, primary can grow up to 1.2PB, secondary up to 600TB, totaling up to 1.8PB without new hardware.
+	* `Technical Specs <https://www.vastdata.com/whitepaper>`__
+	* `CBox Hardware Datasheet <https://kb.vastdata.com/docs/dell-icelake-cbox-datasheet>`__
+	* `DBox Hardware Datasheet <https://kb.vastdata.com/docs/dbox-df-3015v2df-3060v2-ceres-datasheet>`__
+	* `Storage Switch Datasheet <https://kb.vastdata.com/docs/ethernet-32p-200g-fabric-switch-nvidia-sn3700>`__
 
-* Disk Layout: 52 - 3.8TB SSD
+* Disaggregated Share Everything (DaSE) storage, allows scaled performance and efficient cost.
 
-   *  Storage Efficiency includes Dedupe, Compression, and Compaction
-   *  Nightly and weekly snapshots for restore
-   *  Cloud backup enabled
+	*  `VAST Database Overview <https://kb.vastdata.com/documentation/docs/vast-database-overview-4>`__
+	*  `Storage Efficiency <https://kb.vastdata.com/documentation/docs/similarity-based-data-reduction-3>`__ includes Data compression, deduplication, and similarity-based data reduction.
+	*  Nightly and weekly snapshots for restore
+	*  Cloud backup enabled
 
 * **Amazon** Glacier Cloud Storage (unlimited)
 
-   *  Unlimited cloud storage with variable data expiration.
-   *  *Host* of cluster archive storage
+	*  Unlimited cloud storage with variable data expiration.
+	*  *Host* of cluster archive storage
 
 .. _sec.hardware.physical.login:
 
