@@ -387,8 +387,8 @@ Service Units (SUs) are derived from consumption of various types of resources o
     - External Fee
     - Unit
   * - Compute SSU
-    - $0.0065
-    - $0.0137
+    - $0.0228
+    - $0.0219
     - Per Core-Hour
   * - GPU SSU
     - $0.1611
@@ -406,8 +406,8 @@ Service Units (SUs) are derived from consumption of various types of resources o
 
 .. admonition:: Current Service Unit Costs
 
-  * **Internal Rate = $0.0065** (for "*Internal*" Users within the WFU UC/GSAS)
-  * **External Rate = $0.0202** (for "*External*" Users)
+  * **Internal Rate = $0.0228** (for "*Internal*" Users within the WFU UC/GSAS)
+  * **External Rate = $0.0447** (for "*External*" Users)
 
 .. _sec.sla.su.ssu_types.compute:
 
@@ -478,11 +478,11 @@ A Statistics faculty member (aka "*Internal*" Users) wishes to submit a grant ap
 * The total amount required to cover the increased computational workload is 4 million SUs.
 
     * 1,250 simulations x 32 cores x 100 hrs = 4 million Compute SSUs
-    * 4 million Compute SSUs x $0.0065 Compute SSU Applied Internal Rate = $26,000
-    * $26,000 SSU Total / Applicable Compute SSU internal rate ($0.0065) = 4 million SUs
+    * 4 million Compute SSUs x $0.0228 Compute SSU Applied Internal Rate = $91,200
+    * $91,200 SSU Total / Applicable Compute SSU internal rate ($0.0228) = 4 million SUs
 
-* The total amount cost requested within the grant application is $41,200, which can be paid up front, or annually based upon the grant timeline.
-* Because this is a grant contribution, ORSP should also be contacted about matching the amount!
+* The total amount cost requested within the grant application is $91,200, which can be paid up front, or annually based upon the grant timeline.
+* Because this is a grant contribution, ORSP should also be contacted about using their 1:1 match to cover half the amount!
 
 .. _sec.sla.su.example.gpu:
 
@@ -491,13 +491,13 @@ GPU Chargeback Example
 
 A non-Reynolda Campus researcher (aka "*External*" User) used 4 GPUs for a total of 232 hours last year on the DEAC Cluster.
 
-* The total amount required to cover the increased computational workload is 35,400 SUs.
+* The total amount required to cover the increased computational workload is 4,979 SUs.
 
     * 4 GPUs x 232 hours = 928 GPU SSUs
     * 928 GPU SSUs x $0.2527 GPU SSU Applied External Rate = $232.51
-    * $232.51 SSU Total / Applicable Compute SSU external rate ($0.0202) = 11,609 SUs
+    * $232.51 SSU Total / Applicable Compute SSU external rate ($0.0447) = 5,199 SUs
 
-* The total amount that will be charged back to cover usage will be $232.46, which should be paid within 60 days of receiving the usage invoice.
+* The total amount that will be charged back to cover usage will be $232.51, which should be paid within 60 days of receiving the usage invoice.
 
 .. _sec.sla.su.example.storage:
 
@@ -506,11 +506,11 @@ Storage Purchase Example
 
 A School of Medicine Post-Doc (aka "*External*" User) wishes to request a 4 TB quota increase for 36 months. Because the purchase occurs mid-year, the increased storage quota would be valid for 39 months from 09/2022 - 12/2025.
 
-* The required total purchase to meet this request is 350,600 SUs.
+* The required total purchase to meet this request is 31,409 SUs.
 
     * 4TB x 39 Months = 156 Storage SSUs
     * 156 Storage SSUs x $9.00 Storage SSU Applied External Rate = $1,404.00
-    * $1,404.00 SSU Total / Applicable Compute SSU external rate ($0.0202) = 69,505 SUs
+    * $1,404.00 SSU Total / Applicable Compute SSU external rate ($0.0447) = 31,409 SUs
 
 * Total cost is $1,404.00, which can be paid up front or evenly annually if the total amount is too large.
 
@@ -520,18 +520,18 @@ A School of Medicine Post-Doc (aka "*External*" User) wishes to request a 4 TB q
 Multi-type Contribution Example
 -------------------------------
 
-A newly hired researcher in the Engineering Department (aka "*Internal*" Users) wishes to heavily utilize the DEAC Cluster in their 2nd year at Wake Forest. While the School of Engineering is part of the WFU Undergraduate College, and default level access to DEAC resources and the HPC Team is free; they wish to contribute to DEAC knowing their storage footprint will increase, and they also desire a higher priority for an increased workload after their second year. Starting their 2nd year, they expect to use a small GPU workload to train models, and then move on to consume 1 million core hours over the next three years, and require 5TB of storage.
+A newly hired researcher in the Engineering Department (aka "*Internal*" Users) wishes to heavily utilize the DEAC Cluster in their 2nd year at Wake Forest. While the School of Engineering is part of the WFU Undergraduate College, and default level access to DEAC resources and the HPC Team is free; they wish to contribute to DEAC knowing their storage footprint will increase, and they also desire a higher priority for an increased workload after their second year. Starting their 2nd year, they expect to use a small GPU workload to train models, and then move on to consume 1 million core hours over the next three years, and require an additional 5TB of storage.
 
-* The amount required to cover this request is 1,609,874 SUs.
+* The amount required to cover this request is 1,054,434 SUs.
 
     * 5TB x 36 Months = 180 Storage SSUs
     * 180 Storage SSUs x $6.00 Storage SSU Applied Internal Rate = $1,080.00
     * 20 x 2 GPU jobs x 25 hours = 1000 GPU SSUs 
     * 1000 GPU SSUs x $0.1611 GPU SSU Applied Internal Rate = $161.10
-    * 1 million Compute SSUs x $0.0065 Compute SSU Applied Internal Rate = $6,500.00
-    * $7,741.10 SSU Total Cost / Applicable Compute SSU internal rate ($0.0065) = 1,190,938 SUs
+    * 1 million Compute SSUs x $0.0228 Compute SSU Applied Internal Rate = $22,800.00
+    * $24,041.10 SSU Total Cost / Applicable Compute SSU internal rate ($0.0228) = 1,054,434 SUs
 
-* Total cost is $7,741.10, which can be paid up front using available start-up funds.
+* Total cost is $23,041.10, which can be paid up front using available start-up funds.
 
 
 .. #############################################################################
@@ -640,7 +640,7 @@ Research Group Baseline (:math:`\mathbf{U_{\mathrm{Grp}}}`)
 
 .. admonition:: Current Research Group Baseline
 
-  The current baseline monthly utilization (:math:`U_{Grp}`) for research groups is **21,214 SUs**.
+  The current baseline monthly utilization (:math:`U_{Grp}`) for research groups is **20,961 SUs**.
 
 * If a non-contributing group is operating outside of that monthly utilization on a regular basis, then they should consider contributing to the DEAC Cluster to help accomodate their elevated usage. 
 
@@ -655,9 +655,9 @@ Provost Office Baseline (:math:`\mathbf{U_{\mathrm{WFU}}}`)
 
   U_{\mathrm{WFU}} = \frac{ I_{\mathrm{WFU}} }{I_{\mathrm{total}}} \times \frac{U_{\mathrm{MAX}}}{ D_{\mathrm{Active}} }
 
-.. admonition:: Current Research Group Baseline
+.. admonition:: Current Department Baseline
 
-  The current baseline monthly utilization for each "*Internal*" User department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **12,680 SUs**.
+  The current baseline monthly utilization for each "*Internal*" User department (:math:`\mathbf{U_{\mathrm{WFU}}}`) is **14,934 SUs**.
 
 
 .. _sec.sla.util.utilization_calculation.u_grp:
