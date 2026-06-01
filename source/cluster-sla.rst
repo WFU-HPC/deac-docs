@@ -6,10 +6,11 @@ DEAC Cluster Service Level Agreement
 
 .. admonition:: Recent Updates:
 
+  * 06/01/2026: Updated Baseline amounts;  Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2026 biannual review.
+  * NOTE: The increase in SU rate is due to unprecedented increased cost for servers due to worldwide memory shortages.
   * 04/23/2026: Updated :ref:`Storage and Data Management Section<sec.sla.sdm>` to reflect new VAST array.
   * 08/27/2025: Updated Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2025 biannual review.
   * 10/09/2024: Added :ref:`sec.sla.util.assigned_fairshare_value.calculation` section to clearly show how priority is calculated. 
-  * 08/01/2024: Added updated baseline totals.
 
 The Wake Forest University (WFU) Distributed Environment for Academic Computing (DEAC) Cluster is a continually evolving resource, undergoing constant changes and including hardware and software upgrades annually. To help keep pace with that evolution, the HPC Team has written several guidelines that will help users stay informed of operational standards while utilizing the DEAC Cluster. These guidelines will be updated as needed, and form the "DEAC Cluster Service Level Agreement (SLA);" which supersedes any legacy rules and/or guidelines concerning the DEAC Cluster that may have been previously published and are not contained within. DEAC Cluster Users will be notified via email of significant updates after they have been made.
 
