@@ -32,9 +32,17 @@ CUDA Capability Major/Minor version number: 10.0
 Job Submission
 ==============
 
-Support for GPU job submission is enabled the GRES (generic resource) configuration within SLURM. [4]_
-
 Users must submit all GPU jobs to the **gpu** partition, and request a minimum of one GPU to successfully start.
+
+For GPU selection, if there is no preference, users can simply add "#SBATCH --gpus=1" to their batch job for any 1 GPU available. If a specific GPU type and amount is preferred, as it usually is, a user can specify the GPU via the **gres** directive, by adding "#SBATCH --gres=gpu:**TYPE**:*#*". GPU types available on the DEAC Cluster are as follows:
+
+* V100_32GB
+* A100_40GB
+* A100_80GB
+* H200_141GB
+
+More information about GPU job submission via the GRES (generic resource) configuration within SLURM can be found on SchedMD's website. [4]_
+
 
 .. _sec.cluster-gpu.references:
 
@@ -63,6 +71,9 @@ References
 .. [6]
    https://images.nvidia.com/content/technologies/volta/pdf/volta-v100-datasheet-update-us-1165301-r5.pdf
 
+.. [7]
+   https://resources.nvidia.com/en-us-hopper-architecture/hpc-datasheet-sc23
+
 
 .. _sec.cluster-gpu.devinfo:
 
@@ -73,6 +84,114 @@ Device Information
 .. #############################################################################
 .. #############################################################################
 .. #############################################################################
+
+.. _sec.cluster-gpu.devinfo.h200141gb:
+
+Hopper H200 141GB GPU Nodes
+---------------------------
+
+* H200 Spec Sheet [7]_
+
+* From gpu-h200-01 H100_141GB node:
+
+
+.. code-block:: none
+
+ module load nvidia/cuda12/cuda/12.8.1; /deac/opt/rocky9-noarch/nvidia/12.8.1/cuda/12.8.1/extras/demo_suite/deviceQuery
+ Loading nvidia/cuda12/cuda/12.8.1
+   Loading requirement: compilers/gcc/12.3.0
+ /deac/opt/rocky9-noarch/nvidia/12.8.1/cuda/12.8.1/extras/demo_suite/deviceQuery Starting...
+ 
+  CUDA Device Query (Runtime API)
+ 
+ Detected 2 CUDA Capable device(s)
+ 
+ Device 0: "NVIDIA H200 NVL"
+   CUDA Driver Version / Runtime Version          12.8 / 12.8
+   CUDA Capability Major/Minor version number:    9.0
+   Total amount of global memory:                 143167 MBytes (150121021440 bytes)
+ MapSMtoCores for SM 9.0 is undefined.  Default to use 128 Cores/SM
+ MapSMtoCores for SM 9.0 is undefined.  Default to use 128 Cores/SM
+   (132) Multiprocessors, (128) CUDA Cores/MP:     16896 CUDA Cores
+   GPU Max Clock rate:                            1785 MHz (1.78 GHz)
+   Memory Clock rate:                             3201 Mhz
+   Memory Bus Width:                              6144-bit
+   L2 Cache Size:                                 62914560 bytes
+   Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
+   Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
+   Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
+   Total amount of constant memory:               65536 bytes
+   Total amount of shared memory per block:       49152 bytes
+   Total number of registers available per block: 65536
+   Warp size:                                     32
+   Maximum number of threads per multiprocessor:  2048
+   Maximum number of threads per block:           1024
+   Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+   Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+   Maximum memory pitch:                          2147483647 bytes
+   Texture alignment:                             512 bytes
+   Concurrent copy and kernel execution:          Yes with 3 copy engine(s)
+   Run time limit on kernels:                     No
+   Integrated GPU sharing Host Memory:            No
+   Support host page-locked memory mapping:       Yes
+   Alignment requirement for Surfaces:            Yes
+   Device has ECC support:                        Enabled
+   Device supports Unified Addressing (UVA):      Yes
+   Device supports Compute Preemption:            Yes
+   Supports Cooperative Kernel Launch:            Yes
+   Supports MultiDevice Co-op Kernel Launch:      Yes
+   Device PCI Domain ID / Bus ID / location ID:   0 / 4 / 0
+   Compute Mode:
+      < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
+ 
+ Device 1: "NVIDIA H200 NVL"
+   CUDA Driver Version / Runtime Version          12.8 / 12.8
+   CUDA Capability Major/Minor version number:    9.0
+   Total amount of global memory:                 143167 MBytes (150121021440 bytes)
+ MapSMtoCores for SM 9.0 is undefined.  Default to use 128 Cores/SM
+ MapSMtoCores for SM 9.0 is undefined.  Default to use 128 Cores/SM
+   (132) Multiprocessors, (128) CUDA Cores/MP:     16896 CUDA Cores
+   GPU Max Clock rate:                            1785 MHz (1.78 GHz)
+   Memory Clock rate:                             3201 Mhz
+   Memory Bus Width:                              6144-bit
+   L2 Cache Size:                                 62914560 bytes
+   Maximum Texture Dimension Size (x,y,z)         1D=(131072), 2D=(131072, 65536), 3D=(16384, 16384, 16384)
+   Maximum Layered 1D Texture Size, (num) layers  1D=(32768), 2048 layers
+   Maximum Layered 2D Texture Size, (num) layers  2D=(32768, 32768), 2048 layers
+   Total amount of constant memory:               65536 bytes
+   Total amount of shared memory per block:       49152 bytes
+   Total number of registers available per block: 65536
+   Warp size:                                     32
+   Maximum number of threads per multiprocessor:  2048
+   Maximum number of threads per block:           1024
+   Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+   Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+   Maximum memory pitch:                          2147483647 bytes
+   Texture alignment:                             512 bytes
+   Concurrent copy and kernel execution:          Yes with 3 copy engine(s)
+   Run time limit on kernels:                     No
+   Integrated GPU sharing Host Memory:            No
+   Support host page-locked memory mapping:       Yes
+   Alignment requirement for Surfaces:            Yes
+   Device has ECC support:                        Enabled
+   Device supports Unified Addressing (UVA):      Yes
+   Device supports Compute Preemption:            Yes
+   Supports Cooperative Kernel Launch:            Yes
+   Supports MultiDevice Co-op Kernel Launch:      Yes
+   Device PCI Domain ID / Bus ID / location ID:   0 / 199 / 0
+   Compute Mode:
+      < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
+ > Peer access from NVIDIA H200 NVL (GPU0) -> NVIDIA H200 NVL (GPU1) : Yes
+ > Peer access from NVIDIA H200 NVL (GPU1) -> NVIDIA H200 NVL (GPU0) : Yes
+ 
+ deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 12.8, CUDA Runtime Version = 12.8, NumDevs = 2, Device0 = NVIDIA H200 NVL, Device1 = NVIDIA H200 NVL
+ Result = PASS
+ 
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+.. #############################################################################
+
 
 .. _sec.cluster-gpu.devinfo.a10080gb:
 
