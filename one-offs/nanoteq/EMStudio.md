@@ -20,7 +20,7 @@ proc ModulesHelp { } {
 
 module-whatis {EMStudio}
 
-module load compilers/gcc/12.3.0 apps/openEMS
+module load compilers/gcc/12.3.0 apps/openEMS apps/palace/0.16.1
 
 set basedir     "/deac/opt/rocky9-noarch/EMStudio"
 

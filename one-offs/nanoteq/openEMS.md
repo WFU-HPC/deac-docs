@@ -1,3 +1,4 @@
+```sh
 # dnf install tinyxml-devel CGAL-devel libharu-devel
 
 module load compilers/gcc/12.3.0 libs/hdf5/1.14.6-serial
@@ -51,6 +52,9 @@ cd /tmp/openEMS-Project
 
 cd && rm -rf /tmp/openEMS-Project
 
+. /deac/opt/rocky9-noarch/openEMS/venv/bin/activate
+python3 -m pip install gds2palace
+
 cat << EOF > /deac/opt/modulefiles/rocky9-noarch/apps/openEMS
 #%Module1.0
 ##
@@ -79,3 +83,4 @@ prepend-path    INCLUDE                        \$basedir/include
 setenv          OPENEMS_PYTHON_PATH            \$basedir/venv/bin/python3
 setenv          VIRTUAL_ENV                    \$basedir/venv
 EOF
+```
