@@ -83,9 +83,9 @@ Should I Use DEAC?
 	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
 
 
-***********************
-What Is Baseline Usage?
-***********************
+******************************************
+What are Baseline Usage and Contributions?
+******************************************
 
 * What does "baseline" usage mean?
 
@@ -107,6 +107,12 @@ What Is Baseline Usage?
 
 	* Additional storage may be allocated via :ref:`Contribution<sec.sla.su.contributions>`, for up to Five-year terms.
 	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
+
+* How do I calculate how much to Contribute?
+        * The HPC Team is happy to help researchers estimate how much they should contribute, please do not hesitate to reach out with questions.
+        * There are several detailed :ref:`Contribution Examples<sec.sla.su.example>` to look at showing various scenarios and how costs are calculated.
+        * The DEAC Docs AI Chat tool is very helpful to calculate totals as well, it has been trained on our own calculator that we use! For example:
+		* I'm an internal researcher that plans to submits 100 jobs per month to the DEAC Cluster. They will use 1 GPU, 1 CPU core, and 24GB memory per job and runs for up to 6 hours each. What should I contribute for 2 years worth of usage?
 
 * Should I allocate grant or start-up funds to the DEAC Cluster?
 

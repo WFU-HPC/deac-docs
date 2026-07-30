@@ -467,7 +467,7 @@ Storage Service Sub-Unit
 Example SU Purchase
 ===================
 
-Below are four examples of Service Unit requests for Contribution and/or Chargeback. For any case, the Internal or External rate is applied accordingly, depending on the category of User. For any Contribution or Chargeback, even if Compute SSUs are not factored, the Applicable Compute SSU rate is used for the overall SSU to SU conversion.
+Below are four examples of Service Unit requests for Contribution and/or Chargeback. Consider using these examples for interacting with the DEAC Docs AI Chat to help come up with your own calculations. For any case, the Internal or External rate is applied accordingly, depending on the category of User. For any Contribution or Chargeback, even if Compute SSUs are not factored, the Applicable Compute SSU rate is used for the overall SSU to SU conversion.
 
 .. _sec.sla.su.example.compute:
 
