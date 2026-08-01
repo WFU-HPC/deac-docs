@@ -176,10 +176,36 @@ As researchers leave the University, it does NOT trigger automatic archival of r
 
 Inactive data that has not been accessed in over 2 years, may be required to be archive depending on storage availability. 
 
+.. _sec.sla.sdm.non_permitted_data:
+
+Non-Permitted Data
+==================
+
+**Under no circumstances are the following data types allowed on the DEAC Cluster:**
+
+* **Classified and compartmentalized data**
+    * DEAC is not accredited to support classified government data or projects (ie, Secret, Top-Secret, FOUO, etc).
+* **Data requiring HIPAA compliance**
+    * DEAC is not a HIPAA compliant system.
+* **Controlled Unclassified Information Data**
+    * DEAC was not designed to meet the NIST SP 800-171 requirements as defined for a CMMC Level 2 compliant system.
+* **Non-DEAC Research data**
+    * DEAC Cluster storage is intended for support of research conducted on the DEAC Cluster ONLY
+* **Secondary copies**
+    * Do not create unnecessary, secondary “backup” copies of data.
+* **Personal data**
+
+DEAC Cluster storage provides physical security, restricted access, basic access control, encryption at rest, and auditing. If your data set has known security requirements, or you aren't sure if it is allowed on the DEAC Cluster, please contact the HPC Team and provide any known information. If the DEAC Cluster is not suitable due to security restrictions, the HPC Team and Information Systems admins will work with PIs to define scope and requirements to price and build a compliant secure solution.
+
+.. warning::
+
+  Any user found to not be following these guidelines will be contacted and made to have that data removed within one week. After this first instance, any additional incidents will be found in violation of the :ref:`User Agreement Section's terms for Acceptable Use<sec.sla.ua.acceptable_use>`.
+
 .. _sec.sla.sdm.permitted_data:
 
 Permitted Data
 ==============
+
 
 The expected data and metadata to be collected or produced on the DEAC Cluster includes software, execution code, and the electronic data produced. Electronic data will be stored on the DEAC Cluster, following Information Systems (IS) and High Performance Computing (HPC) Team best practices and `security policies <https://docs.google.com/document/d/12aIqNnLtFac-ZUeagpYxnTmGNJsJQCxHLow8n8kcntI/edit?usp=sharing>`_. 
 
@@ -221,27 +247,6 @@ Scratch Paths
 -------------
 
 A temporary file system location is created for every job submitted to the DEAC Cluster’s scheduler, located at /scratch/$jobid. This path is not shared between compute nodes and is intended for local copies of active data in order to reduce network traffic during computational cycles. This path should always be used when a job generates lots of I/O, and/or when lots of temporary data is generated for a job (up to 480GB). When this path is used, any relevant data wishing to be kept *must* be moved out by the data owner prior to job completion or it will be deleted automatically. If a job fails and data cannot be moved out as a result, that data will still be deleted automatically.
-
-.. _sec.sla.sdm.non_permitted_data:
-
-Non-Permitted Data
-==================
-
-**Under no circumstances are the following data types allowed on the DEAC Cluster:**
-
-* **Classified and compartmentalized data**
-    * DEAC is not accredited to support classified government data or projects (ie, Secret, Top-Secret, FOUO, etc).
-* **Data requiring HIPAA compliance**
-    * DEAC is not a HIPAA compliant system.
-* **Non-DEAC Research data**
-    * DEAC Cluster storage is intended for support of research conducted on the DEAC Cluster ONLY
-* **Secondary copies**
-    * Do not create unnecessary, secondary “backup” copies of data.
-* **Personal data**
-
-.. warning::
-
-  Any user found to not be following these guidelines will be contacted and made to have that data removed within one week. After this first instance, any additional incidents will be found in violation of the :ref:`User Agreement Section's terms for Acceptable Use<sec.sla.ua.acceptable_use>`.
 
 .. _sec.sla.sdm.data_backup:
 

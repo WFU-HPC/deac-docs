@@ -82,6 +82,16 @@ Should I Use DEAC?
 	* Active research groups are allowed up to a 10TB "baseline" quota, at no additional cost, only to be used for research conducted on the DEAC Cluster.
 	* More detailed information can be found under the :ref:`Storage Quotas<sec.sla.sdm.storage_quotas>` section of our Service Level Agreement.
 
+*********************************************
+Can the DEAC Cluster support controlled data?
+*********************************************
+	
+	No. The DEAC Cluster was not designed to support controlled data sets such as HIPPA, ITAR, CUI, or anything requiring CMMC Level 2 Compliance. 
+
+	* DEAC Cluster storage does provide physical security, restricted access, basic access control, encryption at rest, and auditing.
+	* If your data set has known security requirements, or you aren't sure if it is :ref:`permitted<sec.sla.sdm.non_permitted_data>` on the DEAC Cluster, please contact the HPC Team and provide any known information.
+	* The HPC Team and Information Systems admins will work with PIs to define scope and requirements to price and build a compliant secure solution.
+
 
 ******************************************
 What are Baseline Usage and Contributions?
