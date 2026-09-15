@@ -18,8 +18,8 @@ Physical Hardware Specifications
 Overall Information
 -------------------
 
-*  :ref:`Compute Nodes<sec.hardware.physical.compute>`: 84 - 4,576 Cores, 41TB RAM
-*  :ref:`GPU Nodes<sec.hardware.physical.gpu>`: 9 - 34 GPU Cards, 214,752 CUDA cores, 576 Cores, 8.75TB RAM
+*  :ref:`Compute Nodes<sec.hardware.physical.compute>`: 73 - 4,240 Cores, 36.76TB RAM
+*  :ref:`GPU Nodes<sec.hardware.physical.gpu>`: 10 - 36 GPU Cards, 248,544 CUDA cores, 640 Cores, 9.17TB RAM
 *  :ref:`Persistent Storage<sec.hardware.physical.storage>`: 1PB TB
 *  :ref:`Login Nodes<sec.hardware.physical.login>`: 2 - 128 Cores, 1.5TB RAM
 *  :ref:`Education Cluster<sec.hardware.physical.education>`: 16 - 704 Cores, 3TB RAM
@@ -29,15 +29,15 @@ Overall Information
 Compute Nodes
 -------------
 
-*  34 - **Penguin Computing Altus Nodes** - 2,176 cores, 31.7 RAM total:
+*  46 - **Penguin Computing Altus Nodes** - 2,944 cores, 31.7TB RAM total:
 
 	* 4 - Zen4 Nodes with 64 cores, 2.3TB RAM, 1.8TB Scratch
-	* 30 - Zen4 Nodes with 64 Cores, 768GB RAM, 1.8TB Scratch
+	* 18 - Zen4 Nodes with 64 Cores, 768GB RAM, 1.8TB Scratch
+	* 24 - Zen4 Nodes with 64 Cores, 384GB RAM, 1.8TB Scratch
 
-*  50 - **Cisco UCS B200M5 Nodes**  - 2,400 cores, 9.375TB RAM total:
+*  27 - **Cisco UCS B200M5 Nodes**  - 1,296 cores, 5.06TB RAM total:
    
-	* 24 - Cascade Lake Blades with 44 cores -- 192GB RAM, 425GB Scratch
-	* 26 - Cascade Lake Blades with 48 cores -- 192GB RAM, 425GB Scratch
+	* 27 - Cascade Lake Blades with 48 cores -- 192GB RAM, 425GB Scratch
 
 .. _sec.hardware.physical.gpu:
 
@@ -46,10 +46,10 @@ GPU Nodes
 
 For more in-depth GPU information, see the :ref:`Cluster GPU Overview<sec.cluster-gpu>` page, or feel free to contact the HPC Team.
 
-*  1 - Penguin Computing Altus (64 cores):
+*  2 - Penguin Computing Altus (64 cores):
 	*  2 -  ** H200 80GB** GPU Cards
 	*  16,896 CUDA cores per card (33,792 per node)
-	*  2TB RAM
+	*  2TB RAM OR 386GB RAM
 	*  6.8TB Scratch 
 *  2 - Penguin Computing Altus (64 cores):
 	*  4 -  ** A100 80GB** GPU Cards
