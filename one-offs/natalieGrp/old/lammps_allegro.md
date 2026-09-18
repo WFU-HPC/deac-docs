@@ -1,3 +1,6 @@
+# This is obsolete (checked in 2026)
+
+```sh
 #!/bin/bash
 
 ################################################################################
@@ -206,3 +209,4 @@ setenv  CONDA_PROMPT_MODIFIER       (env-allegro)
 # setenv  VIRTUAL_ENV_PROMPT          "(env-allegro) "
 EOF
 cd $HOME && rm -rf /tmp/lammps /tmp/pair_allegro
+```
