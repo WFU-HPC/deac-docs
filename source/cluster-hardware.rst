@@ -47,7 +47,7 @@ GPU Nodes
 For more in-depth GPU information, see the :ref:`Cluster GPU Overview<sec.cluster-gpu>` page, or feel free to contact the HPC Team.
 
 *  2 - Penguin Computing Altus (64 cores):
-	*  2 -  ** H200 80GB** GPU Cards
+	*  2 -  ** H200 141GB** GPU Cards
 	*  16,896 CUDA cores per card (33,792 per node)
 	*  2TB RAM OR 386GB RAM
 	*  6.8TB Scratch 
