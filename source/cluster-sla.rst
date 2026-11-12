@@ -6,6 +6,8 @@ DEAC Cluster Service Level Agreement
 
 .. admonition:: Recent Updates:
 
+  * 11/10/2026: Updated Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2026 biannual review.
+  * NOTE: Added GPU SSU Type ratio for users requesting lower end GPU type. 
   * 06/01/2026: Updated Baseline amounts;  Internal and External Rates for all :ref:`sec.sla.su.ssu_types` as part of 2026 biannual review.
   * NOTE: The increase in SU rate is due to unprecedented increased cost for servers due to worldwide memory shortages.
   * 04/23/2026: Updated :ref:`Storage and Data Management Section<sec.sla.sdm>` to reflect new VAST array.
@@ -396,8 +398,8 @@ Service Units (SUs) are derived from consumption of various types of resources o
     - $0.0219
     - Per Core-Hour
   * - GPU SSU
-    - $0.1611
-    - $0.0915
+    - $0.5094
+    - $0.3367
     - Per GPU-Hour
   * - Storage SSU
     - $6.00
@@ -439,6 +441,24 @@ GPU Service Sub-Unit
 
 * *The Base GPU Rate used to convert GPU SSUs to SUs is derived from the sum total cost of GPU servers and GPU cards, divided by the number of usable GPU-hours (GPU cards x days x hours available) possible in a year.*
 * *The GPU External Fee is derived from the sum total of Service Indirect.*
+* *If a researcher is only requesting lower end GPU usage, a discount ratio is applied equivalent to the lower end GPUs cost ratio to the highest-end GPU type available.*
+
+.. list-table:: GPU Discount Ratio
+  :align: center
+  :widths: 50 50
+  :header-rows: 1
+
+  * - GPU Type
+    - Discount
+  * - H200_141
+    - 0%
+  * - A100_80
+    - 45%
+  * - A100_40
+    - 55%
+  * - V100_32
+    - 65%
+
 * See :ref:`sec.sla.su.example.gpu`.
 
 .. _sec.sla.su.ssu_types.storage:
@@ -499,10 +519,10 @@ A non-Reynolda Campus researcher (aka "*External*" User) used 4 GPUs for a total
 * The total amount required to cover the increased computational workload is 4,979 SUs.
 
     * 4 GPUs x 232 hours = 928 GPU SSUs
-    * 928 GPU SSUs x $0.2527 GPU SSU Applied External Rate = $232.51
-    * $232.51 SSU Total / Applicable Compute SSU external rate ($0.0447) = 5,199 SUs
+    * 928 GPU SSUs x $0.8461 GPU SSU Applied External Rate = $785.18
+    * $785.18 SSU Total / Applicable Compute SSU external rate ($0.0447) = 17,566 SUs
 
-* The total amount that will be charged back to cover usage will be $232.51, which should be paid within 60 days of receiving the usage invoice.
+* The total amount that will be charged back to cover usage will be $785.18, which should be paid within 60 days of receiving the usage invoice.
 
 .. _sec.sla.su.example.storage:
 
@@ -532,11 +552,11 @@ A newly hired researcher in the Engineering Department (aka "*Internal*" Users) 
     * 5TB x 36 Months = 180 Storage SSUs
     * 180 Storage SSUs x $6.00 Storage SSU Applied Internal Rate = $1,080.00
     * 20 x 2 GPU jobs x 25 hours = 1000 GPU SSUs 
-    * 1000 GPU SSUs x $0.1611 GPU SSU Applied Internal Rate = $161.10
+    * 1000 GPU SSUs x $0.5094 GPU SSU Applied Internal Rate = $509.40
     * 1 million Compute SSUs x $0.0228 Compute SSU Applied Internal Rate = $22,800.00
-    * $24,041.10 SSU Total Cost / Applicable Compute SSU internal rate ($0.0228) = 1,054,434 SUs
+    * $24,479.40 SSU Total Cost / Applicable Compute SSU internal rate ($0.0228) = 1,073,658 SUs
 
-* Total cost is $23,041.10, which can be paid up front using available start-up funds.
+* Total cost is $24,479.40, which can be paid up front using available start-up funds.
 
 
 .. #############################################################################
